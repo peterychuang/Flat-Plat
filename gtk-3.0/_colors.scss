@@ -41,9 +41,9 @@ $secondary_base_color: mix($base_color, $bg_color, 50%);
 $light_color: if($variant =='light', #FAFAFA, #546E7A);
 $dark_color: if($variant =='light', mix(#ECEFF1, #CFD8DC, 50%), mix(#37474F, #263238, 50%));
 
-$selected_bg_color: #00BCD4;
-$secondary_selected_bg_color: #00E5FF;
-$accent_bg_color: #FF4081;
+$selected_bg_color: #2196F3;
+$secondary_selected_bg_color: #2979FF;
+$accent_bg_color: #448AFF;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);
@@ -52,10 +52,10 @@ $highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.2);
 
 $link_color: $selected_bg_color;
-$link_visited_color: #E040FB;
+$link_visited_color: #82B1FF;
 
-$warning_color: #FF6D00;
-$error_color: #DD2C00;
+$warning_color: #F50057;
+$error_color: #F50057;
 $success_color: #00C853;
 
 $suggested_color: $accent_bg_color;
