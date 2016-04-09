@@ -797,7 +797,7 @@ StScrollBar {
 
 #panel {
   background-color: $bg_color;
-  font-weight: normal;
+  font-weight: 600;
   height: $menuitem_size;
 
   &:overview,
@@ -831,7 +831,7 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
-    font-weight: bold;
+    font-weight: 600;
     color: $secondary_selected_fg_color;
     transition-duration: 0.2s;
 
