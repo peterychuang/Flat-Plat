@@ -33,8 +33,8 @@ $insensitive_tertiary_selected_fg_color: scale-alpha($tertiary_selected_fg_color
 // Background colors
 $base_color: scale-alpha(if($variant == 'light', #FFFFFF, #455A64), $higher_opacity + 0.05);
 $secondary_base_color: scale-alpha($fg_color, 0.05);
-$bg_color: scale-alpha(#000000, $middle_opacity);
-$osd_bg_color: scale-alpha(#000000, $lower_opacity);
+$bg_color: transparent;
+$osd_bg_color: transparent;
 $overview_bg_color: scale-alpha(#FFFFFF, 0.1);
 
 $selected_bg_color: #00BCD4;

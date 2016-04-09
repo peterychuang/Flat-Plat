@@ -1,0 +1,67 @@
+/*
+Error: Undefined variable: "$variant".
+        on line 17 of _colors.scss
+
+12: @function scale-alpha($c, $a) {
+13:   @return scale-color($c, $alpha: percentage(-1 + $a));
+14: }
+15: 
+16: // Foreground colors
+17: $fg_color: if($variant == 'light', scale-alpha(#000000, 0.8), #FFFFFF);
+18: $secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
+19: $tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
+20: 
+21: $selected_fg_color: #FFFFFF;
+22: $secondary_selected_fg_color: scale-alpha($selected_fg_color, $enabled_opacity);
+
+Backtrace:
+_colors.scss:17
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/operation.rb:64:in `_perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `map'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `_perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:469:in `visit_variable'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:471:in `on_file_changed'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+/usr/lib/ruby/gems/2.3.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$variant\".\A         on line 17 of _colors.scss\A \A 12: @function scale-alpha($c, $a) {\A 13:   @return scale-color($c, $alpha: percentage(-1 + $a));\A 14: }\A 15: \A 16: // Foreground colors\A 17: $fg_color: if($variant == 'light', scale-alpha(#000000, 0.8), #FFFFFF);\A 18: $secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);\A 19: $tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);\A 20: \A 21: $selected_fg_color: #FFFFFF;\A 22: $secondary_selected_fg_color: scale-alpha($selected_fg_color, $enabled_opacity);"; }

@@ -26,7 +26,7 @@ $panel-corner-radius: 0;
  */
 
 
-$menuitem_size: 32px;
+$menuitem_size: 24px;
 $small_size: 24px;
 $medium_size: 36px;
 $large_size: 48px;
@@ -38,8 +38,8 @@ $large_size: 48px;
 
 /* GLOBALS */
 $root-font-size: 14px;
-$font-family: "M+ 1c", Roboto, Cantarell, Sans-Serif;
-$large-font-family: Roboto, "M+ 1c", Cantarell, Sans-Serif;
+$font-family: Ubuntu, "Open Sans", Roboto, Cantarell, Sans-Serif;
+$large-font-family: Ubuntu, "Open Sans", Roboto, Cantarell, Sans-Serif;
 
 stage {
   font-family: $font-family;
@@ -797,7 +797,6 @@ StScrollBar {
 
 #panel {
   background-color: $bg_color;
-  font-weight: bold;
   height: $menuitem_size;
 
   &:overview,
@@ -1488,30 +1487,11 @@ StScrollBar {
    padding: 6px 6px 6px 3px;
 }
 
-#dashtodockContainer .app-well-app-running-dot {
-    background-color: transparent;
-}
 
 #dashtodockContainer .dash-item-container > StWidget {
     background-size: cover;
 }
 
-@each $p,$pt in ('.left', 'left'),
-                ('.right', 'right'),
-                ('.top', 'top'),
-                ('.bottom', 'bottom') {
-  @each $n,$nb in ('.running1','running1'),
-                  ('.running2','running2'),
-                  ('.running3','running3'),
-                  ('.running4','running4') {
-    @each $f,$fc in ('',''),
-                    ('.focused','-focused') {
-      #dashtodockContainer#{$p} .dash-item-container > StWidget#{$n}#{$f} {
-          background-image: url("assets/#{$pt}-#{$nb}#{$fc}.svg");
-      }
-    }
-  }
-}
 
 /* Add Simple Dock Support */
 

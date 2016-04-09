@@ -23,7 +23,7 @@
 
 /* GLOBALS */
 stage {
-  font-family: "M+ 1c", Roboto, Cantarell, Sans-Serif;
+  font-family: Ubuntu, "Open Sans", Roboto, Cantarell, Sans-Serif;
   font-size: 10.5pt;
   font-weight: 400;
   line-height: 24px;
@@ -720,16 +720,15 @@ StScrollBar {
 
 /* TOP BAR */
 #panel {
-  background-color: rgba(0, 0, 0, 0.6);
-  font-weight: bold;
-  height: 32px; }
+  background-color: transparent;
+  height: 24px; }
   #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
     background-color: transparent; }
   #panel #panelLeft, #panel #panelCenter {
     spacing: 0; }
   #panel .panel-corner {
     -panel-corner-radius: 0;
-    -panel-corner-background-color: rgba(0, 0, 0, 0.6);
+    -panel-corner-background-color: transparent;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent; }
     #panel .panel-corner:active, #panel .panel-corner:overview, #panel .panel-corner:focus {
@@ -792,12 +791,12 @@ StScrollBar {
 .datemenu-today-button,
 .world-clocks-button,
 .message-list-section-title {
-  min-height: 24px;
+  min-height: 16px;
   padding: 4px 8px;
   border-radius: 2px; }
 
 .datemenu-today-button {
-  min-height: 56px; }
+  min-height: 40px; }
 
 .message-list-section-list:ltr {
   padding-left: 0; }
@@ -832,7 +831,7 @@ StScrollBar {
   spacing-rows: 0.4em; }
 
 .calendar-month-label {
-  height: 20px;
+  height: 12px;
   margin: 2px;
   padding: 6px 16px;
   border-radius: 2px;
@@ -843,8 +842,8 @@ StScrollBar {
     background-color: rgba(0, 0, 0, 0.12); }
 
 .pager-button {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   margin: 2px;
   border-radius: 100px;
   background-color: transparent;
@@ -869,8 +868,8 @@ StScrollBar {
   font-weight: 400;
   line-height: 1;
   text-align: center;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   margin: 2px;
   border-radius: 100px; }
@@ -881,8 +880,8 @@ StScrollBar {
     background-color: #00BCD4 !important;
     border-color: transparent; }
   .calendar-day-base.calendar-day-heading {
-    width: 32px;
-    height: 25px;
+    width: 24px;
+    height: 17px;
     margin-top: 2px;
     padding: 7px 0 0;
     border-radius: 100px;
@@ -921,8 +920,8 @@ StScrollBar {
   opacity: 0.5; }
 
 .calendar-week-number {
-  width: 32px;
-  height: 25px;
+  width: 24px;
+  height: 17px;
   margin: 2px;
   padding: 7px 0 0;
   border-radius: 100px;
@@ -964,7 +963,7 @@ StScrollBar {
   background-color: rgba(0, 0, 0, 0.24); }
 
 .message {
-  min-height: 64px;
+  min-height: 48px;
   background-color: transparent;
   border-radius: 2px; }
   .message:hover, .message:focus {
@@ -1309,7 +1308,7 @@ StScrollBar {
 
 /* Add Dash to Dock Support */
 #dashtodockContainer #dash {
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: transparent; }
 
 #dashtodockContainer:overview #dash {
   background-color: rgba(255, 255, 255, 0.1); }
@@ -1357,111 +1356,12 @@ StScrollBar {
 #dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
   padding: 6px 6px 6px 3px; }
 
-#dashtodockContainer .app-well-app-running-dot {
-  background-color: transparent; }
-
 #dashtodockContainer .dash-item-container > StWidget {
   background-size: cover; }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running1 {
-  background-image: url("assets/left-running1.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running1.focused {
-  background-image: url("assets/left-running1-focused.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running2 {
-  background-image: url("assets/left-running2.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running2.focused {
-  background-image: url("assets/left-running2-focused.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running3 {
-  background-image: url("assets/left-running3.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running3.focused {
-  background-image: url("assets/left-running3-focused.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running4 {
-  background-image: url("assets/left-running4.svg"); }
-
-#dashtodockContainer.left .dash-item-container > StWidget.running4.focused {
-  background-image: url("assets/left-running4-focused.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running1 {
-  background-image: url("assets/right-running1.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running1.focused {
-  background-image: url("assets/right-running1-focused.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running2 {
-  background-image: url("assets/right-running2.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running2.focused {
-  background-image: url("assets/right-running2-focused.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running3 {
-  background-image: url("assets/right-running3.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running3.focused {
-  background-image: url("assets/right-running3-focused.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running4 {
-  background-image: url("assets/right-running4.svg"); }
-
-#dashtodockContainer.right .dash-item-container > StWidget.running4.focused {
-  background-image: url("assets/right-running4-focused.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running1 {
-  background-image: url("assets/top-running1.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running1.focused {
-  background-image: url("assets/top-running1-focused.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running2 {
-  background-image: url("assets/top-running2.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running2.focused {
-  background-image: url("assets/top-running2-focused.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running3 {
-  background-image: url("assets/top-running3.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running3.focused {
-  background-image: url("assets/top-running3-focused.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running4 {
-  background-image: url("assets/top-running4.svg"); }
-
-#dashtodockContainer.top .dash-item-container > StWidget.running4.focused {
-  background-image: url("assets/top-running4-focused.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running1 {
-  background-image: url("assets/bottom-running1.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running1.focused {
-  background-image: url("assets/bottom-running1-focused.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running2 {
-  background-image: url("assets/bottom-running2.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running2.focused {
-  background-image: url("assets/bottom-running2-focused.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running3 {
-  background-image: url("assets/bottom-running3.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running3.focused {
-  background-image: url("assets/bottom-running3-focused.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running4 {
-  background-image: url("assets/bottom-running4.svg"); }
-
-#dashtodockContainer.bottom .dash-item-container > StWidget.running4.focused {
-  background-image: url("assets/bottom-running4-focused.svg"); }
-
 /* Add Simple Dock Support */
 #dash:desktop {
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: transparent; }
 
 /* App Vault/Grid */
 .icon-grid {
@@ -1637,7 +1537,7 @@ StScrollBar {
 
 /* Add Dash to Dock Support */
 #workspacestodockContainer .workspace-thumbnails {
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: transparent; }
 
 #workspacestodockContainer:overview .workspace-thumbnails {
   background-color: rgba(255, 255, 255, 0.1); }
@@ -1658,7 +1558,7 @@ StScrollBar {
 .notification-banner {
   font-size: 1em;
   width: 34em;
-  min-height: 64px;
+  min-height: 48px;
   margin: 5px;
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.8);
@@ -1791,7 +1691,7 @@ StScrollBar {
 
 /* Eeeky things */
 .legacy-tray {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   color: #FFFFFF;
   border: none;
   border-bottom-width: 0; }
@@ -1833,7 +1733,7 @@ StScrollBar {
 
 /* On-screen Keyboard */
 #keyboard {
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: transparent; }
 
 .keyboard-layout {
   spacing: 10px;
@@ -1876,9 +1776,9 @@ StScrollBar {
     text-shadow: none;
     icon-shadow: none; }
   .keyboard-key:grayed {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
     color: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.3); }
+    border-color: transparent; }
 
 .keyboard-subkeys {
   color: inherit;
@@ -1906,7 +1806,7 @@ StScrollBar {
 
 .candidate-box {
   transition-duration: 0s;
-  min-height: 32px;
+  min-height: 24px;
   padding: 0 8px;
   border-radius: 2px; }
   .candidate-box:hover {
@@ -1920,15 +1820,15 @@ StScrollBar {
     color: #FFFFFF; }
 
 .candidate-page-button-box {
-  height: 32px; }
+  height: 24px; }
   .vertical .candidate-page-button-box {
     padding-top: 0; }
   .horizontal .candidate-page-button-box {
     padding-left: 0; }
 
 .candidate-page-button {
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 24px;
+  min-height: 24px;
   padding: 0; }
 
 .candidate-page-button-previous {
@@ -2181,7 +2081,7 @@ StScrollBar {
   .screen-shield-notifications-container .screen-shield-notification-source {
     padding: 8px;
     border: none;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
     color: #FFFFFF;
     border-radius: 2px; }
   .screen-shield-notifications-container .notification {
@@ -2198,7 +2098,7 @@ StScrollBar {
   color: rgba(255, 255, 255, 0.75); }
 
 #panel.lock-screen {
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: transparent; }
 
 .screen-shield-background {
   background: black;
@@ -2334,3 +2234,5 @@ StScrollBar {
   border-radius: 2px;
   padding: 6px;
   box-shadow: 0 14px 14px rgba(0, 0, 0, 0.5), 0 10px 5px rgba(0, 0, 0, 0.44); }
+
+/*# sourceMappingURL=gnome-shell.css.map */
