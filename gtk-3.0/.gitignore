@@ -5,4 +5,6 @@ Gemfile.lock
 _colors.css
 _common.css
 _drawing.css
+_apps.css
+_colors-public.css
 
