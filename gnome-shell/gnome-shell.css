@@ -1357,8 +1357,107 @@ StScrollBar {
 #dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
   padding: 6px 6px 6px 3px; }
 
+#dashtodockContainer .app-well-app-running-dot {
+  background-color: transparent; }
+
 #dashtodockContainer .dash-item-container > StWidget {
   background-size: cover; }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running1 {
+  background-image: url("assets/left-running1.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running1.focused {
+  background-image: url("assets/left-running1-focused.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running2 {
+  background-image: url("assets/left-running2.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running2.focused {
+  background-image: url("assets/left-running2-focused.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running3 {
+  background-image: url("assets/left-running3.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running3.focused {
+  background-image: url("assets/left-running3-focused.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running4 {
+  background-image: url("assets/left-running4.svg"); }
+
+#dashtodockContainer.left .dash-item-container > StWidget.running4.focused {
+  background-image: url("assets/left-running4-focused.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running1 {
+  background-image: url("assets/right-running1.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running1.focused {
+  background-image: url("assets/right-running1-focused.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running2 {
+  background-image: url("assets/right-running2.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running2.focused {
+  background-image: url("assets/right-running2-focused.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running3 {
+  background-image: url("assets/right-running3.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running3.focused {
+  background-image: url("assets/right-running3-focused.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running4 {
+  background-image: url("assets/right-running4.svg"); }
+
+#dashtodockContainer.right .dash-item-container > StWidget.running4.focused {
+  background-image: url("assets/right-running4-focused.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running1 {
+  background-image: url("assets/top-running1.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running1.focused {
+  background-image: url("assets/top-running1-focused.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running2 {
+  background-image: url("assets/top-running2.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running2.focused {
+  background-image: url("assets/top-running2-focused.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running3 {
+  background-image: url("assets/top-running3.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running3.focused {
+  background-image: url("assets/top-running3-focused.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running4 {
+  background-image: url("assets/top-running4.svg"); }
+
+#dashtodockContainer.top .dash-item-container > StWidget.running4.focused {
+  background-image: url("assets/top-running4-focused.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running1 {
+  background-image: url("assets/bottom-running1.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running1.focused {
+  background-image: url("assets/bottom-running1-focused.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running2 {
+  background-image: url("assets/bottom-running2.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running2.focused {
+  background-image: url("assets/bottom-running2-focused.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running3 {
+  background-image: url("assets/bottom-running3.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running3.focused {
+  background-image: url("assets/bottom-running3-focused.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running4 {
+  background-image: url("assets/bottom-running4.svg"); }
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running4.focused {
+  background-image: url("assets/bottom-running4-focused.svg"); }
 
 /* Add Simple Dock Support */
 #dash:desktop {
