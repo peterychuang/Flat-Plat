@@ -1,6 +1,6 @@
 # Bridge | ScionicSpectre
 
-gtk-color-scheme = "base_color:#FFFFFF\ntext_color:#333333\nbg_color:#ECEFF1\nfg_color:#333333\ntooltip_bg_color:#FFFFFF\ntooltip_fg_color:#333333\nselected_bg_color:#00BCD4\nselected_fg_color:#FFFFFF\nlight_color:#FAFAFA\ndark_color:#dee4e7"
+gtk-color-scheme = "base_color:#FFFFFF\ntext_color:#333333\nbg_color:#ECEFF1\nfg_color:#333333\ntooltip_bg_color:#FFFFFF\ntooltip_fg_color:#333333\nselected_bg_color:#2196F3\nselected_fg_color:#FFFFFF\nlight_color:#FAFAFA\ndark_color:#dee4e7"
 
 gtk-auto-mnemonics = 1
 gtk-primary-button-warps-slider = 1
@@ -11,8 +11,8 @@ style "default" {
 
   # Style Properties
 
-  GtkWidget::link-color = "#00BCD4"
-  GtkWidget::visited-link-color = "#E040FB"
+  GtkWidget::link-color = "#2196F3"
+  GtkWidget::visited-link-color = "#82B1FF"
   GtkWidget::focus-line-width = 1
   GtkWidget::focus-padding = 1
   GtkMenuBar::window-dragging = 1
