@@ -66,3 +66,4 @@ Other Info
 ----------
 * License: GPL
 * Chrome's scrollbars extension forked from [Adwaita Scrollbars](https://github.com/gnome-integration-team/chrome-gnome-scrollbar). Thanks for original author.
+* Forked by [Peter Y. Chuang - Novelist](https://novelist.xyz)
