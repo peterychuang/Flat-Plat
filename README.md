@@ -13,7 +13,6 @@ Features
 * Supports ripple effect animations (only GTK3 apps).
 * Supports both light and dark variants.
 * Supports [Dash to Dock](https://micheleg.github.io/dash-to-dock/) extension's theming.
-* Supports Chrome's theme and scrollbars extensions.
 * Appears more beautiful when you use a font family that including `Medium` and `Light` weight.
 
 Requirements
@@ -32,11 +31,10 @@ Installation
   * For system-wide installation to `/usr/share/themes`
   * For user-specific installation to `~/.themes`
 3. Use `gnome-tweak-tool` to change the theme.
-4. Optionally, open the `chrome` folder and drag and drop the .crx files onto the Chrome's extensions page (`chrome://extensions/`).
 
 GDM (Lock/Login Screen)
 ------------------------------
-To change the GDM theme, you need to rewrite a system file.  
+To change the GDM theme, you need to rewrite a system file.
 Please **be careful** because if it fails, desktop environment may not operate correctly.
 > **Notes:**
 > * Not supported for GNOME 3.14, sorry.
