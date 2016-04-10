@@ -1,12 +1,3 @@
-This is a fork of [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat), but with the pinkish colours changed to blue.
-
-It also includes some tweaks, e.g. transparent top bar, default font changed to open Sans, etc.
-
-This is meant to be for my personal use, so it's unlikely I can provide any support. But you are welcome to fork it and modify it to suit your taste.
-
-[Peter Y. Chuang - Novelist](https://novelist.xyz)
-
-
 Flat-Plat-Blue
 ==============
 A Material Design-like flat theme for GTK3, GTK2, and GNOME Shell.
