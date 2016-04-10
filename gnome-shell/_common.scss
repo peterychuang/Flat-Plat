@@ -26,7 +26,7 @@ $panel-corner-radius: 0;
  */
 
 
-$menuitem_size: 24px;
+$menuitem_size: 32px;
 $small_size: 24px;
 $medium_size: 36px;
 $large_size: 48px;
@@ -798,7 +798,7 @@ StScrollBar {
 #panel {
   background-color: $bg_color;
   font-weight: 600;
-  height: $menuitem_size;
+  height: $small_size;
 
   &:overview,
   &.unlock-screen,

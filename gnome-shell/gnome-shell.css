@@ -792,12 +792,12 @@ StScrollBar {
 .datemenu-today-button,
 .world-clocks-button,
 .message-list-section-title {
-  min-height: 16px;
+  min-height: 24px;
   padding: 4px 8px;
   border-radius: 2px; }
 
 .datemenu-today-button {
-  min-height: 40px; }
+  min-height: 56px; }
 
 .message-list-section-list:ltr {
   padding-left: 0; }
@@ -832,7 +832,7 @@ StScrollBar {
   spacing-rows: 0.4em; }
 
 .calendar-month-label {
-  height: 12px;
+  height: 20px;
   margin: 2px;
   padding: 6px 16px;
   border-radius: 2px;
@@ -843,8 +843,8 @@ StScrollBar {
     background-color: rgba(0, 0, 0, 0.12); }
 
 .pager-button {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   margin: 2px;
   border-radius: 100px;
   background-color: transparent;
@@ -869,8 +869,8 @@ StScrollBar {
   font-weight: 400;
   line-height: 1;
   text-align: center;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   margin: 2px;
   border-radius: 100px; }
@@ -881,8 +881,8 @@ StScrollBar {
     background-color: #2196F3 !important;
     border-color: transparent; }
   .calendar-day-base.calendar-day-heading {
-    width: 24px;
-    height: 17px;
+    width: 32px;
+    height: 25px;
     margin-top: 2px;
     padding: 7px 0 0;
     border-radius: 100px;
@@ -921,8 +921,8 @@ StScrollBar {
   opacity: 0.5; }
 
 .calendar-week-number {
-  width: 24px;
-  height: 17px;
+  width: 32px;
+  height: 25px;
   margin: 2px;
   padding: 7px 0 0;
   border-radius: 100px;
@@ -964,7 +964,7 @@ StScrollBar {
   background-color: rgba(0, 0, 0, 0.24); }
 
 .message {
-  min-height: 48px;
+  min-height: 64px;
   background-color: transparent;
   border-radius: 2px; }
   .message:hover, .message:focus {
@@ -1658,7 +1658,7 @@ StScrollBar {
 .notification-banner {
   font-size: 1em;
   width: 34em;
-  min-height: 48px;
+  min-height: 64px;
   margin: 5px;
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.8);
@@ -1906,7 +1906,7 @@ StScrollBar {
 
 .candidate-box {
   transition-duration: 0s;
-  min-height: 24px;
+  min-height: 32px;
   padding: 0 8px;
   border-radius: 2px; }
   .candidate-box:hover {
@@ -1920,15 +1920,15 @@ StScrollBar {
     color: #FFFFFF; }
 
 .candidate-page-button-box {
-  height: 24px; }
+  height: 32px; }
   .vertical .candidate-page-button-box {
     padding-top: 0; }
   .horizontal .candidate-page-button-box {
     padding-left: 0; }
 
 .candidate-page-button {
-  min-width: 24px;
-  min-height: 24px;
+  min-width: 32px;
+  min-height: 32px;
   padding: 0; }
 
 .candidate-page-button-previous {
