@@ -253,14 +253,6 @@ entry {
     entry image.right {
       padding-left: 6px;
       padding-right: 2px; }
-  spinbutton:not(.vertical) undershoot.left, notebook > stack:not(:only-child) revealer entry undershoot.left,
-  notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.left,
-  entry undershoot.left {
-    background-color: transparent; }
-  spinbutton:not(.vertical) undershoot.right, notebook > stack:not(:only-child) revealer entry undershoot.right,
-  notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.right,
-  entry undershoot.right {
-    background-color: transparent; }
   spinbutton.error:not(.vertical), notebook > stack:not(:only-child) revealer entry.error,
   notebook > stack:not(:only-child) revealer spinbutton.error:not(.vertical),
   entry.error {
@@ -2076,42 +2068,6 @@ actionbar > revealer > box {
 
 scrolledwindow viewport.frame {
   border-style: none; }
-scrolledwindow overshoot.top {
-  background-image: -gtk-gradient(radial, center top, 0, center top, 0.75, to(rgba(41, 121, 255, 0.3)), to(transparent));
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-color: transparent;
-  border: none;
-  box-shadow: none; }
-scrolledwindow overshoot.bottom {
-  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.75, to(rgba(41, 121, 255, 0.3)), to(transparent));
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-color: transparent;
-  border: none;
-  box-shadow: none; }
-scrolledwindow overshoot.left {
-  background-image: -gtk-gradient(radial, left center, 0, left center, 0.75, to(rgba(41, 121, 255, 0.3)), to(transparent));
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-color: transparent;
-  border: none;
-  box-shadow: none; }
-scrolledwindow overshoot.right {
-  background-image: -gtk-gradient(radial, right center, 0, right center, 0.75, to(rgba(41, 121, 255, 0.3)), to(transparent));
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-color: transparent;
-  border: none;
-  box-shadow: none; }
-scrolledwindow undershoot.top {
-  background-color: transparent; }
-scrolledwindow undershoot.bottom {
-  background-color: transparent; }
-scrolledwindow undershoot.left {
-  background-color: transparent; }
-scrolledwindow undershoot.right {
-  background-color: transparent; }
 scrolledwindow junction {
   border-style: solid none none solid;
   border-width: 1px;
