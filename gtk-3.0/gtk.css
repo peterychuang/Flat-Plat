@@ -256,23 +256,11 @@ entry {
   spinbutton:not(.vertical) undershoot.left, notebook > stack:not(:only-child) revealer entry undershoot.left,
   notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.left,
   entry undershoot.left {
-    background-color: transparent;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-    padding-left: 0;
-    background-size: 2px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: left center; }
+    background-color: transparent; }
   spinbutton:not(.vertical) undershoot.right, notebook > stack:not(:only-child) revealer entry undershoot.right,
   notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.right,
   entry undershoot.right {
-    background-color: transparent;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-    padding-right: 0;
-    background-size: 2px 16px;
-    background-repeat: repeat-y;
-    background-origin: content-box;
-    background-position: right center; }
+    background-color: transparent; }
   spinbutton.error:not(.vertical), notebook > stack:not(:only-child) revealer entry.error,
   notebook > stack:not(:only-child) revealer spinbutton.error:not(.vertical),
   entry.error {
@@ -2117,37 +2105,13 @@ scrolledwindow overshoot.right {
   border: none;
   box-shadow: none; }
 scrolledwindow undershoot.top {
-  background-color: transparent;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-  padding-top: 0;
-  background-size: 16px 2px;
-  background-repeat: repeat-x;
-  background-origin: content-box;
-  background-position: center top; }
+  background-color: transparent; }
 scrolledwindow undershoot.bottom {
-  background-color: transparent;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-  padding-bottom: 0;
-  background-size: 16px 2px;
-  background-repeat: repeat-x;
-  background-origin: content-box;
-  background-position: center bottom; }
+  background-color: transparent; }
 scrolledwindow undershoot.left {
-  background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-  padding-left: 0;
-  background-size: 2px 16px;
-  background-repeat: repeat-y;
-  background-origin: content-box;
-  background-position: left center; }
+  background-color: transparent; }
 scrolledwindow undershoot.right {
-  background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.24) 50%);
-  padding-right: 0;
-  background-size: 2px 16px;
-  background-repeat: repeat-y;
-  background-origin: content-box;
-  background-position: right center; }
+  background-color: transparent; }
 scrolledwindow junction {
   border-style: solid none none solid;
   border-width: 1px;

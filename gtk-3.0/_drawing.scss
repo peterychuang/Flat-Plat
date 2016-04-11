@@ -368,13 +368,13 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
     $_bg_pos: $p center;
   }
 
-  background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                    $_undershoot_color_light 50%,
-                                    $_undershoot_color_dark 50%);
+ //  background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
+ //                                   $_undershoot_color_light 50%,
+ //                                   $_undershoot_color_dark 50%);
 
-  padding-#{$p}: 0;
-  background-size: $_dash_bg_size;
-  background-repeat: $_gradient_repeat;
-  background-origin: content-box;
-  background-position: $_bg_pos;
+ // padding-#{$p}: 0;
+ // background-size: $_dash_bg_size;
+ // background-repeat: $_gradient_repeat;
+ // background-origin: content-box;
+ // background-position: $_bg_pos;
 }
