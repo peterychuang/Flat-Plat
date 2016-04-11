@@ -26,7 +26,7 @@ Requirements
 Installation
 ------------
 1. Download a archive.
-  * [3.20.20160411](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.20-20160411.tar.gz) for GNOME 3.20	
+  * [3.20.20160411](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/20160411/Flat-Plat-Blue-20160411.tar.gz) for GNOME 3.20	
 2. Extract it to the themes directory.
   * For system-wide installation to `/usr/share/themes`
   * For user-specific installation to `~/.themes`
