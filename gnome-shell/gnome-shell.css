@@ -23,7 +23,7 @@
 
 /* GLOBALS */
 stage {
-  font-family: "M+ 1c", Roboto, Cantarell, Sans-Serif;
+  font-family: "Open Sans", Roboto, Cantarell, Sans-Serif;
   font-size: 10.5pt;
   font-weight: 400;
   line-height: 24px;
@@ -39,7 +39,7 @@ stage {
   font-size: 10.5pt;
   font-weight: 500;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   background-color: transparent;
   border-color: transparent;
   box-shadow: 0 0 transparent;
@@ -60,7 +60,7 @@ stage {
     text-shadow: none;
     icon-shadow: none; }
   .button:insensitive {
-    color: rgba(0, 0, 0, 0.24);
+    color: rgba(0, 0, 0, 0.288);
     background-color: transparent;
     border-color: transparent;
     box-shadow: 0 0 transparent;
@@ -80,7 +80,7 @@ stage {
   font-size: 10.5pt;
   font-weight: 500;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   background-color: transparent;
   border-color: transparent;
   box-shadow: 0 0 transparent;
@@ -101,7 +101,7 @@ stage {
     text-shadow: none;
     icon-shadow: none; }
   .modal-dialog-linked-button:insensitive {
-    color: rgba(0, 0, 0, 0.24);
+    color: rgba(0, 0, 0, 0.288);
     background-color: transparent;
     border-color: transparent;
     box-shadow: 0 0 transparent;
@@ -168,7 +168,7 @@ StScrollBar {
     background-color: rgba(0, 0, 0, 0.48);
     margin: 4px; }
     StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
-      background-color: rgba(0, 0, 0, 0.6); }
+      background-color: rgba(0, 0, 0, 0.72); }
     StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
       background-color: rgba(0, 0, 0, 0.8); }
 
@@ -177,7 +177,7 @@ StScrollBar {
 #overview StScrollBar StButton#vhandle, #screenShieldNotifications StScrollBar StButton#vhandle, #overview StScrollBar StButton#hhandle, #screenShieldNotifications StScrollBar StButton#hhandle {
   background-color: rgba(255, 255, 255, 0.6); }
   #overview StScrollBar StButton#vhandle:hover, #screenShieldNotifications StScrollBar StButton#vhandle:hover, #overview StScrollBar StButton#hhandle:hover, #screenShieldNotifications StScrollBar StButton#hhandle:hover {
-    background-color: rgba(255, 255, 255, 0.75); }
+    background-color: rgba(255, 255, 255, 0.9); }
   #overview StScrollBar StButton#vhandle:active, #screenShieldNotifications StScrollBar StButton#vhandle:active, #overview StScrollBar StButton#hhandle:active, #screenShieldNotifications StScrollBar StButton#hhandle:active {
     background-color: #FFFFFF; }
 
@@ -694,7 +694,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.9);
     transition-duration: 0.2s; }
     #panel .panel-button .app-menu-icon {
       -st-icon-style: symbolic;
@@ -712,7 +712,7 @@ StScrollBar {
       icon-size: 1.14286em;
       padding: 0 4px; }
     .unlock-screen #panel .panel-button, .login-screen #panel .panel-button, .lock-screen #panel .panel-button {
-      color: rgba(255, 255, 255, 0.75); }
+      color: rgba(255, 255, 255, 0.9); }
       .unlock-screen #panel .panel-button:focus, .unlock-screen #panel .panel-button:hover, .unlock-screen #panel .panel-button:active, .login-screen #panel .panel-button:focus, .login-screen #panel .panel-button:hover, .login-screen #panel .panel-button:active, .lock-screen #panel .panel-button:focus, .lock-screen #panel .panel-button:hover, .lock-screen #panel .panel-button:active {
         color: #FFFFFF; }
   #panel .panel-status-indicators-box,
@@ -775,7 +775,7 @@ StScrollBar {
 
 .world-clocks-header,
 .message-list-section-title {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   font-weight: bold; }
 
 .world-clocks-grid {
@@ -897,7 +897,7 @@ StScrollBar {
   icon-size: 16px;
   border-radius: 16px;
   padding: 8px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   background-color: transparent; }
 
 /* FIXME: how do you do this in sass? */
@@ -946,14 +946,14 @@ StScrollBar {
 
 .message-content {
   padding: 8px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   font-size: 1em; }
 
 .message-content * > StIcon {
   icon-size: 16px;
   border-radius: 16px;
   padding: 4px;
-  color: rgba(0, 0, 0, 0.6); }
+  color: rgba(0, 0, 0, 0.72); }
 
 /* FIXME: how do you do this in sass? */
 .message-content *:hover > StIcon,
@@ -985,7 +985,7 @@ StScrollBar {
     padding: 0 4px; }
 
 .system-menu-action {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   border-radius: 100px;
   /* wish we could do 50% */
   padding: 16px;
@@ -1181,7 +1181,7 @@ StScrollBar {
   color: #FFFFFF; }
 
 .list-search-result-description {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
 
 .search-provider-icon {
   padding: 15px; }
@@ -1394,7 +1394,7 @@ StScrollBar {
 .app-view-control {
   padding: 0 16px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
   .app-view-control:hover {
     color: #FFFFFF;
     background-color: rgba(255, 255, 255, 0.15) !important; }
@@ -1474,7 +1474,7 @@ StScrollBar {
   background-color: rgba(255, 255, 255, 0.1); }
 
 .show-apps .show-apps-icon {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
 
 .show-apps:hover .show-apps-icon,
 .show-apps:active .show-apps-icon,
@@ -1600,7 +1600,7 @@ StScrollBar {
     min-height: 40px;
     padding: 0 16px;
     background-color: transparent;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.72);
     font-weight: 500; }
     .notification-banner .notification-button:first-child {
       border-radius: 0 0 0 2px; }
@@ -1649,7 +1649,7 @@ StScrollBar {
 
 .chat-sent {
   padding-left: 18pt;
-  color: rgba(0, 0, 0, 0.6); }
+  color: rgba(0, 0, 0, 0.72); }
   .chat-sent:rtl {
     padding-left: 0;
     padding-right: 18pt; }
@@ -1765,7 +1765,7 @@ StScrollBar {
   border-radius: 2px;
   border: none;
   color: inherit;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   background-color: rgba(255, 255, 255, 0.95);
   border-color: transparent;
   box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
@@ -1892,7 +1892,7 @@ StScrollBar {
     spacing: 3px; }
   .login-dialog .modal-dialog-button {
     padding: 0 16px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
     border-color: transparent;
     box-shadow: 0 0 transparent;
@@ -1913,7 +1913,7 @@ StScrollBar {
       text-shadow: none;
       icon-shadow: none; }
     .login-dialog .modal-dialog-button:insensitive {
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.36);
       background-color: transparent;
       border-color: transparent;
       box-shadow: 0 0 transparent;
@@ -1952,7 +1952,7 @@ StScrollBar {
   padding: 24px 0px; }
 
 .login-dialog-banner {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
 
 .login-dialog-button-box {
   spacing: 5px; }
@@ -1974,7 +1974,7 @@ StScrollBar {
 .login-dialog-not-listed-label {
   font-size: 1em;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   padding-top: 1em; }
   .login-dialog-not-listed-label:hover {
     color: #FFFFFF; }
@@ -2003,7 +2003,7 @@ StScrollBar {
 .login-dialog-user-list-item {
   border-radius: 2px;
   padding: .2em;
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
   .login-dialog-user-list-item:ltr {
     padding-right: 1em; }
   .login-dialog-user-list-item:rtl {
@@ -2050,7 +2050,7 @@ StScrollBar {
   icon-size: 1.25em; }
 
 .login-dialog-session-list-button {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
   .login-dialog-session-list-button:hover, .login-dialog-session-list-button:focus {
     color: #FFFFFF; }
   .login-dialog-session-list-button:active {
@@ -2110,7 +2110,7 @@ StScrollBar {
 .screen-shield-notification-count-text {
   min-height: 22px;
   padding: 2px 0px 0px 16px;
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(255, 255, 255, 0.9); }
 
 #panel.lock-screen {
   background-color: transparent; }
@@ -2188,7 +2188,7 @@ StScrollBar {
   font-size: 10.5pt;
   font-weight: 500;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   background-color: transparent;
   border-color: transparent;
   box-shadow: 0 0 transparent;
@@ -2209,7 +2209,7 @@ StScrollBar {
     text-shadow: none;
     icon-shadow: none; }
   .lg-obj-inspector-button:insensitive {
-    color: rgba(0, 0, 0, 0.24);
+    color: rgba(0, 0, 0, 0.288);
     background-color: transparent;
     border-color: transparent;
     box-shadow: 0 0 transparent;
