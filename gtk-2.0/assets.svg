@@ -4933,7 +4933,7 @@
          cy="22"
          cx="14"
          id="path4176"
-         style="opacity:1;fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="opacity:1;fill:#448aff;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
     </g>
     <g
        id="Range_scale-slider-hover"
@@ -6882,7 +6882,7 @@
          r="10"
          cy="380"
          cx="20"
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter3767)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter3767)"
          id="path4255"
          transform="translate(0,652.36218)"
          clip-path="url(#clipPath4401)" />
@@ -6905,7 +6905,7 @@
          cx="20"
          transform="translate(40,652.36218)"
          id="path4257"
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter4602)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter4602)"
          clip-path="url(#clipPath4411)" />
       <circle
          r="3"
@@ -6924,7 +6924,7 @@
          r="10"
          cy="380"
          cx="20"
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter4602)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter4602)"
          id="path4263"
          transform="translate(80,652.36218)"
          clip-path="url(#clipPath4425)" />
@@ -6963,21 +6963,21 @@
          cx="20"
          transform="translate(120,652.36218)"
          id="path4259"
-         style="opacity:0.12000002;fill:#ff4081;fill-opacity:1;stroke:none" />
+         style="opacity:0.12000002;fill:#448aff;fill-opacity:1;stroke:none" />
       <circle
          r="3"
          cy="460"
          cx="140"
          transform="translate(0,572.36218)"
          id="path4275"
-         style="opacity:0.4;fill:#ff4081;fill-opacity:1;stroke:none" />
+         style="opacity:0.4;fill:#448aff;fill-opacity:1;stroke:none" />
     </g>
     <g
        id="Check-Radio_check-on"
        inkscape:label="#g4311"
        transform="translate(200,-937.36218)">
       <rect
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter3767)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter3767)"
          id="rect4249"
          width="20"
          height="20"
@@ -7006,7 +7006,7 @@
          height="20"
          width="20"
          id="rect4251"
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter4602)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter4602)"
          clip-path="url(#clipPath4453)" />
       <path
          style="fill:#ffffff;fill-opacity:1;stroke:none"
@@ -7020,7 +7020,7 @@
        inkscape:label="#g4319"
        transform="translate(190,-937.36218)">
       <rect
-         style="fill:#ff4081;fill-opacity:1;stroke:none;filter:url(#filter4602)"
+         style="fill:#448aff;fill-opacity:1;stroke:none;filter:url(#filter4602)"
          id="rect4261"
          width="20"
          height="20"
@@ -7066,9 +7066,9 @@
          height="20"
          width="20"
          id="rect4253"
-         style="opacity:0.12000002;fill:#ff4081;fill-opacity:1;stroke:none" />
+         style="opacity:0.12000002;fill:#448aff;fill-opacity:1;stroke:none" />
       <path
-         style="opacity:0.4;fill:#ff4081;fill-opacity:1;stroke:none"
+         style="opacity:0.4;fill:#448aff;fill-opacity:1;stroke:none"
          d="m 135,993.36218 4,4 7,-7 -2,-2 -5,5 -2,-2 z"
          id="path4283"
          inkscape:connector-curvature="0" />

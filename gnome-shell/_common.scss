@@ -738,7 +738,7 @@ StScrollBar {
 #panel {
   background-color: $bg_color;
   font-weight: bold;
-  height: $menuitem_size;
+  height: $small_size;
 
   &:overview,
   &.unlock-screen,
