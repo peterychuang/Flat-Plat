@@ -180,11 +180,11 @@ StScrollBar {
 /* Slider */
 .slider {
   height: 20px;
-  color: #FF4081;
+  color: #448aff;
   -slider-height: 4px;
   -slider-background-color: rgba(0, 0, 0, 0.24);
   -slider-border-color: transparent;
-  -slider-active-background-color: #FF4081;
+  -slider-active-background-color: #448aff;
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 8px; }
@@ -1852,14 +1852,14 @@ StScrollBar {
       icon-shadow: none; }
     .login-dialog .modal-dialog-button:default {
       color: #FFFFFF;
-      background-color: #FF4081;
+      background-color: #448aff;
       border-color: transparent;
       box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
       text-shadow: none;
       icon-shadow: none; }
       .login-dialog .modal-dialog-button:default:hover, .login-dialog .modal-dialog-button:default:focus {
         color: #FFFFFF;
-        background-color: #FF4081;
+        background-color: #448aff;
         border-color: transparent;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
         text-shadow: none;
