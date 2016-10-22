@@ -17,64 +17,48 @@ $disabled_opacity: 0.4;
   @return scale-color($c, $alpha: percentage(-1 + $a));
 }
 
-// based color palette:
-// https://material.google.com/style/color.html#color-color-palette
-// based border and highlight values:
-// https://material.google.com/style/icons.html#icons-product-icons
-
 // Foreground colors
-$light_contrast_color: scale-alpha(#000000, 0.8);
-$dark_contrast_color: #FFFFFF;
-
-$fg_color: if($variant == 'light', $light_contrast_color, $dark_contrast_color);
+$fg_color: if($variant == 'light', scale-alpha(#000000, 0.8), #FFFFFF);
 $secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
 
-$inversed_fg_color: $dark_contrast_color;
-$secondary_inversed_fg_color: scale-alpha($inversed_fg_color, $enabled_opacity);
-$tertiary_inversed_fg_color: scale-alpha($inversed_fg_color, $hint_opacity);
+$selected_fg_color: #FFFFFF;
+$secondary_selected_fg_color: scale-alpha($selected_fg_color, $enabled_opacity);
+$tertiary_selected_fg_color: scale-alpha($selected_fg_color, $hint_opacity);
 
-$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
-$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
-$disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
+$insensitive_fg_color: scale-alpha($fg_color, $disabled_opacity);
+$insensitive_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
+$insensitive_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 
-$disabled_inversed_fg_color: scale-alpha($inversed_fg_color, $disabled_opacity);
-$disabled_secondary_inversed_fg_color: scale-alpha($secondary_inversed_fg_color, $disabled_opacity);
-$disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $disabled_opacity);
+$insensitive_selected_fg_color: scale-alpha($selected_fg_color, $disabled_opacity);
+$insensitive_secondary_selected_fg_color: scale-alpha($secondary_selected_fg_color, $disabled_opacity);
+$insensitive_tertiary_selected_fg_color: scale-alpha($tertiary_selected_fg_color, $disabled_opacity);
 
 // Background colors
-$bg_color: if($variant == 'light', #F5F5F5, #455A64);
-$base_color: if($variant == 'light', #FFFFFF, #546E7A);
-$alt_base_color: mix($base_color, $bg_color, 50%);
-$lighter_bg_color: if($variant =='light', #FAFAFA, #607D8B);
-$darker_bg_color: if($variant =='light', #EEEEEE, #263238);
-$headerbar_color: if($variant =='light', #455A64, #37474F);
-$secondary_titlebar_color: #37474F;
-$topbar_color: #263238;
+$bg_color: if($variant == 'light', #ECEFF1, #37474F);
+$base_color: if($variant == 'light', #FFFFFF, #455A64);
+$secondary_base_color: mix($base_color, $bg_color, 50%);
+$light_color: if($variant =='light', #FAFAFA, #546E7A);
+$dark_color: if($variant =='light', mix(#ECEFF1, #CFD8DC, 50%), mix(#37474F, #263238, 50%));
 
-$primary_color: #42A5F5;
-$alt_primary_color: #40C4FF;
-$accent_color: #448aff;
+$selected_bg_color: #2196F3;
+$secondary_selected_bg_color: #2979FF;
+$accent_bg_color: #448AFF;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);
-$semi_track_color: gtkalpha(currentColor, $lower_opacity / 2);
-$zero_track_color: gtkalpha(currentColor, 0);
-$row_track_color: gtkalpha(currentColor, 0.05);
 $borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.2));
 $highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.1));
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.2);
 
-$placeholder_text_color: mix($fg_color, $base_color, percentage($hint_opacity));
+$link_color: $selected_bg_color;
+$link_visited_color: #82B1FF;
 
-$link_color: $primary_color;
-$link_visited_color: #E040FB;
-
-$warning_color: #FF6D00;
-$error_color: #DD2C00;
+$warning_color: #F50057;
+$error_color: #F50057;
 $success_color: #00C853;
 
-$suggested_color: $accent_color;
+$suggested_color: $accent_bg_color;
 $destructive_color: #FF5252;
 
 $info_bg_color: #66BB6A;
