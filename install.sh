@@ -1,18 +1,17 @@
 #!/bin/bash
 
-gnomever=$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -2)
 repodir=$(cd $(dirname $0) && pwd)
 srcdir=${repodir}/src
 
-# FIXME:
-if [ -z "$gnomever" ] ; then
+if type -p gnome-shell > /dev/null ; then
+	gnomever=$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -2)
+else
 	gnomever=3.18
 fi
 
 echo
 
-# Not enabled color: '-dark'
-for color in '' '-light' ; do
+for color in '' '-dark' '-light' ; do
 	for size in '' '-compact' ; do
 		echo Installing Flat-Plat${color}${size} ...
 
@@ -35,27 +34,38 @@ for color in '' '-light' ; do
 		install -d ${themedir}/chrome
 		cd ${srcdir}/chrome
 		cp -ur \
-			"Flat-Plat Scrollbars.crx" \
 			"Flat-Plat${color} Theme.crx" \
 			${themedir}/chrome
+		if [ "$color" != '-dark' ] ; then
+			cp -ur \
+				"Flat-Plat Scrollbars.crx" \
+				${themedir}/chrome
+		else
+			cp -ur \
+				"Flat-Plat${color} Scrollbars.crx" \
+				${themedir}/chrome
+		fi
 
 		# Install GNOME Shell Theme
 		install -d ${themedir}/gnome-shell
 		cd ${srcdir}/gnome-shell/${gnomever}
 		cp -ur \
-			extensions \
 			no-events.svg \
 			no-notifications.svg \
 			process-working.svg \
 			${themedir}/gnome-shell
-		if [ "$color" == '-dark' ] ; then
-			cp -ur \
-				assets${color} \
-				${themedir}/gnome-shell/assets
-		else
-			cp -ur \
+		cp -urL \
+			extensions \
+			pad-osd.css \
+			${themedir}/gnome-shell
+		if [ "$color" != '-dark' ] ; then
+			cp -urL \
 				assets \
 				${themedir}/gnome-shell
+		else
+			cp -urL \
+				assets${color} \
+				${themedir}/gnome-shell/assets
 		fi
 		cp -ur \
 			gnome-shell${color}${size}.css \
@@ -70,22 +80,29 @@ for color in '' '-light' ; do
 		cd ${srcdir}/gtk-2.0
 		cp -ur \
 			apps.rc \
+			hacks.rc \
 			main.rc \
 			${themedir}/gtk-2.0
-		if [ "$color" == '-dark' ] ; then
-			cp -ur \
-				assets${color} \
-				${themedir}/gtk-2.0/assets
-		else
+		if [ "$color" != '-dark' ] ; then
 			cp -ur \
 				assets \
 				${themedir}/gtk-2.0
+		else
+			cp -ur \
+				assets${color} \
+				${themedir}/gtk-2.0/assets
 		fi
 		cp -ur \
 			gtkrc${color} \
 			${themedir}/gtk-2.0/gtkrc
 
 		# Install GTK+ 3 Theme
+		install -d ${themedir}/gtk-common
+		cd ${srcdir}/gtk-3.0/gtk-common
+		cp -ur \
+			assets \
+			${themedir}/gtk-common
+
 		for version in '3.18' '3.20' '3.22' ; do
 			if [ "$version" == '3.18' ] ; then
 				install -d ${themedir}/gtk-3.0
@@ -96,9 +113,7 @@ for color in '' '-light' ; do
 				cp -ur \
 					gtk${color}.css \
 					${themedir}/gtk-3.0/gtk.css
-				if [ "$color" == '-dark' ] ; then
-					:
-				else
+				if [ "$color" != '-dark' ] ; then
 					cp -ur \
 						gtk-dark.css \
 						${themedir}/gtk-3.0
@@ -112,9 +127,7 @@ for color in '' '-light' ; do
 				cp -ur \
 					gtk${color}${size}.css \
 					${themedir}/gtk-${version}/gtk.css
-				if [ "$color" == '-dark' ] ; then
-					:
-				else
+				if [ "$color" != '-dark' ] ; then
 					cp -ur \
 						gtk-dark${size}.css \
 						${themedir}/gtk-${version}/gtk-dark.css
@@ -122,30 +135,24 @@ for color in '' '-light' ; do
 			fi
 		done
 
-		install -d ${themedir}/gtk-common
-		cd ${srcdir}/gtk-3.0/gtk-common
-		cp -ur \
-			assets \
-			${themedir}/gtk-common
-
 		# Install Metacity Theme
 		install -d ${themedir}/metacity-1
 		cd ${srcdir}/metacity-1
 		cp -ur \
 			*.svg \
 			${themedir}/metacity-1
-		if [ "$color" == '-light' ] ; then
+		if [ "$color" != '-light' ] ; then
+			cp -ur \
+				metacity-theme-2.xml \
+				metacity-theme-3.xml \
+				${themedir}/metacity-1
+		else
 			cp -ur \
 				metacity-theme-2${color}.xml \
 				${themedir}/metacity-1/metacity-theme-2.xml
 			cp -ur \
 				metacity-theme-3${color}.xml \
 				${themedir}/metacity-1/metacity-theme-3.xml
-		else
-			cp -ur \
-				metacity-theme-2.xml \
-				metacity-theme-3.xml \
-				${themedir}/metacity-1
 		fi
 
 		# Install Unity Theme
@@ -156,14 +163,14 @@ for color in '' '-light' ; do
 			*.png \
 			*.json \
 			${themedir}/unity
-		if [ "$color" == '-light' ] ; then
-			cp -urT \
-				buttons${color} \
-				${themedir}/unity/buttons
-		else
+		if [ "$color" != '-light' ] ; then
 			cp -ur \
 				buttons \
 				${themedir}/unity
+		else
+			cp -urT \
+				buttons${color} \
+				${themedir}/unity/buttons
 		fi
 	done
 done

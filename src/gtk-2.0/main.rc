@@ -1,4 +1,9 @@
 # vim:set ft=gtkrc ts=2 sw=2 sts=2 ai et:
+#
+# This is the main theme file, handling all the default widgets and theme
+# properties. Since GTK+ 2 is old, we need to overcome some of its limitations,
+# which is also mostly done in this file. Sadly not all of them can be overcome
+# so there will always be a visible difference between the GTK+ 2 and 3 theme.
 
 style "default" {
 
@@ -22,12 +27,12 @@ style "default" {
   GtkWidget::new-tooltip-style = 1 #for compatibility
 
   GtkWidget::link-color              = @link_color
-  GtkWidget::visited-link-color      = @link_visited_color
+  GtkWidget::visited-link-color      = @visited_link_color
   GnomeHRef::link_color              = @link_color
   GtkHTML::link-color                = @link_color
-  GtkHTML::vlink-color               = @link_visited_color
+  GtkHTML::vlink-color               = @visited_link_color
   GtkIMHtml::hyperlink-color         = @link_color
-  GtkIMHtml::hyperlink-visited-color = @link_visited_color
+  GtkIMHtml::hyperlink-visited-color = @visited_link_color
 
   GtkSeparatorMenuItem::horizontal-padding = 0
   GtkSeparatorMenuItem::wide-separators    = 1
@@ -40,7 +45,7 @@ style "default" {
   GtkButton::inner-border           = {4, 4, 4, 4}
 
   GtkEntry::state-hint   = 1
-  GtkEntry::inner-border = {6, 6, 6, 7}
+  GtkEntry::inner-border = {4, 4, 4, 4}
 
   GtkPaned::handle-size  = 8
   GtkHPaned::handle-size = 8
@@ -84,13 +89,13 @@ style "default" {
 
   GtkCheckButton::indicator-size    = 24
   GtkCheckButton::indicator_spacing = 2
-  GtkOptionMenu::indicator_spacing  = {13, 13, 5, 7}
+  GtkOptionMenu::indicator_spacing  = {10, 10, 6, 6}
 
   GtkTreeView::expander-size        = 16
   GtkTreeView::vertical-separator   = 0
   GtkTreeView::horizontal-separator = 4
   GtkTreeView::allow-rules          = 0
-  # Set this because some apps read it
+  # Set this because some apps read it
   GtkTreeView::odd-row-color        = @base_color
   GtkTreeView::even-row-color       = @base_color
 
@@ -128,7 +133,7 @@ style "default" {
 
   # For succinctness, all reasonable pixmap options remain here
 
-  # Draw frame around menu in a non-compositied environment
+  # Draw frame around menu in a non-compositied environment
   # This needs to go before pixmap because we need to override some stuff
   engine "adwaita" {}
 
@@ -386,9 +391,9 @@ style "default" {
     # Arrows #
     ##########
 
-    # Overrides
+    # Overrides
 
-    # Disable arrows in spinbuttons
+    # Disable arrows in spinbuttons
     image {
       function = ARROW
       detail   = "spinbutton"
@@ -774,7 +779,7 @@ style "default" {
       file           = "assets/pan-down-alt-insensitive.png"
     }
 
-    # LTR
+    # LTR
 
     image {
       function       = EXPANDER
@@ -822,7 +827,7 @@ style "default" {
       direction      = LTR
     }
 
-    # RTL
+    # RTL
 
     image {
       function       = EXPANDER
@@ -871,7 +876,7 @@ style "default" {
     }
 
     #############
-    # Notebooks #
+    # Notebooks #
     #############
 
     # Left
@@ -890,7 +895,7 @@ style "default" {
       gap_side = RIGHT
     }
 
-    # Right
+    # Right
 
     image {
       function = EXTENSION
@@ -906,7 +911,7 @@ style "default" {
       gap_side = LEFT
     }
 
-    # Up
+    # Up
 
     image {
       function = EXTENSION
@@ -922,7 +927,7 @@ style "default" {
       gap_side = BOTTOM
     }
 
-    # Down
+    # Down
 
     image {
       function = EXTENSION
@@ -994,7 +999,7 @@ style "default" {
     }
 
     ##############
-    # Scrollbars #
+    # Scrollbars #
     ##############
 
     image {
@@ -1112,7 +1117,7 @@ style "default" {
       direction   = LTR
     }
 
-    # RTL
+    # RTL
 
     image {
       function    = SLIDER
@@ -1162,9 +1167,8 @@ style "default" {
     # Scales #
     ##########
 
-    # Troughs
-    # They are overrided later on
-    # We set them here too because some widgets don't specify their orientation
+    # Troughs, overrided later on. We set them here too because some widgets
+    # don't specify their orientation.
 
     image {
       function    = BOX
@@ -1242,7 +1246,7 @@ style "default" {
       orientation = VERTICAL
     }
 
-    # Sliders
+    # Sliders
 
     image {
       function = SLIDER
@@ -1303,12 +1307,12 @@ style "default" {
     # Menubar #
     ###########
 
-    # image {
-    #   function = BOX
-    #   detail   = "menubar"
-    #   file     = "assets/border.png"
-    #   border   = {0, 0, 0, 1}
-    # }
+    # image {
+    #   function = BOX
+    #   detail   = "menubar"
+    #   file     = "assets/border.png"
+    #   border   = {0, 0, 0, 1}
+    # }
 
     #########
     # Menus #
@@ -1352,7 +1356,7 @@ style "default" {
       state    = ACTIVE
       detail   = "entry"
       file     = "assets/entry-active.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -1361,7 +1365,7 @@ style "default" {
       state    = INSENSITIVE
       detail   = "entry"
       file     = "assets/entry-insensitive.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -1369,7 +1373,7 @@ style "default" {
       function = SHADOW
       detail   = "entry"
       file     = "assets/entry.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -1622,7 +1626,7 @@ style "default" {
     # Treeviews #
     #############
 
-    # Disable active the column highlight
+    # Disable active the column highlight
     # We need to match specific cells or we break stuff
     # Looking at you deadbeef
 
@@ -1638,7 +1642,7 @@ style "default" {
       state    = NORMAL
     }
 
-    # Disable all the other shadows
+    # Disable all the other shadows
     # This prevents the Raleigh effect
     image {
       function = SHADOW
@@ -1650,13 +1654,13 @@ style "default" {
 
 style "menubar" {
 
-  bg[NORMAL]      = @headerbar_bg_color
-  fg[NORMAL]      = mix(0.75, @headerbar_fg_color, @headerbar_bg_color)
-  fg[PRELIGHT]    = @headerbar_fg_color
-  fg[INSENSITIVE] = mix(0.3, @headerbar_fg_color, @headerbar_bg_color)
+  bg[NORMAL]      = @titlebar_bg_color
+  fg[NORMAL]      = mix(0.75, @titlebar_fg_color, @titlebar_bg_color)
+  fg[PRELIGHT]    = @titlebar_fg_color
+  fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
   # Needed to fix Firefox's menubar text
-  bg[SELECTED]    = mix(0.15, @headerbar_fg_color, @headerbar_bg_color)
-  fg[SELECTED]    = @headerbar_fg_color
+  bg[SELECTED]    = mix(0.15, @titlebar_fg_color, @titlebar_bg_color)
+  fg[SELECTED]    = @titlebar_fg_color
 
 }
 
@@ -1665,10 +1669,10 @@ style "menubar_item" {
   xthickness = 3
   ythickness = 4
 
-  fg[NORMAL]      = mix(0.75, @headerbar_fg_color, @headerbar_bg_color)
-  bg[PRELIGHT]    = mix(0.15, @headerbar_fg_color, @headerbar_bg_color)
-  fg[PRELIGHT]    = @headerbar_fg_color
-  fg[INSENSITIVE] = mix(0.3, @headerbar_fg_color, @headerbar_bg_color)
+  fg[NORMAL]      = mix(0.75, @titlebar_fg_color, @titlebar_bg_color)
+  bg[PRELIGHT]    = mix(0.15, @titlebar_fg_color, @titlebar_bg_color)
+  fg[PRELIGHT]    = @titlebar_fg_color
+  fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
 
 }
 
@@ -1699,7 +1703,7 @@ style "menu_item" {
   text[NORMAL]   = @fg_color
   text[PRELIGHT] = @fg_color
 
-  # Unfortunately we can't tell regular and menu checks/radios apart
+  # Unfortunately we can't tell regular and menu checks/radios apart
   # Without the heirarchy
   engine "pixmap" {
 
@@ -1947,7 +1951,7 @@ style "button" {
   engine "pixmap" {
 
     ###########
-    # Buttons #
+    # Buttons #
     ###########
 
     image {
@@ -2008,17 +2012,10 @@ style "link_button" {
 
 style "entry" {
 
-  # We set this same as the border of the border of the entry
-  # This way there's no overlap
-  xthickness = 4
-  ythickness = 4
-
-}
-
-style "spinbutton" {
-
+  # We set this same as the border of the border of the entry
+  # This way there's no overlap
   xthickness = 6
-  ythickness = 4
+  ythickness = 6
 
 }
 
@@ -2042,7 +2039,7 @@ style "combobox_cellview" {
 style "combobox_entry" {
 
   # Since one side of the button is missing, we need to shift the arrow a little to the right
-  GtkButton::inner-border = {0, 3, 0, 0}
+  GtkButton::inner-border = {0, 2, 0, 0}
 
   engine "pixmap" {
 
@@ -2208,10 +2205,11 @@ style "combobox_entry" {
 
 style "combo_button_padding" {
 
-  # Since one side of the button is missing, we need to shift the arrow a little to the right
-  # This is the same thing we've done above but the combo, unlike the combobox,
-  # uses padding the same way as a button
-  GtkButton::inner-border = {4, 7, 4, 4}
+  # Since one side of the button is missing, we need to shift the arrow a
+  # little to the right.
+  # This is the same thing we've done above but the combo, unlike the combobox,
+  # uses padding the same way as a button.
+  GtkButton::inner-border = {3, 6, 3, 3}
 
 }
 
@@ -2247,7 +2245,7 @@ style "notebook_entry" {
       state    = ACTIVE
       detail   = "entry"
       file     = "assets/notebook-entry-active.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -2256,7 +2254,7 @@ style "notebook_entry" {
       state    = INSENSITIVE
       detail   = "entry"
       file     = "assets/notebook-entry-insensitive.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -2264,7 +2262,7 @@ style "notebook_entry" {
       function = SHADOW
       detail   = "entry"
       file     = "assets/notebook-entry.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
   }
@@ -2285,7 +2283,7 @@ style "normal_entry" {
       state    = ACTIVE
       detail   = "entry"
       file     = "assets/entry-active.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -2294,7 +2292,7 @@ style "normal_entry" {
       state    = INSENSITIVE
       detail   = "entry"
       file     = "assets/entry-insensitive.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
 
@@ -2302,7 +2300,7 @@ style "normal_entry" {
       function = SHADOW
       detail   = "entry"
       file     = "assets/entry.png"
-      border   = {6, 6, 6, 6}
+      border   = {8, 8, 8, 8}
       stretch  = TRUE
     }
   }
@@ -2606,6 +2604,11 @@ style "frame" {
 
     image {
       function = SHADOW
+      shadow   = NONE
+    }
+
+    image {
+      function = SHADOW
       file     = "assets/frame.png"
       border   = {1, 1, 1, 1}
       stretch  = TRUE
@@ -2736,16 +2739,6 @@ style "disable_text_shadow" {
 
 }
 
-style "disable_shadow" {
-
-  engine "pixmap" {
-    image {
-      function = SHADOW
-    }
-  }
-
-}
-
 style "disable_separator" {
 
   xthickness = 0
@@ -2755,79 +2748,83 @@ style "disable_separator" {
 
 }
 
-# Default style, containing most of the stuff
-class "GtkWidget"            style "default"
+# Default style, containing theme properties and trying to match every widget as
+# much as possible, which is not only faster than trying to match every widget
+# by its own but also less bug-prune and more consistent. However there is some
+# widget specific stuff that needs to be taken care of, which is the point of
+# every other style below.
+class "GtkWidget" style "default"
 
-# Override padding,          style and colour
-class "GtkButton"            style "button"
-class "GtkLinkButton"        style "link_button"
-class "GtkEntry"             style "entry"
-class "GtkOldEditable"       style "entry"
-class "GtkSpinButton"        style "spinbutton"
-class "GtkNotebook"          style "notebook"
-class "GtkHScale"            style "scale_horz"
-class "GtkVScale"            style "scale_vert"
-class "GtkProgressBar"       style "progressbar"
-class "GtkScrolledWindow"    style "scrolled_window"
-class "GtkFrame"             style "frame"
-class "GtkSeparatorToolItem" style "toolbar_separator"
-class "GtkMenuBar"           style "menubar"
-class "GtkMenu"              style "menu"
-class "GtkTextView"          style "textview"
+ ######################################
+ # Override padding, style and colour #
+ ######################################
+
+class "GtkButton"                                                  style "button"
+class "GtkLinkButton"                                              style "link_button"
+class "GtkEntry"                                                   style "entry"
+class "GtkOldEditable"                                             style "entry"
+class "GtkNotebook"                                                style "notebook"
+class "GtkHScale"                                                  style "scale_horz"
+class "GtkVScale"                                                  style "scale_vert"
+class "GtkProgressBar"                                             style "progressbar"
+class "GtkScrolledWindow"                                          style "scrolled_window"
+class "GtkFrame"                                                   style "frame"
+class "GtkSeparatorToolItem"                                       style "toolbar_separator"
+class "GtkMenuBar"                                                 style "menubar"
+class "GtkMenu"                                                    style "menu"
+class "GtkTextView"                                                style "textview"
 
 # Menu and menubar items
-widget_class "*<GtkMenuItem>*"              style "menu_item"
-widget_class "*<GtkMenuBar>.<GtkMenuItem>*" style "menubar_item"
-widget_class "*<GtkSeparatorMenuItem>*"     style "separator_menu_item"
-
-# Frames in statusbars look ugly, let's disable them
-widget_class "*<GtkStatusbar>*<GtkFrame>" style "disable_shadow"
-# Disable the frame around poor Wilbert too
-widget_class "*<GimpToolbox>*<GtkFrame>"  style "disable_shadow"
+widget_class "*<GtkMenuItem>*"                                     style "menu_item"
+widget_class "*<GtkMenuBar>.<GtkMenuItem>*"                        style "menubar_item"
+widget_class "*<GtkSeparatorMenuItem>*"                            style "separator_menu_item"
 
 # Treeview buttons
-widget_class "*<GtkTreeView>*<GtkButton>*" style "treeview_header"
+widget_class "*<GtkTreeView>*<GtkButton>*"                         style "treeview_header"
 
 # Give the file chooser toolbar a border
-widget_class "*<GtkFileChooserDefault>*<GtkToolbar>" style "inline_toolbar"
+widget_class "*<GtkFileChooserDefault>*<GtkToolbar>"               style "inline_toolbar"
 
-# Fix padding on regular comboboxes
-widget_class "*<GtkComboBox>.<GtkButton>" style "combobox"
+# Fix padding on regular comboboxes
+widget_class "*<GtkComboBox>.<GtkButton>"                          style "combobox"
 # And disable separators on them
-widget_class "*<GtkComboBox>.<GtkButton>*<GtkSeparator>" style "disable_separator"
-widget_class "*<GtkFontButton>*<GtkSeparator>"           style "disable_separator"
-widget_class "*<GtkFileChooserButton>*<GtkSeparator>"    style "disable_separator"
+widget_class "*<GtkComboBox>.<GtkButton>*<GtkSeparator>"           style "disable_separator"
+widget_class "*<GtkFontButton>*<GtkSeparator>"                     style "disable_separator"
+widget_class "*<GtkFileChooserButton>*<GtkSeparator>"              style "disable_separator"
 
-# Join together the ComboBoxEntry entry and button
-widget_class "*<GtkComboBoxEntry>*"  style "combobox_entry"
+# Join together the ComboBoxEntry entry and button
+widget_class "*<GtkComboBoxEntry>*"                                style "combobox_entry"
 
-# Join the Combo entry and button
-widget_class "*<GtkCombo>*"  style "combobox_entry"
-# Tweak the padding on the button a little bit because it uses it a bit differently
-widget_class "*<GtkCombo>.<GtkButton>" style "combo_button_padding"
+# Join the Combo entry and button
+widget_class "*<GtkCombo>*"                                        style "combobox_entry"
+# Tweak the padding on the button a little bit because it
+# uses it a bit differently
+widget_class "*<GtkCombo>.<GtkButton>"                             style "combo_button_padding"
 
-# Alas we cannot do the same for ComboBoxText because there isn't a way to apply the style to only
-# the comboboxes that have an entry inside
+# Alas we cannot do the same for ComboBoxText because there
+# isn't a way to apply the style to only the comboboxes that
+# have an entry inside
 
 # Tool buttons have different styles
-widget_class "*<GtkToolButton>*<GtkButton>"                      style "tool_button"
-widget_class "*<GtkVBox>*<GtkEventBox>.<GtkToolbar>*<GtkButton>" style "tool_button"
+widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"
+widget_class "*<GtkVBox>*<GtkEventBox>.<GtkToolbar>*<GtkButton>"   style "tool_button"
 
 # Notebooks
-widget_class "*<GtkNotebook>.<GtkLabel>" style "notebook_tab_label"
-widget_class "*<GtkNotebook>.<GtkHBox>.<GtkLabel>" style "notebook_tab_label"
+widget_class "*<GtkNotebook>.<GtkLabel>"                           style "notebook_tab_label"
+widget_class "*<GtkNotebook>.<GtkHBox>.<GtkLabel>"                 style "notebook_tab_label"
 
 # Notebooks are white, act accordingly
-widget_class "*<GtkNotebook>*<GtkEntry>"                        style "notebook_entry"
-widget_class "*<GtkNotebook>*<GtkProgressBar>"                  style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkSpinButton>"                   style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>" style "notebook_bg"
-widget_class "*<GtkNotebook>*<GimpRuler>"                       style "notebook_bg"
-widget_class "*<GtkNotebook>.<GimpDisplayShell>*<GtkEventBox>"  style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*"               style "notebook_combo"
-widget_class "*<GtkNotebook>*<GtkCombo>*"                       style "notebook_combo"
+widget_class "*<GtkNotebook>*<GtkEntry>"                           style "notebook_entry"
+widget_class "*<GtkNotebook>*<GtkProgressBar>"                     style "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkSpinButton>"                      style "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"    style "notebook_bg"
+widget_class "*<GtkNotebook>*<GimpRuler>"                          style "notebook_bg"
+widget_class "*<GtkNotebook>.<GimpDisplayShell>*<GtkEventBox>"     style "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*"                  style "notebook_combo"
+widget_class "*<GtkNotebook>*<GtkCombo>*"                          style "notebook_combo"
 
-# However, stuff inside eventboxes inside notebooks is grey again, react
+# However, stuff inside eventboxes inside notebooks is grey
+# again, react
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"             style "normal_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkProgressBar>"       style "normal_bg"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkSpinButton>"        style "normal_bg"
@@ -2836,17 +2833,18 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCombo>*"            style "combob
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCombo>.<GtkButton>" style "combo_button_padding"
 
 # Button labels
-widget_class "*<GtkButton>*<GtkLabel>" style "button_label"
+widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
 
 # Checkbutton labels
-widget_class "*<GtkCheckButton>.<GtkLabel>" style "checkbutton_label"
+widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
 
-# ComboBoxes tend to draw the button label with text[] instead of fg[], we need to fix that
-widget_class "*<GtkComboBox>*<GtkCellView>" style "combobox_cellview"
+# ComboBoxes tend to draw the button label with text[]
+# instead of fg[], we need to fix that
+widget_class "*<GtkComboBox>*<GtkCellView>"                        style "combobox_cellview"
 
 # Disable white text shadows
-widget_class "*<GtkLabel>"    style "disable_text_shadow"
-widget_class "*<GtkCellView>" style "disable_text_shadow"
+widget_class "*<GtkLabel>"                                         style "disable_text_shadow"
+widget_class "*<GtkCellView>"                                      style "disable_text_shadow"
 
 # GTK tooltips
-widget "gtk-tooltip*" style "tooltip"
+widget "gtk-tooltip*"                                              style "tooltip"
