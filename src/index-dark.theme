@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Flat-Plat-dark
+Name=Flat-Plat-Blue-dark
 Comment=A Material Design-like theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Flat-Plat-dark
-MetacityTheme=Flat-Plat-dark
+GtkTheme=Flat-Plat-Blue-dark
+MetacityTheme=Flat-Plat-Blue-dark

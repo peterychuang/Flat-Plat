@@ -22,7 +22,7 @@
   transition-duration: 0.15s; }
 
 stage {
-  font-family: "M+ 1c", Roboto, Cantarell, Sans-Serif;
+  font-family: Open Sans, Cantarell, Sans-Serif;
   font-size: 10.5pt;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8); }
@@ -179,11 +179,11 @@ StScrollBar {
 /* Slider */
 .slider {
   height: 20px;
-  color: #FF4081;
+  color: #448aff;
   -slider-height: 4px;
   -slider-background-color: rgba(0, 0, 0, 0.24);
   -slider-border-color: transparent;
-  -slider-active-background-color: #FF4081;
+  -slider-active-background-color: #448aff;
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 8px; }
@@ -211,9 +211,9 @@ StScrollBar {
 .check-box:focus:checked StBin {
   background-image: url("assets/checkbox.svg"); }
 .check-box:hover:checked StBin {
-  background-color: rgba(255, 64, 129, 0.15); }
+  background-color: rgba(68, 138, 255, 0.15); }
 .check-box:active:checked StBin {
-  background-color: rgba(255, 64, 129, 0.3); }
+  background-color: rgba(68, 138, 255, 0.3); }
 
 /* Switches */
 .toggle-switch {
@@ -640,7 +640,7 @@ StScrollBar {
     background-color: rgba(0, 0, 0, 0.24);
     color: rgba(0, 0, 0, 0.8); }
   .osd-window .level-bar {
-    background-color: #42A5F5;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 2px; }
 
 /* Pad OSD */
@@ -749,7 +749,7 @@ StScrollBar {
 
 /* TOP BAR */
 #panel {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   font-weight: bold;
   height: 32px; }
   #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
@@ -1862,21 +1862,21 @@ StScrollBar {
       icon-shadow: none; }
     .login-dialog .modal-dialog-button:default {
       color: #FFFFFF;
-      background-color: #FF4081;
+      background-color: #448aff;
       border-color: transparent;
       box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
       text-shadow: none;
       icon-shadow: none; }
       .login-dialog .modal-dialog-button:default:hover, .login-dialog .modal-dialog-button:default:focus {
         color: #FFFFFF;
-        background-color: #FF4081;
+        background-color: #448aff;
         border-color: transparent;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
         text-shadow: none;
         icon-shadow: none; }
       .login-dialog .modal-dialog-button:default:active {
         color: #FFFFFF;
-        background-color: #ff79a7;
+        background-color: #7cadff;
         border-color: transparent;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
         text-shadow: none;
@@ -2051,14 +2051,14 @@ StScrollBar {
   color: rgba(255, 255, 255, 0.75); }
 
 #panel.lock-screen {
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: transparent; }
 
 .screen-shield-background {
   background: black;
   box-shadow: 0 19px 19px rgba(0, 0, 0, 0.6), 0 15px 6px rgba(0, 0, 0, 0.44); }
 
 #lockDialogGroup {
-  background: #607D8B url("assets/noise-texture.svg");
+  background: #424242;
   background-size: cover; }
 
 #LookingGlassDialog {

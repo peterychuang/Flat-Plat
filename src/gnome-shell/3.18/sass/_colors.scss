@@ -38,7 +38,8 @@ $alt_base_color: if($variant == 'light', $grey_200, chroma($blue_grey_600));
 $bg_color: scale-alpha($black, $middle_opacity);
 $alt_bg_color: scale-alpha($black, $lower_opacity);
 $inverse_bg_color: scale-alpha($inverse_fg_color, 0.1);
-$panel_bg_color: if($titlebar == 'dark', $blue_grey_900, $bg_color);
+//$panel_bg_color: if($titlebar == 'dark', $blue_grey_900, $bg_color);
+$panel_bg_color: transparent;
 
 $fill_color: scale-alpha($fg_color, $lower_opacity);
 $semi_fill_color: scale-alpha($fg_color, $lower_opacity / 2);
