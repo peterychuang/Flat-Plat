@@ -13,9 +13,9 @@ echo
 
 for color in '' '-dark' '-light' ; do
 	for size in '' '-compact' ; do
-		echo Installing Flat-Plat${color}${size} ...
+		echo Installing Flat-Plat-Blue${color}${size} ...
 
-		themedir=${destdir}/usr/share/themes/Flat-Plat${color}${size}
+		themedir=${destdir}/usr/share/themes/Flat-Plat-Blue${color}${size}
 		install -d ${themedir}
 
 		# Copy COPYING
@@ -34,15 +34,15 @@ for color in '' '-dark' '-light' ; do
 		install -d ${themedir}/chrome
 		cd ${srcdir}/chrome
 		cp -ur \
-			"Flat-Plat${color} Theme.crx" \
+			"Flat-Plat-Blue${color} Theme.crx" \
 			${themedir}/chrome
 		if [ "$color" != '-dark' ] ; then
 			cp -ur \
-				"Flat-Plat Scrollbars.crx" \
+				"Flat-Plat-Blue Scrollbars.crx" \
 				${themedir}/chrome
 		else
 			cp -ur \
-				"Flat-Plat${color} Scrollbars.crx" \
+				"Flat-Plat-Blue${color} Scrollbars.crx" \
 				${themedir}/chrome
 		fi
 

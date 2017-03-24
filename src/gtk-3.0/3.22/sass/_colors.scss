@@ -44,15 +44,15 @@ $disabled_secondary_titlebar_fg_color: if($titlebar == 'dark', $disabled_seconda
 $disabled_tertiary_titlebar_fg_color: if($titlebar == 'dark', $disabled_tertiary_inverse_fg_color, $disabled_tertiary_fg_color);
 
 // Background colors
-$bg_color: if($variant == 'light', $grey_100, chroma($blue_grey_700));
-$base_color: if($variant == 'light', $white, chroma($blue_grey_600));
+$bg_color: if($variant == 'light', $grey_100, chroma($grey_700));
+$base_color: if($variant == 'light', $white, chroma($grey_600));
 $alt_base_color: if($variant == 'light', $grey_50, mix($base_color, $bg_color, 50%));
-$lighter_bg_color: if($variant == 'light', $grey_50, chroma($blue_grey_500));
-$darker_bg_color: if($variant == 'light', $grey_200, chroma($blue_grey_900));
+$lighter_bg_color: if($variant == 'light', $grey_50, chroma($grey_500));
+$darker_bg_color: if($variant == 'light', $grey_200, chroma($grey_900));
 
-$titlebar_bg_color: if($variant == 'light', if($titlebar == 'dark', $blue_grey_700, $grey_300), $blue_grey_800);
-$alt_titlebar_bg_color: if($titlebar == 'dark', $blue_grey_800, mix($grey_300, $grey_400, 50%));
-$panel_bg_color: if($titlebar == 'dark', $blue_grey_900, mix($grey_300, $grey_400, 50%));
+$titlebar_bg_color: if($variant == 'light', if($titlebar == 'dark', $grey_800, $grey_200), $grey_800);
+$alt_titlebar_bg_color: if($titlebar == 'dark', $grey_800, mix($grey_300, $grey_400, 50%));
+$panel_bg_color: if($titlebar == 'dark', $grey_900, mix($grey_300, $grey_400, 50%));
 
 $fill_color: gtkalpha(currentColor, $lower_opacity);
 $semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
@@ -61,7 +61,7 @@ $row_fill_color: gtkalpha(currentColor, 0.05);
 // Misc colors
 $primary_color: $blue_400;
 $alt_primary_color: $light_blue_A200;
-$accent_color: $pink_A200;
+$accent_color: $blue_A200;
 
 $link_color: $primary_color;
 $visited_link_color: $purple_A200;
