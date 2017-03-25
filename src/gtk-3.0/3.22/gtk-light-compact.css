@@ -2972,7 +2972,7 @@ UnityDecoration {
     border-style: none;
     border-radius: 2px 2px 0 0;
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.2);
-    background-color: #cfcfcf;
+    background-color: #d6d6d6;
     color: rgba(0, 0, 0, 0.8); }
     UnityDecoration .top:backdrop {
       color: rgba(0, 0, 0, 0.6); }
@@ -2991,8 +2991,8 @@ UnityDecoration {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #cfcfcf;
-  background-image: image(#cfcfcf);
+  background-color: #d6d6d6;
+  background-image: image(#d6d6d6);
   color: rgba(0, 0, 0, 0.8); }
   UnityPanelWidget:backdrop,
   .unity-panel:backdrop {
@@ -3022,7 +3022,7 @@ UnityPanelWidget,
 
 #PanelPlug,
 PanelToplevel.background {
-  background-color: #cfcfcf;
+  background-color: #d6d6d6;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 500; }
 

@@ -36,15 +36,6 @@ for color in '' '-dark' '-light' ; do
 		cp -ur \
 			"Flat-Plat-Blue${color} Theme.crx" \
 			${themedir}/chrome
-		if [ "$color" != '-dark' ] ; then
-			cp -ur \
-				"Flat-Plat-Blue Scrollbars.crx" \
-				${themedir}/chrome
-		else
-			cp -ur \
-				"Flat-Plat-Blue${color} Scrollbars.crx" \
-				${themedir}/chrome
-		fi
 
 		# Install GNOME Shell Theme
 		install -d ${themedir}/gnome-shell
