@@ -1,93 +1,81 @@
-Flat-Plat-Blue
-==============
-A Material Design-like flat theme for GTK3, GTK2, and GNOME Shell.
-This is a fork of [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat), but with the pinkish colours changed to blue.
-In addition, I have also made a following changes to suit my own taste:
-* Transparent top bar
-* Font changed to Open Sans
-* Changed colour for running apps dots
-* Various minor changes and improvements in the colour scheme
+*Update 25 March 2017: the latest version is out with preliminary support of GNOME 3.24*
 
-Features
---------
-<img src="img/Button.gif" alt="Button" align="right" />
-* Supports ripple effect animations (only GTK3 apps).
-* Supports both light and dark variants.
-* Supports [Dash to Dock](https://micheleg.github.io/dash-to-dock/) extension's theming.
-* Appears more beautiful when you use a font family that including `Medium` and `Light` weight.
+## Flat-Plat-Blue Theme
 
-Requirements
-------------
-* GNOME/GTK+ 3.20 or above
+Flat-Plat-Blue Theme is a GNOME Shell/GTK Theme forked from [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat) with the following refinements:
+
+* All coloured elements (e.g. check boxes, sliders, switches, etc) are changed into blue to provide a more consistent and comfortable visual experience;
+* The top bar is transparent (this theme can be used in conjunction with GNOME Shell Extension "[Dynamic Panel Transparency](https://extensions.gnome.org/extension/1011/dynamic-panel-transparency/)");
+* Open Sans is the default font of the theme; and
+* Other minor changes and fixes.
+
+The latest version now includes three variants:
+
+* **Dark** title bar and **light** window's background (Flat-Plat-Blue)
+* **Light** title bar and **light** window's background (Flat-Plat-Blue-Light)
+* **Dark** title bar and **dark** window's background (Flat-Plat-Blue-Dark)
+
+Each variant comes with **normal** and **compact** themes for different screen sizes.
+
+*(Scroll down for screenshots)*
+
+### The Origin Story
+
+I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat) for personal use, but I reckoned there were people out there who wanted a [colour scheme that was more comfortable to look at](https://github.com/nana-4/Flat-Plat/issues/19), so I put together the theme and release it. You are welcomed to fork it and make further modifications yourself.
+
+
+### Download
+
+* [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
+* ~~[Flat-Plat-Blue for GNOME 3.22](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.22/Flat-Plat-Blue-20161022.tar.gz)~~
+* ~~[Flat-Plat-Blue for GNOME 3.20](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.20/Flat-Plat-Blue-20160411.tar.gz)~~
+
+### Requirements
+* GNOME/GTK+ 3.18 or above
 * The `gnome-themes-standard` package for GTK2
 * The pixmap (or pixbuf) engine for GTK2
 
 > _If default Adwaita works fine, it should also works fine._
 
-Installation
-------------
-
-### Manual Installation
-1. Download [Flat-Plat-Blue](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24/Flat-Plat-Blue-20170324.tar.gz) and extract the content inside.
-
-2. In your terminal, cd into the Flat-Plat-Blue directory
-
-3. Run ```sudo sh install.sh```
-
-4. Select the theme using `gnome-tweak-tool` or other suitable tools.
-
-5. Optionally;
-  - Set the font size to `9.75` (= 13px at 96dpi) or `10.5` (= 14px at 96dpi).
-  - Open the `chrome` folder on `/usr/share/themes/Flat-Plat`* and drag and drop the `.crx` files onto the Chrome/Chromium _Extensions_ page.
-
-### Manual Uninstallation
-- Delete the installed directories.
-
-  ```sh
-  sudo rm -rf /usr/share/themes/Flat-Plat-Blue{,-compact,-dark,-dark-compact,-light,-light-compact}
-  ```
-
-GDM (Lock/Login Screen)
------------------------
-You can change the GDM theme by replacing the default GNOME Shell theme.  
-However, if it fails, the desktop environment may not operate correctly. So please **be careful** if doing this.
-> **:warning: Cautions:**
-> - When applying this, other third-party GNOME Shell themes would look broken.
-> - If GNOME Shell has been updated, you will need to install this again.
-
 ### Installation
-1. After selecting the GTK+ theme, back up and replace the existing `.gresource` file.
+#### GNOME Shell/GTK Theme install
+- Download [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
+- Extract the files from the archive
+- In your terminal, enter the directory of the extracted theme, then issue the following command:
 
-  ```sh
-  GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g")
-  sudo cp -iv --backup /usr/share{/themes/$GTK_THEME,}/gnome-shell/gnome-shell-theme.gresource
-  ```
+{{< highlight bash >}}
+sudo sh install.sh
+{{< /highlight >}}
 
-  > _Developer note:_  
-  > If you don't want to overwrite the backup on the second and subsequent runs, delete the `--backup` option.
+- Use GNOME Tweak Tool to enable both the GTK+ Theme and the GNOME Shell Theme
 
-2. Restart GNOME Shell. (press <kbd>Alt</kbd> + <kbd>F2</kbd>, then type `r`)
+#### GDM (Lock/Login Screen)
+- Backup ```/usr/share/gnome-shell/gnome-shell-theme.gresource```
+- In your terminal, move into ```/usr/share/themes/Flat-Plat-Blue-{your-preferred-variant}/gnome-shell``` directory, then issue the following command
 
-### Uninstallation
-1. Restore to the original theme from the backup.
+{{< highlight bash >}}
+sudo cp gnome-shell-theme.gresource /usr/share/gnome-shell
+{{< /highlight >}}
 
-  ```sh
-  sudo mv -iv /usr/share/gnome-shell/gnome-shell-theme.gresource{~,}
-  ```
+- Restart your GNOME session. On X.Org, press ```Alt``` + ```F2```, then type ```r``` and ```Enter```. On Wayland, you may need to restart your computer for the change to take effect.
 
-3. Restart GNOME Shell (On X.org: press `Alt`+`F2`, then type `r`).
+#### Google Chrome Theme
+- On Google Chrome, go to ```chrome://extensions```
+- In your file manager to ```src/chrome``` inside the theme's directory, then drag your preferred theme to Google Chrome
+- Follow the instructions on Google Chrome
 
 
-### Uninstallation
-1. Restore to the original theme from the backup.
+### Screenshots
+*(click to enlarge)*
 
-  ```sh
-  sudo mv -iv /usr/share/gnome-shell/gnome-shell-theme.gresource{~,}
-  ```
+<a href="https://novelist.xyz/assets/img/Screenshot1.jpg"><img src="https://novelist.xyz/assets/img/Screenshot1.jpg" style="width:100%"></a>
 
-2. Restart GNOME Shell. (press <kbd>Alt</kbd> + <kbd>F2</kbd>, then type `r`)
+<a href="https://novelist.xyz/assets/img/Screenshot2.jpg"><img src="https://novelist.xyz/assets/img/Screenshot2.jpg" style="width:100%"></a>
 
-Other Info
-----------
+<a href="https://novelist.xyz/assets/img/Screenshot3.jpg"><img src="https://novelist.xyz/assets/img/Screenshot3.jpg" style="width:100%"></a>
+
+
+#### Other Info
 * License: GPLv2
 * Forked by [Peter Y. Chuang - Novelist](https://novelist.xyz)
+* [Source Code on Github](https://github.com/peterychuang/Flat-Plat-Blue)
