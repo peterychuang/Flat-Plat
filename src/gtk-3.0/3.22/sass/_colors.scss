@@ -45,9 +45,9 @@ $disabled_tertiary_titlebar_fg_color: if($titlebar == 'dark', $disabled_tertiary
 
 // Background colors
 $bg_color: if($variant == 'light', $grey_100, chroma($grey_700));
-$base_color: if($variant == 'light', $white, chroma($grey_600));
+$base_color: if($variant == 'light', $white, chroma($grey_700));
 $alt_base_color: if($variant == 'light', $grey_50, mix($base_color, $bg_color, 50%));
-$lighter_bg_color: if($variant == 'light', $grey_50, chroma($grey_500));
+$lighter_bg_color: if($variant == 'light', $grey_50, chroma($grey_600));
 $darker_bg_color: if($variant == 'light', $grey_200, chroma($grey_900));
 
 $titlebar_bg_color: if($variant == 'light', if($titlebar == 'dark', $grey_800, $grey_200), $grey_800);
