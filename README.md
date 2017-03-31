@@ -1,4 +1,4 @@
-*Update 25 March 2017: the latest version is out with preliminary support of GNOME 3.24*
+*Update 31 March 2017: new installation instruction for Arch Linux users*
 
 ## Flat-Plat-Blue Theme
 
@@ -24,28 +24,36 @@ Each variant comes with **normal** and **compact** themes for different screen s
 I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat) for personal use, but I reckoned there were people out there who wanted a [colour scheme that was more comfortable to look at](https://github.com/nana-4/Flat-Plat/issues/19), so I put together the theme and release it. You are welcomed to fork it and make further modifications yourself.
 
 
-### Download
+## Download
 
 * [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
 * ~~[Flat-Plat-Blue for GNOME 3.22](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.22/Flat-Plat-Blue-20161022.tar.gz)~~
 * ~~[Flat-Plat-Blue for GNOME 3.20](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.20/Flat-Plat-Blue-20160411.tar.gz)~~
 
-### Requirements
+
+## Requirements
 * GNOME/GTK+ 3.18 or above
 * The `gnome-themes-standard` package for GTK2
 * The pixmap (or pixbuf) engine for GTK2
 
 > _If default Adwaita works fine, it should also works fine._
 
-### Installation
+## Installation
+
+### Arch Linux
+
+Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blue-theme```](https://aur.archlinux.org/packages/flatplat-blue-theme/) package via AUR, coutesy of [@elementh](https://github.com/elementh).
+
+### Manual Installation
+
 #### GNOME Shell/GTK Theme install
 - Download [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
 - Extract the files from the archive
 - In your terminal, enter the directory of the extracted theme, then issue the following command:
 
-{{< highlight bash >}}
+```
 sudo sh install.sh
-{{< /highlight >}}
+```
 
 - Use GNOME Tweak Tool to enable both the GTK+ Theme and the GNOME Shell Theme
 
@@ -53,11 +61,11 @@ sudo sh install.sh
 - Backup ```/usr/share/gnome-shell/gnome-shell-theme.gresource```
 - In your terminal, move into ```/usr/share/themes/Flat-Plat-Blue-{your-preferred-variant}/gnome-shell``` directory, then issue the following command
 
-{{< highlight bash >}}
+```
 sudo cp gnome-shell-theme.gresource /usr/share/gnome-shell
-{{< /highlight >}}
+```
 
-- Restart your GNOME session. On X.Org, press ```Alt``` + ```F2```, then type ```r``` and ```Enter```. On Wayland, you may need to restart your computer for the change to take effect.
+- Restart your GNOME session. On X.Org, press ```Alt``` + ```F2```, then type ```r``` and ```Enter```. On Wayland, you may need to logout and log back in to see the change take effect.
 
 #### Google Chrome Theme
 - On Google Chrome, go to ```chrome://extensions```
@@ -65,7 +73,7 @@ sudo cp gnome-shell-theme.gresource /usr/share/gnome-shell
 - Follow the instructions on Google Chrome
 
 
-### Screenshots
+## Screenshots
 *(click to enlarge)*
 
 <a href="https://novelist.xyz/assets/img/Screenshot1.jpg"><img src="https://novelist.xyz/assets/img/Screenshot1.jpg" style="width:100%"></a>
@@ -75,7 +83,7 @@ sudo cp gnome-shell-theme.gresource /usr/share/gnome-shell
 <a href="https://novelist.xyz/assets/img/Screenshot3.jpg"><img src="https://novelist.xyz/assets/img/Screenshot3.jpg" style="width:100%"></a>
 
 
-#### Other Info
+## Other Info
 * License: GPLv2
 * Forked by [Peter Y. Chuang - Novelist](https://novelist.xyz)
 * [Source Code on Github](https://github.com/peterychuang/Flat-Plat-Blue)
