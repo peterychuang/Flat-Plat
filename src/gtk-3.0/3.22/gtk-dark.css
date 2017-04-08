@@ -4757,7 +4757,7 @@ na-tray-applet {
 }
 
 .budgie-menu scrolledwindow:not(.categories) {
-  background-color: #50636c;
+  background-color: #595959;
 }
 
 .budgie-menu entry.search {
@@ -4797,7 +4797,7 @@ button.raven-trigger {
 }
 
 .budgie-panel {
-  background-color: #263238;
+  background-color: #212121;
   color: #FFFFFF;
   font-weight: 500;
 }
@@ -4890,7 +4890,7 @@ frame.raven-frame > border {
 }
 
 .raven {
-  background-color: #50636c;
+  background-color: #595959;
 }
 
 .raven stackswitcher.linked > button {
@@ -4959,7 +4959,7 @@ frame.raven-frame > border {
 
 .raven .raven-background {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #596e79;
+  background-color: #686868;
 }
 
 .raven .raven-background.frame {
@@ -5033,7 +5033,7 @@ calendar.raven-calendar:selected {
   padding: 3px;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #596e79;
+  background-color: #686868;
 }
 
 .drop-shadow .linked > button {
@@ -5042,7 +5042,7 @@ calendar.raven-calendar:selected {
 
 .budgie-session-dialog, .budgie-polkit-dialog, .budgie-run-dialog {
   border-radius: 2px;
-  background-color: #596e79;
+  background-color: #686868;
 }
 
 .budgie-session-dialog decoration, .budgie-polkit-dialog decoration, .budgie-run-dialog decoration {
@@ -5077,7 +5077,7 @@ calendar.raven-calendar:selected {
 }
 
 .budgie-run-dialog {
-  background-color: #50636c;
+  background-color: #595959;
 }
 
 .budgie-run-dialog entry.search {
