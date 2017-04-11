@@ -2978,7 +2978,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* Dash to Dock */
 #dashtodockContainer #dash {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #424242;
 }
 
 #dashtodockContainer:overview #dash {
