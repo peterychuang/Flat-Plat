@@ -3182,8 +3182,8 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #212121;
-  background-image: linear-gradient(to bottom, #212121);
+  background-color: #424242;
+  background-image: linear-gradient(to bottom, #424242);
   color: #FFFFFF;
 }
 

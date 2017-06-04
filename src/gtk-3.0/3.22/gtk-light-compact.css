@@ -4656,7 +4656,7 @@ UnityPanelWidget:backdrop,
 #PanelPlug,
 PanelToplevel.background {
   background-color: #d6d6d6;
-  color: rgba(0, 0, 0, 0.87);
+  color: #FFFFFF;
   font-weight: 500;
 }
 
@@ -4977,7 +4977,7 @@ popover.background.places-menu row {
 
 .budgie-panel {
   background-color: #d6d6d6;
-  color: rgba(0, 0, 0, 0.87);
+  color: #FFFFFF;
   font-weight: 500;
 }
 
