@@ -45,7 +45,6 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blue-theme```](https://aur.archlinux.org/packages/flatplat-blue-theme/) package via AUR, coutesy of [@elementh](https://github.com/elementh).
 
 ### Manual Installation
-<<<<<<< HEAD
 
 #### GNOME Shell/GTK Theme install
 - Download [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
