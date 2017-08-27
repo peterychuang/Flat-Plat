@@ -25,7 +25,7 @@ fi
 
 echo
 
-themedir_base_fallback=${destdir}/usr/share/themes/Flat-Plat-Blue
+themedir_base_fallback=${destdir:-}/usr/share/themes/Flat-Plat-Blue
 themedir_base=${THEME_DIR_BASE:-$themedir_base_fallback}
 
 _COLOR_VARIANTS=(
@@ -49,9 +49,9 @@ for color in "${_COLOR_VARIANTS[@]}" ; do
     echo Installing Flat-Plat${color}${size} ...
 
     themedir=${themedir_base}${color}${size}
-    if [[ -d ${themedir} ]] ; then
-      rm -r ${themedir}
-    fi
+	if [[ -d ${themedir} ]] ; then
+		rm -r ${themedir}
+	fi
     install -d ${themedir}
 
     # Copy COPYING
