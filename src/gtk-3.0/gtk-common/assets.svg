@@ -63,7 +63,7 @@
     </linearGradient>
 
     <linearGradient id="color-bg-lighter-dark">
-      <stop stop-color="#414f56"/>
+      <stop stop-color="#414141"/>
     </linearGradient>
 
     <linearGradient id="color-base">
@@ -71,7 +71,7 @@
     </linearGradient>
 
     <linearGradient id="color-base-dark">
-      <stop stop-color="#3b484e"/>
+      <stop stop-color="#424242"/>
     </linearGradient>
 
     <filter id="1" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">

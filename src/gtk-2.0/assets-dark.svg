@@ -39,19 +39,19 @@
     </linearGradient>
 
     <linearGradient id="color-bg">
-      <stop stop-color="#333e43"/>
+      <stop stop-color="#424242"/>
     </linearGradient>
 
     <linearGradient id="color-bg-lighter">
-      <stop stop-color="#414f56"/>
+      <stop stop-color="#414141"/>
     </linearGradient>
 
     <linearGradient id="color-base">
-      <stop stop-color="#3b484e"/>
+      <stop stop-color="#424242"/>
     </linearGradient>
 
     <linearGradient id="color-base-alt">
-      <stop stop-color="#374349"/>
+      <stop stop-color="#424242"/>
     </linearGradient>
 
     <linearGradient id="color-border">
