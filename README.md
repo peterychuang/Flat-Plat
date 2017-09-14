@@ -1,15 +1,15 @@
-*Update 31 March 2017: new installation instruction for Arch Linux users*
-
 ## Flat-Plat-Blue Theme
 
 Flat-Plat-Blue Theme is a GNOME Shell/GTK Theme forked from [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat) with the following refinements:
 
 * All coloured elements (e.g. check boxes, sliders, switches, etc) are changed into blue to provide a more consistent and comfortable visual experience;
-* The top bar is transparent (this theme can be used in conjunction with GNOME Shell Extension "[Dynamic Panel Transparency](https://extensions.gnome.org/extension/1011/dynamic-panel-transparency/)");
+* The top bar is transparent when no window is maximised (starting from GNOME Shell 3.26);
 * Open Sans is the default font of the theme; and
 * Other minor changes and fixes.
 
-The latest version now includes three variants:
+The latest version features the redesign of running-app indicators for dash and dash-to-dock (See Screenshot).
+
+The theme includes three variants:
 
 * **Dark** title bar and **light** window's background (Flat-Plat-Blue)
 * **Light** title bar and **light** window's background (Flat-Plat-Blue-Light)
@@ -35,8 +35,7 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 * GNOME/GTK+ 3.18 or above
 * The `gnome-themes-standard` package for GTK2
 * The pixmap (or pixbuf) engine for GTK2
-
-> _If default Adwaita works fine, it should also works fine._
+* murrine engine
 
 ## Installation
 
@@ -47,7 +46,7 @@ Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blu
 ### Manual Installation
 
 #### GNOME Shell/GTK Theme install
-- Download [Flat-Plat-Blue for GNOME 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.24.1/Flat-Plat-Blue-20170325.tar.gz)
+- Download [Flat-Plat-Blue for GNOME 3.26/ 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/releases/download/3.26/Flat-Plat-Blue-20170325.tar.gz)
 - Extract the files from the archive
 - In your terminal, enter the directory of the extracted theme, then issue the following command:
 
