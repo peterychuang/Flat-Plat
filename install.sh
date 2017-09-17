@@ -46,7 +46,7 @@ fi
 
 for color in "${_COLOR_VARIANTS[@]}" ; do
   for size in "${_SIZE_VARIANTS[@]}" ; do
-    echo Installing Flat-Plat${color}${size} ...
+    echo Installing Flat-Plat-Blue${color}${size} ...
 
     themedir=${themedir_base}${color}${size}
 	if [[ -d ${themedir} ]] ; then
