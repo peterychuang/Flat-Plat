@@ -7,3 +7,6 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Flat-Plat-Blue-light
 MetacityTheme=Flat-Plat-Blue-light
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

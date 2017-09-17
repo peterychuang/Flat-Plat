@@ -7,8 +7,8 @@ $middle_opacity: 0.6;
 $lower_opacity: 0.3;
 
 $secondary_opacity: 0.75;
-$tertiary_opacity: 0.6;
-$disabled_opacity: 0.4;
+$hint_opacity: 0.6;
+$disabled_opacity: 0.5;
 
 // sizes
 $small_size: if($compact == 'false', 24px, 20px);
@@ -25,9 +25,9 @@ $material_radius: 2px;
 $circular_radius: 9999px;
 
 // durations
-$shorter_duration: 0.2s;
-$longer_duration: 0.3s;
-$ripple_duration: 0.5s;
+$shorter_duration: 180ms;
+$longer_duration: 270ms;
+$ripple_duration: 450ms;
 
 // timing functions
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);

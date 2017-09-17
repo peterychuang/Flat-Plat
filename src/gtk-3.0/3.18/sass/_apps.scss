@@ -42,7 +42,7 @@ EelEditableLabel.entry { transition: none; }
 }
 
 .nautilus-desktop.nautilus-canvas-item {
-  // background-color: scale-alpha(#000000, $lower_opacity);
+  // background-color: rgba(#000000, $lower_opacity);
   color: $inverse_fg_color;
   text-shadow: $shadow_1;
 }
@@ -132,7 +132,7 @@ GbTerminalView { background-color: $base_color; }
  * Firefox *
  ***********/
 .menubar {
-  color: $secondary_titlebar_fg_color;
+  color: $titlebar_secondary_fg_color;
 
   &:hover { color: $titlebar_fg_color; }
 }
@@ -172,7 +172,7 @@ UnityDecoration.top {
 }
 
 UnityDecoration.top:backdrop {
-  color: $secondary_titlebar_fg_color;
+  color: $titlebar_secondary_fg_color;
 }
 
 UnityDecoration.left,
@@ -208,14 +208,14 @@ SheetStyleDialog.unity-force-quit {
 // Panel Style
 UnityPanelWidget,
 .unity-panel {
-  background-color: $panel_bg_color;
-  background-image: linear-gradient(to bottom, $panel_bg_color);
+  background-color: $unity_panel_bg_color;
+  background-image: linear-gradient(to bottom, $unity_panel_bg_color);
   color: $titlebar_fg_color;
 }
 
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
-  color: $secondary_titlebar_fg_color;
+  color: $titlebar_secondary_fg_color;
 }
 
 .unity-panel.menubar,
