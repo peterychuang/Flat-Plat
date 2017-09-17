@@ -967,7 +967,7 @@ StScrollBar {
     }
 
     .datemenu-today-button .date-label {
-      @include font(headline);
+      @include font(title);
     }
 
     .world-clocks-header,
