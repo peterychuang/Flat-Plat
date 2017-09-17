@@ -997,7 +997,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* TOP BAR */
 #panel {
-  background-color: transparent;
+  background-color: #424242;
   font-weight: bold;
   height: 28px;
 }
@@ -2767,7 +2767,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.lock-screen {
-  background-color: transparent;
+  background-color: #424242;
 }
 
 .screen-shield-background {

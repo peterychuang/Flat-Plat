@@ -808,7 +808,7 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: $panel_bg_color;
+  background-color: transparentize($panel_bg_color,1);
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -906,12 +906,12 @@ StScrollBar {
   .screencast-indicator { color: $warning_color; }
 
   &.solid {
-    background-color: $panel_bg_color_solid;
+    background-color: $panel_bg_color;
     /* transition from transparent to solid */
     transition-duration: 250ms;
 
     .panel-corner {
-      -panel-corner-background-color: $panel_bg_color_solid;
+      -panel-corner-background-color: $panel_bg_color;
     }
 
     .panel-button {
@@ -2099,7 +2099,7 @@ StScrollBar {
   color: $inverse_secondary_fg_color;
 }
 
-#panel.lock-screen { background-color: $panel_bg_color; }
+#panel.lock-screen { background-color: transparentize($panel_bg_color,1); }
 
 .screen-shield-background { //just the shadow, really
   background: black;

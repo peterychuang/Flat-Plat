@@ -42,8 +42,7 @@ $alt_base_color: if($variant == 'light', $grey_200, fade($grey_600));
 $bg_color:         rgba($black, $middle_opacity);
 $alt_bg_color:     rgba($black, $lower_opacity);
 $inverse_bg_color: rgba($inverse_fg_color, 0.1);
-$panel_bg_color: transparent;
-$panel_bg_color_solid: $grey_800;
+$panel_bg_color: $grey_800;
 
 // Misc colors
 $primary_color:     $blue_400;
