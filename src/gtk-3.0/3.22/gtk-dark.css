@@ -4402,7 +4402,7 @@ idelayoutstackheader button:checked {
 
 ideeditorutilities > dzldockpaned > box > stackswitcher {
   padding: 8px 0;
-  background-color: #333e43;
+  background-color: #414141;
 }
 
 ideeditorutilities > dzldockpaned > box > stackswitcher:dir(ltr) {
