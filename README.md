@@ -1,6 +1,6 @@
 ## Flat-Plat-Blue Theme
 
-Flat-Plat-Blue Theme is a GNOME Shell/GTK Theme forked from [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat) with the following refinements:
+Flat-Plat-Blue Theme is a GNOME Shell/GTK Theme forked from [Materia Theme (formerly Flat-Plat)](https://github.com/nana-4/materia-theme/) with the following refinements:
 
 * All coloured elements (e.g. check boxes, sliders, switches, etc) are changed into blue to provide a more consistent and comfortable visual experience;
 * The top bar is transparent when no window is maximised (starting from GNOME Shell 3.26);
