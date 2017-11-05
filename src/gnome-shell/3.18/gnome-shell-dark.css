@@ -999,7 +999,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel {
   background-color: #424242;
   font-weight: bold;
-  height: 32px;
+  height: 30px;
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
@@ -1115,13 +1115,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .datemenu-today-button,
 .world-clocks-button,
 .message-list-section-title {
-  min-height: 24px;
+  min-height: 22px;
   padding: 4px 8px;
   border-radius: 2px;
 }
 
 .datemenu-today-button {
-  min-height: 56px;
+  min-height: 52px;
 }
 
 .message-list-section-list:ltr {
@@ -1164,7 +1164,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-month-label {
-  height: 20px;
+  height: 18px;
   margin: 2px;
   padding: 6px 16px;
   border-radius: 2px;
@@ -1178,8 +1178,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .pager-button {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   margin: 2px;
   border-radius: 100px;
   background-color: transparent;
@@ -1214,8 +1214,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-size: 9pt;
   font-weight: 400;
   text-align: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   margin: 2px;
   border-radius: 100px;
@@ -1232,8 +1232,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-day-base.calendar-day-heading {
-  width: 32px;
-  height: 25px;
+  width: 30px;
+  height: 23px;
   margin-top: 2px;
   padding: 7px 0 0;
   border-radius: 100px;
@@ -1279,8 +1279,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-week-number {
-  width: 32px;
-  height: 25px;
+  width: 30px;
+  height: 23px;
   margin: 2px;
   padding: 7px 0 0;
   border-radius: 100px;
@@ -1312,7 +1312,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .message-list-section-close > StIcon {
   icon-size: 16px;
   border-radius: 16px;
-  padding: 8px;
+  padding: 7px;
   color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
 }
@@ -1330,7 +1330,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message {
-  min-height: 64px;
+  min-height: 60px;
   background-color: transparent;
   border-radius: 2px;
 }
@@ -1380,7 +1380,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-content {
-  min-height: 48px;
+  min-height: 44px;
   padding: 8px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1em;
@@ -2030,7 +2030,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .notification-banner {
   font-size: 1em;
   width: 34em;
-  min-height: 64px;
+  min-height: 60px;
   margin: 5px;
   border-radius: 2px;
   color: #FFFFFF;
@@ -2369,7 +2369,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .candidate-box {
   transition-duration: 0ms;
-  min-height: 32px;
+  min-height: 30px;
   padding: 0 8px;
   border-radius: 2px;
 }
@@ -2390,7 +2390,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button-box {
-  height: 32px;
+  height: 30px;
 }
 
 .vertical .candidate-page-button-box {
@@ -2402,8 +2402,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button {
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 30px;
+  min-height: 30px;
   padding: 0;
 }
 
