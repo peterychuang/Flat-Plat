@@ -893,8 +893,7 @@ StScrollBar {
     }
 
     &.clock-display {
-      > StBoxLayout > StIcon { 
-        icon-size: 16px;
+      > StBoxLayout > StIcon {
         color: rgba($accent_color, 0.7);
       }
 

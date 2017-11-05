@@ -1088,7 +1088,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button.clock-display > StBoxLayout > StIcon {
-  icon-size: 16px;
   color: rgba(68, 138, 255, 0.7);
 }
 
