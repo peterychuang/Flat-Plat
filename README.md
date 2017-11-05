@@ -32,10 +32,19 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 
 
 ## Requirements
-* GNOME/GTK+ 3.18 or above
-* The `gnome-themes-standard` package for GTK2
-* The pixmap (or pixbuf) engine for GTK2
-* murrine engine
+- GTK+ `>=3.18`
+- `gnome-themes-standard`
+- Murrine engine - The package name depends on the distro.
+  - `gtk-engine-murrine` on Arch Linux
+  - `gtk-murrine-engine` on Fedora
+  - `gtk2-engine-murrine` on openSUSE
+  - `gtk2-engines-murrine` on Debian, Ubuntu, etc.
+- `glib-compile-resources` - The package name depends on the distro.
+  - `glib2` on Arch Linux
+  - `glib2-devel` on Fedora, openSUSE, etc.
+  - `libglib2.0-dev` on Debian, Ubuntu, etc.
+
+Did you get the error: `XMLLINT not set and xmllint not found in path`? Then you'll also need to install `libxml2-utils`.
 
 ## Installation
 
