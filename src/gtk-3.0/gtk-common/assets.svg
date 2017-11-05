@@ -51,7 +51,7 @@
     </linearGradient>
 
     <linearGradient id="color-bg">
-      <stop stop-color="#F5F5F5"/>
+      <stop stop-color="#FAFAFA"/>
     </linearGradient>
 
     <linearGradient id="color-bg-dark">
@@ -59,7 +59,7 @@
     </linearGradient>
 
     <linearGradient id="color-bg-lighter">
-      <stop stop-color="#FAFAFA"/>
+      <stop stop-color="#FDFDFD"/>
     </linearGradient>
 
     <linearGradient id="color-bg-lighter-dark">

@@ -41,13 +41,13 @@ $inverse_track_color:                 rgba($white, 0.3);
 $inverse_divider_color:               rgba($white, 0.12);
 
 // Background colors
-$bg_color:         if($variant == 'light', $grey_100, fade($grey_700));
+$bg_color:         if($variant == 'light', $grey_50, fade($grey_700));
 $base_color:       if($variant == 'light', $white, fade($grey_700));
 $alt_base_color:   if($variant == 'light', $grey_50, mix($base_color, $bg_color, 50%));
-$lighter_bg_color: if($variant == 'light', $grey_50, fade($grey_600));
+$lighter_bg_color: if($variant == 'light', mix($grey_50, $white, 50%) , fade($grey_600));
 $darker_bg_color:  if($variant == 'light', $grey_200, fade($grey_900));
 
-$titlebar_bg_color:     if($titlebar == 'dark', if($variant == 'light', $grey_800, $grey_800), $grey_200);
+$titlebar_bg_color:     if($titlebar == 'dark', if($variant == 'light', $grey_800, $grey_800), $grey_50);
 $alt_titlebar_bg_color: if($titlebar == 'dark', $grey_800, mix($grey_200, $grey_400, 50%));
 $panel_bg_color:        if($titlebar == 'dark', $grey_900, mix($grey_200, $grey_400, 50%));
 $unity_panel_bg_color:  if($titlebar == 'dark', $grey_800, mix($grey_200, $grey_400, 50%));  // translucent colors cannot be used for Unity and MATE panels

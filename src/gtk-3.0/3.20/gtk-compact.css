@@ -41,7 +41,7 @@ notebook:focus tab,
  * Base States *
  ***************/
 .background {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -56,22 +56,22 @@ notebook:focus tab,
 }
 
 .gtkstyle-fallback {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .gtkstyle-fallback:hover {
-  background-color: #e8e8e8;
+  background-color: #ededed;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .gtkstyle-fallback:active {
-  background-color: gainsboro;
+  background-color: #e1e1e1;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .gtkstyle-fallback:disabled {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -515,7 +515,7 @@ button {
   font-weight: 500;
   transition: all 270ms cubic-bezier(0, 0, 0.2, 1), box-shadow 180ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 900ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 0 0 9999px transparent;
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
   background-image: radial-gradient(circle farthest-corner at center, transparent 10%, transparent 0%);
   background-repeat: no-repeat;
   background-position: center;
@@ -1141,7 +1141,7 @@ notebook > stack:not(:only-child) button.combo:disabled, .raven .raven-backgroun
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: 2px;
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 .osd toolbar {
@@ -1214,7 +1214,7 @@ searchbar,
   border-style: solid;
   border-width: 0 0 1px;
   border-color: rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   background-clip: border-box;
 }
 
@@ -1857,7 +1857,7 @@ popover.background {
   transition: box-shadow 180ms cubic-bezier(0, 0, 0.2, 1);
   padding: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 popover.background:backdrop {
@@ -1908,7 +1908,7 @@ popover.background list separator {
 notebook > header {
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   background-clip: border-box;
 }
 
@@ -3237,14 +3237,14 @@ calendar:indeterminate {
  * Dialogs *
  ***********/
 messagedialog.background {
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 messagedialog .titlebar {
   min-height: 20px;
   border-style: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -3277,7 +3277,7 @@ filechooser .dialog-action-box {
 
 filechooser #pathbarbox {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 filechooserbutton:drop(active) {
@@ -3289,7 +3289,7 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
@@ -3417,7 +3417,7 @@ paned > separator {
 paned > separator.wide {
   min-width: 6px;
   min-height: 6px;
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   background-image: image(rgba(0, 0, 0, 0.12)), image(rgba(0, 0, 0, 0.12));
   background-size: 1px 1px, 1px 1px;
 }
@@ -3630,7 +3630,7 @@ colorchooser .popover.osd:backdrop {
  * Misc *
  ********/
 .content-view {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 /**********************
@@ -3909,7 +3909,7 @@ button.emoji-section:last-child {
 }
 
 .nautilus-window paned > separator {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 /*********
@@ -3925,7 +3925,7 @@ button.emoji-section:last-child {
 }
 
 .gedit-document-panel {
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 .gedit-document-panel row button.flat {
@@ -4016,7 +4016,7 @@ frame.gedit-map-frame > border:dir(rtl) {
  * Tweak Tool *
  **************/
 .tweak-categories {
-  background-image: image(#FAFAFA);
+  background-image: image(#fdfdfd);
 }
 
 .tweak {
@@ -4055,7 +4055,7 @@ workbench:not(.tiled):not(.maximized):not(.fullscreen) stack.titlebar headerbar 
 }
 
 perspectiveswitcher {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 perspectiveswitcher button:checked {
@@ -4064,7 +4064,7 @@ perspectiveswitcher button:checked {
 
 layouttabbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 layouttabbar > box > button {
@@ -4120,13 +4120,13 @@ dockpaned {
 eggsearchbar box.search-bar {
   padding: 0 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 docktabstrip {
   padding: 0 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 docktab {
@@ -4160,7 +4160,7 @@ docktab:checked {
 }
 
 dockoverlayedge {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 dockoverlayedge docktabstrip {
@@ -4185,7 +4185,7 @@ dockoverlayedge.right-edge docktab:checked {
 }
 
 pillbox {
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   border-radius: 2px;
 }
 
@@ -4273,11 +4273,11 @@ overlay grid.horizontal > revealer > scrolledwindow.frame:dir(rtl) {
 }
 
 .side-panel .view {
-  background-image: image(#FAFAFA);
+  background-image: image(#fdfdfd);
 }
 
 .side-panel .view:hover {
-  background-image: image(rgba(240, 240, 240, 0.9935));
+  background-image: image(rgba(243, 243, 243, 0.9935));
 }
 
 .side-panel .view:selected {
@@ -4379,7 +4379,7 @@ box.dialog-vbox scrolledwindow.related {
 }
 
 list.categories {
-  background-image: image(#FAFAFA);
+  background-image: image(#fdfdfd);
 }
 
 /*********
@@ -4444,7 +4444,7 @@ overlay > revealer.right > scrolledwindow.frame {
 
 .terminix-session-sidebar,
 .tilix-session-sidebar {
-  background-image: image(#FAFAFA);
+  background-image: image(#fdfdfd);
 }
 
 button.image-button.session-new-button {
@@ -4832,7 +4832,7 @@ na-tray-applet {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 3px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 .mate-panel-applet-slider frame frame {
@@ -4886,7 +4886,7 @@ na-tray-applet {
 
 #caja-extra-view-widget {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
 }
 
 #caja-extra-view-widget > box > box > label {
@@ -5186,7 +5186,7 @@ frame.raven-frame > border {
 }
 
 .raven {
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 .raven > stack {
@@ -5330,7 +5330,7 @@ calendar.raven-calendar:selected {
   padding: 3px;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 .drop-shadow .linked > button {
@@ -5339,7 +5339,7 @@ calendar.raven-calendar:selected {
 
 .budgie-session-dialog, .budgie-polkit-dialog, .budgie-run-dialog {
   border-radius: 2px;
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 .budgie-session-dialog decoration, .budgie-polkit-dialog decoration, .budgie-run-dialog decoration {
@@ -5433,7 +5433,7 @@ headerbar .budgie-run-dialog list .subtitle, .budgie-run-dialog list .budgie-not
   margin: 8px;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #FAFAFA;
+  background-color: #fdfdfd;
 }
 
 #content_frame {
@@ -5464,7 +5464,7 @@ text color for entries, views and content in general */
 @define-color theme_text_color rgba(0, 0, 0, 0.87);
 /*
 widget base background color */
-@define-color theme_bg_color #F5F5F5;
+@define-color theme_bg_color #FAFAFA;
 /*
 text widgets and the like base background color */
 @define-color theme_base_color #FFFFFF;
@@ -5476,7 +5476,7 @@ text/foreground color of selections */
 @define-color theme_selected_fg_color #FFFFFF;
 /*
 base background color of insensitive widgets */
-@define-color insensitive_bg_color #F5F5F5;
+@define-color insensitive_bg_color #FAFAFA;
 /*
 text foreground color of insensitive widgets */
 @define-color insensitive_fg_color rgba(0, 0, 0, 0.38);
@@ -5491,7 +5491,7 @@ text color for entries, views and content in general on backdrop windows */
 @define-color theme_unfocused_text_color rgba(0, 0, 0, 0.87);
 /*
 widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color #F5F5F5;
+@define-color theme_unfocused_bg_color #FAFAFA;
 /*
 text widgets and the like base background color on backdrop windows */
 @define-color theme_unfocused_base_color #FFFFFF;
