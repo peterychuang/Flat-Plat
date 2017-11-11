@@ -1164,7 +1164,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-month-label {
-  height: 20px;
+  height: 22px;
   margin: 2px;
   padding: 6px 16px;
   border-radius: 2px;
