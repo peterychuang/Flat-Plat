@@ -11,47 +11,33 @@
 }
 
 // let's start it
-#PanelPlug, // FIXME: this cannot be transparent
-PanelToplevel.background {
-  background-color: $unity_panel_bg_color;
-  color: $titlebar_secondary_fg_color;
+.mate-panel-menu-bar {
+  background-color: $solid_panel_bg_color;
   font-weight: 500;
-}
 
-// FIXME: this should really die if #PanelPlug can be transparent
-%mate_panel_button {
-  color: $titlebar_secondary_fg_color;
+  // Avoid changing the menu text color
+  &:not(.popup) { color: $inverse_secondary_fg_color; }
 
-  &:hover, &:active { color: $titlebar_fg_color; }
+  button {
+    @extend %flat_button;
+    @extend %button_selected.flat;
 
-  &:disabled { color: $titlebar_disabled_secondary_fg_color; }
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0; // NOTE: Most buttons padding are hard-coded to 0 (except hide buttons)
+    border-radius: 0;
 
-  &:checked {
-    background-color: $titlebar_divider_color;
-    color: $titlebar_fg_color;
-  }
-
-  &:checked:disabled {
-    background-color: $titlebar_divider_color;
-    color: $titlebar_disabled_fg_color;
+    &:checked { background-color: $inverse_divider_color; }
   }
 }
 
 // hide buttons
-PanelToplevel > grid > button {
-  min-height: 24px;
+PanelToplevel.horizontal > grid > button {
   min-width: 24px;
-  padding: 0;
-  border-radius: 0;
-
-  @extend %simple_flat_button;
-
-  @extend %mate_panel_button;
 }
 
-// for small arrows
-PanelWidget button {
-  &, &:hover, &:active { color: $titlebar_secondary_fg_color; }
+PanelToplevel.vertical > grid > button {
+  min-height: 24px;
 }
 
 #PanelApplet {
@@ -59,13 +45,13 @@ PanelWidget button {
 }
 
 PanelSeparator {
-  color: $titlebar_divider_color;
+  color: $inverse_divider_color;
 }
 
 // the grid left from na-tray and wncktasklist
 MatePanelAppletFrameDBus {
   border-style: solid;
-  border-color: $titlebar_divider_color;
+  border-color: $inverse_divider_color;
 
   .mate-panel-menu-bar.horizontal & { border-width: 0 1px; }
   .mate-panel-menu-bar.vertical & { border-width: 1px 0; }
@@ -79,7 +65,9 @@ MatePanelAppletFrameDBus {
 
   // set normal menubar menuitem
   menubar menu > menuitem {
-    padding: 6px;
+    // adjust sizing since the menuitem has large icons
+    min-height: $menuitem_size;
+    padding: 0 6px;
     // font-weight: initial;
   }
 }
@@ -87,17 +75,23 @@ MatePanelAppletFrameDBus {
 // all applets
 .mate-panel-menu-bar #PanelApplet button {
   -GtkWidget-window-dragging: true;
-  padding: 4px;
-  border-radius: 0;
-
-  @extend %flat_button;
-
-  @extend %mate_panel_button;
+  // padding: 4px;
 }
 
 #tasklist-button {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                currentColor 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0px;
+
+  &:checked {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  currentColor 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+  }
+
   // instead of #tasklist-button { padding: 0 4px; }
-  // since the button padding is hard-coded to 0
   image:dir(ltr), label:dir(rtl) { padding-left: 4px; }
   label:dir(ltr), image:dir(rtl) { padding-right: 4px; }
 
@@ -105,20 +99,31 @@ MatePanelAppletFrameDBus {
   .mate-panel-menu-bar.vertical & { min-height: 32px; }
 }
 
+#showdesktop-button {
+  .mate-panel-menu-bar.horizontal & image {
+    min-width: 24px;
+    padding: 0 4px;
+  }
+
+  .mate-panel-menu-bar.vertical & image {
+    min-height: 24px;
+    padding: 4px 0;
+  }
+}
+
 // WnckPager
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
   color: $alt_primary_color;
 
-  &:hover { background-color: $titlebar_divider_color; }
+  &:hover { background-color: $inverse_divider_color; }
 
-  &:active { background-color: $titlebar_track_color; }
+  &:active { background-color: $inverse_track_color; }
 
   &:selected { background-color: $primary_color; }
 }
 
 #clock-applet-button {
-  // since the button padding is hard-coded to 0, add to the label node instead
   .mate-panel-menu-bar.horizontal & label { padding: 0 8px; }
   .mate-panel-menu-bar.vertical & label { padding: 8px 0; }
 }
@@ -176,8 +181,8 @@ na-tray-applet widget box widget {
   &:not(:selected) > box { transition: $shorter_transition; }
 
   &:selected > box {
-    background-color: $titlebar_divider_color;
-    color: $titlebar_fg_color;
+    background-color: $inverse_divider_color;
+    color: $inverse_fg_color;
   }
 }
 
