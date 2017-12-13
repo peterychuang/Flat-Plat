@@ -891,6 +891,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 8px;
   border: none;
   background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 .switcher-list .item-box:selected {
@@ -1112,6 +1113,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: #424242;
   /* transition from transparent to solid */
   transition-duration: 250ms;
+  background-gradient-direction: none;
+  text-shadow: none;
+}
+
+#panel.solid:overview {
+  background-color: transparent;
 }
 
 #panel.solid .panel-corner {
@@ -1123,7 +1130,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   text-shadow: none;
 }
 
-#panel.solid .panel-button:hover {
+#panel.solid .panel-button:hover, #panel.solid .panel-button:active, #panel.solid .panel-button:overview, #panel.solid .panel-button:focus, #panel.solid .panel-button:checked {
   color: #FFFFFF;
 }
 
@@ -1554,6 +1561,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 0 4px;
 }
 
+.aggregate-menu .popup-sub-menu .popup-menu-item :first-child:ltr {
+  /* 8px spacing + 2*4px padding */
+  padding-left: 16px;
+  margin-left: 1.23077em;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item :first-child:rtl {
+  /* 8px spacing + 2*4px padding */
+  padding-right: 16px;
+  margin-right: 1.23077em;
+}
+
 .system-menu-action {
   color: rgba(255, 255, 255, 0.7);
   border-radius: 100px;
@@ -1719,7 +1738,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .window-picker {
   -horizontal-spacing: 16px;
   -vertical-spacing: 16px;
-  padding: 0 16px 16px;
+  padding: 0 16px 32px;
 }
 
 .window-picker.external-monitor {

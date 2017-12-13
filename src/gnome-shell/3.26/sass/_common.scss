@@ -710,6 +710,7 @@ StScrollBar {
     padding: 8px;
     border: none;
     background-color: $divider_color;
+    color: $fg_color; // for Ubuntu session
   }
 
   .switcher-list .item-box:selected {
@@ -920,6 +921,10 @@ StScrollBar {
     background-color: $panel_bg_color;
     /* transition from transparent to solid */
     transition-duration: 250ms;
+    background-gradient-direction: none; // for Ubuntu session
+    text-shadow: none; // for Ubuntu session
+
+    &:overview { background-color: transparent; } // for Ubuntu session
 
     .panel-corner {
       -panel-corner-background-color: $panel_bg_color;
@@ -929,7 +934,7 @@ StScrollBar {
       color: $inverse_secondary_fg_color;
       text-shadow: none;
 
-      &:hover {
+      &:hover, &:active, &:overview, &:focus, &:checked {
         color: $inverse_fg_color;
       }
     }
@@ -1265,6 +1270,12 @@ StScrollBar {
   .aggregate-menu {
     min-width: 280px;
     .popup-menu-icon { padding: 0 4px; }
+    .popup-sub-menu .popup-menu-item :first-child {
+      &:ltr { /* 8px spacing + 2*4px padding */
+              padding-left: 16px; margin-left: em(16px); }
+      &:rtl { /* 8px spacing + 2*4px padding */
+              padding-right: 16px; margin-right: em(16px); }
+    }
   }
 
   .system-menu-action {
@@ -1384,7 +1395,7 @@ StScrollBar {
   .window-picker { //container around window thumbnails
     -horizontal-spacing: 16px;
     -vertical-spacing: 16px;
-    padding: 0 16px 16px;
+    padding: 0 16px 32px;
 
     &.external-monitor { padding: 16px; }
   }
