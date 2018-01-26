@@ -1,27 +1,8 @@
 ## General
 
-- Improve directory structure ([#170](../../issues/170), `help wanted`)
+- Improve directory structure ([#170](../../issues/170))
 
 - Use `make` or `meson` for building? (`help wanted`)
-
-- Improve `install.sh` script? (`help wanted`)
-
-  Currently, `install.sh` allows such arguments (thanks to @actionless):
-
-  ```sh
-  # This will install only normal color variant of compact theme into ~/.themes dir as MyTheme,
-  # ie ~/.themes/MyTheme-compact
-  COLOR_VARIANTS="," SIZE_VARIANTS="-compact" THEME_DIR_BASE=~/.themes/MyTheme ./install.sh
-  ```
-
-  My alternative idea is (more like shell option):
-
-  ```sh
-  # Note that this is just a draft.
-  ./install.sh --color - --size compact --dir ~/.themes --name MyTheme
-  # and/or shorter
-  ./install.sh -c - -s compact -d ~/.themes -n MyTheme
-  ```
 
 ## Supports
 
@@ -66,7 +47,5 @@
 ## Others
 
 - Polish Inkscape (using gtk3) styling
-
-- Polish Xfwm styling
 
 - Use gtk3 color vars for `metacity-theme-3.xml`
