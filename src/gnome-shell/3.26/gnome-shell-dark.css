@@ -1110,7 +1110,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.solid {
-  background-color: #212121;
+  background-color: #424242;
   /* transition from transparent to solid */
   transition-duration: 250ms;
   background-gradient-direction: none;
@@ -1122,7 +1122,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.solid .panel-corner {
-  -panel-corner-background-color: #212121;
+  -panel-corner-background-color: #424242;
 }
 
 #panel.solid .panel-button {

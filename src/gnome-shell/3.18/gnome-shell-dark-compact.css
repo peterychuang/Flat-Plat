@@ -997,7 +997,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* TOP BAR */
 #panel {
-  background-color: #212121;
+  background-color: #424242;
   font-weight: bold;
   height: 25px;
 }
