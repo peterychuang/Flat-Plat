@@ -44,7 +44,19 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
   - `glib2-devel` on Fedora, openSUSE, etc.
   - `libglib2.0-dev` on Debian, Ubuntu, etc.
 
-Did you get the error: `XMLLINT not set and xmllint not found in path`? Then you'll also need to install `libxml2-utils`.
+For Ubuntu, you'll also need the `libxml2-utils` package.
+
+## Installation
+
+#### Packages
+
+|| **Install command** |
+|:-|:-|
+| **Arch Linux** [1] | `yaourt -S materia-theme` |
+| **Fedora / EPEL** [2] | `sudo dnf copr enable tcg/themes && sudo dnf install materia-theme` |
+
+1. The [AUR package](https://aur.archlinux.org/packages/materia-theme/) is maintained by [@cthbleachbit](https://github.com/cthbleachbit).
+2. The [Copr repository](https://copr.fedorainfracloud.org/coprs/tcg/themes/) is maintained by [@LaurentTreguier](https://github.com/LaurentTreguier).
 
 ## Installation
 
