@@ -48,20 +48,6 @@ For Ubuntu, you'll also need the `libxml2-utils` package.
 
 ## Installation
 
-#### Packages
-
-|| **Install command** |
-|:-|:-|
-| **Arch Linux** [1] | `yaourt -S materia-theme` |
-| **Fedora / EPEL** [2] | `sudo dnf copr enable tcg/themes && sudo dnf install materia-theme` |
-| **Ubuntu** [3] | `sudo add-apt-repository ppa:dyatlov-igor/materia-theme` <br> `sudo apt update` <br> `sudo apt install materia-theme` |
-
-1. The [AUR package](https://aur.archlinux.org/packages/materia-theme/) is maintained by [@cthbleachbit](https://github.com/cthbleachbit).
-2. The [Copr repository](https://copr.fedorainfracloud.org/coprs/tcg/themes/) is maintained by [@LaurentTreguier](https://github.com/LaurentTreguier).
-3. The [Ubuntu PPA](https://launchpad.net/~dyatlov-igor/+archive/ubuntu/materia-theme) is maintained by [@igor-dyatlov](https://github.com/igor-dyatlov).
-
-## Installation
-
 ### Arch Linux
 
 Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blue-theme```](https://aur.archlinux.org/packages/flatplat-blue-theme/) package via AUR, coutesy of [@elementh](https://github.com/elementh).
