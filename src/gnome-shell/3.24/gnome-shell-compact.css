@@ -2336,7 +2336,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* On-screen Keyboard */
 #keyboard {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .keyboard-layout {
@@ -2390,9 +2390,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .keyboard-key:grayed {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #FFFFFF;
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 .keyboard-subkeys {
@@ -2803,7 +2803,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .screen-shield-notifications-container .screen-shield-notification-source {
   padding: 8px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #FFFFFF;
   border-radius: 2px;
 }
