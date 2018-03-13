@@ -133,7 +133,7 @@
 }
 
 .gedit-document-panel {
-  background-color: $lighter_bg_color;
+  background-color: $alt_base_color;
 
   // Try to look as the notebook tab close button
   row button.flat {
@@ -221,13 +221,13 @@ frame.gedit-map-frame > border {
  * Tweak Tool *
  **************/
 // hard-coded css:
-// https://git.gnome.org/browse/gnome-tweak-tool/tree/data/shell.css?h=gnome-3-20
+// https://gitlab.gnome.org/GNOME/gnome-tweaks/blob/gnome-3-20/data/shell.css
 
 // the sidebar
 .tweak-categories {
   // padding: 4px 0;
   // background-color: shade(@theme_bg_color, 0.99);
-  background-image: image($lighter_bg_color);
+  background-image: image($alt_base_color);
 
   separator { @extend %hide_separators; }
 }
@@ -263,9 +263,9 @@ frame.gedit-map-frame > border {
  * Builder *
  ***********/
 // based css:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme?h=gnome-builder-3-20
+// https://gitlab.gnome.org/GNOME/gnome-builder/tree/gnome-builder-3-20/data/theme
 // hard-coded css:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme/shared.css?h=gnome-builder-3-20
+// https://gitlab.gnome.org/GNOME/gnome-builder/blob/gnome-builder-3-20/data/theme/shared.css
 
 // Titlebar adjustments for workbench
 //
@@ -487,7 +487,7 @@ workbench preferences preferencesgroup list entry {
  * Photos *
  **********/
 // based css:
-// https://git.gnome.org/browse/gnome-photos/tree/data/Adwaita.css?h=gnome-3-20
+// https://gitlab.gnome.org/GNOME/gnome-photos/blob/gnome-3-20/data/Adwaita.css
 
 GdMainIconView.content-view {
   -GdMainIconView-icon-size: 48;
@@ -540,7 +540,7 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
  * Music *
  *********/
 // hard-coded css:
-// https://git.gnome.org/browse/gnome-music/tree/data/application.css?h=gnome-3-20
+// https://gitlab.gnome.org/GNOME/gnome-music/blob/gnome-3-20/data/application.css
 
 .side-panel:dir(ltr) {
   // border-width: 0 1px 0 0;
@@ -556,9 +556,9 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 
 .side-panel .view {
   // background-color: mix(@theme_fg_color, @theme_bg_color, 0.9);
-  background-image: image($lighter_bg_color);
+  background-image: image($alt_base_color);
 
-  &:hover { background-image: image(mix($fg_color, $lighter_bg_color, percentage(0.05))); }
+  &:hover { background-image: image(mix($fg_color, $alt_base_color, percentage(0.05))); }
 }
 
 .side-panel .view:selected {
@@ -651,7 +651,7 @@ frame.commit-frame > border { border-style: solid none none; }
  **************/
 box.dialog-vbox scrolledwindow.related { border: 1px solid $border_color; }
 
-list.categories { background-image: image($lighter_bg_color); }
+list.categories { background-image: image($alt_base_color); }
 
 
 /*********

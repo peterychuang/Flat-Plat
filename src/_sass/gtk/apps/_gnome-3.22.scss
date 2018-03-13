@@ -192,7 +192,7 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 }
 
 .gedit-document-panel {
-  background-color: $lighter_bg_color;
+  background-color: $alt_base_color;
 
   // Try to look as the notebook tab close button
   row button.flat {
@@ -280,13 +280,13 @@ frame.gedit-map-frame > border {
  * Tweak Tool *
  **************/
 // hard-coded css:
-// https://git.gnome.org/browse/gnome-tweak-tool/tree/data/shell.css
+// https://gitlab.gnome.org/GNOME/gnome-tweaks/blob/master/data/shell.css
 
 // the sidebar
 .tweak-categories {
   // padding: 4px 0;
   // background-color: shade(@theme_bg_color, 0.99);
-  background-image: image($lighter_bg_color);
+  background-image: image($alt_base_color);
 
   separator { @extend %hide_separators; }
 }
@@ -346,11 +346,11 @@ row#workspaces-only-on-primary {
  * Builder *
  ***********/
 // based css for 3.22:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme?h=gnome-builder-3-22
+// https://gitlab.gnome.org/GNOME/gnome-builder/tree/gnome-builder-3-22/data/theme
 // based css for 3.24:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme?h=gnome-builder-3-24
+// https://gitlab.gnome.org/GNOME/gnome-builder/tree/gnome-builder-3-24/data/theme
 // based css for 3.26:
-// https://git.gnome.org/browse/gnome-builder/tree/data/themes?h=gnome-builder-3-26
+// https://gitlab.gnome.org/GNOME/gnome-builder/tree/gnome-builder-3-26/data/themes
 
 // Layout tab and tab bar tweaks
 // The following makes the layout stack header look similar to a tab bar.
@@ -445,7 +445,7 @@ entry.preferences-search {
 }
 
 preferences stacksidebar.sidebar {
-  list { background-color: $lighter_bg_color; }
+  list { background-color: $alt_base_color; }
 
   &:dir(ltr),
   &:dir(rtl) { list { border-style: none; }}
@@ -711,7 +711,7 @@ popover.messagepopover {
  * Photos *
  **********/
 // based css:
-// https://git.gnome.org/browse/gnome-photos/tree/data/Adwaita.css
+// https://gitlab.gnome.org/GNOME/gnome-photos/blob/master/data/Adwaita.css
 
 GdMainIconView.content-view {
   -GdMainIconView-icon-size: 48;
@@ -766,7 +766,7 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
  * Music *
  *********/
 // hard-coded css:
-// https://git.gnome.org/browse/gnome-music/tree/data/application.css
+// https://gitlab.gnome.org/GNOME/gnome-music/blob/master/data/application.css
 
 .side-panel:dir(ltr) {
   // border-width: 0 1px 0 0;
@@ -782,9 +782,9 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 
 .side-panel .view {
   // background-color: mix(@theme_fg_color, @theme_bg_color, 0.9);
-  background-image: image($lighter_bg_color);
+  background-image: image($alt_base_color);
 
-  &:hover { background-image: image(mix($fg_color, $lighter_bg_color, percentage(0.05))); }
+  &:hover { background-image: image(mix($fg_color, $alt_base_color, percentage(0.05))); }
 }
 
 .side-panel .view:selected {
@@ -868,7 +868,7 @@ frame.commit-frame > border { border-style: solid none none; }
  **************/
 box.dialog-vbox scrolledwindow.related { border: 1px solid $border_color; }
 
-list.categories { background-image: image($lighter_bg_color); }
+list.categories { background-image: image($alt_base_color); }
 
 
 /*********

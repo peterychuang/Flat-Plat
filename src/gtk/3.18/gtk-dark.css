@@ -3077,8 +3077,8 @@ EelEditableLabel.entry {
  * Tweak Tool *
  **************/
 .tweak-categories {
-  background-color: #4b4b4b;
-  background-image: linear-gradient(to bottom, #4b4b4b);
+  background-color: #414141;
+  background-image: linear-gradient(to bottom, #414141);
 }
 
 .tweak-categories .separator {

@@ -70,7 +70,7 @@ sudo sh install.sh
 - In your terminal, move into ```/usr/share/themes/Flat-Plat-Blue-{your-preferred-variant}/gnome-shell``` directory, then issue the following command
 
 ```
-sudo cp gnome-shell-theme.gresource /usr/share/gnome-shell
+sudo glib-compile-resources --target=/usr/share/gnome-shell/gnome-shell-theme.gresource gnome-shell-theme.gresource.xml
 ```
 
 - Restart your GNOME session. On X.Org, press ```Alt``` + ```F2```, then type ```r``` and ```Enter```. On Wayland, you may need to logout and log back in to see the change take effect.
