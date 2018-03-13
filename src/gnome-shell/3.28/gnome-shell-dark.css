@@ -845,12 +845,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .osd-window .level {
   height: 8px;
   border-radius: 0;
-  background-color: rgba(66, 165, 245, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
 }
 
 .osd-window .level-bar {
-  background-color: #42A5F5;
+  background-color: #FFFFFF;
   border-radius: 0;
 }
 
@@ -1088,6 +1088,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
 }
 
+#panel .panel-button.clock-display > StBoxLayout > StIcon {
+  color: rgba(68, 138, 255, 0.7);
+}
+
+#panel .panel-button.clock-display:hover > StBoxLayout > StIcon, #panel .panel-button.clock-display:active > StBoxLayout > StIcon {
+  color: #448AFF;
+}
+
 #panel .panel-status-indicators-box,
 #panel .panel-status-menu-box {
   spacing: 2px;
@@ -1212,8 +1220,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .datemenu-today-button .date-label {
-  font-size: 18pt;
-  font-weight: 400;
+  font-size: 15pt;
+  font-weight: 500;
 }
 
 .world-clocks-header,
@@ -1232,7 +1240,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-month-label {
-  height: 18px;
+  height: 22px;
   margin: 2px;
   padding: 6px 16px;
   border-radius: 2px;
@@ -1746,7 +1754,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .window-caption {
   spacing: 25px;
   color: #FFFFFF;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 2px;
   padding: 4px 8px;
 }
@@ -2853,7 +2861,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.lock-screen {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
 }
 
 .screen-shield-background {

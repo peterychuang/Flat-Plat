@@ -665,11 +665,11 @@ StScrollBar {
   .level {
     height: 8px;
     border-radius: 0;
-    background-color: rgba($primary_color, $lower_opacity);
+    background-color: rgba($fg_color, $lower_opacity);
     color: $fg_color;
   }
   .level-bar {
-    background-color: $primary_color;
+    background-color: $fg_color;
     border-radius: 0;
   }
 }
@@ -809,7 +809,7 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: $panel_bg_color;
+  background-color: transparentize($panel_bg_color,1);
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -891,6 +891,17 @@ StScrollBar {
     .lock-screen & {
       color: $inverse_secondary_fg_color;
       &:focus, &:hover, &:active { color: $inverse_fg_color; }
+    }
+
+    &.clock-display {
+      > StBoxLayout > StIcon {
+        color: rgba($accent_color, 0.7);
+      }
+
+      &:hover,
+      &:active {
+        > StBoxLayout > StIcon { color: $accent_color; }
+      }
     }
   }
 
@@ -998,7 +1009,7 @@ StScrollBar {
     }
 
     .datemenu-today-button .date-label {
-      @include font(headline);
+      @include font(title);
     }
 
     .world-clocks-header,
@@ -1017,7 +1028,7 @@ StScrollBar {
     }
 
     .calendar-month-label {
-      height: $menuitem_size - 6px * 2;
+      height: $menuitem_size - 4px * 2;
       margin: 2px;
       padding: 6px 16px;
       border-radius: 2px;
@@ -1400,7 +1411,7 @@ StScrollBar {
   .window-caption {
     spacing: 25px;
     color: $inverse_fg_color;
-    background-color: $panel_bg_color;
+    background-color: $alt_panel_bg_color;
     border-radius: 2px;
     padding: 4px 8px;
   }
@@ -1840,19 +1851,19 @@ StScrollBar {
 //Keyboard
 /* On-screen Keyboard */
 .word-suggestions {
-    @include font(subheading);
-    spacing: 12px;
-    min-height: 40px;
+  @include font(subheading);
+  spacing: 12px;
+  min-height: 40px;
 }
 
 #keyboard {
     background-color: $alt_panel_bg_color;
 }
 
-  .key-container {
-    padding: 4px;
-    spacing: 4px;
-  }
+.key-container {
+  padding: 4px;
+  spacing: 4px;
+}
 
   .keyboard-key {
     min-height: $medium_size * 2;
@@ -1871,34 +1882,34 @@ StScrollBar {
       color: $inverse_fg_color;
       border-color: $alt_panel_bg_color;
     }
-    &.default-key {
-      border-color: transparent;
-      background-color: $lighter_bg_color;
-      background-size: 24px;
-      &:active { background-color: mix($fg_color, $lighter_bg_color, percentage($lower_opacity)); }
-    }
-    &.enter-key {
-      border-color: transparent;
-      background-color: $suggested_color;
-      background-image: url("assets/key-enter.svg");
-      &:active { background-color: mix($inverse_fg_color, $suggested_color, percentage($lower_opacity)); }
-    }
-    &.shift-key-lowercase {
-      background-image: url("assets/key-shift.svg");
-    }
-    &.shift-key-uppercase {
-      background-image: url("assets/key-shift-uppercase.svg");
-    }
-    &.shift-key-uppercase:latched {
-      background-image: url("assets/key-shift-latched-uppercase.svg");
-    }
-    &.hide-key {
-      background-image: url("assets/key-hide.svg");
-    }
-    &.layout-key {
-      background-image: url("assets/key-layout.svg");
-    }
+  &.default-key {
+    border-color: transparent;
+    background-color: $lighter_bg_color;
+    background-size: 24px;
+    &:active { background-color: mix($fg_color, $lighter_bg_color, percentage($lower_opacity)); }
   }
+  &.enter-key {
+    border-color: transparent;
+    background-color: $suggested_color;
+    background-image: url("assets/key-enter.svg");
+    &:active { background-color: mix($inverse_fg_color, $suggested_color, percentage($lower_opacity)); }
+  }
+  &.shift-key-lowercase {
+    background-image: url("assets/key-shift.svg");
+  }
+  &.shift-key-uppercase {
+    background-image: url("assets/key-shift-uppercase.svg");
+  }
+  &.shift-key-uppercase:latched {
+    background-image: url("assets/key-shift-latched-uppercase.svg");
+  }
+  &.hide-key {
+    background-image: url("assets/key-hide.svg");
+  }
+  &.layout-key {
+    background-image: url("assets/key-layout.svg");
+  }
+}
 
   .keyboard-subkeys { //long press on a key popup
     color: inherit;
@@ -2154,7 +2165,7 @@ StScrollBar {
   color: $inverse_secondary_fg_color;
 }
 
-#panel.lock-screen { background-color: $alt_panel_bg_color; }
+#panel.lock-screen { background-color: transparentize($panel_bg_color,1); }
 
 .screen-shield-background { //just the shadow, really
   background: black;
