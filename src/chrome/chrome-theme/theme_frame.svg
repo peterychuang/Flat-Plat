@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="200" fill="#424242">
+=======
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="200" fill="#303030">
+>>>>>>> f4ae77c... chrome: Update color scheme
   <rect width="20" height="200"/>
 </svg>

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Flat-Plat-Blue-dark Theme",
-  "version": "5",
+  "version": "7",
   "description": "",
   "theme": {
     "images": {
@@ -9,15 +9,15 @@
       "theme_toolbar": "theme_toolbar.png"
     },
     "colors": {
-      "frame": [97, 97, 97],
-      "frame_inactive": [97, 97, 97],
-      "frame_incognito": [97, 97, 97],
-      "frame_incognito_inactive": [97, 97, 97],
-      "toolbar": [97, 97, 97],
+      "frame": [48, 48, 48],
+      "frame_inactive": [48, 48, 48],
+      "frame_incognito": [48, 48, 48],
+      "frame_incognito_inactive": [48, 48, 48],
+      "toolbar": [48, 48, 48],
       "tab_text": [255, 255, 255],
-      "tab_background_text": [255, 255, 255],
+      "tab_background_text": [224, 224, 224],
       "bookmark_text": [255, 255, 255],
-      "ntp_background": [66, 66, 66],
+      "ntp_background": [48, 48, 48],
       "ntp_text": [255, 255, 255],
       "button_background": [0, 0, 0, 0]
     },
