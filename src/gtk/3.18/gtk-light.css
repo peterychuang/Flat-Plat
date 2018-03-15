@@ -2642,7 +2642,7 @@ GtkInfoBar {
  * Tooltips *
  ************/
 .tooltip {
-  color: rgba(0, 0, 0, 0.87);
+  color: #FFFFFF;
   padding: 4px;
   /* not working */
   border-radius: 2px;
@@ -2650,8 +2650,7 @@ GtkInfoBar {
 }
 
 .tooltip.background {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(66, 66, 66, 0.9);
 }
 
 .tooltip.window-frame.csd {
@@ -2795,7 +2794,7 @@ GtkColorSwatch#add-color-button {
 
 .window-frame.csd.tooltip {
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: none;
 }
 
 .window-frame.csd.message-dialog {
