@@ -4752,7 +4752,7 @@ UnityPanelWidget:backdrop,
 }
 
 .mate-panel-menu-bar {
-  background-color: #424242;
+  background-color: #303030;
   font-weight: 500;
 }
 
@@ -5361,7 +5361,7 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 270ms cubic-bezier(0, 0, 0.2, 1);
-  background-color: #424242;
+  background-color: #303030;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
