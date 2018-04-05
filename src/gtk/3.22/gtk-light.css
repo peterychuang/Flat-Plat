@@ -1184,7 +1184,7 @@ toolbar:not(.inline-toolbar):not(.osd) switch {
   background-color: #F5F5F5;
 }
 
-searchbar,
+searchbar > revealer > box,
 .location-bar {
   padding: 6px;
   border-style: solid;
@@ -1192,6 +1192,11 @@ searchbar,
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #EEEEEE;
   background-clip: border-box;
+}
+
+searchbar > revealer > box {
+  margin: -6px;
+  padding: 6px;
 }
 
 /***************
@@ -3930,14 +3935,6 @@ button.emoji-section:last-child {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.nautilus-window searchbar {
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-.nautilus-window .searchbar-container {
-  margin-top: -1px;
-}
-
 .conflict-row:not(:selected) {
   background-color: #ffd3b3;
 }
@@ -4797,6 +4794,22 @@ window.background:not(.csd) > widget > button > button:hover {
 
 window.background:not(.csd) > widget > button > button:active {
   background-image: image(alpha(currentColor, 0.1));
+}
+
+window.background:not(.csd) > widget > checkbutton > check:not(:checked),
+window.background:not(.csd) > widget > radiobutton > radio:not(:checked) {
+  color: #757575;
+}
+
+window.background:not(.csd) > widget > checkbutton > check:not(:checked):hover, window.background:not(.csd) > widget > checkbutton > check:not(:checked):active,
+window.background:not(.csd) > widget > radiobutton > radio:not(:checked):hover,
+window.background:not(.csd) > widget > radiobutton > radio:not(:checked):active {
+  color: #212121;
+}
+
+window.background:not(.csd) > widget > checkbutton > check:not(:checked):disabled,
+window.background:not(.csd) > widget > radiobutton > radio:not(:checked):disabled {
+  color: rgba(117, 117, 117, 0.5);
 }
 
 window.background:not(.csd) > window > menu,
