@@ -18,11 +18,7 @@
 <constant name="C_highlight_alt" value="blend/gtk:custom(theme_bg_color,gtk:bg[NORMAL])/#FFFFFF/0.4"/>
 
 <constant name="C_title_focused" value="gtk:custom(theme_fg_color,gtk:fg[NORMAL])"/>
-<<<<<<< HEAD
-<constant name="C_title_unfocused" value="blend/#EEEEEE/gtk:custom(theme_fg_color,gtk:fg[NORMAL])/0.75"/>
-=======
 <constant name="C_title_unfocused" value="blend/#E0E0E0/gtk:custom(theme_fg_color,gtk:fg[NORMAL])/0.7"/>
->>>>>>> upstream/master
 <constant name="C_title_alt_focused" value="gtk:custom(theme_fg_color,gtk:fg[NORMAL])"/>
 <constant name="C_title_alt_unfocused" value="blend/gtk:custom(theme_bg_color,gtk:bg[NORMAL])/gtk:custom(theme_fg_color,gtk:fg[NORMAL])/0.7"/>
 
@@ -377,11 +373,7 @@
 
 <draw_ops name="appmenu_icon_focused">
   <icon
-<<<<<<< HEAD
-    x="(width-D_appmenu_icon_size)/2" y="(height-D_appmenu_icon_size)/2"
-=======
     x="(width - D_appmenu_icon_size) / 2" y="(height - D_appmenu_icon_size) / 2"
->>>>>>> upstream/master
     width="D_appmenu_icon_size" height="D_appmenu_icon_size"/>
 </draw_ops>
 
@@ -399,11 +391,7 @@
 
 <draw_ops name="appmenu_icon_unfocused">
   <icon
-<<<<<<< HEAD
-    x="(width-D_appmenu_icon_size)/2" y="(height-D_appmenu_icon_size)/2"
-=======
     x="(width - D_appmenu_icon_size) / 2" y="(height - D_appmenu_icon_size) / 2"
->>>>>>> upstream/master
     width="D_appmenu_icon_size" height="D_appmenu_icon_size"
     alpha="0.7"/>
 </draw_ops>
