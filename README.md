@@ -55,7 +55,7 @@ Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blu
 ### Manual Installation
 
 #### GNOME Shell/GTK Theme install
-- Download [Flat-Plat-Blue for GNOME 3.26/ 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.26.2.tar.gz)
+- Download [Flat-Plat-Blue for GNOME 3.28/3.26/ 3.24 / 3.22 / 3.20 / 3.18](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.28.1.tar.gz)
 - Extract the files from the archive
 - In your terminal, enter the directory of the extracted theme, then issue the following command:
 
