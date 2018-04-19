@@ -3072,6 +3072,33 @@ EelEditableLabel.entry {
 }
 
 /* View */
+/********
+ * Nemo *
+ *******/
+NemoWindow .nemo-inactive-pane .view, NemoWindow .nemo-inactive-pane iconview {
+  background-color: #F5F5F5;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+NemoWindow .sidebar .cell {
+  background-color: #EEEEEE;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+NemoWindow .sidebar .cell:selected {
+  color: #FFFFFF;
+  background-color: #1E88E5;
+}
+
+.nemo-desktop.nemo-canvas-item {
+  color: #FFFFFF;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.nemo-desktop.nemo-canvas-item:selected {
+  text-shadow: none;
+}
+
 /**************
  * Tweak Tool *
  **************/
