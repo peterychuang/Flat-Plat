@@ -1,6 +1,13 @@
 ## Flat-Plat-Blue Theme
 
+<<<<<<< HEAD
 Flat-Plat-Blue Theme is a GNOME Shell/GTK Theme forked from [Materia Theme (formerly Flat-Plat)](https://github.com/nana-4/materia-theme/) with the following refinements:
+=======
+![widget-factory](../images/widget-factory.png?raw=true)
+
+Materia (formerly Flat-Plat) is a [Material Design](https://material.io) theme for GNOME/GTK+ based desktop environments.  
+It supports GTK+ 3, GTK+ 2, GNOME Shell, Budgie, Cinnamon, MATE, Unity, LightDM, GDM, Chrome theme, etc.
+>>>>>>> upstream/master
 
 * All coloured elements (e.g. check boxes, sliders, switches, etc) are changed into blue to provide a more consistent and comfortable visual experience;
 * The top bar is transparent when no window is maximised (starting from GNOME Shell 3.26);
@@ -33,8 +40,8 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 
 ## Requirements
 - GTK+ `>=3.18`
-- `gnome-themes-standard`
-- Murrine engine - The package name depends on the distro.
+- `gnome-themes-extra` (or `gnome-themes-standard`)
+- Murrine engine — The package name depends on the distro.
   - `gtk-engine-murrine` on Arch Linux
   - `gtk-murrine-engine` on Fedora
   - `gtk2-engine-murrine` on openSUSE

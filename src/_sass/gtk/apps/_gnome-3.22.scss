@@ -18,11 +18,13 @@
 
 .nautilus-canvas-item.dim-label,
 .nautilus-list-dim-label {
-  // @extend .dim-label;
+  color: $secondary_fg_color;
+
+  &:selected { color: $inverse_secondary_fg_color; }
 }
 
 .nautilus-desktop.nautilus-canvas-item:not(:selected) {
-  // background-color: rgba($black, $lower_opacity);
+  // background-color: $panel_bg_color;
   color: $inverse_fg_color;
   text-shadow: $shadow_1;
 }
@@ -42,17 +44,13 @@
 
 // Floating status bar
 .nautilus-window .floating-bar {
-  @extend %osd;
-
-  // @extend .toolbar.osd;
-
   min-height: 32px;
   padding: 0;
   border-style: solid solid none;
   border-width: 1px;
   border-color: $border_color;
   border-radius: (2px + 1px) (2px + 1px) 0 0;
-  background-color: $base_color;
+  background-color: rgba($base_color, 0.9);
   background-clip: $extra_background_clip;
   transition: $longer_transition, border-width 0;
 
@@ -96,7 +94,7 @@
   @extend .entry-tag;
 }
 
-.conflict-row:not(:selected) { background-color: mix($warning_color, $base_color, percentage($lower_opacity)); }
+.conflict-row:not(:selected) { background-color: mix($warning_color, $base_color, percentage(0.3)); }
 
 // Icon view
 .nautilus-window flowboxchild {
@@ -268,9 +266,9 @@ frame.gedit-map-frame > border {
 }
 
 
-/**************
- * Tweak Tool *
- **************/
+/**********
+ * Tweaks *
+ **********/
 // hard-coded css:
 // https://gitlab.gnome.org/GNOME/gnome-tweaks/blob/master/data/shell.css
 
@@ -314,6 +312,7 @@ frame.gedit-map-frame > border {
 //
 
 row#Focus,
+row#ClickMethod,
 row#StaticWorkspaceTweak, // for 3.26.0
 row#dynamic-workspaces,
 row#PrimaryWorkspaceTweak, // for 3.26.0
@@ -328,6 +327,7 @@ row#workspaces-only-on-primary {
 
 // Add more spaces between title and list
 row#Focus,
+row#ClickMethod,
 row#PrimaryWorkspaceTweak, // for 3.26.0
 row#workspaces-only-on-primary {
   margin-top: 4px;
@@ -717,7 +717,7 @@ GdMainIconView.content-view {
   margin: 8px;
   border-radius: $circular_radius;
   box-shadow: $shadow_2;
-  background-color: $accent_color;
+  background-color: $secondary_color;
   color: $inverse_fg_color;
   font-weight: bold;
 }
@@ -815,19 +815,43 @@ box.vertical > revealer > toolbar.search-bar {
 /*********
  * To Do *
  *********/
-taskrow {
-  transition: $shorter_transition;
-  margin: 0 -8px;
+// less than 3.28
+task-list-view {
+  taskrow {
+    transition: $shorter_transition;
+    margin: 0 -8px;
 
-  &:hover { transition: none; }
+    &:hover { transition: none; }
 
-  label { margin: 0 8px; }
+    label { margin: 0 8px; }
 
-  image { min-width: 16px; }
+    image.dim-label { min-width: 16px; }
+  }
+
+  > box > revealer > box > button {
+    margin: (12px * 2 - $medium_size) / 2;
+
+    .dim-label { opacity: 1; }
+  }
 }
 
-task-list-view > box > revealer > box > button {
-  margin: (12px * 2 - $medium_size) / 2;
+// 3.28 or later
+tasklistview {
+  taskrow {
+    outline: none;
+
+    entry {
+      &, &:focus, &:disabled { box-shadow: none; }
+    }
+
+    image.dim-label { min-width: 16px; }
+  }
+
+  > box > revealer > box > button {
+    margin: (12px * 2 - $medium_size) / 2;
+
+    .dim-label { opacity: 1; }
+  }
 }
 
 
@@ -870,7 +894,7 @@ list.categories { background-image: image($alt_base_color); }
   min-height: 24px;
   padding: 0 4px;
   border-radius: $material_radius;
-  background-color: rgba($black, $lower_opacity);
+  background-color: $panel_bg_color;
   color: $inverse_fg_color;
 }
 
@@ -896,7 +920,7 @@ button.title label { min-height: $medium_size; }
     padding-left: 0;
   }
 
-  > separator { background-color: rgba($black, 0.05); }
+  > separator { background-color: rgba(black, 0.05); }
 }
 
 .geary-titlebar-right {

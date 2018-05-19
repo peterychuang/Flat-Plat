@@ -30,11 +30,11 @@
       <stop stop-color="#1E88E5"/>
     </linearGradient>
 
-    <linearGradient id="color-accent">
+    <linearGradient id="color-secondary">
       <stop stop-color="#448aff"/>
     </linearGradient>
 
-    <linearGradient id="color-accent-insensitive">
+    <linearGradient id="color-secondary-insensitive">
       <stop stop-color="#448aff" stop-opacity="0.5"/>
     </linearGradient>
 
@@ -108,9 +108,9 @@
     </g>
 
     <use xlink:href="#base-box" id="base-flat-button" fill="url(#color-fg)" opacity="0"/>
-    <use xlink:href="#base-box" id="base-flat-button-hover" fill="url(#color-fg)" opacity="0.15"/>
-    <use xlink:href="#base-box" id="base-flat-button-active" fill="url(#color-fg)" opacity="0.3"/>
-    <use xlink:href="#base-box" id="base-flat-button-insensitive" fill="url(#color-fg)" opacity="0"/>
+    <use xlink:href="#base-box" id="base-flat-button-hover" fill="url(#color-fg)" opacity="0.12"/>
+    <use xlink:href="#base-box" id="base-flat-button-active" fill="url(#color-fg)" opacity="0.24"/>
+    <use xlink:href="#base-box" id="base-flat-button-disabled" fill="url(#color-fg)" opacity="0"/>
 
     <use xlink:href="#base-box" id="base-button" fill="url(#color-bg-lighter)" filter="url(#1)"/>
     <use xlink:href="#base-button" id="base-button-hover" filter="url(#1)"/>
@@ -118,14 +118,14 @@
       <use xlink:href="#base-button-hover"/>
       <use xlink:href="#base-flat-button-active"/>
     </g>
-    <use xlink:href="#base-box" id="base-button-insensitive" fill="url(#color-divider)"/>
+    <use xlink:href="#base-box" id="base-button-disabled" fill="url(#color-divider)"/>
 
     <use xlink:href="#1x1" id="base-entry-background" fill="url(#color-base)"/>
-    <use xlink:href="#1x1" id="base-entry-background-insensitive" fill="url(#color-base-alt)"/>
+    <use xlink:href="#1x1" id="base-entry-background-disabled" fill="url(#color-base-alt)"/>
 
     <use xlink:href="#base-box" id="base-entry-box" fill="url(#color-base)" filter="url(#1)"/>
     <use xlink:href="#base-entry-box" id="base-entry-box-active" filter="url(#1)"/>
-    <use xlink:href="#base-box" id="base-entry-box-insensitive" fill="url(#color-base-alt)" filter="url(#1)"/>
+    <use xlink:href="#base-box" id="base-entry-box-disabled" fill="url(#color-base-alt)" filter="url(#1)"/>
 
     <rect id="background-fill" width="20" height="20"/>
 
@@ -139,153 +139,93 @@
       <use xlink:href="#base-entry-box-active"/>
     </g>
 
-    <g id="base-entry-insensitive">
+    <g id="base-entry-disabled">
       <use xlink:href="#background-fill"/>
-      <use xlink:href="#base-entry-box-insensitive"/>
+      <use xlink:href="#base-entry-box-disabled"/>
     </g>
 
     <use clip-path="url(#left)" xlink:href="#base-button" id="base-combo-rtl-button"/>
     <use clip-path="url(#left)" xlink:href="#base-button-hover" id="base-combo-rtl-button-hover"/>
     <use clip-path="url(#left)" xlink:href="#base-button-active" id="base-combo-rtl-button-active"/>
-    <use clip-path="url(#left)" xlink:href="#base-button-insensitive" id="base-combo-rtl-button-insensitive"/>
+    <use clip-path="url(#left)" xlink:href="#base-button-disabled" id="base-combo-rtl-button-disabled"/>
 
     <use clip-path="url(#right)" xlink:href="#base-button" id="base-combo-ltr-button"/>
     <use clip-path="url(#right)" xlink:href="#base-button-hover" id="base-combo-ltr-button-hover"/>
     <use clip-path="url(#right)" xlink:href="#base-button-active" id="base-combo-ltr-button-active"/>
-    <use clip-path="url(#right)" xlink:href="#base-button-insensitive" id="base-combo-ltr-button-insensitive"/>
+    <use clip-path="url(#right)" xlink:href="#base-button-disabled" id="base-combo-ltr-button-disabled"/>
 
     <use clip-path="url(#left-top)" xlink:href="#base-button" id="base-spin-rtl-up"/>
     <use clip-path="url(#left-top)" xlink:href="#base-button-hover" id="base-spin-rtl-up-hover"/>
     <use clip-path="url(#left-top)" xlink:href="#base-button-active" id="base-spin-rtl-up-active"/>
-    <use clip-path="url(#left-top)" xlink:href="#base-button-insensitive" id="base-spin-rtl-up-insensitive"/>
+    <use clip-path="url(#left-top)" xlink:href="#base-button-disabled" id="base-spin-rtl-up-disabled"/>
 
     <use clip-path="url(#left-bottom)" xlink:href="#base-button" id="base-spin-rtl-down"/>
     <use clip-path="url(#left-bottom)" xlink:href="#base-button-hover" id="base-spin-rtl-down-hover"/>
     <use clip-path="url(#left-bottom)" xlink:href="#base-button-active" id="base-spin-rtl-down-active"/>
-    <use clip-path="url(#left-bottom)" xlink:href="#base-button-insensitive" id="base-spin-rtl-down-insensitive"/>
+    <use clip-path="url(#left-bottom)" xlink:href="#base-button-disabled" id="base-spin-rtl-down-disabled"/>
 
     <use clip-path="url(#right-top)" xlink:href="#base-button" id="base-spin-ltr-up"/>
     <use clip-path="url(#right-top)" xlink:href="#base-button-hover" id="base-spin-ltr-up-hover"/>
     <use clip-path="url(#right-top)" xlink:href="#base-button-active" id="base-spin-ltr-up-active"/>
-    <use clip-path="url(#right-top)" xlink:href="#base-button-insensitive" id="base-spin-ltr-up-insensitive"/>
+    <use clip-path="url(#right-top)" xlink:href="#base-button-disabled" id="base-spin-ltr-up-disabled"/>
 
     <use clip-path="url(#right-bottom)" xlink:href="#base-button" id="base-spin-ltr-down"/>
     <use clip-path="url(#right-bottom)" xlink:href="#base-button-hover" id="base-spin-ltr-down-hover"/>
     <use clip-path="url(#right-bottom)" xlink:href="#base-button-active" id="base-spin-ltr-down-active"/>
-    <use clip-path="url(#right-bottom)" xlink:href="#base-button-insensitive" id="base-spin-ltr-down-insensitive"/>
+    <use clip-path="url(#right-bottom)" xlink:href="#base-button-disabled" id="base-spin-ltr-down-disabled"/>
 
     <use clip-path="url(#left)" xlink:href="#base-entry" id="base-combo-ltr-entry"/>
     <use clip-path="url(#left)" xlink:href="#base-entry-active" id="base-combo-ltr-entry-active"/>
-    <use clip-path="url(#left)" xlink:href="#base-entry-insensitive" id="base-combo-ltr-entry-insensitive"/>
+    <use clip-path="url(#left)" xlink:href="#base-entry-disabled" id="base-combo-ltr-entry-disabled"/>
 
     <use clip-path="url(#right)" xlink:href="#base-entry" id="base-combo-rtl-entry"/>
     <use clip-path="url(#right)" xlink:href="#base-entry-active" id="base-combo-rtl-entry-active"/>
-    <use clip-path="url(#right)" xlink:href="#base-entry-insensitive" id="base-combo-rtl-entry-insensitive"/>
+    <use clip-path="url(#right)" xlink:href="#base-entry-disabled" id="base-combo-rtl-entry-disabled"/>
 
     <path id="checkbox-unchecked-path" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
     <path id="checkbox-checked-path" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
     <path id="checkbox-mixed-path" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
     <path id="radio-unchecked-path" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
     <path id="radio-checked-path" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-    <path id="radio-mixed-path" d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z"/>
+    <path id="radio-mixed-path" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
 
-    <path id="menu-checkbox-unchecked-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm0 2h12v12h-12v-12z"/>
-    <path id="menu-checkbox-checked-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm10.6 3.59l1.41 1.41-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z"/>
-    <path id="menu-checkbox-mixed-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm2 7h8v2h-8v-2z"/>
-    <path id="menu-radio-unchecked-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6z"/>
-    <path id="menu-radio-checked-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm0 2a4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z"/>
-    <path id="menu-radio-mixed-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm-4 5v2h8v-2h-8z"/>
+    <path id="menu-checkbox-unchecked-path" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm0 2h12v12H2V2z"/>
+    <path id="menu-checkbox-checked-path" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.6 3.59L14.01 5l-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z"/>
+    <path id="menu-checkbox-mixed-path" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2 7h8v2H4V7z"/>
+    <path id="menu-radio-unchecked-path" d="M8 0a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6 6 6 0 0 1 6-6z"/>
+    <path id="menu-radio-checked-path" d="M8 0a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6 6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4z"/>
+    <path id="menu-radio-mixed-path" d="M8 0a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6 6 6 0 0 1 6-6zM4 7v2h8V7H4z"/>
 
     <rect id="button-fill" width="24" height="24" rx="2" ry="2"/>
 
     <g id="base-checkbox-unchecked">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#checkbox-unchecked-path"/>
-    </g>
-
-    <g id="base-checkbox-unchecked-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#checkbox-unchecked-path"/>
-    </g>
-
-    <g id="base-checkbox-unchecked-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#checkbox-unchecked-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#checkbox-unchecked-path" fill-opacity="1"/>
     </g>
 
     <g id="base-checkbox-checked">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#checkbox-checked-path"/>
-    </g>
-
-    <g id="base-checkbox-checked-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#checkbox-checked-path"/>
-    </g>
-
-    <g id="base-checkbox-checked-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#checkbox-checked-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#checkbox-checked-path" fill-opacity="1"/>
     </g>
 
     <g id="base-checkbox-mixed">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#checkbox-mixed-path"/>
-    </g>
-
-    <g id="base-checkbox-mixed-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#checkbox-mixed-path"/>
-    </g>
-
-    <g id="base-checkbox-mixed-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#checkbox-mixed-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#checkbox-mixed-path" fill-opacity="1"/>
     </g>
 
     <g id="base-radio-unchecked">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#radio-unchecked-path"/>
-    </g>
-
-    <g id="base-radio-unchecked-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#radio-unchecked-path"/>
-    </g>
-
-    <g id="base-radio-unchecked-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#radio-unchecked-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#radio-unchecked-path" fill-opacity="1"/>
     </g>
 
     <g id="base-radio-checked">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#radio-checked-path"/>
-    </g>
-
-    <g id="base-radio-checked-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#radio-checked-path"/>
-    </g>
-
-    <g id="base-radio-checked-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#radio-checked-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#radio-checked-path" fill-opacity="1"/>
     </g>
 
     <g id="base-radio-mixed">
-      <use xlink:href="#button-fill" opacity="0"/>
-      <use xlink:href="#radio-mixed-path"/>
-    </g>
-
-    <g id="base-radio-mixed-hover">
-      <use xlink:href="#button-fill" opacity="0.15"/>
-      <use xlink:href="#radio-mixed-path"/>
-    </g>
-
-    <g id="base-radio-mixed-active">
-      <use xlink:href="#button-fill" opacity="0.3"/>
-      <use xlink:href="#radio-mixed-path"/>
+      <use xlink:href="#button-fill"/>
+      <use xlink:href="#radio-mixed-path" fill-opacity="1"/>
     </g>
 
     <g id="base-menu-checkbox-unchecked">
@@ -319,24 +259,24 @@
     </g>
 
     <g id="base-scale-slider">
-      <use xlink:href="#24x24"/>
-      <circle cx="12" cy="12" r="7" fill="url(#color-accent)"/>
+      <circle cx="12" cy="12" r="12" opacity="0"/>
+      <circle cx="12" cy="12" r="6" fill="url(#color-secondary)"/>
     </g>
 
     <g id="base-scale-slider-hover">
-      <use xlink:href="#24x24"/>
-      <circle cx="12" cy="12" r="8" fill="url(#color-accent)"/>
+      <circle cx="12" cy="12" r="12" fill="url(#color-secondary)" opacity="0.12"/>
+      <circle cx="12" cy="12" r="6" fill="url(#color-secondary)"/>
     </g>
 
     <g id="base-scale-slider-active">
-      <use xlink:href="#24x24"/>
-      <circle cx="12" cy="12" r="9" fill="url(#color-accent)"/>
+      <circle cx="12" cy="12" r="12" fill="url(#color-secondary)" opacity="0.24"/>
+      <circle cx="12" cy="12" r="6" fill="url(#color-secondary)"/>
     </g>
 
-    <g id="base-scale-slider-insensitive">
-      <use xlink:href="#24x24"/>
-      <circle cx="12" cy="12" r="7" fill="url(#color-bg)"/>
-      <circle cx="12" cy="12" r="6" fill="none" stroke="url(#color-divider)" stroke-width="2"/>
+    <g id="base-scale-slider-disabled">
+      <circle cx="12" cy="12" r="12" opacity="0"/>
+      <circle cx="12" cy="12" r="6" fill="url(#color-bg)"/>
+      <circle cx="12" cy="12" r="5" fill="none" stroke="url(#color-divider)" stroke-width="2"/>
     </g>
 
     <g id="base-scale-horz-trough">
@@ -375,7 +315,7 @@
 
     <use xlink:href="#base-handle-horz" id="base-handle-vert" transform="rotate(90 2 2)"/>
 
-    <path id="pan-path" d="M 13,6 8,11 3,6 Z"/>
+    <path id="pan-path" d="M13 6l-5 5-5-5z"/>
 
     <g id="base-pan-down">
       <use xlink:href="#16x16"/>
@@ -430,7 +370,7 @@
       <use xlink:href="#1x1" x="1" fill="url(#color-base-alt)"/>
     </g>
 
-    <rect id="base-focus" x="1" y="1" width="3" height="3" rx="1" ry="1" fill="none" stroke="url(#color-fg)" stroke-width="2" opacity="0.3"/>
+    <rect id="base-focus" x="1" y="1" width="3" height="3" rx="1" ry="1" fill="none" stroke="url(#color-fg)" stroke-width="2" opacity="0.24"/>
 
     <g id="base-treeview-ltr-button">
       <use xlink:href="#2x2" fill="url(#color-base)"/>
@@ -440,12 +380,12 @@
 
     <g id="base-treeview-ltr-button-hover">
       <use xlink:href="#base-treeview-ltr-button"/>
-      <use xlink:href="#1x1" fill="url(#color-fg)" opacity="0.05"/>
+      <use xlink:href="#1x1" fill="url(#color-fg)" opacity="0.06"/>
     </g>
 
     <g id="base-treeview-ltr-button-active">
       <use xlink:href="#base-treeview-ltr-button"/>
-      <use xlink:href="#1x1" fill="url(#color-fg)" opacity="0.3"/>
+      <use xlink:href="#1x1" fill="url(#color-fg)" opacity="0.24"/>
     </g>
 
     <use xlink:href="#base-treeview-ltr-button" id="base-treeview-rtl-button" transform="scale(-1 1)"/>
@@ -456,149 +396,149 @@
   <use x="8"   y="8"   xlink:href="#base-flat-button" id="flat-button"/>
   <use x="8"   y="28"  xlink:href="#base-flat-button-hover" id="flat-button-hover"/>
   <use x="8"   y="48"  xlink:href="#base-flat-button-active" id="flat-button-active"/>
-  <use x="8"   y="68"  xlink:href="#base-flat-button-insensitive" id="flat-button-insensitive"/>
+  <use x="8"   y="68"  xlink:href="#base-flat-button-disabled" id="flat-button-disabled"/>
 
   <use x="32"  y="8"   xlink:href="#base-button" id="button"/>
   <use x="32"  y="28"  xlink:href="#base-button-hover" id="button-hover"/>
   <use x="32"  y="48"  xlink:href="#base-button-active" id="button-active"/>
-  <use x="32"  y="68"  xlink:href="#base-button-insensitive" id="button-insensitive"/>
+  <use x="32"  y="68"  xlink:href="#base-button-disabled" id="button-disabled"/>
 
   <use x="52"  y="8"   xlink:href="#base-combo-rtl-button" id="combo-rtl-button"/>
   <use x="52"  y="28"  xlink:href="#base-combo-rtl-button-hover" id="combo-rtl-button-hover"/>
   <use x="52"  y="48"  xlink:href="#base-combo-rtl-button-active" id="combo-rtl-button-active"/>
-  <use x="52"  y="68"  xlink:href="#base-combo-rtl-button-insensitive" id="combo-rtl-button-insensitive"/>
+  <use x="52"  y="68"  xlink:href="#base-combo-rtl-button-disabled" id="combo-rtl-button-disabled"/>
 
   <use x="56"  y="8"   xlink:href="#base-combo-ltr-button" id="combo-ltr-button"/>
   <use x="56"  y="28"  xlink:href="#base-combo-ltr-button-hover" id="combo-ltr-button-hover"/>
   <use x="56"  y="48"  xlink:href="#base-combo-ltr-button-active" id="combo-ltr-button-active"/>
-  <use x="56"  y="68"  xlink:href="#base-combo-ltr-button-insensitive" id="combo-ltr-button-insensitive"/>
+  <use x="56"  y="68"  xlink:href="#base-combo-ltr-button-disabled" id="combo-ltr-button-disabled"/>
 
   <use x="76"  y="8"   xlink:href="#base-spin-rtl-up" id="spin-rtl-up"/>
   <use x="76"  y="28"  xlink:href="#base-spin-rtl-up-hover" id="spin-rtl-up-hover"/>
   <use x="76"  y="48"  xlink:href="#base-spin-rtl-up-active" id="spin-rtl-up-active"/>
-  <use x="76"  y="68"  xlink:href="#base-spin-rtl-up-insensitive" id="spin-rtl-up-insensitive"/>
+  <use x="76"  y="68"  xlink:href="#base-spin-rtl-up-disabled" id="spin-rtl-up-disabled"/>
 
   <use x="76"  y="8"   xlink:href="#base-spin-rtl-down" id="spin-rtl-down"/>
   <use x="76"  y="28"  xlink:href="#base-spin-rtl-down-hover" id="spin-rtl-down-hover"/>
   <use x="76"  y="48"  xlink:href="#base-spin-rtl-down-active" id="spin-rtl-down-active"/>
-  <use x="76"  y="68"  xlink:href="#base-spin-rtl-down-insensitive" id="spin-rtl-down-insensitive"/>
+  <use x="76"  y="68"  xlink:href="#base-spin-rtl-down-disabled" id="spin-rtl-down-disabled"/>
 
   <use x="80"  y="8"   xlink:href="#base-spin-ltr-up" id="spin-ltr-up"/>
   <use x="80"  y="28"  xlink:href="#base-spin-ltr-up-hover" id="spin-ltr-up-hover"/>
   <use x="80"  y="48"  xlink:href="#base-spin-ltr-up-active" id="spin-ltr-up-active"/>
-  <use x="80"  y="68"  xlink:href="#base-spin-ltr-up-insensitive" id="spin-ltr-up-insensitive"/>
+  <use x="80"  y="68"  xlink:href="#base-spin-ltr-up-disabled" id="spin-ltr-up-disabled"/>
 
   <use x="80"  y="8"   xlink:href="#base-spin-ltr-down" id="spin-ltr-down"/>
   <use x="80"  y="28"  xlink:href="#base-spin-ltr-down-hover" id="spin-ltr-down-hover"/>
   <use x="80"  y="48"  xlink:href="#base-spin-ltr-down-active" id="spin-ltr-down-active"/>
-  <use x="80"  y="68"  xlink:href="#base-spin-ltr-down-insensitive" id="spin-ltr-down-insensitive"/>
+  <use x="80"  y="68"  xlink:href="#base-spin-ltr-down-disabled" id="spin-ltr-down-disabled"/>
 
   <use x="104" y="8"   xlink:href="#base-entry-background" id="entry-background"/>
-  <use x="104" y="16"  xlink:href="#base-entry-background-insensitive" id="entry-background-insensitive"/>
+  <use x="104" y="16"  xlink:href="#base-entry-background-disabled" id="entry-background-disabled"/>
 
   <use x="104" y="28"  xlink:href="#base-entry" fill="url(#color-bg)" id="entry"/>
   <use x="104" y="48"  xlink:href="#base-entry-active" fill="url(#color-bg)" id="entry-active"/>
-  <use x="104" y="68"  xlink:href="#base-entry-insensitive" fill="url(#color-bg)" id="entry-insensitive"/>
+  <use x="104" y="68"  xlink:href="#base-entry-disabled" fill="url(#color-bg)" id="entry-disabled"/>
 
   <use x="124" y="28"  xlink:href="#base-combo-ltr-entry" fill="url(#color-bg)" id="combo-ltr-entry"/>
   <use x="124" y="48"  xlink:href="#base-combo-ltr-entry-active" fill="url(#color-bg)" id="combo-ltr-entry-active"/>
-  <use x="124" y="68"  xlink:href="#base-combo-ltr-entry-insensitive" fill="url(#color-bg)" id="combo-ltr-entry-insensitive"/>
+  <use x="124" y="68"  xlink:href="#base-combo-ltr-entry-disabled" fill="url(#color-bg)" id="combo-ltr-entry-disabled"/>
 
   <use x="128" y="28"  xlink:href="#base-combo-rtl-entry" fill="url(#color-bg)" id="combo-rtl-entry"/>
   <use x="128" y="48"  xlink:href="#base-combo-rtl-entry-active" fill="url(#color-bg)" id="combo-rtl-entry-active"/>
-  <use x="128" y="68"  xlink:href="#base-combo-rtl-entry-insensitive" fill="url(#color-bg)" id="combo-rtl-entry-insensitive"/>
+  <use x="128" y="68"  xlink:href="#base-combo-rtl-entry-disabled" fill="url(#color-bg)" id="combo-rtl-entry-disabled"/>
 
   <use x="152" y="28"  xlink:href="#base-entry" fill="url(#color-base)" id="notebook-entry"/>
   <use x="152" y="48"  xlink:href="#base-entry-active" fill="url(#color-base)" id="notebook-entry-active"/>
-  <use x="152" y="68"  xlink:href="#base-entry-insensitive" fill="url(#color-base)" id="notebook-entry-insensitive"/>
+  <use x="152" y="68"  xlink:href="#base-entry-disabled" fill="url(#color-base)" id="notebook-entry-disabled"/>
 
   <use x="172" y="28"  xlink:href="#base-combo-ltr-entry" fill="url(#color-base)" id="notebook-combo-ltr-entry"/>
   <use x="172" y="48"  xlink:href="#base-combo-ltr-entry-active" fill="url(#color-base)" id="notebook-combo-ltr-entry-active"/>
-  <use x="172" y="68"  xlink:href="#base-combo-ltr-entry-insensitive" fill="url(#color-base)" id="notebook-combo-ltr-entry-insensitive"/>
+  <use x="172" y="68"  xlink:href="#base-combo-ltr-entry-disabled" fill="url(#color-base)" id="notebook-combo-ltr-entry-disabled"/>
 
   <use x="176" y="28"  xlink:href="#base-combo-rtl-entry" fill="url(#color-base)" id="notebook-combo-rtl-entry"/>
   <use x="176" y="48"  xlink:href="#base-combo-rtl-entry-active" fill="url(#color-base)" id="notebook-combo-rtl-entry-active"/>
-  <use x="176" y="68"  xlink:href="#base-combo-rtl-entry-insensitive" fill="url(#color-base)" id="notebook-combo-rtl-entry-insensitive"/>
+  <use x="176" y="68"  xlink:href="#base-combo-rtl-entry-disabled" fill="url(#color-base)" id="notebook-combo-rtl-entry-disabled"/>
 
-  <use x="8"   y="92"  xlink:href="#base-checkbox-unchecked" fill="url(#color-fg-secondary)" id="checkbox-unchecked"/>
-  <use x="8"   y="124" xlink:href="#base-checkbox-unchecked-hover" fill="url(#color-fg)" id="checkbox-unchecked-hover"/>
-  <use x="8"   y="156" xlink:href="#base-checkbox-unchecked-active" fill="url(#color-fg)" id="checkbox-unchecked-active"/>
-  <use x="8"   y="188" xlink:href="#base-checkbox-unchecked" fill="url(#color-fg-secondary-disabled)" id="checkbox-unchecked-insensitive"/>
+  <use x="8"   y="92"  xlink:href="#base-checkbox-unchecked" fill="url(#color-fg-secondary)" fill-opacity="0" id="checkbox-unchecked"/>
+  <use x="8"   y="124" xlink:href="#base-checkbox-unchecked" fill="url(#color-fg)" fill-opacity="0.12" id="checkbox-unchecked-hover"/>
+  <use x="8"   y="156" xlink:href="#base-checkbox-unchecked" fill="url(#color-fg)" fill-opacity="0.24" id="checkbox-unchecked-active"/>
+  <use x="8"   y="188" xlink:href="#base-checkbox-unchecked" fill="url(#color-fg-secondary-disabled)" fill-opacity="0" id="checkbox-unchecked-disabled"/>
 
-  <use x="40"  y="92"  xlink:href="#base-checkbox-checked" fill="url(#color-accent)" id="checkbox-checked"/>
-  <use x="40"  y="124" xlink:href="#base-checkbox-checked-hover" fill="url(#color-accent)" id="checkbox-checked-hover"/>
-  <use x="40"  y="156" xlink:href="#base-checkbox-checked-active" fill="url(#color-accent)" id="checkbox-checked-active"/>
-  <use x="40"  y="188" xlink:href="#base-checkbox-checked" fill="url(#color-accent-insensitive)" id="checkbox-checked-insensitive"/>
+  <use x="40"  y="92"  xlink:href="#base-checkbox-checked" fill="url(#color-secondary)" fill-opacity="0" id="checkbox-checked"/>
+  <use x="40"  y="124" xlink:href="#base-checkbox-checked" fill="url(#color-secondary)" fill-opacity="0.12" id="checkbox-checked-hover"/>
+  <use x="40"  y="156" xlink:href="#base-checkbox-checked" fill="url(#color-secondary)" fill-opacity="0.24" id="checkbox-checked-active"/>
+  <use x="40"  y="188" xlink:href="#base-checkbox-checked" fill="url(#color-secondary-disabled)" fill-opacity="0" id="checkbox-checked-disabled"/>
 
-  <use x="72"  y="92"  xlink:href="#base-checkbox-mixed" fill="url(#color-accent)" id="checkbox-mixed"/>
-  <use x="72"  y="124" xlink:href="#base-checkbox-mixed-hover" fill="url(#color-accent)" id="checkbox-mixed-hover"/>
-  <use x="72"  y="156" xlink:href="#base-checkbox-mixed-active" fill="url(#color-accent)" id="checkbox-mixed-active"/>
-  <use x="72"  y="188" xlink:href="#base-checkbox-mixed" fill="url(#color-accent-insensitive)" id="checkbox-mixed-insensitive"/>
+  <use x="72"  y="92"  xlink:href="#base-checkbox-mixed" fill="url(#color-secondary)" fill-opacity="0" id="checkbox-mixed"/>
+  <use x="72"  y="124" xlink:href="#base-checkbox-mixed" fill="url(#color-secondary)" fill-opacity="0.12" id="checkbox-mixed-hover"/>
+  <use x="72"  y="156" xlink:href="#base-checkbox-mixed" fill="url(#color-secondary)" fill-opacity="0.24" id="checkbox-mixed-active"/>
+  <use x="72"  y="188" xlink:href="#base-checkbox-mixed" fill="url(#color-secondary-disabled)" fill-opacity="0" id="checkbox-mixed-disabled"/>
 
-  <use x="104" y="92"  xlink:href="#base-radio-unchecked" fill="url(#color-fg-secondary)" id="radio-unchecked"/>
-  <use x="104" y="124" xlink:href="#base-radio-unchecked-hover" fill="url(#color-fg)" id="radio-unchecked-hover"/>
-  <use x="104" y="156" xlink:href="#base-radio-unchecked-active" fill="url(#color-fg)" id="radio-unchecked-active"/>
-  <use x="104" y="188" xlink:href="#base-radio-unchecked" fill="url(#color-fg-secondary-disabled)" id="radio-unchecked-insensitive"/>
+  <use x="104" y="92"  xlink:href="#base-radio-unchecked" fill="url(#color-fg-secondary)" fill-opacity="0" id="radio-unchecked"/>
+  <use x="104" y="124" xlink:href="#base-radio-unchecked" fill="url(#color-fg)" fill-opacity="0.12" id="radio-unchecked-hover"/>
+  <use x="104" y="156" xlink:href="#base-radio-unchecked" fill="url(#color-fg)" fill-opacity="0.24" id="radio-unchecked-active"/>
+  <use x="104" y="188" xlink:href="#base-radio-unchecked" fill="url(#color-fg-secondary-disabled)" fill-opacity="0" id="radio-unchecked-disabled"/>
 
-  <use x="136" y="92"  xlink:href="#base-radio-checked" fill="url(#color-accent)" id="radio-checked"/>
-  <use x="136" y="124" xlink:href="#base-radio-checked-hover" fill="url(#color-accent)" id="radio-checked-hover"/>
-  <use x="136" y="156" xlink:href="#base-radio-checked-active" fill="url(#color-accent)" id="radio-checked-active"/>
-  <use x="136" y="188" xlink:href="#base-radio-checked" fill="url(#color-accent-insensitive)" id="radio-checked-insensitive"/>
+  <use x="136" y="92"  xlink:href="#base-radio-checked" fill="url(#color-secondary)" fill-opacity="0" id="radio-checked"/>
+  <use x="136" y="124" xlink:href="#base-radio-checked" fill="url(#color-secondary)" fill-opacity="0.12" id="radio-checked-hover"/>
+  <use x="136" y="156" xlink:href="#base-radio-checked" fill="url(#color-secondary)" fill-opacity="0.24" id="radio-checked-active"/>
+  <use x="136" y="188" xlink:href="#base-radio-checked" fill="url(#color-secondary-disabled)" fill-opacity="0" id="radio-checked-disabled"/>
 
-  <use x="168" y="92"  xlink:href="#base-radio-mixed" fill="url(#color-accent)" id="radio-mixed"/>
-  <use x="168" y="124" xlink:href="#base-radio-mixed-hover" fill="url(#color-accent)" id="radio-mixed-hover"/>
-  <use x="168" y="156" xlink:href="#base-radio-mixed-active" fill="url(#color-accent)" id="radio-mixed-active"/>
-  <use x="168" y="188" xlink:href="#base-radio-mixed" fill="url(#color-accent-insensitive)" id="radio-mixed-insensitive"/>
+  <use x="168" y="92"  xlink:href="#base-radio-mixed" fill="url(#color-secondary)" fill-opacity="0" id="radio-mixed"/>
+  <use x="168" y="124" xlink:href="#base-radio-mixed" fill="url(#color-secondary)" fill-opacity="0.12" id="radio-mixed-hover"/>
+  <use x="168" y="156" xlink:href="#base-radio-mixed" fill="url(#color-secondary)" fill-opacity="0.24" id="radio-mixed-active"/>
+  <use x="168" y="188" xlink:href="#base-radio-mixed" fill="url(#color-secondary-disabled)" fill-opacity="0" id="radio-mixed-disabled"/>
 
   <use x="12"  y="220" xlink:href="#base-menu-checkbox-unchecked" fill="url(#color-fg-secondary)" id="menu-checkbox-unchecked"/>
-  <use x="12"  y="244" xlink:href="#base-menu-checkbox-unchecked" fill="url(#color-fg-secondary-disabled)" id="menu-checkbox-unchecked-insensitive"/>
+  <use x="12"  y="244" xlink:href="#base-menu-checkbox-unchecked" fill="url(#color-fg-secondary-disabled)" id="menu-checkbox-unchecked-disabled"/>
 
-  <use x="44"  y="220" xlink:href="#base-menu-checkbox-checked" fill="url(#color-accent)" id="menu-checkbox-checked"/>
-  <use x="44"  y="244" xlink:href="#base-menu-checkbox-checked" fill="url(#color-accent-insensitive)" id="menu-checkbox-checked-insensitive"/>
+  <use x="44"  y="220" xlink:href="#base-menu-checkbox-checked" fill="url(#color-secondary)" id="menu-checkbox-checked"/>
+  <use x="44"  y="244" xlink:href="#base-menu-checkbox-checked" fill="url(#color-secondary-disabled)" id="menu-checkbox-checked-disabled"/>
 
-  <use x="76"  y="220" xlink:href="#base-menu-checkbox-mixed" fill="url(#color-accent)" id="menu-checkbox-mixed"/>
-  <use x="76"  y="244" xlink:href="#base-menu-checkbox-mixed" fill="url(#color-accent-insensitive)" id="menu-checkbox-mixed-insensitive"/>
+  <use x="76"  y="220" xlink:href="#base-menu-checkbox-mixed" fill="url(#color-secondary)" id="menu-checkbox-mixed"/>
+  <use x="76"  y="244" xlink:href="#base-menu-checkbox-mixed" fill="url(#color-secondary-disabled)" id="menu-checkbox-mixed-disabled"/>
 
   <use x="108" y="220" xlink:href="#base-menu-radio-unchecked" fill="url(#color-fg-secondary)" id="menu-radio-unchecked"/>
-  <use x="108" y="244" xlink:href="#base-menu-radio-unchecked" fill="url(#color-fg-secondary-disabled)" id="menu-radio-unchecked-insensitive"/>
+  <use x="108" y="244" xlink:href="#base-menu-radio-unchecked" fill="url(#color-fg-secondary-disabled)" id="menu-radio-unchecked-disabled"/>
 
-  <use x="140" y="220" xlink:href="#base-menu-radio-checked" fill="url(#color-accent)" id="menu-radio-checked"/>
-  <use x="140" y="244" xlink:href="#base-menu-radio-checked" fill="url(#color-accent-insensitive)" id="menu-radio-checked-insensitive"/>
+  <use x="140" y="220" xlink:href="#base-menu-radio-checked" fill="url(#color-secondary)" id="menu-radio-checked"/>
+  <use x="140" y="244" xlink:href="#base-menu-radio-checked" fill="url(#color-secondary-disabled)" id="menu-radio-checked-disabled"/>
 
-  <use x="172" y="220" xlink:href="#base-menu-radio-mixed" fill="url(#color-accent)" id="menu-radio-mixed"/>
-  <use x="172" y="244" xlink:href="#base-menu-radio-mixed" fill="url(#color-accent-insensitive)" id="menu-radio-mixed-insensitive"/>
+  <use x="172" y="220" xlink:href="#base-menu-radio-mixed" fill="url(#color-secondary)" id="menu-radio-mixed"/>
+  <use x="172" y="244" xlink:href="#base-menu-radio-mixed" fill="url(#color-secondary-disabled)" id="menu-radio-mixed-disabled"/>
 
   <use x="8"   y="268" xlink:href="#base-scale-slider" id="scale-slider"/>
   <use x="8"   y="300" xlink:href="#base-scale-slider-hover" id="scale-slider-hover"/>
   <use x="8"   y="332" xlink:href="#base-scale-slider-active" id="scale-slider-active"/>
-  <use x="8"   y="364" xlink:href="#base-scale-slider-insensitive" id="scale-slider-insensitive"/>
+  <use x="8"   y="364" xlink:href="#base-scale-slider-disabled" id="scale-slider-disabled"/>
 
   <use x="40"  y="268" xlink:href="#base-scale-horz-trough" fill="url(#color-fg-secondary-disabled)" id="scale-horz-trough"/>
-  <use x="40"  y="332" xlink:href="#base-scale-horz-trough" fill="url(#color-accent)" id="scale-horz-trough-active"/>
-  <use x="40"  y="364" xlink:href="#base-scale-horz-trough" fill="url(#color-divider)" id="scale-horz-trough-insensitive"/>
+  <use x="40"  y="332" xlink:href="#base-scale-horz-trough" fill="url(#color-secondary)" id="scale-horz-trough-active"/>
+  <use x="40"  y="364" xlink:href="#base-scale-horz-trough" fill="url(#color-divider)" id="scale-horz-trough-disabled"/>
 
   <use x="72"  y="268" xlink:href="#base-scale-vert-trough" fill="url(#color-fg-secondary-disabled)" id="scale-vert-trough"/>
-  <use x="72"  y="332" xlink:href="#base-scale-vert-trough" fill="url(#color-accent)" id="scale-vert-trough-active"/>
-  <use x="72"  y="364" xlink:href="#base-scale-vert-trough" fill="url(#color-divider)" id="scale-vert-trough-insensitive"/>
+  <use x="72"  y="332" xlink:href="#base-scale-vert-trough" fill="url(#color-secondary)" id="scale-vert-trough-active"/>
+  <use x="72"  y="364" xlink:href="#base-scale-vert-trough" fill="url(#color-divider)" id="scale-vert-trough-disabled"/>
 
   <use x="104" y="268" xlink:href="#base-scrollbar-horz-slider" fill="url(#color-fg-disabled)" id="scrollbar-horz-slider"/>
   <use x="104" y="292" xlink:href="#base-scrollbar-horz-slider" fill="url(#color-fg-secondary)" id="scrollbar-horz-slider-hover"/>
   <use x="104" y="316" xlink:href="#base-scrollbar-horz-slider" fill="url(#color-fg)" id="scrollbar-horz-slider-active"/>
-  <use x="104" y="340" xlink:href="#base-scrollbar-horz-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-horz-slider-insensitive"/>
+  <use x="104" y="340" xlink:href="#base-scrollbar-horz-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-horz-slider-disabled"/>
 
   <use x="104" y="364" xlink:href="#base-scrollbar-horz-trough" id="scrollbar-horz-trough"/>
 
   <use x="128" y="268" xlink:href="#base-scrollbar-vert-ltr-slider" fill="url(#color-fg-disabled)" id="scrollbar-vert-ltr-slider"/>
   <use x="128" y="292" xlink:href="#base-scrollbar-vert-ltr-slider" fill="url(#color-fg-secondary)" id="scrollbar-vert-ltr-slider-hover"/>
   <use x="128" y="316" xlink:href="#base-scrollbar-vert-ltr-slider" fill="url(#color-fg)" id="scrollbar-vert-ltr-slider-active"/>
-  <use x="128" y="340" xlink:href="#base-scrollbar-vert-ltr-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-vert-ltr-slider-insensitive"/>
+  <use x="128" y="340" xlink:href="#base-scrollbar-vert-ltr-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-vert-ltr-slider-disabled"/>
 
   <use x="128" y="364" xlink:href="#base-scrollbar-vert-ltr-trough" id="scrollbar-vert-ltr-trough"/>
 
   <use x="152" y="268" xlink:href="#base-scrollbar-vert-rtl-slider" fill="url(#color-fg-disabled)" id="scrollbar-vert-rtl-slider"/>
   <use x="152" y="292" xlink:href="#base-scrollbar-vert-rtl-slider" fill="url(#color-fg-secondary)" id="scrollbar-vert-rtl-slider-hover"/>
   <use x="152" y="316" xlink:href="#base-scrollbar-vert-rtl-slider" fill="url(#color-fg)" id="scrollbar-vert-rtl-slider-active"/>
-  <use x="152" y="340" xlink:href="#base-scrollbar-vert-rtl-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-vert-rtl-slider-insensitive"/>
+  <use x="152" y="340" xlink:href="#base-scrollbar-vert-rtl-slider" fill="url(#color-fg-secondary-disabled)" id="scrollbar-vert-rtl-slider-disabled"/>
 
   <use x="152" y="364" xlink:href="#base-scrollbar-vert-rtl-trough" id="scrollbar-vert-rtl-trough"/>
 
@@ -611,24 +551,24 @@
   <use x="176" y="340" xlink:href="#base-handle-vert" fill="url(#color-fg)" id="handle-vert-active"/>
 
   <use x="8"   y="396" xlink:href="#base-pan-up" fill="url(#color-fg)" id="pan-up"/>
-  <use x="8"   y="416" xlink:href="#base-pan-up" fill="url(#color-fg-disabled)" id="pan-up-insensitive"/>
+  <use x="8"   y="416" xlink:href="#base-pan-up" fill="url(#color-fg-disabled)" id="pan-up-disabled"/>
   <use x="8"   y="436" xlink:href="#base-pan-up" fill="url(#color-fg-secondary)" id="pan-up-alt"/>
-  <use x="8"   y="456" xlink:href="#base-pan-up" fill="url(#color-fg-secondary-disabled)" id="pan-up-alt-insensitive"/>
+  <use x="8"   y="456" xlink:href="#base-pan-up" fill="url(#color-fg-secondary-disabled)" id="pan-up-alt-disabled"/>
 
   <use x="28"  y="396" xlink:href="#base-pan-down" fill="url(#color-fg)" id="pan-down"/>
-  <use x="28"  y="416" xlink:href="#base-pan-down" fill="url(#color-fg-disabled)" id="pan-down-insensitive"/>
+  <use x="28"  y="416" xlink:href="#base-pan-down" fill="url(#color-fg-disabled)" id="pan-down-disabled"/>
   <use x="28"  y="436" xlink:href="#base-pan-down" fill="url(#color-fg-secondary)" id="pan-down-alt"/>
-  <use x="28"  y="456" xlink:href="#base-pan-down" fill="url(#color-fg-secondary-disabled)" id="pan-down-alt-insensitive"/>
+  <use x="28"  y="456" xlink:href="#base-pan-down" fill="url(#color-fg-secondary-disabled)" id="pan-down-alt-disabled"/>
 
   <use x="48"  y="396" xlink:href="#base-pan-left" fill="url(#color-fg)" id="pan-left"/>
-  <use x="48"  y="416" xlink:href="#base-pan-left" fill="url(#color-fg-disabled)" id="pan-left-insensitive"/>
+  <use x="48"  y="416" xlink:href="#base-pan-left" fill="url(#color-fg-disabled)" id="pan-left-disabled"/>
   <use x="48"  y="436" xlink:href="#base-pan-left" fill="url(#color-fg-secondary)" id="pan-left-alt"/>
-  <use x="48"  y="456" xlink:href="#base-pan-left" fill="url(#color-fg-secondary-disabled)" id="pan-left-alt-insensitive"/>
+  <use x="48"  y="456" xlink:href="#base-pan-left" fill="url(#color-fg-secondary-disabled)" id="pan-left-alt-disabled"/>
 
   <use x="68"  y="396" xlink:href="#base-pan-right" fill="url(#color-fg)" id="pan-right"/>
-  <use x="68"  y="416" xlink:href="#base-pan-right" fill="url(#color-fg-disabled)" id="pan-right-insensitive"/>
+  <use x="68"  y="416" xlink:href="#base-pan-right" fill="url(#color-fg-disabled)" id="pan-right-disabled"/>
   <use x="68"  y="436" xlink:href="#base-pan-right" fill="url(#color-fg-secondary)" id="pan-right-alt"/>
-  <use x="68"  y="456" xlink:href="#base-pan-right" fill="url(#color-fg-secondary-disabled)" id="pan-right-alt-insensitive"/>
+  <use x="68"  y="456" xlink:href="#base-pan-right" fill="url(#color-fg-secondary-disabled)" id="pan-right-alt-disabled"/>
 
   <use x="88"  y="396" xlink:href="#base-pan-left-semi" fill="url(#color-fg)" id="pan-left-semi"/>
 

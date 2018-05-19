@@ -109,7 +109,7 @@
 
 .rubberband {
   border: 1px solid $alt_primary_color;
-  background-color: rgba($alt_primary_color, $lower_opacity);
+  background-color: rgba($alt_primary_color, 0.3);
 }
 
 .label {
@@ -126,7 +126,7 @@
 }
 
 .dim-label {
-  opacity: $hint_opacity;
+  opacity: 0.6;
 }
 
 GtkAssistant {
@@ -138,7 +138,7 @@ GtkAssistant {
   }
   // &.csd .sidebar { border-top-style: none; }
   .sidebar .label {
-    opacity: $hint_opacity;
+    opacity: 0.5;
     padding: 5px 12px 6px;
     font-weight: 500;
   }
@@ -158,7 +158,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   &:selected { @extend %selected_items; }
 }
 
-%osd, .osd { opacity: $higher_opacity; }
+// %osd, .osd { opacity: 0.9; }
 
 /*********************
  * Spinner Animation *
@@ -177,7 +177,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     opacity: 1;
     animation: spin 1s linear infinite;
     &:insensitive {
-      opacity: $disabled_opacity;
+      opacity: 0.5;
     }
   }
 }
@@ -240,8 +240,8 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   }
 
   &.image { // entry icons colors
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, $secondary_opacity); }
-    &:insensitive { color: gtkalpha(currentColor, $hint_opacity); }
+    &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.7); }
+    &:insensitive { color: gtkalpha(currentColor, 0.5); }
   }
 
   .osd & {
@@ -269,14 +269,14 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to($accent_color),
+                                    to($secondary_color),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to($accent_color),
+                                    to($secondary_color),
                                     to(transparent));
   }
 }
@@ -325,7 +325,7 @@ GtkTextView { // This will get overridden by .view, needed by gedit line numbers
       background-color: $b_color;
       color: $inverse_fg_color;
       &:insensitive { @include button(insensitive, $b_color); }
-      &:checked { background-color: mix($inverse_fg_color, $b_color, percentage($lower_opacity)); }
+      &:checked { background-color: mix($inverse_fg_color, $b_color, percentage(0.3)); }
       &.flat {
         background-color: transparent;
         color: $b_color;
@@ -539,7 +539,7 @@ GtkColorButton.button {
     &:hover, &:active { color: $fg_color; }
     &:insensitive { color: $disabled_secondary_fg_color; }
     &:active { // add fallback
-      background-color: gtkalpha(currentColor, $lower_opacity);
+      background-color: $fill_color;
     }
     @extend %image_button;
     @extend %simple_flat_button;
@@ -661,7 +661,7 @@ GtkComboBox {
                   10 / 10px stretch;
     border-radius: 2px;
     // box-shadow: $shadow_2, inset 0 1px $highlight_color;
-    background-color: $base_color;
+    background-color: $popup_bg_color;
     &:backdrop {
       border-image: -gtk-scaled(url("assets/box-shadow-backdrop#{$asset_suffix}.png"),
                                 url("assets/box-shadow-backdrop#{$asset_suffix}@2.png"))
@@ -753,7 +753,7 @@ GtkComboBox {
 
   .button.suggested-action, .button.destructive-action {
     &:insensitive {
-      color: gtkalpha(currentColor, $disabled_opacity);
+      color: gtkalpha(currentColor, 0.5);
 
       > .label { color: inherit; }
     }
@@ -893,7 +893,7 @@ GtkTreeView.view {
   &.trough { // progress bar trough in treeviews
     @extend .entry.progressbar;
     border-width: 4px;
-    border-color: rgba($primary_color, $lower_opacity);
+    border-color: rgba($primary_color, 0.3);
     &:selected {
       border-color: $fill_color;
     }
@@ -948,7 +948,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     color: $titlebar_secondary_fg_color;
     &:hover { //Seems like it :hover even with keyboard focus
       transition: none;
-      background-color: gtkalpha(currentColor, $lower_opacity / 2);
+      background-color: $titlebar_divider_color;
       color: $titlebar_fg_color;
     }
     &:insensitive {
@@ -962,7 +962,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   margin: 4px 0;
   padding: 4px 0;
   box-shadow: inset 0 1px $highlight_color;
-  background-color: $base_color;
+  background-color: $popup_bg_color;
   border: 1px solid $border_color; // adds borders in a non composited env
   .csd & {
     border: none; // axes borders in a composited env
@@ -975,7 +975,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     text-shadow: none;
     &:hover {
       transition: none;
-      background-color: gtkalpha(currentColor, $lower_opacity / 2);
+      background-color: $divider_color;
     }
     &:insensitive {
       color: $disabled_fg_color;
@@ -990,7 +990,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     box-shadow: none;
     &.top { border-bottom: 1px solid $border_color; }
     &.bottom { border-top: 1px solid $border_color; }
-    &:hover { background-color: gtkalpha(currentColor, $lower_opacity / 2); }
+    &:hover { background-color: $divider_color; }
     &:insensitive {
       background-color: transparent;
       border-color: transparent;
@@ -998,7 +998,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 }
 
-.menuitem .accelerator { color: gtkalpha(currentColor, $hint_opacity); }
+.menuitem .accelerator { color: $secondary_fg_color; }
 
 .csd.popup { border-radius: 2px; }
 
@@ -1013,7 +1013,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   border: 1px solid;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
   border-radius: 2px + 1px;
-  background-color: $lighter_bg_color;
+  background-color: $popup_bg_color;
   box-shadow:  $shadow_2; // TODO: this should really have a highlight
   &:backdrop { box-shadow: $shadow_1; }
 
@@ -1047,7 +1047,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
   }
 
-  &.osd { @extend %osd; }
+  // &.osd { @extend %osd; }
 }
 
 /*****************
@@ -1229,9 +1229,9 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
   }
   &.arrow {
-    &:not(:hover):not(:active) { color: gtkalpha(currentColor, $secondary_opacity); }
+    &:not(:hover):not(:active) { color: $secondary_fg_color; }
     &:insensitive {
-      color: $disabled_fg_color;
+      color: $disabled_secondary_fg_color;
     }
   }
   GtkGrid > .entry {
@@ -1268,7 +1268,7 @@ $_slider_fine_tune_margin: 6px;
 
       .slider {
         margin: $_slider_margin - 1px;
-        border: 1px solid rgba($base_color, $lower_opacity);
+        border: 1px solid rgba($base_color, 0.3);
         // background-clip: padding-box;
       }
 
@@ -1282,7 +1282,7 @@ $_slider_fine_tune_margin: 6px;
     &.dragging,
     &.hovering {
       .trough {
-        background-color: rgba($base_color, $higher_opacity);
+        background-color: rgba($base_color, 0.9);
       }
     }
   }
@@ -1300,7 +1300,7 @@ $_slider_fine_tune_margin: 6px;
     &:hover { background-color: $secondary_fg_color; }
     &:active { background-color: $fg_color; }
     &:insensitive {
-      opacity: $disabled_opacity;
+      opacity: 0.5;
     }
   }
 
@@ -1377,15 +1377,15 @@ GtkSwitch {
     // similar to the .scale
     border: 8px solid transparent;
     border-radius: 100px;
-    background-color: $fill_color;
+    background-color: $track_color;
     // background-clip: padding-box;
     &:insensitive {
-      color: gtkalpha(currentColor, $disabled_opacity);
+      color: $divider_color;
     }
     &:active {
-      background-color: rgba($accent_color, 0.5);
+      background-color: rgba($secondary_color, 0.5);
       &:insensitive {
-        background-color: rgba($accent_color, 0.3);
+        background-color: rgba($secondary_color, 0.3);
       }
     }
   }
@@ -1394,7 +1394,7 @@ GtkSwitch {
     border-radius: 100px;
     @include entry(normal);
     &:hover { @include entry(focus); }
-    &:active { background-color: $accent_color; }
+    &:active { background-color: $secondary_color; }
     &:insensitive { @include entry(insensitive); }
   }
   .list-row:selected & {
@@ -1440,7 +1440,7 @@ GtkSwitch {
                   (':checked', '-checked'),
                   (':checked:insensitive', '-checked-disabled') {
     .menu .menuitem.#{$w}#{$s} {
-      // color: gtkalpha(currentColor, $hint_opacity);
+      // color: $secondary_fg_color;
       // -gtk-icon-source: -gtk-icontheme('#{$a}-symbolic');
       // &:active, &:checked { -gtk-icon-source: -gtk-icontheme('#{$a}-checked-symbolic'); }
       // &:inconsistent { -gtk-icon-source: -gtk-icontheme('#{$a}-mixed-symbolic'); }
@@ -1500,7 +1500,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
   &.slider {
     // @include entry(normal);
     // border-radius: 50%;
-    // background-color: $accent_color;
+    // background-color: $secondary_color;
     @each $s,$as in ('', ''),
                     (':insensitive', '-disabled') {
       &.slider#{$s} {
@@ -1534,7 +1534,7 @@ GtkCheckButton.text-button, GtkRadioButton.text-button {
     margin: 11px 12px;
     background-color: $fill_color;
     &.highlight {
-      background-color: $accent_color;
+      background-color: $secondary_color;
       &:insensitive { background-color: $fill_color; }
     }
     &:insensitive { color: $disabled_fg_color; }
@@ -1611,7 +1611,7 @@ GtkProgressBar {
   }
   &.trough {  // background
     border-radius: 0;
-    background-color: rgba($primary_color, $lower_opacity);
+    background-color: rgba($primary_color, 0.3);
     &.osd {
       border-style: none;
       box-shadow: none;
@@ -1755,24 +1755,24 @@ $row_transition: $longer_transition, background-color 0, color 0;
 
 .list-row.activatable {
   transition: $row_transition;
-  box-shadow: inset 0 0 0 10000px gtkalpha(currentColor, 0);
+  box-shadow: inset 0 0 0 10000px transparent;
   background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha(currentColor, 0)),
+                                    to(transparent),
                                     to(transparent)),
-                      linear-gradient(to bottom, gtkalpha(currentColor, 0));
+                      linear-gradient(to bottom, transparent);
   background-repeat: no-repeat;
   background-position: center, center;
   background-size: (192px / 0.8) (192px / 0.8), auto;
   &:hover {
     transition: $row_transition, box-shadow 0;
-    box-shadow: inset 0 0 0 10000px gtkalpha(currentColor, 0.05);
+    box-shadow: inset 0 0 0 10000px $row_fill_color;
   }
   &:active {
     transition: $row_transition, background-image 0;
     animation: list_ripple_effect $longer_duration $deceleration_curve forwards;
-    box-shadow: inset 0 0 0 10000px gtkalpha(currentColor, $lower_opacity / 2);
+    box-shadow: inset 0 0 0 10000px $semi_fill_color;
   }
 }
 
@@ -1800,7 +1800,7 @@ $row_transition: $longer_transition, background-color 0, color 0;
 
 .app-notification,
 .app-notification.frame {
-  @extend %osd;
+  // @extend %osd;
   @extend .toolbar.osd;
   .button { @extend %button.flat; }
 }
@@ -1813,7 +1813,7 @@ $row_transition: $longer_transition, background-color 0, color 0;
   -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
   &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
   &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-  &:not(:hover):not(:active) { color: gtkalpha(currentColor, $secondary_opacity); }
+  &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.7); }
   &:selected { color: $inverse_fg_color; }
 }
 
@@ -1842,10 +1842,10 @@ GtkCalendar {
     @extend %simple_flat_button;
   }
 
-  &:inconsistent { color: gtkalpha(currentColor, $disabled_opacity); }
+  &:inconsistent { color: $disabled_secondary_fg_color; }
   &.highlight {
     font-size: smaller;
-    color: gtkalpha(currentColor, $hint_opacity);
+    color: $secondary_fg_color;
   }
 }
 
@@ -1858,11 +1858,11 @@ GtkCalendar {
 }
 
 .message-dialog { // Message Dialog styling
-  &.background { background-color: $lighter_bg_color; }
+  &.background { background-color: $popup_bg_color; }
   .titlebar {
     border-style: none;
     box-shadow: inset 0 1px $highlight_color;
-    background-color: $lighter_bg_color;
+    background-color: $popup_bg_color;
   }
   &.csd { // rounded bottom border styling for csd version
     &.background {
@@ -1900,7 +1900,7 @@ GtkFileChooserDialog {
 
 .sidebar {
   border: none;
-  background-color: $lighter_bg_color;
+  background-color: $alt_base_color;
 
   &:selected {
     @extend %selected_items;
@@ -1918,7 +1918,7 @@ GtkSidebarRow {
     padding: 4px 14px 4px 12px;
   }
   .sidebar-icon {
-    opacity: $hint_opacity; // dim the device icons
+    opacity: 0.7; // dim the device icons
     &:dir(ltr) { padding-right: 8px; }
     &:dir(rtl) { padding-left: 8px; }
   }
@@ -1937,7 +1937,7 @@ GtkPlacesSidebar.sidebar {
   }
 
   .sidebar-new-bookmark-row {
-    color: $accent_color;
+    color: $secondary_color;
   }
 
   @at-root .sidebar-button.button { // @at-root needded to not change the specificity making button styling inheritance broken
@@ -2053,10 +2053,9 @@ GtkInfoBar {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
     // box-shadow: inset 0 1px $highlight_color;
-    background-color: rgba($tooltip_bg_color, $higher_opacity);
+    background-color: $tooltip_bg_color;
   }
 
-  // @extend %osd;
   color: $tooltip_fg_color;
   padding: 4px; /* not working */
   border-radius: 2px;
@@ -2088,7 +2087,7 @@ GtkColorSwatch {
   // we need to re-set the shadow here since it get axed by the previous bit
   &:selected { }
   &:insensitive {
-    opacity: $disabled_opacity;
+    opacity: 0.5;
     box-shadow: none;
   }
 
@@ -2182,7 +2181,7 @@ GtkColorSwatch {
 
 .scale-popup {
 
-   .osd & { @extend %osd; }
+   // .osd & { @extend %osd; }
 
    .osd & .button.flat {  //FIXME: quick hack, redo properly
    }
@@ -2261,9 +2260,9 @@ GtkVolumeButton.button {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.4,
-                                    to(gtkalpha(currentColor, $lower_opacity / 2)),
+                                    to($semi_fill_color),
                                     to(transparent)),
-                      linear-gradient(to bottom, gtkalpha(currentColor, $lower_opacity / 2));
+                      linear-gradient(to bottom, $semi_fill_color);
   }
 }
 
@@ -2286,24 +2285,22 @@ GtkVolumeButton.button {
 //touch selection handlebars for the Popover.osd above
 .entry.cursor-handle,
 .cursor-handle {
-  background-color: $accent_color;
+  background-color: $secondary_color;
   background-image: none;
   box-shadow: none;
   border-style: none;
-  @each $s,$as in ('', ''),
-                  (':hover', '-hover'),
-                  (':active', '-active') { //no need for insensitive and backdrop
+  @each $s,$as in ('', '') { //no need for insensitive and backdrop
                     &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
-                      $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
-                      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                                    url('#{$_url}@2.png'));
-                      padding-left: 10px;
+                      // $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
+                      // -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
+                      //                               url('#{$_url}@2.png'));
+                      // padding-left: 10px;
                     }
                     &.bottom#{$s}:dir(ltr), &.top#{$s}:dir(rtl) {
-                      $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
-                      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
-                                                    url('#{$_url}@2.png'));
-                      padding-right: 10px;
+                      // $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
+                      // -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
+                      //                               url('#{$_url}@2.png'));
+                      // padding-right: 10px;
                     }
                     &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
                       $_url: 'assets/scale-horz-marks-before-slider#{$as}#{$asset_suffix}';
@@ -2321,7 +2318,7 @@ GtkVolumeButton.button {
 .touch-selection {
   font: initial;
   color: $fg_color;
-  background-color: $base_color;
+  background-color: $popup_bg_color;
   box-shadow: $shadow_2;
   &:backdrop { box-shadow: $shadow_1; }
   .button {

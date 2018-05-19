@@ -1,13 +1,11 @@
 // floating status bar
 .floating-bar {
-  @extend %osd;
-  // @extend .toolbar.osd;
   padding: 3px 0 4px;
   border-width: 1px;
   border-style: solid solid none;
   border-color: $border_color;
   border-radius: 2px + 1px 2px + 1px 0 0;
-  background-color: $base_color;
+  background-color: rgba($base_color, 0.9);
   background-clip: $extra_background_clip;
   &.left {
     border-left-style: none;
@@ -34,15 +32,13 @@ EelEditableLabel.entry { transition: none; }
 
 .nautilus-canvas-item.dim-label,
 .nautilus-list-dim-label {
-  // @extend .dim-label;
-}
+  color: $secondary_fg_color;
 
-.nautilus-canvas-item.dim-label:selected,
-.nautilus-list-dim-label:selected {
+  &:selected { color: $inverse_secondary_fg_color; }
 }
 
 .nautilus-desktop.nautilus-canvas-item {
-  // background-color: rgba(#000000, $lower_opacity);
+  // background-color: $panel_bg_color;
   color: $inverse_fg_color;
   text-shadow: $shadow_1;
 }
@@ -64,11 +60,11 @@ EelEditableLabel.entry { transition: none; }
   100% {background-color: transparent; }
 }
 .nautilus-operations-button-needs-attention {
-  color: $accent_color;
+  color: $secondary_color;
   animation: needs_attention_keyframes 2s $standard_curve;
 }
 .nautilus-operations-button-needs-attention-multiple {
-  color: $accent_color;
+  color: $secondary_color;
   animation: needs_attention_keyframes 2s $standard_curve;
   animation-iteration-count: 2;
 }
@@ -193,7 +189,7 @@ UnityDecoration.top {
   border-style: none;
   border-radius: 2px 2px 0 0;
   box-shadow: inset 0 1px $titlebar_highlight_color;
-  background-color: $alt_titlebar_bg_color;
+  background-color: $titlebar_bg_color;
   color: $titlebar_fg_color;
 }
 
@@ -210,14 +206,14 @@ UnityDecoration.bottom {
 
 UnityDecoration.menuitem,
 UnityDecoration .menuitem {
-  color: gtkalpha(currentColor, $secondary_opacity);
+  color: $titlebar_secondary_fg_color;
 }
 
 UnityDecoration.menubar.menuitem:hover,
 UnityDecoration.menubar .menuitem *:hover {
-  box-shadow: inset 0 -2px currentColor;
+  box-shadow: inset 0 -2px $titlebar_indicator_color;
   background-color: transparent;
-  color: currentColor;
+  color: $titlebar_fg_color;
 }
 
 .background:not(.csd) :not(.titlebar) .header-bar {
@@ -250,14 +246,14 @@ UnityPanelWidget:backdrop,
 
 .unity-panel.menuitem,
 .unity-panel .menuitem {
-  color: gtkalpha(currentColor, $secondary_opacity);
+  color: $titlebar_secondary_fg_color;
 }
 
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
-  box-shadow: inset 0 -2px currentColor;
+  box-shadow: inset 0 -2px $titlebar_indicator_color;
   background-color: transparent;
-  color: currentColor;
+  color: $titlebar_fg_color;
 }
 
 @keyframes playbackmenuitem_spinner {

@@ -7,6 +7,10 @@
   to { background-size: 1000% 1000%; }
 }
 
+@keyframes scale_ripple_effect {
+  to { background-size: auto, 1000% 1000%; }
+}
+
 @keyframes header_ripple_effect {
   from {
     background-image: radial-gradient(circle farthest-corner at center,
@@ -76,7 +80,7 @@
 }
 
 
-@mixin button($t, $c: $lighter_bg_color) {
+@mixin button($t, $c: $button_bg_color) {
 //
 // button
 //
@@ -88,7 +92,7 @@
     transition: $longer_transition,
                 $shadow_transition,
                 background-size $ripple_duration $deceleration_curve,
-                background-image $ripple_duration * 2 $deceleration_curve;
+                background-image $ripple_opacity_duration $deceleration_curve;
     box-shadow: $shadow_1, inset 0 0 0 9999px transparent;
     background-color: $c;
     background-image: radial-gradient(circle farthest-corner at center,
@@ -121,7 +125,7 @@
   @if $t == disabled {
     box-shadow: none;
     background-color: $divider_color;
-    color: if($c == $lighter_bg_color, $disabled_secondary_fg_color, $disabled_fg_color);
+    color: if($c == $button_bg_color, $disabled_secondary_fg_color, $disabled_fg_color);
   }
 
   @if $t == checked {
@@ -130,14 +134,14 @@
   }
 
   @if $t == checked-disabled {
-    background-color: rgba($primary_color, $lower_opacity);
-    color: rgba($primary_color, $disabled_opacity);
+    background-color: rgba($primary_color, 0.3);
+    color: rgba($primary_color, 0.5);
   }
 
   @if $t == flat-normal {
     transition: $longer_transition,
                 background-size $ripple_duration $deceleration_curve,
-                background-image $ripple_duration * 2 $deceleration_curve;
+                background-image $ripple_opacity_duration $deceleration_curve;
     box-shadow: inset 0 0 0 9999px transparent;
     background-color: transparent;
     background-image: radial-gradient(circle farthest-corner at center,
@@ -170,11 +174,11 @@
   @if $t == flat-disabled {
     box-shadow: none;
     background-color: transparent;
-    color: if($c == $lighter_bg_color, $disabled_secondary_fg_color, $disabled_fg_color);
+    color: if($c == $button_bg_color, $disabled_secondary_fg_color, $disabled_fg_color);
   }
 
   @if $t == flat-checked {
-    background-color: $track_color;
+    background-color: $fill_color;
     color: $fg_color;
   }
 
@@ -204,7 +208,7 @@
   background-image: -gtk-gradient(radial,
                                   $_position, 0,
                                   $_position, 0.75,
-                                  to(rgba($alt_primary_color, $lower_opacity)),
+                                  to(rgba($alt_primary_color, 0.3)),
                                   to(transparent));
 
   background-repeat: no-repeat;
@@ -227,7 +231,7 @@
 //
 
   $_undershoot_color_dark: $track_color;
-  $_undershoot_color_light: rgba($base_color, $lower_opacity);
+  $_undershoot_color_light: rgba($base_color, 0.3);
 
   $_gradient_dir: left;
   $_dash_bg_size: 12px 1px;

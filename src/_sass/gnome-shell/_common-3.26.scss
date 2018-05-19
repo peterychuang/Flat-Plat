@@ -54,10 +54,12 @@ stage {
 }
 
 .modal-dialog-linked-button {
-  min-height: 40px;
-  padding: 0 16px;
-  border-top: 1px solid $border_color !important;
+  min-height: $medium_size;
+  margin: $container_padding;
+  padding: 0 8px;
+  margin-right: 0;
   border-right-width: 0;
+  border-radius: 2px;
   @include font(button);
   @include button(flat-normal);
   &:hover { @include button(flat-hover); }
@@ -66,15 +68,17 @@ stage {
   &:focus { @include button(flat-focus); }
 
   &:first-child {
-    border-radius: 0px 0px 0px 2px;
+    border-radius: 2px;
   }
   &:last-child {
+    margin-right: $container_padding;
     border-right-width: 0px;
-    border-radius: 0px 0px 2px 0px;
+    border-radius: 2px;
   }
   &:first-child:last-child {
+    margin-right: $container_padding;
     border-right-width: 0px;
-    border-radius: 0px 0px 2px 2px;
+    border-radius: 2px;
   }
 }
 
@@ -147,14 +151,14 @@ StScrollBar {
 
 .slider {
   height: 20px;
-  color: $accent_color;
+  color: $secondary_color;
   -slider-height: 2px;
   -slider-background-color: $track_color; //background of the trough
   -slider-border-color: transparent; //trough border color
-  -slider-active-background-color: $accent_color; //active trough fill
+  -slider-active-background-color: $secondary_color; //active trough fill
   -slider-active-border-color: transparent; //active trough border
   -slider-border-width: 0;
-  -slider-handle-radius: 7px;
+  -slider-handle-radius: 6px;
 }
 
 /* Check Boxes */
@@ -188,10 +192,10 @@ StScrollBar {
     background-image: url("assets/checkbox.svg");
   }
   &:hover:checked StBin {
-    background-color: rgba($accent_color, $lower_opacity / 2);
+    background-color: rgba($secondary_color, 0.12);
   }
   &:active:checked StBin {
-    background-color: rgba($accent_color, $lower_opacity);
+    background-color: rgba($secondary_color, 0.24);
   }
 }
 
@@ -215,11 +219,11 @@ StScrollBar {
   color: $link_color;
   &:hover {
     color: $link_color;
-    background-color: rgba($link_color, $lower_opacity / 2);
+    background-color: rgba($link_color, 0.12);
   }
   &:active {
     color: $link_color;
-    background-color: rgba($link_color, $lower_opacity);
+    background-color: rgba($link_color, 0.24);
   }
 }
 
@@ -232,13 +236,13 @@ StScrollBar {
 .modal-dialog {
   border-radius: 2px;
   color: $fg_color;
-  background-color: $lighter_bg_color;
+  background-color: $popup_bg_color;
   border: none;
   box-shadow: $shadow_4;
   .modal-dialog-content-box {
     padding: 24px;
   }
-  .run-dialog-entry { width: 20em; margin-bottom: 6px; }
+  .run-dialog-entry { width: 20em; margin-bottom: 0; }
   .run-dialog-error-box {
     padding-top: 16px;
     spacing: 6px;
@@ -575,11 +579,11 @@ StScrollBar {
       box-shadow: $shadow_0;
       font-weight: normal;
       &.selected {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
+        background-color: mix($inverse_fg_color, $primary_color, percentage(0.12));
         color: $inverse_fg_color;
       }
       &:active {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity));
+        background-color: mix($inverse_fg_color, $primary_color, percentage(0.24));
         color: $inverse_fg_color !important;
       }
       &:insensitive { color: $inverse_disabled_fg_color; }
@@ -627,7 +631,7 @@ StScrollBar {
     -arrow-rise: 0;
     -arrow-box-shadow: none; //dreaming. bug #689995
     margin: 5px 8px 8px;
-    background-color: $lighter_bg_color;
+    background-color: $popup_bg_color;
     border-radius: 2px;
     box-shadow: $shadow_2;
   }
@@ -665,7 +669,7 @@ StScrollBar {
   .level {
     height: 8px;
     border-radius: 0;
-    background-color: rgba($fg_color, $lower_opacity);
+    background-color: rgba($fg_color, 0.3);
     color: $fg_color;
   }
   .level-bar {
@@ -781,7 +785,7 @@ StScrollBar {
 
 %osd-panel {
   color: $fg_color;
-  background-color: $lighter_bg_color;
+  background-color: $popup_bg_color;
   border: none;
   box-shadow: $shadow_4;
   border-radius: 2px;
@@ -790,7 +794,7 @@ StScrollBar {
 
 /* Tiled window previews */
 .tile-preview {
-  background-color: rgba($alt_primary_color, $lower_opacity);
+  background-color: rgba($alt_primary_color, 0.3);
   border: 1px solid $alt_primary_color;
 }
 
@@ -895,12 +899,12 @@ StScrollBar {
 
     &.clock-display {
       > StBoxLayout > StIcon {
-        color: rgba($accent_color, 0.7);
+        color: rgba($secondary_color, 0.7);
       }
 
       &:hover,
       &:active {
-        > StBoxLayout > StIcon { color: $accent_color; }
+        > StBoxLayout > StIcon { color: $secondary_color; }
       }
     }
   }
@@ -1505,7 +1509,7 @@ StScrollBar {
     border-radius: 2px;
     padding: 7px 8px;
     color: $fg_color;
-    background-color: $lighter_bg_color;
+    background-color: $popup_bg_color;
     box-shadow: $shadow_2;
     text-align: center;
     -x-offset: 8px;
@@ -1732,11 +1736,11 @@ StScrollBar {
     margin: 5px;
     border-radius: 2px;
     color: $fg_color;
-    background-color: $lighter_bg_color;
+    background-color: $popup_bg_color;
     border: none;
     box-shadow: $shadow_2;
-    &:hover { background-color: $lighter_bg_color; }
-    &:focus { background-color: $lighter_bg_color; }
+    &:hover { background-color: $popup_bg_color; }
+    &:focus { background-color: $popup_bg_color; }
 
     .notification-icon { padding: 5px; }
     .notification-content { padding: 5px; spacing: 5px; }
@@ -1744,17 +1748,17 @@ StScrollBar {
     .notification-actions {
       background-color: transparent;
       padding-top: 0;
-      border-top: 1px solid $border_color;
-      spacing: 1px;
+      padding: $container_padding;
+      spacing: $container_padding;
     }
     .notification-button {
-      min-height: 40px;
-      padding: 0 16px;
+      min-height: $medium_size;
+      padding: 0 8px;
       background-color: transparent;
       color: $secondary_fg_color;
       font-weight: 500;
-      &:first-child { border-radius: 0 0 0 2px; }
-      &:last-child { border-radius: 0 0 2px 0; }
+      &:first-child { border-radius: 2px; }
+      &:last-child { border-radius: 2px; }
       &:hover, &focus { background-color: $divider_color; color: $fg_color; }
       &:active { background-color: $track_color; color: $fg_color; }
     }
@@ -1891,7 +1895,7 @@ StScrollBar {
     -arrow-base: 0;
     -arrow-rise: 0;
     -boxpointer-gap: 5px;
-    background-color: $lighter_bg_color;
+    background-color: $popup_bg_color;
     border-radius: 2px;
     box-shadow: $shadow_2;
   }
@@ -2154,7 +2158,7 @@ StScrollBar {
 
 // Looking Glass
 #LookingGlassDialog {
-  background-color: $lighter_bg_color;
+  background-color: $popup_bg_color;
   spacing: 4px;
   padding: 0;
   border: none;
@@ -2164,7 +2168,7 @@ StScrollBar {
     padding: 0 8px;
     border: none;
     border-radius: 0;
-    background-color: rgba($lighter_bg_color, 0.01);
+    background-color: rgba($popup_bg_color, 0.01);
     box-shadow: inset 0 -1px 0 $border_color;
   }
   .labels { spacing: 0; }
@@ -2186,7 +2190,7 @@ StScrollBar {
     &:selected {
       border-bottom-width: 0;
       border-color: transparent;
-      background-color: rgba($lighter_bg_color, 0.01);
+      background-color: rgba($popup_bg_color, 0.01);
       box-shadow: inset 0 -2px 0px $primary_color;
       color: $fg_color;
       text-shadow: none;
@@ -2252,7 +2256,7 @@ StScrollBar {
   }
 
   #LookingGlassPropertyInspector {
-    background: $lighter_bg_color;
+    background: $popup_bg_color;
     border: none;
     border-radius: 2px;
     padding: 6px;
