@@ -1,12 +1,7 @@
 {
   "manifest_version": 2,
-<<<<<<< HEAD
   "name": "Flat-Plat-Blue Theme",
   "version": "6",
-=======
-  "name": "Materia",
-  "version": "8",
->>>>>>> upstream/master
   "description": "",
   "theme": {
     "images": {
