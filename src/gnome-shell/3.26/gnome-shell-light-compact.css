@@ -82,7 +82,7 @@ stage {
 
 .modal-dialog-linked-button {
   min-height: 32px;
-  margin: 6px;
+  margin: 4px;
   padding: 0 8px;
   margin-right: 0;
   border-right-width: 0;
@@ -136,13 +136,13 @@ stage {
 }
 
 .modal-dialog-linked-button:last-child {
-  margin-right: 6px;
+  margin-right: 4px;
   border-right-width: 0px;
   border-radius: 2px;
 }
 
 .modal-dialog-linked-button:first-child:last-child {
-  margin-right: 6px;
+  margin-right: 4px;
   border-right-width: 0px;
   border-radius: 2px;
 }
@@ -1581,7 +1581,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(0, 0, 0, 0.54);
   border-radius: 100px;
   /* wish we could do 50% */
-  padding: 14px;
+  padding: 12px;
   border: none;
 }
 
@@ -1589,7 +1589,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.87);
   border: none;
-  padding: 14px;
+  padding: 12px;
 }
 
 .system-menu-action:active {
@@ -2172,13 +2172,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .notification-banner .notification-actions {
   background-color: transparent;
   padding-top: 0;
-  padding: 6px;
-  spacing: 6px;
+  padding: 4px;
+  spacing: 4px;
 }
 
 .notification-banner .notification-button {
   min-height: 32px;
   padding: 0 8px;
+  border-radius: 2px;
   background-color: transparent;
   color: rgba(0, 0, 0, 0.54);
   font-weight: 500;

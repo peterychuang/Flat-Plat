@@ -49,7 +49,7 @@
   border-style: solid solid none;
   border-width: 1px;
   border-color: $border_color;
-  border-radius: (2px + 1px) (2px + 1px) 0 0;
+  border-radius: ($material_radius + 1px) ($material_radius + 1px) 0 0;
   background-color: rgba($base_color, 0.9);
   background-clip: $extra_background_clip;
   transition: $longer_transition, border-width 0;
@@ -164,9 +164,9 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
  * gedit *
  *********/
 // based css:
-// https://git.gnome.org/browse/gedit/tree/gedit/resources/css/gedit.adwaita.css
+// https://gitlab.gnome.org/GNOME/gedit/blob/master/gedit/resources/css/gedit.adwaita.css
 // hard-coded css:
-// https://git.gnome.org/browse/gedit/tree/gedit/resources/css/gedit-style.css
+// https://gitlab.gnome.org/GNOME/gedit/blob/master/gedit/resources/css/gedit-style.css
 
 // Only normal state is handle
 .open-document-selector-name-label {
@@ -204,15 +204,12 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 .gedit-search-slider {
   margin: 4px 4px 8px;
 
-  entry {
-    &:dir(ltr),
-    &:dir(rtl) { // specificity bump
-      border-radius: 2px;
+  .linked > entry {
+    border-radius: $material_radius;
 
-      .gedit-search-entry-occurrences-tag {
-        all: unset;
-        color: $hint_fg_color;
-      }
+    .gedit-search-entry-occurrences-tag {
+      all: unset;
+      color: $hint_fg_color;
     }
 
     $buttons_width: $small_size * 2 + $container_padding * 3;
@@ -235,6 +232,8 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
       image.left { margin-left: 0; }
     }
 
+    &:not(.error) { background-color: $popup_bg_color; }
+
     &.error ~ button {
       color: $inverse_secondary_fg_color;
 
@@ -244,13 +243,12 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
     }
   }
 
-  button {
+  .linked > button {
     border: solid $container_padding transparent;
+    border-radius: $circular_radius;
 
     @extend %simple_flat_button;
-
-    &:dir(ltr),
-    &:dir(rtl) { @extend %small_button; } // specificity bump
+    @extend %small_button;
 
     &:last-child:dir(ltr),
     &:not(:first-child):dir(rtl) { margin-left: -$container_padding / 2; }
@@ -401,7 +399,7 @@ popover.popover-selector list {
   padding: 8px - 2px;
 
   row {
-    border-radius: 2px;
+    border-radius: $material_radius;
 
     image {
       &:dir(ltr) { margin-right: 6px; }
@@ -416,7 +414,7 @@ popover.popover-selector list {
 }
 
 omnibar {
-  &.linked:not(.vertical) entry { border-radius: 2px; }
+  &.linked:not(.vertical) entry { border-radius: $material_radius; }
 
   &:not(:hover):not(:active) entry { color: $secondary_fg_color; }
 }
@@ -460,9 +458,9 @@ popover.messagepopover {
     border-top: 1px solid $border_color;
     border-radius: 0;
 
-    &:first-child { border-bottom-left-radius: 2px; }
+    &:first-child { border-bottom-left-radius: $material_radius; }
 
-    &:last-child { border-bottom-right-radius: 2px; }
+    &:last-child { border-bottom-right-radius: $material_radius; }
   }
 
   .popover-content-area { margin: 16px; }
@@ -560,7 +558,7 @@ dockoverlayedge {
 
 pillbox {
   background-color: $bg_color;
-  border-radius: 2px;
+  border-radius: $material_radius;
 }
 
 buildperspective row {
@@ -861,7 +859,7 @@ tasklistview {
 #eog-thumb-nav {
   scrolledwindow { border-top: none; }
 
-  button { -gtk-outline-radius: 2px; }
+  button { -gtk-outline-radius: $material_radius; }
 }
 
 
