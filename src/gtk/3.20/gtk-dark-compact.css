@@ -1469,6 +1469,11 @@ headerbar spinbutton button {
   margin-bottom: 0;
 }
 
+headerbar .entry-tag, headerbar .documents-entry-tag, headerbar .photos-entry-tag {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .background .titlebar {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
@@ -3929,7 +3934,7 @@ headerbar .nautilus-canvas-item.subtitle:selected, .budgie-notification .nautilu
 }
 
 .disk-space-display.unknown {
-  background-color: #FBBC05;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .disk-space-display.used {

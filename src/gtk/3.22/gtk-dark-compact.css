@@ -858,7 +858,7 @@ button.image-button, toolbar .linked > button.image-button, .titlebar:not(header
 headerbar .linked > button.image-button:not(.suggested-action):not(.destructive-action), actionbar > revealer > box .linked > button.image-button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification .linked > button.image-button, .nemo-window .toolbar .linked > button.image-button, toolbar .linked.vertical > button.image-button,
 headerbar .linked.vertical > button.image-button:not(.suggested-action):not(.destructive-action), .app-notification .linked.vertical > button.image-button, .nemo-window .toolbar .linked.vertical > button.image-button, .linked > button.flat.image-button,
 .linked.vertical > button.flat.image-button, .inline-toolbar button:not(.text-button), check,
-radio, button.titlebutton, .nautilus-window headerbar > revealer > button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button,
+radio, button.titlebutton, .disclosure-button, .nautilus-window headerbar > revealer > button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button,
 button.close,
 button.circular {
   border-radius: 9999px;
@@ -1468,6 +1468,11 @@ headerbar switch {
 headerbar spinbutton button {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+headerbar .entry-tag, headerbar .documents-entry-tag, headerbar .photos-entry-tag {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .background .titlebar {
@@ -3930,22 +3935,31 @@ headerbar .nautilus-canvas-item.subtitle:selected, .budgie-notification .nautilu
 }
 
 .disk-space-display.unknown {
-  background-color: #FBBC05;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .disk-space-display.used {
   background-color: #1E88E5;
+  color: #1E88E5;
 }
 
 .disk-space-display.free {
   background-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.search-information {
+  padding: 2px;
+  background-color: #1E88E5;
+  color: white;
 }
 
 .conflict-row:not(:selected) {
   background-color: #6d5a23;
 }
 
-.nautilus-window flowboxchild > widget > .icon-item-background {
+.nautilus-window flowboxchild .icon-item-background {
   padding: 4px;
   border-radius: 2px;
 }
@@ -3954,7 +3968,7 @@ headerbar .nautilus-canvas-item.subtitle:selected, .budgie-notification .nautilu
   background-color: transparent;
 }
 
-.nautilus-window flowboxchild:selected > widget > .icon-item-background {
+.nautilus-window flowboxchild:selected .icon-item-background {
   background-color: #1E88E5;
 }
 
