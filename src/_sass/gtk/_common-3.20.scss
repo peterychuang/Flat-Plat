@@ -1039,7 +1039,7 @@ searchbar > revealer > box {
  ***************/
 %titlebar,
 headerbar {
-  transition: background-color $shorter_duration $deceleration_curve, color $longer_duration $deceleration_curve;
+  transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
   min-height: $large_size;
   padding: 0 $container_padding;
   box-shadow: $shadow_1, inset 0 1px $titlebar_highlight_color;
@@ -1672,8 +1672,7 @@ notebook {
       > tabs {
         margin-bottom: -1px;
         > tab {
-
-          &:hover { box-shadow: inset 0 -2px $track_color; }
+          box-shadow: inset 0 -2px transparent;
 
           &:checked { box-shadow: inset 0 -2px $primary_color; }
         }
@@ -1685,8 +1684,7 @@ notebook {
       > tabs {
         margin-top: -1px;
         > tab {
-
-          &:hover { box-shadow: inset 0 2px $track_color; }
+          box-shadow: inset 0 2px transparent;
 
           &:checked { box-shadow: inset 0 2px $primary_color; }
         }
@@ -1698,8 +1696,7 @@ notebook {
       > tabs {
         margin-right: -1px;
         > tab {
-
-          &:hover { box-shadow: inset -2px 0 $track_color; }
+          box-shadow: inset -2px 0 transparent;
 
           &:checked { box-shadow: inset -2px 0 $primary_color; }
         }
@@ -1711,8 +1708,7 @@ notebook {
       > tabs {
         margin-left: -1px;
         > tab {
-
-          &:hover { box-shadow: inset 2px 0 $track_color; }
+          box-shadow: inset 2px 0 transparent;
 
           &:checked { box-shadow: inset 2px 0 $primary_color; }
         }
@@ -1782,7 +1778,7 @@ notebook {
     }
 
     tab {
-      transition: $longer_transition,
+      transition: $shorter_transition,
                   background-size 0,
                   background-image 0;
       min-height: $small_size;
@@ -1805,20 +1801,17 @@ notebook {
       font-weight: 500;
 
       &:hover {
+        background-color: $row_fill_color;
         color: $fg_color;
-
-        &.reorderable-page {
-          border-color: $border_color;
-          background-color: $alt_base_color;
-        }
       }
 
       &:disabled { color: $disabled_secondary_fg_color; }
 
       &:checked {
-        transition: $longer_transition,
+        transition: $shorter_transition,
                     background-size $longer_duration $deceleration_curve,
                     background-image $longer_duration + $ripple_duration $deceleration_curve;
+        background-color: transparent;
         background-image: radial-gradient(circle farthest-corner at center,
                                           transparent 10%,
                                           transparent 0%);
@@ -1918,7 +1911,7 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  transition: $longer_transition;
+  transition: $shorter_transition;
   background-color: $base_color;
   background-clip: $extra_background_clip;
 
@@ -2036,7 +2029,7 @@ scrollbar {
  * Switch *
  **********/
 switch {
-  transition: background-color 100ms $deceleration_curve, opacity $longer_duration $deceleration_curve;
+  transition: background-color 100ms $deceleration_curve, opacity $shorter_duration $deceleration_curve;
   margin: $container_padding 0;
   padding: 0 2px;
   border: 5px solid transparent;
@@ -2050,7 +2043,7 @@ switch {
   &:disabled { opacity: 0.5; }
 
   slider {
-    transition: all 100ms $deceleration_curve, box-shadow $longer_duration $deceleration_curve;
+    transition: all 100ms $deceleration_curve, box-shadow $shorter_duration $deceleration_curve;
     min-width: 20px;
     min-height: 20px;
     margin: -3px -2px;
@@ -2278,14 +2271,14 @@ radio:not(:checked):indeterminate:active { -gtk-icon-transform: scaleX(-1); } //
 check:not(:checked),
 radio:not(:checked) {
   & {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_opacity_duration $deceleration_curve,
                 -gtk-icon-transform 0;
   }
 
   &:active {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0,
                 -gtk-icon-transform 0;
@@ -2390,7 +2383,7 @@ scale {
 
   // the backing bit
   trough {
-    transition: background-color $longer_duration $deceleration_curve;
+    transition: background-color $shorter_duration $deceleration_curve;
     outline: none;
     background-color: $track_color;
 
@@ -2399,7 +2392,7 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    transition: background-color $longer_duration $deceleration_curve;
+    transition: background-color $shorter_duration $deceleration_curve;
     background-color: $secondary_color;
 
     &:disabled { background-color: transparent; }
@@ -2408,14 +2401,14 @@ scale {
   // this is another differently styled part of the backing bit, the most relevant use case is for example
   // in media player to indicate how much video stream as been cached
   fill {
-    transition: background-color $longer_duration $deceleration_curve;
+    transition: background-color $shorter_duration $deceleration_curve;
     background-color: $track_color;
 
     &:disabled { background-color: transparent; }
   }
 
   slider {
-    transition: background-color $longer_duration $deceleration_curve,
+    transition: background-color $shorter_duration $deceleration_curve,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_opacity_duration $deceleration_curve;
     background-repeat: no-repeat;
@@ -2441,7 +2434,7 @@ scale {
     &:hover { background-color: rgba($secondary_color, 0.12); }
 
     &:active {
-      transition: background-color $longer_duration $deceleration_curve,
+      transition: background-color $shorter_duration $deceleration_curve,
                   background-size 0,
                   background-image 0;
       animation: scale_ripple_effect $longer_duration $deceleration_curve forwards;
@@ -2741,7 +2734,7 @@ list {
 }
 
 // FIXME
-$row_transition: $longer_transition, background-color 0, color 0;
+$row_transition: $shorter_transition, background-color 0, color 0;
 
 row {
   &.activatable {
@@ -2804,7 +2797,7 @@ row {
  *************/
 expander {
   title > arrow {
-    transition: all $shorter_duration $standard_curve;
+    transition: all $shorter_duration $deceleration_curve;
     min-width: 16px;
     min-height: 16px;
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
@@ -3462,7 +3455,7 @@ cursor-handle {
 }
 
 :not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
-  transition: $longer_transition;
+  transition: $shorter_transition;
   box-shadow: $shadow_1, inset 0 0 0 2px $secondary_color;
   caret-color: $secondary_color;
 }
@@ -3501,21 +3494,15 @@ button.emoji-section {
   min-height: $medium_size;
   border-radius: 0;
   outline-offset: -6px;
-  box-shadow: none;
 
-  &:hover { box-shadow: inset 0 2px $track_color; }
-
-  &:active {
-    box-shadow: inset 0 2px $primary_color;
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      rgba($primary_color, 0.7) 10%,
-                                      transparent 0%);
-  }
+  &, &:hover, &:active { box-shadow: inset 0 2px transparent; }
 
   &:checked {
     box-shadow: inset 0 2px $primary_color;
     background-color: transparent;
   }
+
+  &:hover, &:active { background-color: $semi_fill_color; }
 
   &:first-child { margin-left: 4px; }
 
