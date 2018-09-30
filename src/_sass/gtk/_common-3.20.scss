@@ -34,7 +34,7 @@
 }
 
 notebook:focus tab,
-*:focus { outline-color: $fill_color; }
+*:focus { outline-color: $checked_bg_color; }
 
 
 /***************
@@ -1582,6 +1582,8 @@ menu,
 
 menuitem {
   accelerator { color: $secondary_fg_color; }
+
+  &:disabled accelerator { color: $disabled_secondary_fg_color; }
 }
 
 // FIXME: THIS IS A REALLY UGLY WORKAROUND!
@@ -1631,6 +1633,11 @@ popover.background {
     background-color: transparent;
   }
 
+  // FIXME: Use the popover color instead of transparent as a workaround for .view
+  list,
+  .view:not(:selected),
+  toolbar { background-color: $popup_bg_color; }
+
   // &.touch-selection,
   // &.magnifier,
   // &.osd { @extend %osd; }
@@ -1661,6 +1668,9 @@ popover.background {
  * Notebooks *
  *************/
 notebook {
+  frame > paned > & > header,
+  &.frame > header { background-color: $alt_base_color; }
+
   > header {
     border-width: 1px;
     border-color: $border_color;
@@ -1669,8 +1679,10 @@ notebook {
 
     &.top {
       border-bottom-style: solid;
+
       > tabs {
         margin-bottom: -1px;
+
         > tab {
           box-shadow: inset 0 -2px transparent;
 
@@ -1681,8 +1693,10 @@ notebook {
 
     &.bottom {
       border-top-style: solid;
+
       > tabs {
         margin-top: -1px;
+
         > tab {
           box-shadow: inset 0 2px transparent;
 
@@ -1693,8 +1707,10 @@ notebook {
 
     &.left {
       border-right-style: solid;
+
       > tabs {
         margin-right: -1px;
+
         > tab {
           box-shadow: inset -2px 0 transparent;
 
@@ -1705,8 +1721,10 @@ notebook {
 
     &.right {
       border-left-style: solid;
+
       > tabs {
         margin-left: -1px;
+
         > tab {
           box-shadow: inset 2px 0 transparent;
 
@@ -1796,12 +1814,13 @@ notebook {
       background-repeat: no-repeat;
       background-position: center;
       background-size: 0% 0%;
+      background-clip: border-box;
 
       color: $secondary_fg_color;
       font-weight: 500;
 
       &:hover {
-        background-color: $row_fill_color;
+        background-color: $hover_bg_color;
         color: $fg_color;
       }
 
@@ -1816,6 +1835,7 @@ notebook {
                                           transparent 10%,
                                           transparent 0%);
         background-size: 1000% 1000%;
+        background-clip: padding-box;
         color: $fg_color;
 
         &:disabled { color: $disabled_fg_color; }
@@ -1850,15 +1870,11 @@ notebook {
 
         &:not(:only-child) {
           &:first-child { margin-left: 0; }
+
           &:last-child { margin-right: 0; }
         }
 
-        tab {
-          &.reorderable-page {
-            margin: 0 -1px;
-            border-style: none solid;
-          }
-        }
+        tab.reorderable-page { border-style: none solid; }
       }
     }
 
@@ -1870,15 +1886,11 @@ notebook {
 
         &:not(:only-child) {
           &:first-child { margin-top: 0; }
+
           &:last-child { margin-bottom: 0; }
         }
 
-        tab {
-          &.reorderable-page {
-            margin: -1px 0;
-            border-style: solid none;
-          }
-        }
+        tab.reorderable-page { border-style: solid none; }
       }
     }
   }
@@ -2029,7 +2041,7 @@ scrollbar {
  * Switch *
  **********/
 switch {
-  transition: background-color 100ms $deceleration_curve, opacity $shorter_duration $deceleration_curve;
+  transition: all $shorter_duration $deceleration_curve;
   margin: $container_padding 0;
   padding: 0 2px;
   border: 5px solid transparent;
@@ -2043,21 +2055,20 @@ switch {
   &:disabled { opacity: 0.5; }
 
   slider {
-    transition: all 100ms $deceleration_curve, box-shadow $shorter_duration $deceleration_curve;
+    transition: all $shorter_duration $deceleration_curve;
     min-width: 20px;
     min-height: 20px;
     margin: -3px -2px;
     border-radius: $circular_radius;
     box-shadow: 0 0 0 10px transparent, $shadow_1;
     background-color: $popup_bg_color;
-    color: $secondary_fg_color;
   }
 
-  &:hover slider { box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.16), $shadow_1; }
+  &:hover slider { box-shadow: 0 0 0 10px $hover_bg_color, $shadow_1; }
 
-  &:focus slider { box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.2), $shadow_1; }
+  &:focus slider { box-shadow: 0 0 0 10px $focus_bg_color, $shadow_1; }
 
-  &:focus:hover slider { box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.24), $shadow_1; }
+  &:focus:hover slider { box-shadow: 0 0 0 10px $hover_focus_bg_color, $shadow_1; }
 
   &:checked slider {
     background-color: $secondary_color;
@@ -2124,9 +2135,11 @@ radio {
 
   @extend %circular_button;
 
-  &:focus { box-shadow: inset 0 0 0 9999px gtkalpha(currentColor, 0.2); }
+  &:hover { box-shadow: inset 0 0 0 9999px $hover_bg_color; }
 
-  &:hover { box-shadow: inset 0 0 0 9999px $semi_fill_color; }
+  &:focus { box-shadow: inset 0 0 0 9999px $focus_bg_color; }
+
+  &:focus:hover { box-shadow: inset 0 0 0 9999px $hover_focus_bg_color; }
 
   &:checked, &:indeterminate {
     color: $secondary_color;
@@ -2145,7 +2158,7 @@ radio {
   }
 
   popover & {
-    &, &:focus, &:hover, &:active, &:disabled {
+    &, &:hover, &:focus, &:focus:hover, &:active, &:disabled {
       transition: none; // FIXME: this is a workaround for a popover check/radio long transition issue
       box-shadow: none;
       background-image: none;
@@ -2292,11 +2305,11 @@ treeview.view radio {
   padding: 0;
 
   &:hover {
-    box-shadow: inset 0 0 0 9999px gtkalpha($fg_color, 0.05);
+    box-shadow: inset 0 0 0 9999px gtkalpha($fg_color, 0.08);
 
     &:disabled { box-shadow: none; }
 
-    &:selected { box-shadow: inset 0 0 0 9999px gtkalpha($inverse_fg_color, 0.05); }
+    &:selected { box-shadow: inset 0 0 0 9999px gtkalpha($inverse_fg_color, 0.08); }
   }
 
   & {
@@ -2429,9 +2442,11 @@ scale {
       }
     }
 
-    &:focus { background-color: rgba($secondary_color, 0.16); }
+    &:hover { background-color: rgba($secondary_color, 0.08); }
 
-    &:hover { background-color: rgba($secondary_color, 0.12); }
+    &:focus { background-color: rgba($secondary_color, 0.12); }
+
+    &:focus:hover { background-color: rgba($secondary_color, 0.16); }
 
     &:active {
       transition: background-color $shorter_duration $deceleration_curve,
@@ -2439,7 +2454,7 @@ scale {
                   background-image 0;
       animation: scale_ripple_effect $longer_duration $deceleration_curve forwards;
       background-size: auto, 0% 0%;
-      background-color: rgba($secondary_color, 0.12);
+      background-color: rgba($secondary_color, 0.08);
       color: rgba($secondary_color, 0.12);
     }
   }
@@ -2754,7 +2769,7 @@ row {
                   box-shadow 0,
                   background-size $ripple_duration $deceleration_curve,
                   background-image $ripple_opacity_duration $deceleration_curve;
-      box-shadow: inset 0 0 0 9999px $row_fill_color;
+      box-shadow: inset 0 0 0 9999px $hover_bg_color;
     }
 
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -2763,9 +2778,9 @@ row {
                   background-size 0,
                   background-image 0;
       animation: ripple_effect $longer_duration $deceleration_curve forwards;
-      box-shadow: inset 0 0 0 9999px $semi_fill_color;
+      box-shadow: inset 0 0 0 9999px $hover_bg_color;
       background-image: radial-gradient(circle farthest-corner at center,
-                                        $semi_fill_color 10%,
+                                        $active_bg_color 10%,
                                         transparent 0%);
       background-size: 0% 0%;
     }
@@ -3478,9 +3493,9 @@ popover.emoji-picker {
 
   entry {
     border-bottom: 1px solid $border_color;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 0;
     box-shadow: none;
+    background-color: transparent;
   }
 
   scrolledwindow { border-bottom: 1px solid $border_color; }
@@ -3502,7 +3517,7 @@ button.emoji-section {
     background-color: transparent;
   }
 
-  &:hover, &:active { background-color: $semi_fill_color; }
+  &:hover, &:active { background-color: $hover_bg_color; }
 
   &:first-child { margin-left: 4px; }
 
@@ -3512,12 +3527,13 @@ button.emoji-section {
 .emoji {
   min-width: 3em;
   min-height: 3em;
-  padding: 0;
-  // font-size: large;
+  padding: 0 8px;
+  // font-size: larger;
 
   widget {
     transition: $shorter_transition;
+    border-radius: $material_radius;
 
-    &:hover { font-size: larger; }
+    &:hover { background-color: $hover_bg_color; }
   }
 }
