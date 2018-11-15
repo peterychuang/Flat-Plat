@@ -21,9 +21,8 @@ if [[ "$(which gnome-shell 2> /dev/null)" ]]; then
     if (( "$(bc <<< "$CURRENT_GS_VERSION <= $version")" )); then
       GS_VERSION="$version"
       break
-    elif (( "$(bc <<< "$CURRENT_GS_VERSION > $LATEST_GS_VERSION")" )); then
+    else
       GS_VERSION="$LATEST_GS_VERSION"
-      break
     fi
   done
 else
@@ -86,6 +85,7 @@ install() {
   mkdir -p                                                                      "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/"{*.svg,extensions,noise-texture.png,pad-osd.css} "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/gnome-shell-theme.gresource.xml"                  "$THEME_DIR/gnome-shell"
+  cp -r "$SRC_DIR/gnome-shell/README.md"                                        "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/assets${ELSE_DARK:-}"                             "$THEME_DIR/gnome-shell/assets"
   cp -r "$SRC_DIR/gnome-shell/$GS_VERSION/gnome-shell$color$size.css"           "$THEME_DIR/gnome-shell/gnome-shell.css"
 
@@ -147,10 +147,7 @@ while [[ "$#" -gt 0 ]]; do
   case "${1:-}" in
     -d|--dest)
       dest="$2"
-      if [[ ! -d "$dest" ]]; then
-        echo "ERROR: Destination directory does not exist."
-        exit 1
-      fi
+      mkdir -p "$dest"
       shift 2
       ;;
     -n|--name)
