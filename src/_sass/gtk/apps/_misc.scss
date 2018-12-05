@@ -14,7 +14,7 @@ overlay > revealer {
 }
 
 .terminix-session-sidebar, // for backward compatibility
-.tilix-session-sidebar { background-image: image($popup_bg_color); }
+.tilix-session-sidebar { background-image: image($surface_color); }
 
 .terminal-titlebar button { border-radius: 0; }
 
@@ -49,7 +49,7 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
  * Chromium *
  ************/
 window.background.chromium {
-  background-color: if($variant == 'light', $bg_color, $popup_bg_color);
+  background-color: if($variant == 'light', $bg_color, $surface_color);
 
   // FIXME: no way to change the toolbar button colors only
   // toolbar button { color: $secondary_fg_color; }
@@ -62,9 +62,9 @@ window.background.chromium {
     box-shadow: none;
     background-size: auto;
 
-    &:hover { background-image: image($hover_bg_color); }
+    &:hover { background-image: image($hover_overlay_color); }
 
-    &:active { background-image: image($checked_bg_color); }
+    &:active { background-image: image($checked_overlay_color); }
   }
 
   // workaround for headerbar's non-animatable buttons
@@ -73,7 +73,7 @@ window.background.chromium {
   spinner { color: $primary_color; }
 
   // entry uses this as well
-  textview { background-color: $popup_bg_color; }
+  textview { background-color: $surface_color; }
 }
 
 tooltip.background.chromium { background-color: rgba($tooltip_bg_color, 1); }
@@ -112,9 +112,9 @@ window.background:not(.csd) {
       background-size: auto;
       // color: $fg_color;
 
-      &:hover { background-image: image($hover_bg_color); }
+      &:hover { background-image: image($hover_overlay_color); }
 
-      &:active { background-image: image($checked_bg_color); }
+      &:active { background-image: image($checked_overlay_color); }
     }
 
     // use 16px assets for hard-coded sizing

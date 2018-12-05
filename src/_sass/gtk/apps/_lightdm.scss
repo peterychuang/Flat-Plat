@@ -36,7 +36,7 @@
   margin: 8px;
   border-radius: $material_radius;
   box-shadow: $shadow_2, inset 0 1px $highlight_color;
-  background-color: $popup_bg_color;
+  background-color: $surface_color;
 }
 
 // the top half of the login-window, in GtkDialog terms, the content
@@ -47,10 +47,10 @@
 
 #login_window {
   // the user-combobox
-  #user_combobox button { @extend %combo_flat; }
+  #user_combobox button {}
 
   // the entries, one for the username, one for the password
-  entry { @extend %entry.flat; }
+  entry {}
 }
 
 // the buttons, alternatively this could also be done with a simple ".lightdm-gtk-greeter button"

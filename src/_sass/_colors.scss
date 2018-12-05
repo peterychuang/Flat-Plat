@@ -17,37 +17,35 @@ $dark_fg_color:  rgba(black, 0.87);
 $light_fg_color: white;
 
 $fg_color:                    if($variant == 'light', rgba(black, 0.87), white);
-$button_fg_color:             if($variant == 'light', rgba(black, 0.62), rgba(white, 0.8)); // extra fg color for raised buttons
 $secondary_fg_color:          if($variant == 'light', rgba(black, 0.54), rgba(white, 0.7));
-$hint_fg_color:               if($variant == 'light', rgba(black, 0.38), rgba(white, 0.5));
 $disabled_fg_color:           if($variant == 'light', rgba(black, 0.38), rgba(white, 0.5));
 $disabled_secondary_fg_color: if($variant == 'light', rgba(black, 0.26), rgba(white, 0.3));
 $track_color:                 if($variant == 'light', rgba(black, 0.26), rgba(white, 0.3));
 $divider_color:               if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
+$fill_color:                  if($variant == 'light', rgba(black, 0.04), rgba(white, 0.04));
 
 $titlebar_fg_color:                    if($titlebar == 'light', rgba(black, 0.87), white);
 $titlebar_secondary_fg_color:          if($titlebar == 'light', rgba(black, 0.54), rgba(white, 0.7));
-$titlebar_hint_fg_color:               if($titlebar == 'light', rgba(black, 0.38), rgba(white, 0.5));
 $titlebar_disabled_fg_color:           if($titlebar == 'light', rgba(black, 0.38), rgba(white, 0.5));
 $titlebar_disabled_secondary_fg_color: if($titlebar == 'light', rgba(black, 0.26), rgba(white, 0.3));
 $titlebar_track_color:                 if($titlebar == 'light', rgba(black, 0.26), rgba(white, 0.3));
 $titlebar_divider_color:               if($titlebar == 'light', rgba(black, 0.12), rgba(white, 0.12));
+$titlebar_fill_color:                  if($titlebar == 'light', rgba(black, 0.04), rgba(white, 0.04));
 
 $inverse_fg_color:                    white;
 $inverse_secondary_fg_color:          rgba(white, 0.7);
-$inverse_hint_fg_color:               rgba(white, 0.5);
 $inverse_disabled_fg_color:           rgba(white, 0.5);
 $inverse_disabled_secondary_fg_color: rgba(white, 0.3);
 $inverse_track_color:                 rgba(white, 0.3);
 $inverse_divider_color:               rgba(white, 0.12);
+$inverse_fill_color:                  rgba(white, 0.04);
 
 // Background colors
 $bg_color:             if($variant == 'light', #F2F2F2, #282828);
 $base_color:           if($variant == 'light', #FFFFFF, #303030);
 $alt_base_color:       if($variant == 'light', #FAFAFA, #2C2C2C);
-$popup_bg_color:       if($variant == 'light', #FFFFFF, #424242);
+$surface_color:        if($variant == 'light', #FFFFFF, #424242);
 $alt_lighter_bg_color: if($variant == 'light', #EEEEEE, #303030); // for gnome-shell sub menu
-$button_bg_color:      if($variant == 'light', #FAFAFA, #424242);
 
 $titlebar_bg_color: if($titlebar == 'dark', #383838, #E0E0E0);
 
@@ -59,11 +57,11 @@ $opaque_panel_bg_color: if($titlebar == 'dark', $grey_800, mix($grey_200, $grey_
 
 $gdm_bg_color: $grey_800;
 
-$hover_bg_color:       gtkalpha(currentColor, 0.08);
-$focus_bg_color:       gtkalpha(currentColor, 0.12);
-$hover_focus_bg_color: gtkalpha(currentColor, 0.16);
-$active_bg_color:      gtkalpha(currentColor, 0.12);
-$checked_bg_color:     gtkalpha(currentColor, 0.24);
+$hover_overlay_color:       gtkalpha(currentColor, 0.08);
+$focus_overlay_color:       gtkalpha(currentColor, 0.12);
+$hover_focus_overlay_color: gtkalpha(currentColor, 0.16);
+$active_overlay_color:      gtkalpha(currentColor, 0.12);
+$checked_overlay_color:     gtkalpha(currentColor, google_blue_color0.24);
 
 // Misc colors
 $primary_color:         $blue_600;
@@ -78,7 +76,7 @@ $warning_color: $google_yellow_color;
 $error_color:   $google_red_color;
 $success_color: $google_green_color;
 
-$suggested_color:   $secondary_color;
+$suggested_color:   $primary_color;
 $destructive_color: $google_red_color;
 
 $info_bg_color:     $google_green_color;
@@ -98,9 +96,9 @@ $titlebar_indicator_color: if($titlebar == 'dark', currentColor, $primary_color)
 
 // FIXME: Electron/Atom menu does not allow translucent colors
 $opaque_fg_color:           if($variant == 'light', $grey_900, $white);
-$opaque_secondary_fg_color: if($variant == 'light', $grey_600, mix($white, $popup_bg_color, percentage(0.7)));
-$opaque_disabled_fg_color:  if($variant == 'light', $grey_500, mix($white, $popup_bg_color, percentage(0.5)));
-$opaque_divider_color:      if($variant == 'light', $grey_300, mix($white, $popup_bg_color, percentage(0.12)));
+$opaque_secondary_fg_color: if($variant == 'light', $grey_600, mix($white, $surface_color, percentage(0.7)));
+$opaque_disabled_fg_color:  if($variant == 'light', $grey_500, mix($white, $surface_color, percentage(0.5)));
+$opaque_divider_color:      if($variant == 'light', $grey_300, mix($white, $surface_color, percentage(0.12)));
 
 // FIXME: gtk @placeholder_text_color does not allow translucent colors
 $placeholder_text_color: if($variant == 'light', $grey_600, mix($white, $base_color, percentage(0.7)));

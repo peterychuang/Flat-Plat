@@ -5,25 +5,24 @@
 ## Supports
 
 - GTK+ 4
-- Firefox theme ([#78](../../issues/78))
-  - waiting for [the upstream to provide next-gen themes](https://blog.mozilla.org/addons/2017/02/24/improving-themes-in-firefox/)
-  - Or, is it unnecessary because the new interface is well integrated with this theme?
-- Xfce theme ([#60](../../issues/60))
-  - waiting for the upstream to complete `gtk3` port
-- Pantheon theme ([#69](../../issues/69))
-- GtkSourceView theme ([#150](../../issues/150))
-- Color scheme for GNOME Terminal ([#157](../../issues/157))
-- Overlay scrollbars extension for Chrome/Chromium (`low priority`)
-- Cursor theme like Material Design ([#156](../../issues/156), `low priority`)
+- [Firefox theme](../../issues/78)
+  - ~waiting for the upstream to provide [next-gen themes](https://blog.mozilla.org/addons/2017/02/24/improving-themes-in-firefox/)~
+  - Or, is it unnecessary because the new Quantum UI looks well-integrated with Materia?
+- [Xfce theme](../../issues/60)
+- [Pantheon theme](../../issues/69)
+- [Openbox theme](../../issues/254)
+- [Plank theme](../../issues/206)
+- [GtkSourceView theme](../../issues/150)
+- [Color scheme for GNOME Terminal](../../issues/157)
+- [Cursor theme](../../issues/156) (`low priority`)
+- Overlay scrollbar extension for Chrome/Chromium (`low priority`)
 
-## UI changes
+## Style changes
 
-- Make gtk2 check/radio buttons a bit smaller for Qt apps ([#78](../../issues/78))
-- Use `#757575` as check/radio buttons color for some web interfaces ([#123](../../issues/123), if possible)
-- Make compact variant more compact ([#79](../../issues/79))
+- [Make gtk2 check/radio buttons a bit smaller for Qt apps](../../issues/106)
+- [Use `#757575` as check/radio buttons color for some web interfaces](../../issues/123) (if possible)
+- [Make compact variant more compact](../../issues/79) (WIP)
 - Change gtk2 spinbutton to flat button style
+- Update gtk2 entry and combo button style
 - Rework the focus state styles (WIP)
-
-## Others
-
 - Polish Inkscape (using gtk3) styling
