@@ -902,12 +902,12 @@ StScrollBar {
 
     &.clock-display {
       > StBoxLayout > StIcon {
-        color: rgba($secondary_color, 0.7);
+        color: rgba($primary_color, 0.7);
       }
 
       &:hover,
       &:active {
-        > StBoxLayout > StIcon { color: $secondary_color; }
+        > StBoxLayout > StIcon { color: $primary_color; }
       }
     }
   }

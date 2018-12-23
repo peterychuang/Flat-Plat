@@ -61,13 +61,12 @@ $hover_overlay_color:       gtkalpha(currentColor, 0.08);
 $focus_overlay_color:       gtkalpha(currentColor, 0.12);
 $hover_focus_overlay_color: gtkalpha(currentColor, 0.16);
 $active_overlay_color:      gtkalpha(currentColor, 0.12);
-$checked_overlay_color:     gtkalpha(currentColor, google_blue_color0.24);
+$checked_overlay_color:     gtkalpha(currentColor, 0.24);
 
 // Misc colors
-$primary_color:         $blue_600;
-$alt_primary_color:     $light_blue_A200;
-$secondary_color:          $blue_A200;
-$disabled_secondary_color: rgba($secondary_color, 0.5);
+$primary_color:         $google_blue_color;
+$alt_primary_color:        #7BAAF7;
+$selected_overlay_color:    rgba($primary_color, 0.32);
 
 $link_color:         $primary_color;
 $visited_link_color: $purple_A200;
