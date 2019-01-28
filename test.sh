@@ -25,7 +25,7 @@ GS_VERSIONS=('3.18' '3.24' '3.26' '3.28' '3.30')
 LATEST_GS_VERSION="${GS_VERSIONS[-1]}"
 
 # Set a proper gnome-shell theme version
-if [[ "$(which gnome-shell 2> /dev/null)" ]]; then
+if command -v gnome-shell >/dev/null ; then
   CURRENT_GS_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -2)"
   for version in "${GS_VERSIONS[@]}"; do
     if (( "$(bc <<< "$CURRENT_GS_VERSION <= $version")" )); then
@@ -81,6 +81,9 @@ test() {
   mkdir -p                                                                      "$THEME_DIR/metacity-1"
   ln -s  "$SRC_DIR/metacity-1/"{assets,metacity-theme-3.xml}                    "$THEME_DIR/metacity-1"
   ln -sT "$SRC_DIR/metacity-1/metacity-theme-2${ELSE_LIGHT:-}.xml"              "$THEME_DIR/metacity-1/metacity-theme-2.xml"
+
+  mkdir -p                                                                      "$THEME_DIR/plank"
+  ln -s  "$SRC_DIR/plank/dock.theme"                                            "$THEME_DIR/plank"
 
   mkdir -p                                                                      "$THEME_DIR/unity"
   ln -s  "$SRC_DIR/unity/"{*.svg,*.png,dash-widgets.json}                       "$THEME_DIR/unity"

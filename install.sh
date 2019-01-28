@@ -15,7 +15,7 @@ GS_VERSIONS=('3.18' '3.24' '3.26' '3.28' '3.30')
 LATEST_GS_VERSION="${GS_VERSIONS[-1]}"
 
 # Set a proper gnome-shell theme version
-if [[ "$(which gnome-shell 2> /dev/null)" ]]; then
+if command -v gnome-shell >/dev/null ; then
   CURRENT_GS_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -2)"
   for version in "${GS_VERSIONS[@]}"; do
     if (( "$(bc <<< "$CURRENT_GS_VERSION <= $version")" )); then
@@ -108,6 +108,9 @@ install() {
   cp -r "$SRC_DIR/metacity-1/"{assets,metacity-theme-3.xml}                     "$THEME_DIR/metacity-1"
   cp -r "$SRC_DIR/metacity-1/metacity-theme-2${ELSE_LIGHT:-}.xml"               "$THEME_DIR/metacity-1/metacity-theme-2.xml"
 
+  mkdir -p                                                                      "$THEME_DIR/plank"
+  cp -r "$SRC_DIR/plank/dock.theme"                                             "$THEME_DIR/plank"
+
   mkdir -p                                                                      "$THEME_DIR/unity"
   cp -r "$SRC_DIR/unity/"{*.svg,*.png,dash-widgets.json}                        "$THEME_DIR/unity"
   cp -r "$SRC_DIR/unity/assets${ELSE_LIGHT:-}"                                  "$THEME_DIR/unity/assets"
@@ -123,7 +126,7 @@ install_gdm() {
   local GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
   local UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
 
-  if [[ -f "$GS_THEME_FILE" ]] && [[ "$(which glib-compile-resources 2> /dev/null)" ]]; then
+  if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
     echo "Installing '$GS_THEME_FILE'..."
     cp -an "$GS_THEME_FILE" "$GS_THEME_FILE.bak"
     glib-compile-resources \
@@ -156,7 +159,7 @@ while [[ "$#" -gt 0 ]]; do
       ;;
     -g|--gdm)
       gdm='true'
-      shift 1 
+      shift 1
       ;;
     -c|--color)
       shift
