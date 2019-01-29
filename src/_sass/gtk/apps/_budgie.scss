@@ -1,5 +1,5 @@
 // based css:
-// https://github.com/budgie-desktop/budgie-desktop/tree/master/src/theme
+// https://github.com/solus-project/budgie-desktop/tree/master/src/theme
 
 /******************
  * Budgie Desktop *
@@ -39,7 +39,7 @@
     &:hover { box-shadow: none; }
   }
 
-  &:not(.budgie-menu) button.flat:not(.image-button) {
+  button.flat:not(.image-button) {
     min-height: $menuitem_size;
     padding: 0 8px;
     color: $fg_color;
@@ -50,6 +50,30 @@
 
   &.budgie-menu {
     .container { padding: 0; }
+
+    .sidebar,
+    scrollbar,
+    entry.search { background-color: transparent; }
+
+    entry.search {
+      border-bottom: 1px solid $border_color;
+      border-image: none;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 120%;
+    }
+
+    button.flat:not(.image-button) {
+      @extend row.activatable;
+
+      min-height: 32px;
+      padding: 0 8px;
+      border-radius: 0;
+
+      &:checked { @extend %selected_items; }
+
+      &:checked:disabled { background-color: transparent; } // remove pointless indicator
+    }
   }
 
   &.user-menu {
@@ -69,13 +93,42 @@
   &.places-menu {
     .container { padding: 8px; }
 
+    // FIXME: untested
+    .message-bar {
+      // margin-bottom: 4px;
+    }
+
+    .name-button {
+      image {
+        &:dir(ltr) { margin-right: 8px - 5px; }
+        &:dir(rtl) { margin-left: 8px - 5px; }
+      }
+    }
+
+    .unmount-button {
+      margin: ($menuitem_size - $small_size) / 2;
+      padding: 0;
+    }
+
+    .places-section-header {
+    }
+
     .places-list:not(.always-expand) {
       margin-top: 4px;
       padding-top: 4px;
       border-top: 1px solid $border_color;
     }
 
-    // I guess this really should be hard-coded as well as other dim-labels.
+    // FIXME: untested
+    .unlock-area {
+      entry {
+      }
+
+      button {
+      }
+    }
+
+    // use such sizes for consistency with other hard-coded dim-label sizes
     .alternative-label {
       padding: 3px;
       font-size: 15px;
@@ -83,7 +136,7 @@
   }
 
   &.workspace-popover {
-    .container { padding: 2px 8px 8px; }
+    .container { padding: 8px; }
 
     separator { margin: 4px 0; }
 
@@ -146,120 +199,14 @@
   }
 }
 
-// Budgie Menu
-.budgie-menu {
-  &.background { padding: 0; }
-
-  .sidebar,
-  scrollbar,
-  entry.search { background-color: transparent; }
-
-  entry.search {
-    border-bottom: 1px solid $border_color;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 120%;
-  }
-
-  button {
-    @extend row.activatable;
-
-    min-height: 32px;
-    padding: 0 8px;
-    border-radius: 0;
-    color: $fg_color;
-    font-weight: normal;
-
-    &:disabled { color: $disabled_fg_color; }
-
-    &:checked { @extend %selected_items; }
-
-    &:checked:disabled { background-color: $primary_color; } // overriding
-  }
-
-  row {
-    padding: 0;
-
-    &:hover { box-shadow: none; }
-  }
-}
-
 // Menu Button
 button.budgie-menu-launcher {
   // padding: 0 2px;
 }
 
-// User Menu
-popover.background.user-menu {
-  padding: 8px;
-
-  .content-box { background-color: transparent; }
-
-  separator { margin: 4px 0; }
-
-  row {
-    padding: 0;
-    box-shadow: none;
-    background-image: none;
-  }
-}
-
 // Raven Trigger
 button.raven-trigger {
   // padding: 0 4px;
-}
-
-// Places Menu
-popover.background.places-menu {
-  padding: 8px;
-
-  // FIXME: untested
-  .message-bar {
-    // margin-bottom: 4px;
-  }
-
-  .name-button.text-button {
-    // padding: 4px 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-
-    image {
-      &:dir(ltr) { margin-right: 8px - 5px; }
-      &:dir(rtl) { margin-left: 8px - 5px; }
-    }
-  }
-
-  // FIXME: untested
-  .unmount-button {
-    // padding: ($medium_size - 24px) / 2;
-  }
-
-  .places-section-header > image {
-    &:dir(ltr) { margin: 0 8px - 10px 0 8px - 3px; }
-    &:dir(rtl) { margin: 0 8px - 3px 0 8px - 10px; }
-  }
-
-  .places-list {
-    margin-top: 4px;
-    padding-top: 4px;
-    border-top: 1px solid $border_color;
-    background-color: transparent;
-  }
-
-  row {
-    padding: 0;
-    box-shadow: none;
-    background-image: none;
-  }
-
-  // FIXME: untested
-  .unlock-area {
-    entry {
-    }
-
-    button {
-    }
-  }
 }
 
 // Panel
@@ -390,27 +337,20 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 .raven {
   background-color: $surface_color;
 
-  // for >=10.4
-  > box { margin-bottom: -10px; }
-
-  // for <10.4
-  > stack { margin-bottom: -10px; }
-
-  // > stack > box:last-child > stack { margin-top: -6px; }
+  > box { margin-bottom: -10px; } // remove extra space between box and .raven-header.bottom
 
   stackswitcher.linked > button {
     @extend %flat_button;
-    @extend %button_selected.flat;
 
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $warning_bg_color 0%,
+                                  $primary_color 0%,
                                   transparent 0%)
                                   0 0 0 / 0 0 0px;
     border-radius: 0;
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $warning_bg_color 100%,
+                                    $primary_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -421,46 +361,25 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
     min-height: $medium_size;
     padding: 3px;
 
-    &:not(.top) {
-      margin-top: -6px; // remove extra spaces, but not perfect :(
-
-      button {
-        @extend %simple_flat_button;
-
-        &.image-button { @extend %circular_button; }
-      }
-    }
-
     &.top {
-      padding: 2px 0;
-      background-color: $primary_color;
-      color: $inverse_fg_color;
+      padding: 0;
+      border-bottom: 1px solid $border_color;
 
       stackswitcher button {
-        margin: -$container_padding 0;
-        min-height: $medium_size;
-      }
-
-      // for <10.4
-      button.image-button {
-        &:dir(ltr) { margin-right: 2px; }
-        &:dir(rtl) { margin-left: 2px; }
-      }
-
-      // for <10.4
-      > image { margin: 0 8px; }
-
-      // for <10.4
-      > label {
-        margin: 0 -8px;
-        font-weight: bold;
+        margin: -4px 0 -5px; // remove unwanted vertical margins
+        padding: 0 16px;
+        min-height: $large_size;
       }
     }
 
     &.bottom { border-top: 1px solid $border_color; }
   }
 
-  viewport.frame .raven-header { margin-top: -8px; }
+  stack {
+    .raven-header { margin-top: -6px; } // remove extra space in Notifications stack
+
+    scrolledwindow .raven-header { margin-top: -8px; } // remove extra spaces in Applets stack
+  }
 
   .expander-button { @extend %circular_button; }
 
@@ -472,25 +391,10 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
     // &.middle { border-bottom-style: none; } // applet background between two headers
 
-    // for <10.4
-    &.frame { border-style: solid none; }
-
     > overlay > widget > image { color: $divider_color; }
-
-    // for <10.4
-    grid > label:first-child { min-height: $medium_size; } // workaround to fix vertical-align
   }
 
   scrolledwindow.raven-background { border-bottom-style: none; }
-
-  // for <10.4
-  .raven-header.top + .raven-background {
-    border-style: none;
-    background-color: $primary_color;
-    color: $inverse_fg_color;
-
-    stackswitcher button { margin: -4px 0; }
-  }
 
   .powerstrip button {
     margin: 2px 0 1px;
@@ -507,8 +411,9 @@ calendar.raven-calendar {
   background-color: transparent;
 
   &:selected {
+    @extend %selected_items;
+
     border-radius: $material_radius;
-    background-color: $primary_color;
   }
 }
 
@@ -612,6 +517,7 @@ calendar.raven-calendar {
   entry.search {
     font-size: 120%;
     padding: $container_padding 8px + $container_padding;
+    border-image: none;
     box-shadow: inset 0 1px $highlight_color;
     background-color: transparent;
   }
