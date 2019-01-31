@@ -2375,6 +2375,11 @@ switch:disabled {
   opacity: 0.5;
 }
 
+switch image {
+  margin: -8px;
+  -gtk-icon-transform: scale(0);
+}
+
 switch slider {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   min-width: 20px;
