@@ -1031,7 +1031,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #panel .panel-corner {
   -panel-corner-radius: 0;
-  -panel-corner-background-color: rgba(0, 0, 0, 0);
+  -panel-corner-background-color: #303030;
   -panel-corner-border-width: 2px;
   -panel-corner-border-color: transparent;
 }
@@ -2902,7 +2902,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #lockDialogGroup {
-  background: #424242;
+  background: #303030;
   background-size: cover;
 }
 

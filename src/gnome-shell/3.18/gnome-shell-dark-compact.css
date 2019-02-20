@@ -1023,7 +1023,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #panel .panel-corner {
   -panel-corner-radius: 0;
-  -panel-corner-background-color: rgba(0, 0, 0, 0);
+  -panel-corner-background-color: #303030;
   -panel-corner-border-width: 2px;
   -panel-corner-border-color: transparent;
 }
@@ -1211,7 +1211,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .pager-button:active {
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   transition-duration: 200ms;
 }
 
@@ -1349,7 +1349,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-list-section-close:active > StIcon {
   color: white;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .message {
@@ -1365,7 +1365,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message:active {
   transition-duration: 200ms;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .message-icon-bin {
@@ -1429,7 +1429,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .message-content *:active > StIcon {
   transition-duration: 200ms;
   color: white;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .message-media-control {
@@ -1447,7 +1447,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-media-control:active {
   color: white;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   transition-duration: 200ms;
 }
 
@@ -1534,7 +1534,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .system-menu-action:active {
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
   transition-duration: 200ms;
 }
@@ -1651,7 +1651,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .nm-dialog-item:active {
   transition-duration: 200ms;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .nm-dialog-item:selected {
@@ -2153,7 +2153,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .notification-banner .notification-button:active {
   transition-duration: 200ms;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
 
@@ -2256,7 +2256,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .hotplug-resident-mount:active {
   transition-duration: 200ms;
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .hotplug-resident-mount-label {
@@ -2444,7 +2444,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-box:active {
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
   transition-duration: 200ms;
 }
@@ -2859,7 +2859,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #lockDialogGroup {
-  background: #424242;
+  background: #303030;
   background-size: cover;
 }
 
@@ -2903,7 +2903,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #LookingGlassDialog .notebook-tab:active {
-  background-color: alpha(currentColor, 0.12);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
 

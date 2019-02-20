@@ -388,7 +388,7 @@ spinbutton.vertical entry.warning, .gedit-search-slider .linked:not(.vertical) >
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FBBC05;
-  color: white;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 spinbutton.vertical entry.warning:focus, .gedit-search-slider .linked:not(.vertical) > entry.warning:focus {
@@ -403,15 +403,15 @@ spinbutton.vertical entry.warning:disabled, .gedit-search-slider .linked:not(.ve
 }
 
 spinbutton.vertical entry.warning image, .gedit-search-slider .linked:not(.vertical) > entry.warning image {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 spinbutton.vertical entry.warning image:hover, .gedit-search-slider .linked:not(.vertical) > entry.warning image:hover, spinbutton.vertical entry.warning image:active, .gedit-search-slider .linked:not(.vertical) > entry.warning image:active {
-  color: white;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 spinbutton.vertical entry.warning image:disabled, .gedit-search-slider .linked:not(.vertical) > entry.warning image:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.38);
 }
 
 treeview entry.flat, treeview entry {

@@ -1390,7 +1390,7 @@ StScrollView StScrollBar {
 
 .grouped-window-list-badge {
   border-radius: 9999px;
-  background-color: #303030;
+  background-color: #d6d6d6;
 }
 
 .grouped-window-list-thumbnail-alert {
@@ -1528,7 +1528,7 @@ StScrollView StScrollBar {
 }
 
 .workspace-button {
-  background-color: #424242;
+  background-color: #d6d6d6;
   width: 2em;
   height: 1em;
   color: rgba(255, 255, 255, 0.7);
@@ -1545,7 +1545,7 @@ StScrollView StScrollBar {
 }
 
 .workspace-graph .workspace {
-  background-color: #424242;
+  background-color: #d6d6d6;
   border: 1px solid rgba(0, 0, 0, 0.26);
 }
 
