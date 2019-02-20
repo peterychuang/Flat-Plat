@@ -41,19 +41,20 @@
   height: 1.5em;
 }
 %dialog-entry-shared {
-  @include entry(normal,$fc:$track_color);
+  @include entry(normal);
 
   width: 250px;
-  padding: 4px 8px;
+  min-height: $medium_size;
+  padding: 0 8px;
   border-radius: $material_radius $material_radius 0 0;
-  color: $secondary_fg_color;
-  caret-color: $secondary_fg_color;
-  selection-background-color: $track_color;
+  color: $fg_color;
+  caret-color: $fg_color;
+  selection-background-color: $selected_overlay_color;
   selected-color: $fg_color;
   &:focus {
-    @include entry(focus,$fc:$fg_color);
-    
-    padding: 4px 8px;
+    @include entry(focus);
+
+    padding: 0 8px;
     border-width: 0;
     color: $fg_color;
   }
@@ -72,11 +73,10 @@
   &:active { background-color: $track_color;}
 }
 %menu-shared {
-  background-color: $alt_lighter_bg_color;
-  border: 1px solid $border_color;
+  background-color: $surface_color;
   border-radius: $material_radius;
   color: $fg_color;
-  box-shadow: $shadow_6;
+  box-shadow: $shadow_2;
 }
 %menu-button-label-shared {
   &:ltr {
@@ -126,7 +126,7 @@
 }
 %osd-panel-shared {
   color: $fg_color;
-  background-color: $alt_lighter_bg_color;
+  background-color: $surface_color;
   border: none;
   border-radius: $material_radius;
   padding: 12px;
