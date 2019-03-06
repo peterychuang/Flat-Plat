@@ -29,7 +29,8 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 * [Flat-Plat-Blue for GNOME 3.30 /3.28 / 3.26 / 3.24 / 3.22](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.30.1.tar.gz)
 
 ## Requirements
-- GTK+ `>=3.18`
+
+- GTK `>=3.20`
 - `gnome-themes-extra` (or `gnome-themes-standard`)
 - Murrine engine — The package name depends on the distro.
   - `gtk-engine-murrine` on Arch Linux

@@ -1455,7 +1455,7 @@ headerbar button {
   margin-bottom: 6px;
 }
 
-headerbar separator {
+headerbar separator.titlebutton {
   margin-top: 12px;
   margin-bottom: 12px;
   background-color: rgba(255, 255, 255, 0.12);
@@ -1474,6 +1474,11 @@ headerbar spinbutton button {
 headerbar .entry-tag, headerbar .documents-entry-tag, headerbar .photos-entry-tag {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+headerbar.titlebar headerbar:not(.titlebar) {
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .background .titlebar {
@@ -1665,12 +1670,22 @@ treeview.view.progressbar {
   border-bottom: 4px solid #4285F4;
   box-shadow: none;
   background-color: transparent;
+  background-image: none;
+}
+
+treeview.view.progressbar:selected:hover {
+  box-shadow: none;
 }
 
 treeview.view.trough {
   border-bottom: 4px solid rgba(255, 255, 255, 0.12);
   box-shadow: none;
   background-color: transparent;
+  background-image: none;
+}
+
+treeview.view.trough:selected:hover {
+  box-shadow: none;
 }
 
 treeview.view header button {
@@ -1750,7 +1765,7 @@ menubar > menuitem label:disabled,
   color: inherit;
 }
 
-.csd.popup {
+.background.popup {
   background-color: transparent;
 }
 
@@ -3287,12 +3302,12 @@ filechooserbutton:drop(active) {
   background-color: #2C2C2C;
 }
 
-stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
+stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:not(separator):dir(ltr), .sidebar:not(separator).left, .sidebar:not(separator).left:dir(rtl) {
   border-right: 1px solid rgba(0, 0, 0, 0.26);
   border-left-style: none;
 }
 
-stacksidebar.sidebar:dir(rtl) list, stacksidebar.sidebar.right list, .sidebar:dir(rtl), .sidebar.right {
+stacksidebar.sidebar:dir(rtl) list, stacksidebar.sidebar.right list, .sidebar:not(separator):dir(rtl), .sidebar:not(separator).right {
   border-left: 1px solid rgba(0, 0, 0, 0.26);
   border-right-style: none;
 }
@@ -3753,6 +3768,9 @@ stackswitcher button.text-button.circular {
   padding: 0;
 }
 
+/*************
+ * App Icons *
+ *************/
 /*********
  * Emoji *
  *********/
@@ -3762,6 +3780,7 @@ popover.emoji-picker {
 
 popover.emoji-picker entry {
   border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+  border-image: none;
   border-radius: 0;
   box-shadow: none;
   background-color: transparent;
@@ -3801,18 +3820,36 @@ button.emoji-section:last-child {
   margin-right: 4px;
 }
 
-.emoji {
+popover.emoji-picker .emoji {
   min-width: 3em;
   min-height: 3em;
   padding: 0 8px;
 }
 
-.emoji widget {
+popover.emoji-picker .emoji widget {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px;
 }
 
-.emoji widget:hover {
+popover.emoji-picker .emoji widget:hover {
+  background-color: alpha(currentColor, 0.08);
+}
+
+popover.emoji-completion {
+  padding: 8px 0;
+}
+
+popover.emoji-completion arrow {
+  border: none;
+  background: none;
+}
+
+popover.emoji-completion .emoji-completion-row {
+  min-height: 28px;
+  padding: 0 12px;
+}
+
+popover.emoji-completion .emoji:hover {
   background-color: alpha(currentColor, 0.08);
 }
 

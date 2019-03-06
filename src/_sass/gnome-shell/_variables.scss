@@ -1,44 +1,44 @@
 // font families
 $font-family: Open Sans, Cantarell, Sans-Serif;
-$large-font-family: Open Sans, Cantarell, Sans-Serif;
+$font-family-large: Open Sans, Cantarell, Sans-Serif;
 
 // font sizes
-$root-font-size: if($compact == 'false', 14px, 13px);
-$subheading-size: if($compact == 'false', 16px, 15px);
+$font-size: if($compact == 'false', 14px, 13px);
+$font-size-subheading: if($compact == 'false', 16px, 15px);
 
 // Override sizes
-$menuitem_size: if($compact == 'false', 30px, 25px);
+$menuitem-size: if($compact == 'false', 30px, 25px);
 
 // durations
-$panel_duration: 250ms;
+$duration-panel: 250ms;
 
-// Override durations
-$shorter_duration: 100ms;
-$longer_duration: 200ms;
+// Override durations; since St does not support transition-timing-function
+$duration: 100ms;
+$duration-ripple: 200ms;
 
 // shadows
 
 // This should be none, but it's creating some issues with borders, so to
 // workaround it for now, use inset wich goes through a different code path.
 // see https://bugzilla.gnome.org/show_bug.cgi?id=752934
-$shadow_0: 0 0 transparent;
+$shadow-0: 0 0 transparent;
 
 // Override shadows
-$shadow_1: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
-$shadow_2: 0 3px 3px rgba(0, 0, 0, 0.16 * 1.5), 0 3px 3px rgba(0, 0, 0, 0.23 * 1.5);
-$shadow_3: 0 10px 10px rgba(0, 0, 0, 0.19 * 1.5), 0 6px 3px rgba(0, 0, 0, 0.23 * 1.5);
-$shadow_4: 0 14px 14px rgba(0, 0, 0, 0.25 * 2), 0 10px 5px rgba(0, 0, 0, 0.22 * 2);
-$shadow_5: 0 19px 19px rgba(0, 0, 0, 0.30 * 2), 0 15px 6px rgba(0, 0, 0, 0.22 * 2);
+$shadow-1: 0 1px 1.5px rgba(black, 0.12), 0 1px 1px rgba(black, 0.24);
+$shadow-2: 0 3px 3px rgba(black, 0.16 * 1.5), 0 3px 3px rgba(black, 0.23 * 1.5);
+$shadow-3: 0 10px 10px rgba(black, 0.19 * 1.5), 0 6px 3px rgba(black, 0.23 * 1.5);
+$shadow-4: 0 14px 14px rgba(black, 0.25 * 2), 0 10px 5px rgba(black, 0.22 * 2);
+$shadow-5: 0 19px 19px rgba(black, 0.30 * 2), 0 15px 6px rgba(black, 0.22 * 2);
 
-// Override overlay colors
+// Override overlay colors; since St does not support alpha() function
 $overlay-hover:       rgba($text, 0.08);
 $overlay-focus:       rgba($text, 0.12);
 $overlay-focus-hover: rgba($text, 0.16);
 $overlay-active:      rgba($text, 0.08 + 0.12);
 $overlay-checked:     rgba($text, 0.24);
 
-$inverse-overlay-hover:       rgba(on(black), 0.08);
-$inverse-overlay-focus:       rgba(on(black), 0.12);
-$inverse-overlay-focus-hover: rgba(on(black), 0.16);
-$inverse-overlay-active:      rgba(on(black), 0.08 + 0.12);
-$inverse-overlay-checked:     rgba(on(black), 0.24);
+$inverse-overlay-hover:       rgba(on(dark), 0.08);
+$inverse-overlay-focus:       rgba(on(dark), 0.12);
+$inverse-overlay-focus-hover: rgba(on(dark), 0.16);
+$inverse-overlay-active:      rgba(on(dark), 0.08 + 0.12);
+$inverse-overlay-checked:     rgba(on(dark), 0.24);
