@@ -60,12 +60,30 @@
     background-color: $titlebar-fill;
   }
 
+  // for 3.30
   .path-bar button {
     label:not(:only-child) {
       &:first-child { margin-left: 0; }
 
       &:last-child { margin-right: 0; }
     }
+  }
+
+  // for 3.32
+  .nautilus-path-bar button {
+    padding-left: ($medium-size - 24px) / 2;
+    padding-right: ($medium-size - 24px) / 2;
+
+    label:not(:only-child) {
+      &:first-child { margin-left: 0; }
+
+      &:last-child { margin-right: 0; }
+    }
+
+    &.text-button.image-button image:not(:only-child) { margin: 0; }
+
+    &:last-child:dir(ltr),
+    &:first-child:dir(rtl) { @extend %titlebar-button:checked; }
   }
 }
 
@@ -79,7 +97,6 @@
   border-radius: ($corner-radius + 1px) ($corner-radius + 1px) 0 0;
   background-color: rgba($base, 0.9);
   background-clip: $background-clip-extra;
-  transition: $transition, border-width 0;
 
   &.bottom.left { // axes left border and border radius
     margin-right: 8px - 1px;
@@ -128,8 +145,9 @@
 
 .search-information {
   padding: 2px;
-  background-color: $primary;
-  color: on($primary);
+  border-bottom: 1px solid $border;
+  background-color: $base;
+  color: $text;
 }
 
 .documents-entry-tag {
@@ -219,6 +237,12 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 .open-document-selector-path-label {
   color: $text-secondary;
   font-size: smaller;
+}
+
+// Only normal state is handle
+.open-document-selector-match {
+  background-color: $warning;
+  color: on($warning);
 }
 
 .gedit-document-panel {
@@ -785,6 +809,21 @@ GdMainIconView.content-view {
 }
 
 .photos-collection-icon {
+}
+
+button.photos-filter-preview {
+  color: $text;
+  font-weight: normal;
+
+  &:checked {
+    background-color: $overlay-selected;
+    color: $text;
+
+    image {
+      color: on(dark);
+      -gtk-icon-shadow: $shadow-1;
+    }
+  }
 }
 
 overlay grid.horizontal > revealer > scrolledwindow.frame {

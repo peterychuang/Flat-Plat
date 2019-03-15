@@ -41,11 +41,10 @@ stage {
   border-radius: $corner-radius;
   @include font(button);
   @include button(flat-normal);
+  &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
-  &:focus { @include button(flat-focus); }
-
 }
 
 .modal-dialog-linked-button {
@@ -57,10 +56,10 @@ stage {
   border-radius: $corner-radius;
   @include font(button);
   @include button(flat-normal);
+  &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
-  &:focus { @include button(flat-focus); }
 
   &:first-child {
     border-radius: $corner-radius;
@@ -148,12 +147,15 @@ StScrollBar {
 .slider {
   height: 20px;
   color: $primary;
-  -slider-height: 2px;
-  -slider-background-color: $track; //background of the trough
-  -slider-border-color: transparent; //trough border color
-  -slider-active-background-color: $primary; //active trough fill
-  -slider-active-border-color: transparent; //active trough border
-  -slider-border-width: 0;
+  -barlevel-height: 2px;
+  -barlevel-background-color: $track; //background of the trough
+  -barlevel-border-color: transparent; //trough border color
+  -barlevel-active-background-color: $primary; //active trough fill
+  -barlevel-active-border-color: transparent; //active trough border
+  -barlevel-overdrive-color: $destructive;
+  -barlevel-overdrive-border-color: transparent;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
   -slider-handle-radius: 6px;
 }
 
@@ -320,8 +322,7 @@ StScrollBar {
   }
 
   .end-session-dialog-logout-icon {
-    //border: 2px solid #8b8b8b;
-    border-radius: 5px;
+    border-radius: $circular-radius;
     width: 48px;
     height: 48px;
     background-size: contain;
@@ -481,7 +482,7 @@ StScrollBar {
   }
 
   .polkit-dialog-user-icon {
-    border-radius: 5px;
+    border-radius: $circular-radius;
     background-size: contain;
     width: 48px;
     height: 48px;
@@ -561,6 +562,7 @@ StScrollBar {
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
+    padding-bottom: 0;
     background-color: $fill;
     box-shadow: $shadow-0;
   }
@@ -664,13 +666,11 @@ StScrollBar {
   .osd-monitor-label { @include font(display-2); }
   .level {
     height: 8px;
-    border-radius: 0;
-    background-color: rgba($text, 0.3);
-    color: $text;
-  }
-  .level-bar {
-    background-color: $text;
-    border-radius: 0;
+    -barlevel-height: 8px;
+    -barlevel-background-color: rgba($text, 0.3);
+    -barlevel-active-background-color: $text;
+    -barlevel-overdrive-color: $destructive;
+    -barlevel-overdrive-separator-width: 2px;
   }
 }
 
@@ -811,11 +811,12 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: $scrim;
+  background-color: $panel;
   /* transition from solid to transparent */
   transition-duration: $duration-panel;
   font-weight: bold;
   height: $menuitem-size;
+  font-feature-settings: "tnum";
 
   &:overview,
   &.unlock-screen,
@@ -830,12 +831,12 @@ StScrollBar {
 
   .panel-corner {
     -panel-corner-radius: 0;
-    -panel-corner-background-color: $scrim;
-    -panel-corner-border-width: 2px;
+    -panel-corner-background-color: transparent;
+    -panel-corner-border-width: 0;
     -panel-corner-border-color: transparent;
 
     &:active, &:overview, &:focus {
-      -panel-corner-border-color: on($scrim);
+      -panel-corner-border-color: transparent;
     }
 
     &.lock-screen, &.login-screen, &.unlock-screen {
@@ -849,7 +850,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: on($scrim, secondary);
+    color: on($panel, secondary);
     text-shadow: none;
     transition-duration: $duration;
 
@@ -867,7 +868,7 @@ StScrollBar {
     }
 
     &:hover {
-      color: on($scrim);
+      color: on($panel);
       text-shadow: none;
 
       .system-status-icon,
@@ -880,9 +881,9 @@ StScrollBar {
     &:active, &:overview, &:focus, &:checked {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
-      background-color: rgba($scrim, 0.01);
-      box-shadow: inset 0 -2px 0px on($scrim);
-      color: on($scrim);
+      background-color: rgba($panel, 0.01);
+      box-shadow: inset 0 -2px 0px on($panel);
+      color: on($panel);
 
       & > .system-status-icon { icon-shadow: none; }
     }
@@ -891,8 +892,8 @@ StScrollBar {
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
-      color: on($scrim, secondary);
-      &:focus, &:hover, &:active { color: on($scrim); }
+      color: on($panel, secondary);
+      &:focus, &:hover, &:active { color: on($panel); }
     }
 
     &.clock-display {
@@ -918,6 +919,8 @@ StScrollBar {
   }
 
   .screencast-indicator { color: $warning; }
+
+  .remote-access-indicator { color: $warning; }
 
   &.solid {
     background-color: $panel;
@@ -1023,17 +1026,50 @@ StScrollBar {
       font-weight: bold;
     }
 
-    .world-clocks-grid {
+    .weather-header.location {
+      font-weight: normal;
+      font-size: 1em;
+    }
+
+    .world-clocks-grid,
+    .weather-grid {
       spacing-rows: 0.4em;
+      spacing-columns: 0.8em;
     }
 
     .weather-box {
       spacing: 0.4em;
     }
 
+    .world-clocks-city {
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .world-clocks-time {
+      color: $text-secondary;
+      font-feature-settings: "tnum";
+      font-size: 1em;
+    }
+
+    .world-clocks-timezone {
+      color: $text-disabled;
+      font-feature-settings: "tnum";
+      font-size: 1em;
+    }
+
+    .weather-forecast-icon {
+      icon-size: em(32px);
+    }
+
+    .weather-forecast-time {
+      color: $text-secondary;
+      @include font(caption);
+    }
+
     .calendar-month-label {
       transition-duration: $duration;
-      height: $menuitem_size - 4px * 2;
+      height: $menuitem-size - 4px * 2;
       margin: 2px;
       padding: 6px 16px;
       border-radius: $corner-radius;
@@ -1050,18 +1086,13 @@ StScrollBar {
       margin: 2px;
       border-radius: 100px;
       background-color: transparent;
-      color: $text;
-      &:hover, &:focus { background-color: $overlay-hover; }
-      &:active { background-color: $overlay-active; transition-duration: $duration-ripple; }
+      color: $text-secondary;
+      &:hover, &:focus { background-color: $overlay-hover; color: $text; }
+      &:active { background-color: $overlay-active; color: $text; transition-duration: $duration-ripple; }
     }
 
-      .calendar-change-month-back { //arrow back
-        background-image: url("assets/calendar-arrow-left.svg");
-        &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
-      }
-      .calendar-change-month-forward { //arrow foreward
-        background-image: url("assets/calendar-arrow-right.svg");
-        &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
+      .calendar-change-month-back StIcon, .calendar-change-month-forward StIcon { // arrows
+        icon-size: em(16px);
       }
 
     .calendar-day-base {
@@ -1072,6 +1103,7 @@ StScrollBar {
       padding: 0;
       margin: 2px;
       border-radius: 100px;
+      font-feature-settings: "tnum";
       &:hover,&:focus { background-color: $overlay-hover; }
       &:active {
         transition-duration: $duration-ripple;
@@ -1181,6 +1213,11 @@ StScrollBar {
             &:rtl { margin: 4px 4px 4px 0px; }
           }
 
+          .message-icon-bin > .fallback-window-icon {
+            width: em(16px);
+            height: em(16px);
+          }
+
           .message-secondary-bin {
             padding: 0 8px;
           }
@@ -1266,11 +1303,7 @@ StScrollBar {
 
   // a little unstructured mess:
 
-  .system-switch-user-submenu-icon.user-icon {
-    icon-size: 20px;
-    padding: 0 2px;
-  }
-  .system-switch-user-submenu-icon.default-icon {
+  .system-switch-user-submenu-icon {
     icon-size: 16px;
     padding: 0 4px;
   }
@@ -1280,6 +1313,11 @@ StScrollBar {
     spacing: 4px;
 
     .label-shadow { color: transparent; }
+  }
+
+  .app-menu,
+  .app-well-menu {
+    max-width: 27.25em;
   }
 
   .aggregate-menu {
@@ -1294,6 +1332,7 @@ StScrollBar {
   }
 
   .system-menu-action {
+    -st-icon-style: symbolic;
     color: $text-secondary;
     border-radius: 100px; /* wish we could do 50% */
     padding: ($large-size - 16px) / 2;
@@ -1311,23 +1350,24 @@ StScrollBar {
     & > StIcon { icon-size: 16px; }
   }
 
-//Activities Ripples
+// Activities Ripples
 .ripple-box {
   width: 48px;
   height: 48px;
-  border-radius: 0 0 48px 0;
+  border-radius: 0 0 48px 0; // radius the size of the box give us the curve
   background-color: on(dark, track);
   background-image: none;
   background-size: auto;
+  box-shadow: none;
 }
 
 .ripple-box:rtl {
-  border-radius: 0 0 0 48px;
+  border-radius: 0 0 0 48px; // just a simple change to the border radius position
   background-image: none;
 }
 
 // not really top bar only
-.popup-menu-arrow { width: 16px; height: 16px; }
+.popup-menu-arrow { width: 16px; height: 16px; icon-size: em(16px); }
 .popup-menu-icon { icon-size: em(16px); }
 
 //close buttons
@@ -1335,6 +1375,11 @@ StScrollBar {
 .window-close {
   // FIXME: unless disable the transition, button will distort when hovering
   // transition-duration: $duration;
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  color: transparent;
   height: $medium-size;
   width: $medium-size;
   -shell-close-overlap: $medium-size / 2;
@@ -1343,10 +1388,17 @@ StScrollBar {
   background-size: $medium-size;
 
   &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
     -st-background-image-shadow: $shadow-2;
     background-image: url("assets/window-close.svg");
   }
+
   &:active {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
     // transition-duration: $duration-ripple;
     background-image: url("assets/window-close-active.svg");
   }
@@ -1484,6 +1536,8 @@ StScrollBar {
   .list-search-results { spacing: 3px; }
 
   .search-section-separator { height: 1px; background-color: on(dark, divider); }
+
+  .search-section:last-child .search-section-separator { background-color: transparent; }
 
   .list-search-result-content { spacing: 30px; }
   .list-search-result-title { @include font(subheading); color: on(dark); spacing: 12px; }
@@ -1676,25 +1730,30 @@ StScrollBar {
     .page-indicator-icon {
       width: 12px;
       height: 12px;
+      border: none;
       border-radius: 12px;
       background-image: none;
       background-color: on(dark, secondary-disabled);
       transition-duration: $duration;
     }
     &:hover .page-indicator-icon {
+      border-color: transparent;
       background-image: none;
       background-color: on(dark, disabled);
     }
     &:active .page-indicator-icon {
+      border: none;
+      margin: 0;
       background-image: none;
       background-color: on(dark, secondary);
     }
-    &:checked .page-indicator-icon {
+    &:checked .page-indicator-icon,
+    &:checked:active .page-indicator-icon {
       background-image: none;
       background-color: on(dark);
       transition-duration: 0ms;
     }
-    &:checked:active { background-image: none; }
+    &:checked:active { background-image: none; background-color: transparent; }
   }
 
   .no-frequent-applications-label { @extend %status_text; }
@@ -1896,12 +1955,21 @@ StScrollBar {
 
 #keyboard {
     background-color: $scrim-alt;
+
+    .page-indicator {
+        padding: 4px 4px;
+
+        .page-indicator-icon {
+            width: 8px;
+            height: 8px
+        }
+    }
 }
 
-.key-container {
-  padding: 4px;
-  spacing: 4px;
-}
+  .key-container {
+    padding: 4px;
+    spacing: 4px;
+  }
 
   .keyboard-key {
     min-height: 1.2em;
@@ -1963,6 +2031,23 @@ StScrollBar {
     box-shadow: $shadow-2;
   }
 
+.emoji-page {
+  .keyboard-key {
+    border: none;
+    @include button(flat-normal, $tc: on($scrim-alt));
+    &:hover, &:focus { @include button(flat-hover, $tc: on($scrim-alt)); }
+    &:active { @include button(flat-active, $tc: on($scrim-alt)); }
+  }
+}
+
+.emoji-panel {
+  .keyboard-key:latched {
+    border-color: transparent;
+    background-color: $suggested;
+    color: on($suggested);
+  }
+}
+
 // IBus Candidate Popup
 
 .candidate-popup-content {
@@ -2003,11 +2088,11 @@ StScrollBar {
 
 /* Auth Dialogs & Screen Shield */
 
-.framed-user-icon {
+.user-icon {
   background-size: contain;
   border: none;
   color: on($os-background);
-  border-radius: $corner-radius;
+  border-radius: $circular-radius;
   &:hover {
     border-color: on($os-background);
     color: on($os-background);
@@ -2090,7 +2175,6 @@ StScrollBar {
   .login-dialog-user-list-view { -st-vfade-offset: 1em; }
   .login-dialog-user-list {
     spacing: 12px;
-    padding: .2em;
     width: 23em;
     &:expanded .login-dialog-user-list-item:selected { background-color: $inverse-overlay-focus; color: on($os-background); }
     &:expanded .login-dialog-user-list-item:hover { background-color: $inverse-overlay-hover; color: on($os-background); }
@@ -2100,10 +2184,10 @@ StScrollBar {
   .login-dialog-user-list-item {
     transition-duration: $duration;
     border-radius: $corner-radius;
-    padding: 4px 4px 0;
+    padding: 6px;
     color: on($os-background, secondary);
-    &:ltr { padding-right: 1em; }
-    &:rtl { padding-left: 1em; }
+    &:ltr .user-widget { padding-right: 1em; }
+    &:rtl .user-widget { padding-left: 1em; }
     &:hover {
       background-color: $inverse-overlay-hover;
       color: on($os-background);
@@ -2115,7 +2199,7 @@ StScrollBar {
     }
     .login-dialog-timed-login-indicator {
       height: 2px;
-      margin: 2px 0 0 0;
+      margin-top: 6px;
       background-color: on($os-background);
     }
     &:focus .login-dialog-timed-login-indicator { background-color: on($os-background); }
@@ -2129,8 +2213,8 @@ StScrollBar {
     padding-left: 15px;
   }
     .user-widget-label {
-      &:ltr { padding-left: 18px; }
-      &:rtl { padding-right: 18px; }
+      &:ltr { padding-left: 14px; }
+      &:rtl { padding-right: 14px; }
     }
 
   .login-dialog-prompt-layout {
@@ -2181,6 +2265,7 @@ StScrollBar {
 .screen-shield-clock-time {
   @include font(display-4);
   text-shadow: $shadow-1;
+  font-feature-settings: "tnum";
 }
 
 .screen-shield-clock-date { @include font(display-2); }
