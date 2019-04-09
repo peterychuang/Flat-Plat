@@ -1066,7 +1066,7 @@ button.combo {
 }
 
 button.combo:hover {
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.87);
+  background-image: image(alpha(currentColor, 0.08));
 }
 
 button.combo:checked {
@@ -1737,6 +1737,7 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0;
   background-color: #383838;
+  color: white;
 }
 
 menubar > menuitem,
@@ -3532,9 +3533,10 @@ tooltip decoration {
   background-color: transparent;
 }
 
-tooltip label {
-  min-height: 20px;
-  padding: 0 2px;
+tooltip > box {
+  margin: -6px;
+  min-height: 24px;
+  padding: 4px 8px;
 }
 
 /*****************
@@ -4845,6 +4847,14 @@ button.image-button.session-new-button {
   border-style: none;
 }
 
+/*************
+ * Ubitquity *
+ *************/
+#live_installer .menubar progressbar trough {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
 /***********
  * Eclipse *
  ***********/
@@ -4921,7 +4931,7 @@ window.background:not(.csd) > widget > frame > border {
 window.background:not(.csd) > widget > entry,
 window.background:not(.csd) > widget > button > button {
   border: 1px solid rgba(0, 0, 0, 0.26);
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: none;
 }
 
@@ -4932,6 +4942,7 @@ window.background:not(.csd) > widget > entry {
 
 window.background:not(.csd) > widget > entry:focus {
   border-color: #4285F4;
+  box-shadow: inset 0 0 0 1px #4285F4;
 }
 
 window.background:not(.csd) > widget > entry:disabled {
@@ -6179,8 +6190,7 @@ XfdesktopIconView.view .rubberband {
 }
 
 #content_frame {
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: 16px;
 }
 
 #buttonbox_frame {
@@ -6189,10 +6199,6 @@ XfdesktopIconView.view .rubberband {
 
 #buttonbox_frame button {
   margin: -16px;
-}
-
-#greeter_infobar {
-  margin-top: -1px;
 }
 
 /********
