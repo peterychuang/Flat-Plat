@@ -1007,7 +1007,7 @@ StScrollBar {
 
     .calendar-month-label {
       transition-duration: $duration;
-      height: $menuitem_size - 4px * 2;
+      height: $menuitem-size - 4px * 2;
       margin: 2px;
       padding: 6px 16px;
       border-radius: $corner-radius;
