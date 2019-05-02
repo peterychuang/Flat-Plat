@@ -19,15 +19,13 @@
   font-weight: 500;
 
   button {
-    @extend %flat_button;
+    @extend %button-flat;
     @extend %button_selected.flat;
 
     min-height: 16px;
     min-width: 16px;
     padding: 0;
     border-radius: 0;
-
-    &:checked { background-color: on($panel, divider); }
   }
 
   .tasklist button {
@@ -45,9 +43,9 @@
 
 // Workspace switcher provided by libwnck
 wnck-pager {
-  &:hover { background-color: on($panel, divider); }
+  &:hover { background-color: $overlay-hover; }
 
-  &:active { background-color: on($panel, track); }
+  &:active { background-color: $overlay-active; }
 
   &:selected { background-color: $primary; }
 }
@@ -109,7 +107,7 @@ XfdesktopIconView.view {
  * Thunar *
  **********/
 .thunar {
-  #location-toolbar { border-bottom: 1px solid $border; }
+  #location-toolbar { border-bottom: 1px solid $divider; }
 
   .standard-view.frame { border-style: none; }
 
@@ -118,6 +116,6 @@ XfdesktopIconView.view {
   statusbar {
     margin: 0 -10px;
     padding: 0 4px;
-    border-top: 1px solid $border;
+    border-top: 1px solid $divider;
   }
 }

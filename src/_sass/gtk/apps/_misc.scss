@@ -37,7 +37,7 @@ button.image-button.session-new-button { min-width: $medium-size - 4px; }
  *************/
 #live_installer .menubar progressbar trough {
   border-radius: 4px; // Adjust to hard-coded progress border-radius
-  background-color: $titlebar-divider;
+  background-color: $titlebar-track-disabled;
 }
 
 
@@ -180,7 +180,7 @@ window.background:not(.csd) {
     }
   }
 
-  > window.background > menu > separator { color: $border; }
+  > window.background > menu > separator { color: $divider; }
 }
 
 
@@ -201,7 +201,6 @@ window.background:not(.csd) {
       min-width: 16px;
       padding: 4px 8px;
       border-radius: $corner-radius;
-      -gtk-outline-radius: $corner-radius;
     }
 
     spinbutton button { border-width: 4px; }
@@ -215,7 +214,6 @@ window.background:not(.csd) {
       min-width: 24px;
       padding: 4px;
       border-radius: $corner-radius;
-      -gtk-outline-radius: $corner-radius;
     }
   }
 }
@@ -227,12 +225,12 @@ window.background:not(.csd) {
     padding: 0;
   }
 
-  #HorizontalScrollbar { border-top: 1px solid $border; }
+  #HorizontalScrollbar { border-top: 1px solid $divider; }
 
   #VerticalScrollbar {
-    &:dir(ltr) { border-left: 1px solid $border; }
+    &:dir(ltr) { border-left: 1px solid $divider; }
 
-    &:dir(rtl) { border-right: 1px solid $border; }
+    &:dir(rtl) { border-right: 1px solid $divider; }
   }
 }
 

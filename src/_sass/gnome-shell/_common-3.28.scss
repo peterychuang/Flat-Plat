@@ -117,7 +117,7 @@ StScrollBar {
   StBin#trough {
     margin: 4px;
     border-radius: 100px;
-    background-color: $divider;
+    background-color: $track-disabled;
   }
 
   StButton#vhandle, StButton#hhandle {
@@ -133,7 +133,7 @@ StScrollBar {
 
 %overview_scrollbar {
   StBin#trough {
-    background-color: on(dark, divider);
+    background-color: on(dark, track-disabled);
   }
 
   StButton#vhandle, StButton#hhandle {
@@ -507,9 +507,11 @@ StScrollBar {
   }
 
   .audio-selection-device {
-    border: 1px solid $border;
+    border: none;
     border-radius: $corner-radius;
-    &:active,&:hover,&:focus { background-color: $primary; }
+    &:focus { background-color: $overlay-focus; }
+    &:hover { background-color: $overlay-hover; }
+    &:active { background-color: $overlay-active; }
   }
 
   .audio-selection-device-box {
@@ -636,10 +638,10 @@ StScrollBar {
     //-margin-horizontal: 24px;
     height: 1px; //not really the whole box
     margin: 8px 64px - 24px;
-    background-color: transparent;
-    border-color: $border;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    background-color: $divider;
+    border-color: transparent;
+    border-bottom-width: 0;
+    border-bottom-style: none;
   }
 
 
@@ -710,7 +712,7 @@ StScrollBar {
   .switcher-list .item-box:outlined {
     padding: 8px;
     border: none;
-    background-color: $divider;
+    background-color: $track-disabled;
     color: $text; // for Ubuntu session
   }
 
@@ -730,7 +732,7 @@ StScrollBar {
 
   .switcher-list .separator {
     width: 1px;
-    background: $border;
+    background: $divider;
   }
 
   .switcher-arrow {
@@ -777,7 +779,7 @@ StScrollBar {
   .ws-switcher-box {
     height: 48px;
     border: none;
-    background: $divider;
+    background: $track-disabled;
     border-radius: $corner-radius;
   }
 
@@ -792,8 +794,8 @@ StScrollBar {
 
 /* Tiled window previews */
 .tile-preview {
-  background-color: rgba($primary-alt, 0.3);
-  border: 1px solid $primary-alt;
+  background-color: rgba($primary-light, 0.3);
+  border: 1px solid $primary-light;
 }
 
   .tile-preview-left.on-primary {
@@ -970,7 +972,7 @@ StScrollBar {
     .datemenu-displays-box { spacing: 8px; }
 
     .datemenu-calendar-column {
-      border: 0 solid $border;
+      border: 0 solid $divider;
       &:ltr { border-left-width: 0; }
       &:rtl { border-right-width: 0; }
     }
@@ -1258,7 +1260,7 @@ StScrollBar {
               padding: 8px;
               border: none;
               border-radius: $corner-radius;
-              background-color: $divider;
+              background-color: $track-disabled;
               color: $text-disabled;
             }
           }
@@ -2033,7 +2035,7 @@ StScrollBar {
     @include entry(normal, $fc:on($os-background, track));
     &:focus { @include entry(focus, $fc:on($os-background)); }
     &:insensitive {
-      @include entry(insensitive, $fc:on($os-background, divider));
+      @include entry(insensitive, $fc:on($os-background, track-disabled));
       color: on($os-background, disabled);
     }
   }
@@ -2249,7 +2251,7 @@ StScrollBar {
     border: none;
     border-radius: 0;
     background-color: rgba($surface, 0.01);
-    box-shadow: inset 0 -1px 0 $border;
+    box-shadow: inset 0 -1px 0 $divider;
   }
   .labels { spacing: 0; }
   .notebook-tab {

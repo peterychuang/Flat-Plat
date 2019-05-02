@@ -128,7 +128,7 @@
   border-radius: 2px 2px 0 0;
   color: rgba(0, 0, 0, 0.87);
   caret-color: rgba(0, 0, 0, 0.87);
-  selection-background-color: rgba(66, 133, 244, 0.32);
+  selection-background-color: rgba(66, 133, 244, 0.24);
   selected-color: rgba(0, 0, 0, 0.87);
 }
 
@@ -1360,7 +1360,7 @@ StScrollView StScrollBar {
 }
 
 .window-list-item-demands-attention {
-  background-color: #34A853;
+  background-color: #383838;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1428,7 +1428,7 @@ StScrollView StScrollBar {
 }
 
 .grouped-window-list-item-demands-attention {
-  background-color: #34A853;
+  background-color: #383838;
   color: rgba(255, 255, 255, 0.7);
 }
 
