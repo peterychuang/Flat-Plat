@@ -853,7 +853,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .osd-window .level {
   height: 8px;
   -barlevel-height: 8px;
-  -barlevel-background-color: rgba(0, 0, 0, 0.3);
+  -barlevel-background-color: rgba(0, 0, 0, 0.12);
   -barlevel-active-background-color: rgba(0, 0, 0, 0.87);
   -barlevel-overdrive-color: #EA4335;
   -barlevel-overdrive-separator-width: 2px;

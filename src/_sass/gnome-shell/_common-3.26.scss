@@ -667,7 +667,7 @@ StScrollBar {
   .level {
     height: 8px;
     border-radius: 0;
-    background-color: rgba($text, 0.3);
+    background-color: $track-disabled;
     color: $text;
   }
   .level-bar {
