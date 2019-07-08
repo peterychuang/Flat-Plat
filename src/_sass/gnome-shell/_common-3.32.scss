@@ -1056,12 +1056,18 @@ StScrollBar {
     }
 
     .weather-forecast-icon {
-      icon-size: em(32px);
+      icon-size: em(18px);
+    }
+
+    .weather-forecast-temp {
+      font-size: 8pt;
+      font-weight: 400;
     }
 
     .weather-forecast-time {
       color: $text-secondary;
-      @include font(caption);
+      font-size: 7pt;
+      font-weight: 400;
     }
 
     .calendar-month-label {
