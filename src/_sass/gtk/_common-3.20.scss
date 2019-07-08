@@ -140,9 +140,7 @@ label {
   caret-color: currentColor; // this shouldn't be needed.
 
   &.separator {
-    @extend .dim-label;
-
-    color: $text;
+    color: $text-secondary;
   }
 
   selection { @extend %selected_items; }
@@ -158,7 +156,7 @@ label {
   }
 }
 
-.dim-label { opacity: 0.6; }
+.dim-label { color: $text-secondary; }
 
 assistant {
   .sidebar {
@@ -286,7 +284,7 @@ entry {
   .linked:not(.vertical) > & { @extend %linked; }
 
   // Vertically linked entries
-  .linked.vertical > & { @extend %linked_vertical; }
+  .linked.vertical > & { @extend %linked-vertical; }
 }
 
 %entry_raised {
@@ -472,22 +470,26 @@ button {
       image:not(:only-child) { margin: 0 (24px - 16px) / 2; }
     }
 
-    .linked:not(.vertical) > & { @extend %linked; }
+    .linked:not(.vertical) > & {
+      @extend %linked;
 
-    .linked:not(.vertical) > &.image-button { @extend %linked-image-button; }
+      &.image-button { @extend %linked-image-button; }
+    }
 
-    .linked.vertical > & { @extend %linked_vertical; }
+    .linked.vertical > & {
+      @extend %linked-vertical;
 
-    .linked.vertical > &.image-button { @extend %linked-vertical-image-button; }
+      &.image-button { @extend %linked-vertical-image-button; }
+    }
 
     .linked:not(.vertical) > &.flat,
     .linked.vertical > &.flat {
-      border-radius: $corner-radius;
-
-      &.image-button { @extend %circular_button; }
-
-      &.text-button.image-button {
+      &:not(:only-child) { // specificity bump
         border-radius: $corner-radius;
+
+        &.image-button { border-radius: $circular-radius; }
+
+        &.text-button.image-button { border-radius: $corner-radius; }
       }
     }
   }
@@ -637,7 +639,7 @@ toolbar.inline-toolbar toolbutton {
   }
 }
 
-%linked_vertical {
+%linked-vertical {
   &:not(:first-child) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -716,13 +718,20 @@ button.color {
  *********/
 *:link {
   color: $link;
-
-  &:visited { color: $link-visited; }
 }
 
-button:link,
-button:visited {
-  &, &:focus, &:hover, &:active { @extend *:link; }
+*:visited {
+  color: $link-visited;
+}
+
+button.link {
+  &:link {
+    &, &:focus, &:hover, &:active { @extend *:link; }
+  }
+
+  &:visited {
+    &, &:focus, &:hover, &:active { @extend *:visited; }
+  }
 
   > label { text-decoration-line: underline; }
 }
@@ -750,15 +759,14 @@ spinbutton {
     }
 
     button {
+      @extend %button-flat-simple;
+      @extend %small_button;
+
       // margin: $container-padding;
       border: solid $container-padding transparent;
 
-      @extend %button-flat-simple;
-
-      @extend %small_button;
-
       // Remove unwanted focus indicator
-      &:focus:not(:hover):not(:active) {
+      &:focus:not(:hover):not(:active):not(:disabled) {
         box-shadow: inset 0 0 0 9999px transparent;
         color: $text-secondary;
       }
@@ -847,7 +855,7 @@ combobox {
     &:dir(rtl) { margin-right: 8px - ($medium-size - 16px) / 2; }
   }
 
-  #gtk-combobox-popup-menu {
+  menu {
     padding: 2px 0;
 
     menuitem {
@@ -910,9 +918,9 @@ combobox {
 }
 
 .linked.vertical > combobox {
-  &:not(:first-child) > box > button.combo { @extend %linked_vertical:not(:first-child); }
+  &:not(:first-child) > box > button.combo { @extend %linked-vertical:not(:first-child); }
 
-  &:not(:last-child) > box > button.combo { @extend %linked_vertical:not(:last-child); }
+  &:not(:last-child) > box > button.combo { @extend %linked-vertical:not(:last-child); }
 }
 
 button.combo:only-child {
@@ -1049,8 +1057,14 @@ searchbar > revealer > box {
   .subtitle {
     padding: 0 12px;
     font-size: smaller;
+  }
 
-    @extend .dim-label;
+  .subtitle,
+  .dim-label {
+    transition: color $duration $ease-out;
+    color: $titlebar-text-secondary;
+
+    &:backdrop { color: $titlebar-text-disabled; }
   }
 
   // Don't draw titlebar above titlebar
@@ -1061,7 +1075,7 @@ searchbar > revealer > box {
 
   // The separator for split headerbars
   headerbar + separator {
-    background-color: $divider;
+    background-color: $titlebar-divider;
   }
 
   entry {
@@ -1084,7 +1098,7 @@ searchbar > revealer > box {
     }
   }
 
-  .linked:not(.vertical) > entry { border-radius: $corner-radius $corner-radius 0 0; }
+  .linked:not(.vertical) > entry:not(:only-child) { border-radius: $corner-radius $corner-radius 0 0; }
 
   @at-root %titlebar-button, & button:not(.suggested-action):not(.destructive-action) {
     @extend %button_basic.flat;
@@ -1104,11 +1118,13 @@ searchbar > revealer > box {
                                     $titlebar-indicator 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
+      background-color: transparent;
       color: $titlebar-text;
 
-      &:disabled { color: $titlebar-text-disabled; }
-
-      &, &:disabled { background-color: transparent; }
+      &:disabled {
+        background-color: transparent;
+        color: $titlebar-text-disabled;
+      }
     }
 
     &:backdrop {
@@ -1148,44 +1164,44 @@ searchbar > revealer > box {
     // but let's keep it for backwards compatibility.
     transition: background-color 0.1ms $ripple-fade-in-duration, color $duration $ease-out;
     animation: ripple-on-headerbar $ripple-fade-in-duration $ease-out;
-    box-shadow: $shadow-1, inset 0 1px highlight($primary-dark);
-    background-color: $primary-dark;
-    color: on($primary-dark);
+    box-shadow: $shadow-1, inset 0 1px highlight($primary);
+    background-color: $primary;
+    color: on($primary);
 
     &:backdrop {
-      color: on($primary-dark, secondary);
+      color: on($primary, secondary);
     }
 
-    .subtitle:link { color: on($primary-dark); }
+    .subtitle:link { color: on($primary); }
 
     button:not(.suggested-action):not(.destructive-action) {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     currentColor 0%,
                                     transparent 0%)
                                     0 0 0 / 0 0 0px;
-      color: on($primary-dark);
+      color: on($primary);
 
-      &:disabled { color: on($primary-dark, disabled); }
+      &:disabled { color: on($primary, disabled); }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                       currentColor 100%,
                                       transparent 0%)
                                       0 0 2 / 0 0 2px;
-        color: on($primary-dark);
+        color: on($primary);
 
-        &:disabled { color: on($primary-dark, disabled); }
+        &:disabled { color: on($primary, disabled); }
       }
 
       &:backdrop {
-        color: on($primary-dark, secondary);
+        color: on($primary, secondary);
 
-        &:disabled { color: on($primary-dark, secondary-disabled); }
+        &:disabled { color: on($primary, secondary-disabled); }
 
         &:checked {
-          color: on($primary-dark, secondary);
+          color: on($primary, secondary);
 
-          &:disabled { color: on($primary-dark, secondary-disabled); }
+          &:disabled { color: on($primary, secondary-disabled); }
         }
       }
     }
@@ -1201,8 +1217,8 @@ searchbar > revealer > box {
   }
 
   .selection-mode {
-    box-shadow: inset 0 1px highlight($primary-dark); // Avoid double shadows
-    background-color: $primary-dark;
+    box-shadow: inset 0 1px highlight($primary); // Avoid double shadows
+    background-color: $primary;
   }
 
   // squared corners when the window is maximized, tiled, or fullscreen
@@ -1295,8 +1311,24 @@ window.devel .titlebar:not(.selection-mode) {
  ************/
 %pathbar_button,
 .path-bar button {
+  @extend %button-flat;
+
   padding-left: ($medium-size - 24px) / 2;
   padding-right: ($medium-size - 24px) / 2;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $primary 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0px;
+  border-radius: $corner-radius;
+
+  &:checked {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+
+    &, &:disabled { background-color: transparent; }
+  }
 
   label:not(:only-child) {
     &:first-child { margin-left: 0; }
@@ -1311,25 +1343,6 @@ window.devel .titlebar:not(.selection-mode) {
   &.slider-button {
     padding-left: (24px - 16px) / 2;
     padding-right: (24px - 16px) / 2;
-  }
-
-  #pathbarbox & {
-    @extend %button-flat;
-
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0px;
-    border-radius: $corner-radius;
-
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-
-      &, &:disabled { background-color: transparent; }
-    }
   }
 }
 
@@ -1622,6 +1635,8 @@ popover.background {
   // &.osd { @extend %osd; }
 
   // button:not(.suggested-action):not(.destructive-action) { @extend %button_basic.flat; }
+
+  // .linked:not(.vertical) > entry:not(:only-child) { border-radius: $corner-radius $corner-radius 0 0; }
 
   &.menu button,
   button.model {
@@ -1916,7 +1931,7 @@ scrollbar {
 
   // slider
   slider {
-    transition: $transition, margin 0ms, border-width 0ms;
+    transition: background-color $duration $ease-out;
     min-width: 8px;
     min-height: 8px;
     border: 4px solid transparent;
@@ -1933,7 +1948,6 @@ scrollbar {
 
   &.fine-tune {
     slider {
-      transition: $transition, margin 0ms, border-width 0ms, min-width 0ms, min-height 0ms;
       min-width: 4px;
       min-height: 4px;
     }
@@ -1944,6 +1958,10 @@ scrollbar {
   }
 
   &.overlay-indicator {
+    &:not(.fine-tune) slider {
+      transition-property: background-color, min-height, min-width;
+    }
+
     &:not(.dragging):not(.hovering) {
       border-color: transparent;
       background-color: transparent;
@@ -2338,10 +2356,13 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    transition: background-color $duration $ease-out;
-    background-color: $primary;
+    transition: background-image $duration $ease-out;
+    background-image: image($primary);
 
-    &:disabled { background-color: transparent; }
+    &:disabled {
+      background-color: $background;
+      background-image: image($text-secondary-disabled);
+    }
   }
 
   // this is another differently styled part of the backing bit, the most relevant use case is for example
@@ -2393,28 +2414,27 @@ scale {
     }
   }
 
-  marks label,
+  marks,
   value { color: $text-secondary; }
 
-  marks {
-    color: $track;
+  indicator {
+    background-color: $track;
+    color: transparent;
+  }
 
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (left, left, right),
-                                                     (right, right, left) {
+  //marks margins
+  @each $scale_orient, $marks_class, $marks_pos, $marks_margin in (horizontal, top, top, bottom),
+                                                                  (horizontal, bottom, bottom, top),
+                                                                  (vertical, top, left, right),
+                                                                  (vertical, bottom, right, left) {
+    &.#{$scale_orient} marks {
       &.#{$marks_class} {
         margin-#{$marks_margin}: $_marks_distance;
         margin-#{$marks_pos}: -($_marks_distance + $_marks_length);
       }
     }
-  }
 
-  &.fine-tune marks {
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (left, left, right),
-                                                     (right, right, left) {
+    &.#{$scale_orient}.fine-tune marks {
       &.#{$marks_class} {
         margin-#{$marks_margin}: $_marks_distance - 1px;
         margin-#{$marks_pos}: -($_marks_distance + $_marks_length - 1px);
@@ -2621,8 +2641,12 @@ frame.flat > border { @extend .frame.flat; } // for backward compatibility
 actionbar > revealer > box {
   padding: $container-padding;
   border-top: 1px solid $divider;
+  background-color: $base;
+  background-clip: border-box;
 
-  button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %button_basic.flat; }
+  button:not(.suggested-action):not(.destructive-action) { @extend %button_basic.flat; }
+
+  .linked:not(.vertical) > entry:not(:only-child) { border-radius: $corner-radius $corner-radius 0 0; }
 }
 
 scrolledwindow {
@@ -2841,13 +2865,12 @@ messagedialog { // Message Dialog styling
       border-bottom-right-radius: $corner-radius;
     }
 
-    .dialog-action-area {
+    .dialog-action-box {
       margin-top: -$container-padding;
       padding: $container-padding;
 
       button {
-        @extend %button-flat-simple;
-        border-radius: $corner-radius;
+        @extend %button_basic.flat;
 
         &:not(:last-child) { margin-right: $container-padding; }
 
@@ -2876,7 +2899,7 @@ filechooser {
 }
 
 filechooserbutton:drop(active) {
-  box-shadow: none;
+  // box-shadow: none;
 }
 
 
@@ -2983,7 +3006,10 @@ placessidebar.sidebar {
     // will make the animation of the new bookmark row jump
     > revealer { padding: 0 8px; }
 
-    &:selected { font-weight: 500; }
+    &:selected {
+      background-color: $overlay-checked;
+      font-weight: 500;
+    }
 
     &:disabled { color: $text-disabled; }
 
@@ -3161,7 +3187,7 @@ tooltip {
   decoration { background-color: transparent; }
 
   > box {
-    margin: -6px; // Remove hard-coded 6px padding
+    margin: -6px; // Remove hard-coded 6px margin
     min-height: 32px - 4px * 2;
     padding: 4px 8px;
   }
@@ -3169,9 +3195,6 @@ tooltip {
   * {
     // workaround for Eclipse.
     // do not include any declaration here.
-    // padding: 0;
-    // background-color: transparent;
-    // color: inherit;
   }
 }
 
@@ -3246,16 +3269,12 @@ colorswatch {
 
   &#add-color-button {
     border-radius: $corner-radius $corner-radius 0 0;
-    color: on(dark);
+    color: $text;
 
     &:only-child { border-radius: $corner-radius; }
 
     overlay {
-      background-image: linear-gradient(to right,
-                                        $red 25%,
-                                        $yellow 25%, $yellow 50%,
-                                        $green 50%, $green 75%,
-                                        $blue 75%);
+      background-color: $surface;
     }
   }
 

@@ -28,6 +28,13 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 
 * [Flat-Plat-Blue for GNOME 3.32/ 3.30 /3.28 / 3.26 / 3.24 / 3.22](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.32.0.tar.gz)
 
+## Unsupported
+
+- Downstream customized GNOME sessions
+  > e.g. "Ubuntu" session, "Pop" session. To properly use Materia on GNOME Shell, please install `gnome-session` and then switch to "GNOME" or "GNOME on Xorg" session from your display manager.
+- elementary apps
+  > Because they are based on [their own stylesheet](https://github.com/elementary/stylesheet) that conflicts with GTK standards.
+
 ## Requirements
 
 - GTK `>=3.20`
