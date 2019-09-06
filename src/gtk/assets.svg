@@ -21,7 +21,7 @@
     </linearGradient>
 
     <linearGradient id="color-primary-dark">
-      <stop offset="1" stop-color="#4285F4"/>
+      <stop offset="1" stop-color="#1A73E8"/>
     </linearGradient>
 
     <linearGradient id="color-primary-light">
@@ -29,11 +29,11 @@
     </linearGradient>
 
     <linearGradient id="color-background">
-      <stop stop-color="#FAFAFA"/>
+      <stop offset="1" stop-color="#F2F2F2"/>
     </linearGradient>
 
     <linearGradient id="color-background-dark">
-      <stop stop-color="#424242"/>
+      <stop offset="1" stop-color="#212121"/>
     </linearGradient>
 
     <linearGradient id="color-surface">
@@ -41,7 +41,7 @@
     </linearGradient>
 
     <linearGradient id="color-surface-dark">
-      <stop offset="1" stop-color="#424242"/>
+      <stop offset="1" stop-color="#3C3C3C"/>
     </linearGradient>
 
     <g id="base-scale-slider">

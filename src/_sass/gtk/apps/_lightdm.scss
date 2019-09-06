@@ -35,7 +35,7 @@
 #restart_dialog {
   margin: 8px;
   border-radius: $corner-radius;
-  box-shadow: $shadow-2, inset 0 1px highlight($surface);
+  box-shadow: $shadow-z6, inset 0 1px highlight($surface);
   background-color: $surface;
 }
 
@@ -58,7 +58,11 @@
 #restart_dialog button {
 }
 
-.lightdm-gtk-greeter button { @extend %button-flat-simple; }
+.lightdm-gtk-greeter button {
+  @extend %button_basic.flat;
+
+  &:not(:disabled) { color: $primary; }
+}
 
 // the user's avatar box
 #user_image {

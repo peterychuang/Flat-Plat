@@ -60,17 +60,17 @@ if [[ -z "${THEME:-}" ]]; then
 fi
 
 PATHLIST=(
+  './src/_sass/_colors.scss'
   './src/chrome'
   './src/cinnamon'
   './src/cinnamon/assets'
   './src/gnome-shell'
+  './src/gtk/assets.svg'
+  './src/gtk-2.0/assets.svg'
+  './src/gtk-2.0/assets-dark.svg'
   './src/gtk-2.0/gtkrc'
   './src/gtk-2.0/gtkrc-dark'
   './src/gtk-2.0/gtkrc-light'
-  './src/_sass/_colors.scss'
-  './src/gtk-2.0/assets.svg'
-  './src/gtk-2.0/assets-dark.svg'
-  './src/gtk/assets.svg'
   './src/metacity-1'
   './src/unity'
   './src/xfwm4'
@@ -175,39 +175,34 @@ for FILEPATH in "${PATHLIST[@]}"; do
     find "$FILEPATH" -type f -not -name '_color-palette.scss' -exec sed -i'' \
       -e '/color-surface/{n;s/#FFFFFF/%MATERIA_SURFACE%/g}' \
       -e '/color-base/{n;s/#FFFFFF/%MATERIA_VIEW%/g}' \
+      -e 's/#8AB4F8/%SEL_BG%/g' \
+      -e 's/#1A73E8/%SEL_BG%/g' \
       -e 's/#000000/%FG%/g' \
       -e 's/#212121/%FG%/g' \
-      -e 's/#757575/%INACTIVE_FG%/g' \
       -e 's/#BDBDBD/%INACTIVE_FG%/g' \
-      -e 's/#FAFAFA/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#616161/%INACTIVE_FG%/g' \
       -e 's/#F2F2F2/%BG%/g' \
-      -e 's/#4285F4/%SEL_BG%/g' \
+      -e 's/#FFFFFF/%MATERIA_SURFACE%/g' \
       -e 's/#FFFFFF/%MATERIA_VIEW%/g' \
-      -e 's/#383838/%HDR_BG%/g' \
+      -e 's/#FAFAFA/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#353535/%HDR_BG%/g' \
+      -e 's/#2C2C2C/%HDR_BG2%/g' \
       -e 's/#E0E0E0/%HDR_BG%/g' \
+      -e 's/#D6D6D6/%HDR_BG2%/g' \
       -e 's/Materia/%OUTPUT_THEME_NAME%/g' \
-      -e 's/#282828/%HDR_BG%/g' \
-      -e 's/#303030/%MATERIA_VIEW%/g' \
-      -e 's/#2C2C2C/%INACTIVE_MATERIA_VIEW%/g' \
-      -e 's/#424242/%MATERIA_SURFACE%/g' \
       {} \; ;
   else
     find "$FILEPATH" -type f -not -name '_color-palette.scss' -exec sed -i'' \
-      -e 's/#000000/%BG%/g' \
-      -e 's/#282828/%BG%/g' \
-      -e 's/#757575/%INACTIVE_FG%/g' \
-      -e 's/#BDBDBD/%INACTIVE_FG%/g' \
-      -e 's/#2C2C2C/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#1A73E8/%SEL_BG%/g' \
       -e 's/#FFFFFF/%FG%/g' \
-      -e 's/#FAFAFA/%FG%/g' \
-      -e 's/#424242/%MATERIA_SURFACE%/g' \
-      -e 's/#4285F4/%SEL_BG%/g' \
-      -e 's/#303030/%MATERIA_VIEW%/g' \
-      -e 's/#383838/%HDR_BG%/g' \
-      -e 's/#212121/%HDR_BG2%/g' \
+      -e 's/#BDBDBD/%INACTIVE_FG%/g' \
+      -e 's/#212121/%BG%/g' \
+      -e 's/#3C3C3C/%MATERIA_SURFACE%/g' \
+      -e 's/#2C2C2C/%MATERIA_VIEW%/g' \
+      -e 's/#2C2C2C/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#353535/%HDR_BG%/g' \
+      -e 's/#2C2C2C/%HDR_BG2%/g' \
       -e 's/Materia/%OUTPUT_THEME_NAME%/g' \
-      -e 's/#F2F2F2/%FG%/g' \
-      -e 's/#E0E0E0/%HDR_FG%/g' \
       {} \; ;
   fi
 done

@@ -27,7 +27,7 @@ $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 /* GLOBALS */
 stage {
   font-family: $font-family;
-  @include font(body-1);
+  @include type(body2);
   color: $text;
 }
 
@@ -36,10 +36,11 @@ stage {
 /* Buttons */
 .button {
   min-height: $medium-size;
-  padding: 0 16px;
+  min-width: 64px - 8px * 2;
+  padding: 0 8px;
   border-width: 0;
   border-radius: $corner-radius;
-  @include font(button);
+  @include type(button);
   @include button(flat-normal);
   &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
@@ -49,12 +50,13 @@ stage {
 
 .modal-dialog-linked-button {
   min-height: $medium-size;
+  min-width: 64px - 8px * 2;
   margin: $container-padding;
   padding: 0 8px;
   margin-right: 0;
   border-right-width: 0;
   border-radius: $corner-radius;
-  @include font(button);
+  @include type(button);
   @include button(flat-normal);
   &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
@@ -85,7 +87,7 @@ StEntry {
   color: $text;
   selection-background-color: $overlay-selected;
   selected-color: $text;
-  @include font(subheading);
+  @include type(body1);
   @include entry(normal);
   &:hover { @include entry(hover);}
   &:focus { @include entry(focus);}
@@ -226,7 +228,7 @@ StScrollBar {
 
 /* Modal Dialogs */
 
-.headline { @include font(title); }
+.headline { @include type(headline6); }
 .lightbox { background-color: black; }
 .flashspot { background-color: white; }
 
@@ -256,7 +258,7 @@ StScrollBar {
 
   .mount-dialog-subject,
   .end-session-dialog-subject { //this should be a generic header class
-    @include font(title);
+    @include type(headline6);
   }
 
 /* Message Dialog */
@@ -281,7 +283,7 @@ StScrollBar {
 
   .message-dialog-subtitle {
     color: $text-secondary;
-    font-weight: bold;
+    font-weight: normal;
   }
 
 /* End Session Dialog */
@@ -428,7 +430,7 @@ StScrollBar {
 
   .message-dialog-main-layout { spacing: 24px; padding: 10px; }
   .message-dialog-content { spacing: 16px; }
-  .message-dialog-title { @include font(title); color: $text; }
+  .message-dialog-title { @include type(headline6); color: $text; }
 }
 
   .prompt-dialog-description:rtl {
@@ -618,17 +620,21 @@ StScrollBar {
   }
   .popup-menu-boxpointer,
   .candidate-popup-boxpointer {
-    -arrow-border-radius: 0;
+    -arrow-border-radius: 20px; // This is necessary for the weird bug: materia-theme#296
     -arrow-background-color: transparent;
     -arrow-border-width: 0;
     -arrow-border-color: transparent;
     -arrow-base: 0;
     -arrow-rise: 0;
     -arrow-box-shadow: none; //dreaming. bug #689995
-    margin: 5px 8px 8px;
-    background-color: $surface;
-    border-radius: $corner-radius;
-    box-shadow: $shadow-2;
+
+    @at-root .popup-menu-content,
+    .candidate-popup-content {
+      margin: 5px 8px 8px;
+      background-color: $surface;
+      border-radius: $corner-radius;
+      box-shadow: $shadow-2;
+    }
   }
 
   .popup-separator-menu-item {
@@ -660,7 +666,7 @@ StScrollBar {
   min-width: 64px;
   min-height: 64px;
 
-  .osd-monitor-label { @include font(display-2); }
+  .osd-monitor-label { @include type(headline3); }
   .level {
     height: 8px;
     -barlevel-height: 8px;
@@ -740,7 +746,7 @@ StScrollBar {
   }
 
   .input-source-switcher-symbol {
-    @include font(display-2);
+    @include type(headline3);
     width: 96px;
     height: 96px;
   }
@@ -844,8 +850,8 @@ StScrollBar {
   }
 
   .panel-button {
-    -natural-hpadding: 12px;
-    -minimum-hpadding: 6px;
+    -natural-hpadding: $panel-button-hpadding;
+    -minimum-hpadding: $panel-button-hpadding / 2;
     font-weight: bold;
     color: on($panel, secondary);
     text-shadow: none;
@@ -1013,7 +1019,7 @@ StScrollBar {
     }
 
     .datemenu-today-button .date-label {
-      @include font(title);
+      @include type(headline6);
     }
 
     .world-clocks-header,
@@ -1039,7 +1045,7 @@ StScrollBar {
     }
 
     .world-clocks-city {
-      font-weight: bold;
+      font-weight: normal;
       font-size: 1em;
     }
 
@@ -1066,8 +1072,7 @@ StScrollBar {
 
     .weather-forecast-time {
       color: $text-secondary;
-      font-size: 7pt;
-      font-weight: 400;
+      @include type(caption);
     }
 
     .calendar-month-label {
@@ -1100,7 +1105,7 @@ StScrollBar {
 
     .calendar-day-base {
       transition-duration: $duration;
-      @include font(caption);
+      @include type(caption);
       text-align: center;
       width: $menuitem-size; height: $menuitem-size;
       padding: 0;
@@ -1126,7 +1131,7 @@ StScrollBar {
         border-radius: 100px;
         background-color: transparent;
         color: $text-disabled;
-        @include font(caption);
+        @include type(caption);
         font-weight: bold;
         text-align: center;
       }
@@ -1156,7 +1161,6 @@ StScrollBar {
       }
       .calendar-other-month-day {
         color: $text-secondary-disabled;
-        opacity: 0.5;
       }
       .calendar-week-number {
         width: $menuitem-size; height: $menuitem-size - 7px;
@@ -1177,8 +1181,9 @@ StScrollBar {
 
         .message-list-clear-button.button {
           background-color: transparent;
-          &:hover,&:focus { background-color: $overlay-hover; }
-          &:active { background-color: $overlay-active; }
+          &:focus { background-color: $primary-overlay-focus; }
+          &:hover { background-color: $primary-overlay-hover; }
+          &:active { background-color: $primary-overlay-active; }
           margin: 8px 8px 0;
         }
 
@@ -1369,8 +1374,14 @@ StScrollBar {
   background-image: none;
 }
 
+// Rubberband for select-area screenshots
+.select-area-rubberband {
+  background-color: rgba($primary-light, 0.3);
+  border: 1px solid $primary-light;
+}
+
 // not really top bar only
-.popup-menu-arrow { width: 16px; height: 16px; icon-size: em(16px); }
+.popup-menu-arrow { icon-size: em(16px); }
 .popup-menu-icon { icon-size: em(16px); }
 
 //close buttons
@@ -1434,7 +1445,7 @@ StScrollBar {
   .nm-dialog-airplane-text { color: $text; }
   .nm-dialog-header-icon { icon-size: 32px; }
   .nm-dialog-scroll-view { border: none; }
-  .nm-dialog-header { @include font(title); }
+  .nm-dialog-header { @include type(headline6); }
 
   .nm-dialog-item {
     transition-duration: $duration;
@@ -1543,7 +1554,7 @@ StScrollBar {
   .search-section:last-child .search-section-separator { background-color: transparent; }
 
   .list-search-result-content { spacing: 30px; }
-  .list-search-result-title { @include font(subheading); color: on(dark); spacing: 12px; }
+  .list-search-result-title { @include type(subtitle1); color: on(dark); spacing: 12px; }
   .list-search-result-description { color: on(dark, secondary); }
   .list-search-provider-details { width: 150px; color: on(dark, secondary); margin-top: 0.24em; }
   .list-search-provider-content { spacing: 20px; }
@@ -1617,7 +1628,7 @@ StScrollBar {
     padding-bottom: 32px;
   }
   .app-view-control { //favorties | all toggle button
-    padding: 0 16px;
+    padding: 0 8px;
     font-weight: bold;
     color: on(dark, secondary);
     &:hover {
@@ -1806,7 +1817,7 @@ StScrollBar {
 }
 
 %status_text {
-  @include font(display-2);
+  @include type(headline3);
   color: on(dark, disabled);
 }
 
@@ -1843,15 +1854,15 @@ StScrollBar {
       padding: 0 8px;
       border-radius: $corner-radius;
       background-color: transparent;
-      color: $text-secondary;
+      color: $primary;
       font-weight: 500;
       &:first-child { border-radius: $corner-radius; }
       &:last-child { border-radius: $corner-radius; }
-      &:hover, &focus { background-color: $overlay-hover; color: $text; }
+      &:focus { background-color: $primary-overlay-focus; }
+      &:hover { background-color: $primary-overlay-hover; }
       &:active {
         transition-duration: $duration-ripple;
-        background-color: $overlay-active;
-        color: $text;
+        background-color: $primary-overlay-active;
       }
     }
   }
@@ -1886,7 +1897,7 @@ StScrollBar {
   }
   .chat-meta-message {
     padding-left: 4px;
-    @include font(caption);
+    @include type(caption);
     color: $text-secondary;
     &:rtl { padding-left: 0; padding-right: 4px; }
   }
@@ -1951,7 +1962,7 @@ StScrollBar {
 //Keyboard
 /* On-screen Keyboard */
 .word-suggestions {
-    @include font(subheading);
+    @include type(subtitle1);
     spacing: 12px;
     min-height: 20pt;
 }
@@ -2128,13 +2139,16 @@ StScrollBar {
 
   .modal-dialog-button-box { spacing: 3px; }
   .modal-dialog-button {
-    padding: 0 16px;
+    min-width: 64px - 8px * 2;
+    padding: 0 8px;
     @include button(flat-normal, $tc: on($os-background));
     &:hover,&:focus { @include button(flat-hover, $tc: on($os-background)); }
     &:active { @include button(flat-active, $tc: on($os-background)); }
     &:insensitive { @include button(flat-insensitive, $tc: on($os-background)); }
 
     &:default {
+      min-width: 64px - 16px * 2;
+      padding: 0 16px;
       @include button(normal, $c: $suggested, $tc: on($suggested));
       &:hover,&:focus { @include button(hover, $c: $suggested, $tc: on($suggested)); }
       &:active { @include button(active, $c: $suggested, $tc: on($suggested)); }
@@ -2211,7 +2225,7 @@ StScrollBar {
   .login-dialog-username,
   .user-widget-label {
     color: on($os-background);
-    @include font(title);
+    @include type(headline6);
     text-align: left;
     padding-left: 15px;
   }
@@ -2266,12 +2280,12 @@ StScrollBar {
 }
 
 .screen-shield-clock-time {
-  @include font(display-4);
+  @include type(headline1);
   text-shadow: $shadow-1;
   font-feature-settings: "tnum";
 }
 
-.screen-shield-clock-date { @include font(display-2); }
+.screen-shield-clock-date { @include type(headline4); }
 
 .screen-shield-notifications-container {
   spacing: 6px;
@@ -2395,10 +2409,11 @@ StScrollBar {
 
   .lg-obj-inspector-button {
       min-height: $medium-size;
-      padding: 0 16px;
+      min-width: 64px - 8px * 2;
+      padding: 0 8px;
       border: none;
       border-radius: $corner-radius;
-      @include font(button);
+      @include type(button);
       @include button(flat-normal);
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -2421,7 +2436,7 @@ StScrollBar {
   }
 
   .lg-extension-name {
-      @include font(headline);
+      @include type(headline5);
   }
 
   .lg-extension-meta {

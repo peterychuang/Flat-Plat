@@ -18,7 +18,7 @@
 
   button {
     @extend %button-flat;
-    @extend %button_selected.flat;
+    @extend %button-on-dark.flat;
 
     min-height: 16px;
     min-width: 16px;
@@ -313,6 +313,9 @@ na-tray-applet widget box widget {
 
   @extend %pathbar_button;
 
+  // NOTE: padding is hard-coded to 0
+  &.slider-button { min-width: 24px; }
+
   // arrow button
   > widget {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -342,7 +345,7 @@ na-tray-applet widget box widget {
 
 // window and desktop mode
 .caja-canvas-item {
-  // border-radius: $corner-radius;
+  border-radius: $corner-radius;
 }
 
 // desktop mode
@@ -351,6 +354,27 @@ na-tray-applet widget box widget {
 }
 
 .caja-desktop EelEditableLabel.entry {
+}
+
+// override https://github.com/mate-desktop/caja/blob/master/data/caja.css
+.caja-desktop.view .entry,
+.caja-navigation-window .view .entry {
+  border: none;
+  border-radius: $corner-radius;
+  background-color: $fill;
+  background-image: none;
+  color: $text;
+
+  &:selected { background-color: $overlay-selected; }
+}
+
+.caja-desktop.view .entry {
+  background-color: $scrim-alt;
+  color: on(dark);
+  text-shadow: $text-shadow;
+  caret-color: currentColor; // this shouldn't be needed.
+
+  &:selected { background-color: $overlay-selected; } // FIXME: this should have light overlay.
 }
 
 // statusbar
@@ -437,13 +461,15 @@ na-tray-applet widget box widget {
 .lock-dialog {
   border: 1px solid $frame;
   border-radius: $corner-radius + 1px;
-  box-shadow: $shadow-4, inset 0 1px highlight($surface); // not sure if box-shadow works here
+  box-shadow: $shadow-z6, inset 0 1px highlight($surface); // not sure if box-shadow works here
   background-color: $surface;
 
   frame > border { border-style: none; }
 
   button {
-    @extend %button-flat-simple;
+    @extend %button_basic.flat;
+
+    &:not(:disabled) { color: $primary; }
   }
 }
 

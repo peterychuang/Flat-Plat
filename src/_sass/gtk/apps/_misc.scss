@@ -5,7 +5,7 @@ overlay > revealer {
   &.left > scrolledwindow.frame,
   &.right > scrolledwindow.frame {
     border-style: none;
-    box-shadow: $shadow-4;
+    box-shadow: $shadow-z16;
   }
 
   &.left > scrolledwindow.frame { margin-right: 32px; }
@@ -19,6 +19,16 @@ overlay > revealer {
 .terminal-titlebar button { border-radius: 0; }
 
 button.image-button.session-new-button { min-width: $medium-size - 4px; }
+
+// Remove extra padding
+notebook.tilix-background tab > box > stack { margin: -6px; }
+
+button.flat.tilix-small-button {
+  // NOTE: padding is hard-coded with:
+  // padding: 2px 4px;
+  min-height: $small-size - 2px * 2;
+  min-width: $small-size - 4px * 2;
+}
 
 
 /**************
@@ -58,31 +68,45 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
  * Chromium *
  ************/
 window.background.chromium {
-  background-color: if($variant == 'light', $background, $surface);
+  background-color: $surface;
 
-  // FIXME: no way to change the toolbar button colors only
+  // FIXME: There is no way to change the color of the toolbar buttons
   // toolbar button { color: $text-secondary; }
 
   // toolbar's border-bottom refers to button's border
+  // FIXME: Chrome's button border ignores theme's alpha value :(
   entry,
-  > button:not(.suggested-action):not(.destructive-action) { border: 1px solid $border-alt; }
+  > button { border: 1px solid $track; }
 
   > button {
-    box-shadow: none;
-    background-size: auto;
+    color: $primary;
 
-    &:hover { background-image: image($overlay-hover); }
-
-    &:active { background-image: image($overlay-checked); }
+    &:disabled { color: $text-secondary-disabled; }
   }
 
-  // workaround for headerbar's non-animatable buttons
-  headerbar button:active { background-size: 1000% 1000%; }
+  menubar,
+  headerbar { color: $titlebar-text-secondary; }
+
+  // Workaround for non-animatable buttons in headerbar
+  headerbar button:active { background-color: $overlay-active; }
 
   spinner { color: $primary; }
 
-  // entry uses this as well
-  textview { background-color: $surface; }
+  // For text field
+  textview.view { background-color: transparent; }
+
+  // For prominent button, starred icon, etc.
+  treeview.view.cell:selected:focus {
+    background-color: $primary;
+    color: on($primary);
+  }
+
+  // For table header
+  treeview.view button {
+    border: 1px solid $track;
+    background-color: $base; // FIXME: This should not be necessary
+    // color: $text-secondary;
+  }
 }
 
 tooltip.background.chromium { background-color: rgba($tooltip, 1); }
@@ -91,23 +115,34 @@ tooltip.background.chromium { background-color: rgba($tooltip, 1); }
 /***********
  * Firefox *
  ***********/
-window.background:not(.csd) {
+#MozillaGtkWidget {
   > widget {
-    // for the bookmark toolbar's separators
-    > separator { color: $border-alt; }
+    // For popover, entry in toolbar, etc.
+    text { background-color: $surface; }
+
+    // For selection, active tab indicator, etc.
+    text:selected {
+      // Use traditional selection style as workaround
+      background-color: $primary;
+      color: on($primary);
+    }
+
+    // For separators in bookmark toolbar
+    > separator { color: $divider; }
 
     // avoid black border
-    > scrollbar { background-clip: border-box; }
+    // > scrollbar { background-clip: border-box; }
 
-    // emphasize borders color
-    > scrollbar,
-    > frame > border { border-color: $border-alt; }
+    // Emphasize toolbar's border-bottom
+    > frame > border { border-color: $track; }
 
     > entry,
     > button > button {
-      border: 1px solid $border-alt;
+      border: 1px solid $track;
       border-radius: $corner-radius;
       box-shadow: none;
+
+      &:disabled { border-color: $track-disabled; }
     }
 
     > entry {
@@ -125,11 +160,10 @@ window.background:not(.csd) {
     > button > button {
       padding: 4px 8px;
       background-size: auto;
-      // color: $fg_color;
 
-      &:hover { background-image: image($overlay-hover); }
+      &:hover { box-shadow: inset 0 0 0 9999px $overlay-hover; }
 
-      &:active { background-image: image($overlay-checked); }
+      &:active { background-image: image($overlay-active); }
     }
 
     // use 16px assets for hard-coded sizing
@@ -137,9 +171,15 @@ window.background:not(.csd) {
 
     > radiobutton > radio { @extend %small_radio; }
 
+    > checkbutton > check,
+    > radiobutton > radio {
+      margin: 0;
+      padding: 0;
+    }
+
     // make check/radio visible regardless of whether the background is bright or dark
-    > checkbutton > check:not(:checked),
-    > radiobutton > radio:not(:checked) {
+    > checkbutton > check:not(:checked):not(:indeterminate),
+    > radiobutton > radio:not(:checked):not(:indeterminate) {
       color: $grey-600;
 
       &:hover, &:active { color: $grey-900; }
@@ -149,19 +189,11 @@ window.background:not(.csd) {
   }
 
   // remove ugly border around the menus
-  > window > menu,
-  > menu > menu { border: none; }
-}
-
-// Firefox now uses this for selected items
-text:selected {
-  // use traditional selection style as workaround for Firefox
-  background-color: $primary;
-  color: on($primary);
+  menu { border: none; }
 }
 
 // for backward compatibility
-window.background:not(.csd) {
+#MozillaGtkWidget {
   > widget {
     > menubar {
       color: $titlebar-text-secondary;
@@ -171,16 +203,10 @@ window.background:not(.csd) {
       &:disabled { color: $titlebar-text-secondary-disabled; }
     }
 
-    > frame { color: $border-alt; }
-
-    > checkbutton > check,
-    > radiobutton > radio {
-      margin: 0;
-      padding: 0;
-    }
+    > frame { color: $track; }
   }
 
-  > window.background > menu > separator { color: $divider; }
+  menu > separator { color: $divider; }
 }
 
 

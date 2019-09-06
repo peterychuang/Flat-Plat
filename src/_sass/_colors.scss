@@ -3,11 +3,6 @@
 
 @import 'color-palette';
 
-$blue:                                  #4285F4;
-$green:                                 #34A853;
-$yellow:                                #FBBC05;
-$red:                                   #EA4335;
-
 @function gtkalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
 }
@@ -22,7 +17,7 @@ $red:                                   #EA4335;
 
   @if ($brightness >= 128) {
     @if ($state == 'primary') { @return rgba(black, 0.87); }
-    @if ($state == 'secondary') { @return rgba(black, 0.54); }
+    @if ($state == 'secondary') { @return rgba(black, 0.6); }
     @if ($state == 'disabled') { @return rgba(black, 0.38); }
     @if ($state == 'secondary-disabled') { @return rgba(black, 0.26); }
     @if ($state == 'track') { @return rgba(black, 0.26); }
@@ -51,24 +46,24 @@ $red:                                   #EA4335;
 // Basic colors
 //
 
-$primary-dark:                          $blue;
+$primary-dark:                          #1A73E8;
 $primary-light:                         #8AB4F8;
 $primary:                               if($variant == 'light', $primary-dark, $primary-light);
 
-$background:                            if($variant == 'light', #F2F2F2, #282828);
-$surface:                               if($variant == 'light', #FFFFFF, #424242);
-$base:                                  if($variant == 'light', #FFFFFF, #303030); // semi-surface with no elevation
+$background:                            if($variant == 'light', #F2F2F2, #212121);
+$surface:                               if($variant == 'light', #FFFFFF, #3C3C3C);
+$base:                                  if($variant == 'light', #FFFFFF, #2C2C2C); // semi-surface with 1dp elevation
 $base-alt:                              if($variant == 'light', #FAFAFA, #2C2C2C);
 
-$os-background:                         #303030;
+$os-background:                         #212121;
 $tooltip:                               rgba(#616161, 0.9);
-$scrim:                                 rgba(black, 0);
-$scrim-alt:                             rgba(black, 0.6);
+$scrim:                                 rgba(black, 0.6);
+$scrim-alt:                             rgba(black, 0.3);
 $scrim-inverse:                         rgba(white, 0.1);
-$titlebar:                              if($topbar == 'dark', #383838, #E0E0E0);
-$titlebar-backdrop:                     if($topbar == 'dark', #303030, #D6D6D6);
-$panel:                                 $os-background;
-$panel-solid:                           if($titlebar == 'dark', $grey_800, mix($grey_200, $grey_400, 50%)); // for Unity panel which doesn't allow translucent colors
+$titlebar:                              if($topbar == 'dark', #353535, #E0E0E0);
+$titlebar-backdrop:                     if($topbar == 'dark', #2C2C2C, #D6D6D6);
+$panel:                                 if($topbar == 'dark', #1F1F1F, $scrim);
+$panel-solid:                           if($topbar == 'dark', #1F1F1F, #CCCCCC); // for Unity panel which doesn't allow translucent colors
 
 //
 // Misc colors
@@ -77,9 +72,9 @@ $panel-solid:                           if($titlebar == 'dark', $grey_800, mix($
 $link:                                  $primary;
 $link-visited:                          if($variant == 'light', $purple-500, $purple-200);
 
-$warning:                               $yellow;
-$error:                                 $red;
-$success:                               $green;
+$warning:                               if($variant == 'light', #F4B400, #FDD633);
+$error:                                 if($variant == 'light', #D93025, #F28B82);
+$success:                               if($variant == 'light', #0F9D58, #81C995);
 
 $suggested:                             $primary;
 $destructive:                           $error;
@@ -122,4 +117,4 @@ $titlebar-divider:                      on($titlebar, divider);
 $titlebar-fill:                         on($titlebar, fill);
 
 // workaround for GTK3 @placeholder_text_color which doesn't allow translucent colors
-$placeholder_text_color:                if($variant == 'light', $grey-600, mix($white, $base, percentage(0.7)));
+$placeholder_text_color:                if($variant == 'light', mix(black, $base, percentage(0.6)), mix(white, $base, percentage(0.7)));

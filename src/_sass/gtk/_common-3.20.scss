@@ -154,6 +154,12 @@ label {
     tab &,
     button & { color: inherit; }
   }
+
+  &.osd {
+    border-radius: $corner-radius;
+    background-color: $tooltip;
+    color: on($tooltip);
+  }
 }
 
 .dim-label { color: $text-secondary; }
@@ -449,7 +455,7 @@ button {
       @extend %circular_button;
     }
 
-    // NOTE: sometimes image-only buttons use this
+    // NOTE: Some image-only buttons use this as well
     &.text-button.image-button {
       min-width: 24px;
       padding: ($medium-size - 24px) / 2;
@@ -473,13 +479,13 @@ button {
     .linked:not(.vertical) > & {
       @extend %linked;
 
-      &.image-button { @extend %linked-image-button; }
+      &.image-button:not(.text-button) { @extend %linked-image-button; }
     }
 
     .linked.vertical > & {
       @extend %linked-vertical;
 
-      &.image-button { @extend %linked-vertical-image-button; }
+      &.image-button:not(.text-button) { @extend %linked-vertical-image-button; }
     }
 
     .linked:not(.vertical) > &.flat,
@@ -487,14 +493,12 @@ button {
       &:not(:only-child) { // specificity bump
         border-radius: $corner-radius;
 
-        &.image-button { border-radius: $circular-radius; }
-
-        &.text-button.image-button { border-radius: $corner-radius; }
+        &.image-button:not(.text-button) { border-radius: $circular-radius; }
       }
     }
   }
 
-  @at-root %button_selected {
+  @at-root %button-on-dark {
     &.flat {
       color: on(dark, secondary);
 
@@ -957,10 +961,10 @@ toolbar {
     transition: $transition-shadow;
     padding: $container-padding;
     border-radius: $corner-radius;
-    box-shadow: $shadow-2, inset 0 1px highlight($surface);
+    box-shadow: $shadow-z4, inset 0 1px highlight($surface);
     background-color: $surface;
 
-    &:backdrop { box-shadow: $shadow-1, inset 0 1px highlight($surface); }
+    &:backdrop { box-shadow: $shadow-z2, inset 0 1px highlight($surface); }
 
     &.left,
     &.right,
@@ -1036,7 +1040,7 @@ searchbar > revealer > box {
 .titlebar {
   transition: background-color $duration $ease-out, color $duration $ease-out;
   border-radius: $corner-radius $corner-radius 0 0;
-  box-shadow: $shadow-1, inset 0 1px highlight($titlebar);
+  box-shadow: $shadow-z1, inset 0 1px highlight($titlebar);
   background-color: $titlebar;
   color: $titlebar-text;
 
@@ -1164,7 +1168,7 @@ searchbar > revealer > box {
     // but let's keep it for backwards compatibility.
     transition: background-color 0.1ms $ripple-fade-in-duration, color $duration $ease-out;
     animation: ripple-on-headerbar $ripple-fade-in-duration $ease-out;
-    box-shadow: $shadow-1, inset 0 1px highlight($primary);
+    box-shadow: $shadow-z1, inset 0 1px highlight($primary);
     background-color: $primary;
     color: on($primary);
 
@@ -1230,7 +1234,7 @@ searchbar > revealer > box {
   .maximized &,
   .fullscreen & {
     border-radius: 0;
-    box-shadow: $shadow-1;
+    box-shadow: $shadow-z1;
   }
 
   &.default-decoration {
@@ -1259,7 +1263,7 @@ searchbar > revealer > box {
       // margin-right: -2px;
       // margin-top: -2px;
       border-radius: 0;
-      box-shadow: $shadow-1; // Remove highlight as window managers should have it
+      box-shadow: $shadow-z1; // Remove highlight as window managers should have it
     }
   }
 }
@@ -1310,7 +1314,7 @@ window.devel .titlebar:not(.selection-mode) {
  * Pathbars *
  ************/
 %pathbar_button,
-.path-bar button {
+.path-bar.linked:not(.vertical) > button {
   @extend %button-flat;
 
   padding-left: ($medium-size - 24px) / 2;
@@ -1601,10 +1605,10 @@ menuitem {
 popover.background {
   transition: $transition-shadow;
   padding: 2px;
-  box-shadow: $shadow-2; // TODO: this should really have a highlight
+  box-shadow: $shadow-z4; // TODO: this should really have a highlight
   background-color: $surface;
 
-  &:backdrop { box-shadow: $shadow-1; }
+  &:backdrop { box-shadow: $shadow-z2; }
 
   &, .csd & {
     border-style: solid;
@@ -1640,7 +1644,7 @@ popover.background {
 
   &.menu button,
   button.model {
-    @extend %button-flat;
+    @extend %button_basic.flat;
 
     min-height: 32px;
     padding: 0 8px;
@@ -1921,7 +1925,6 @@ scrollbar {
 
   transition: $transition;
   background-color: $base;
-  background-clip: $background-clip-extra;
 
   // scrollbar border
   &.top { border-bottom: 1px solid $divider; }
@@ -2000,7 +2003,7 @@ scrollbar {
     }
 
     &.dragging,
-    &.hovering { background-color: rgba($base, 0.9); }
+    &.hovering { background-color: rgba($surface, 0.9); }
   }
 
   &.horizontal slider { min-width: $_slider_min_length; }
@@ -2066,15 +2069,15 @@ switch {
     margin: -3px -2px;
     border-radius: $circular-radius;
     outline: none;
-    box-shadow: 0 0 0 10px transparent, $shadow-1;
+    box-shadow: 0 0 0 10px transparent, $shadow-z1;
     background-color: $surface;
   }
 
-  &:focus slider { box-shadow: 0 0 0 10px $overlay-focus, $shadow-1; }
+  &:focus slider { box-shadow: 0 0 0 10px $overlay-focus, $shadow-z1; }
 
-  &:hover slider { box-shadow: 0 0 0 10px $overlay-hover, $shadow-1; }
+  &:hover slider { box-shadow: 0 0 0 10px $overlay-hover, $shadow-z1; }
 
-  &:focus:hover slider { box-shadow: 0 0 0 10px $overlay-focus-hover, $shadow-1; }
+  &:focus:hover slider { box-shadow: 0 0 0 10px $overlay-focus-hover, $shadow-z1; }
 
   &:checked slider {
     background-color: $primary;
@@ -2102,9 +2105,9 @@ switch {
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -gtk-icon-shadow: $shadow-1;
+  -gtk-icon-shadow: $icon-shadow-z2;
 
-  &:hover, &:active { -gtk-icon-shadow: $shadow-2; }
+  &:hover, &:active { -gtk-icon-shadow: $icon-shadow-z4; }
 
   @each $s, $as in ('', '-unchecked'),
                    (':checked', '-checked') {
@@ -2588,7 +2591,7 @@ levelbar {
   trough {
     // padding: 2px;
     // border-radius: $corner-radius;
-    // box-shadow: $shadow-1;
+    // box-shadow: $shadow-z1;
     // background-color: $base;
 
     // &:disabled { background-color: $base-alt; }
@@ -2775,7 +2778,11 @@ row {
 
   margin: 8px;
 
-  button { @extend %button_basic.flat; }
+  button {
+    @extend %button_basic.flat;
+
+    &.text-button:not(:disabled) { color: $primary; }
+  }
 
   &.frame,
   border { border-style: none; }
@@ -2957,6 +2964,7 @@ stacksidebar.sidebar {
 
     &:selected {
       background-color: $overlay-checked;
+      color: $primary;
       font-weight: 500;
     }
 
@@ -2986,8 +2994,11 @@ separator.sidebar {
  * File chooser *
  ****************/
 // dim the sidebar icons, see bug #786613 for details on this oddity
-row {
-  image.sidebar-icon { color: $text-secondary; }
+row image.sidebar-icon {
+  transition: color $duration $ease-out;
+  color: $text-secondary;
+
+  &:disabled { color: $text-secondary-disabled; }
 }
 
 placessidebar.sidebar {
@@ -3008,7 +3019,10 @@ placessidebar.sidebar {
 
     &:selected {
       background-color: $overlay-checked;
+      color: $primary;
       font-weight: 500;
+
+      image.sidebar-icon { color: $primary; }
     }
 
     &:disabled { color: $text-disabled; }
@@ -3019,12 +3033,11 @@ placessidebar.sidebar {
     }
 
     label.sidebar-label {
+      color: inherit;
+
       &:dir(ltr) { padding-right: 2px; }
       &:dir(rtl) { padding-left: 2px; }
     }
-
-    &:selected image.sidebar-icon,
-    &:selected label.sidebar-label { color: inherit; }
 
     @at-root button.sidebar-button {
       @extend %button-flat-simple;
@@ -3033,7 +3046,11 @@ placessidebar.sidebar {
 
     &.sidebar-placeholder-row { background-color: $overlay-hover; }
 
-    &.sidebar-new-bookmark-row { color: $primary; }
+    &.sidebar-new-bookmark-row {
+      color: $primary;
+
+      image.sidebar-icon { color: $primary; }
+    }
 
     &:drop(active) { @extend row:hover; }
   }
@@ -3127,14 +3144,9 @@ infobar {
     background-color: $base;
 
     button {
-      @extend %button-flat-simple;
+      @extend %button_basic.flat;
 
-      &.text-button {
-        padding-left: 8px;
-        padding-right: 8px;
-
-        &:not(:disabled) { color: $primary; }
-      }
+      &.text-button:not(:disabled) { color: $primary; }
     }
   }
 
@@ -3142,7 +3154,7 @@ infobar {
     background-color: $warning;
     color: on($warning);
 
-    // button { @extend %button_selected; }
+    // button { @extend %button-on-dark; }
 
     selection {}
 
@@ -3153,7 +3165,7 @@ infobar {
     background-color: $error;
     color: on($error);
 
-    button { @extend %button_selected; }
+    button { @extend %button-on-dark; }
 
     selection {}
 
@@ -3260,11 +3272,11 @@ colorswatch {
 
   overlay {
     transition: $transition-shadow;
-    box-shadow: $shadow-1;
+    box-shadow: $shadow-z1;
 
-    &:hover { box-shadow: $shadow-2; }
+    &:hover { box-shadow: $shadow-z3; }
 
-    &:drop(active) { box-shadow: $shadow-2; }
+    &:drop(active) { box-shadow: $shadow-z3; }
   }
 
   &#add-color-button {
@@ -3292,7 +3304,7 @@ colorswatch {
 
     overlay { border-radius: $corner-radius; }
 
-    // overlay:hover { box-shadow: $shadow-1; }
+    // overlay:hover { box-shadow: $shadow-z1; }
   }
 }
 
@@ -3300,10 +3312,10 @@ colorswatch {
 colorchooser .popover.osd {
   transition: $transition-shadow;
   border-radius: $corner-radius;
-  box-shadow: $shadow-2, inset 0 1px highlight($surface);
+  box-shadow: $shadow-z4, inset 0 1px highlight($surface);
   background-color: $surface;
 
-  &:backdrop { box-shadow: $shadow-1, inset 0 1px highlight($surface); }
+  &:backdrop { box-shadow: $shadow-z2, inset 0 1px highlight($surface); }
 }
 
 
@@ -3336,7 +3348,7 @@ colorchooser .popover.osd {
 decoration {
   transition: $transition-shadow;
   border-radius: $corner-radius $corner-radius 0 0;
-  box-shadow: $shadow-4, 0 16px 16px transparent;
+  box-shadow: $shadow-z16, 0 16px (24px * .6) 2px transparent, 0 6px (30px * .6) 5px transparent;
 
   // FIXME rationalize shadows
 
@@ -3348,7 +3360,7 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: $shadow-2, 0 16px 16px transparent;
+    box-shadow: $shadow-z4, 0 16px (24px * .6) 2px transparent, 0 6px (30px * .6) 5px transparent;
   }
 
   .maximized &,
@@ -3366,7 +3378,7 @@ decoration {
 
   .csd.popup & {
     border-radius: $corner-radius;
-    box-shadow: $shadow-2;
+    box-shadow: $shadow-z4;
   }
 
   tooltip.csd & {
@@ -3376,9 +3388,9 @@ decoration {
 
   messagedialog.csd & {
     border-radius: $corner-radius;
-    // box-shadow: $shadow-4, 0 16px 16px transparent;
+    // box-shadow: $shadow-z24, 0 24px (38px * .6) 3px transparent, 0 9px (46px * .6) 8px transparent;
 
-    // &:backdrop { box-shadow: $shadow-2, 0 16px 16px transparent; }
+    // &:backdrop { box-shadow: $shadow-z4, 0 24px (38px * .6) 3px transparent, 0 9px (46px * .6) 8px transparent; }
   }
 
   .solid-csd & {
