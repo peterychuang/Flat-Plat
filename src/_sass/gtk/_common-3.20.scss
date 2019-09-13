@@ -17,8 +17,8 @@
   -GtkWidget-text-handle-width: 24;
   -GtkWidget-text-handle-height: 24;
 
-  -GtkDialog-button-spacing: 4;
-  -GtkDialog-action-area-border: 0;
+  -GtkDialog-button-spacing: 6;
+  -GtkDialog-action-area-border: 6;
 
   // We use the outline properties to signal the focus properties
   // to the adwaita engine: using real CSS properties is faster,
@@ -1259,11 +1259,11 @@ searchbar > revealer > box {
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
-      // margin-left: -2px;
-      // margin-right: -2px;
-      // margin-top: -2px;
+      margin-left: -4px;
+      margin-right: -4px;
+      margin-top: -4px;
       border-radius: 0;
-      box-shadow: $shadow-z1; // Remove highlight as window managers should have it
+      // box-shadow: $shadow-z1;
     }
   }
 }
@@ -2874,7 +2874,7 @@ messagedialog { // Message Dialog styling
 
     .dialog-action-box {
       margin-top: -$container-padding;
-      padding: $container-padding;
+      // padding: $container-padding;
 
       button {
         @extend %button_basic.flat;
@@ -3395,11 +3395,13 @@ decoration {
 
   .solid-csd & {
     margin: 0;
-    // padding: 4px;
+    padding: 4px;
     border-radius: 0;
     box-shadow: none;
-    // box-shadow: inset 0 0 0 4px $titlebar;
+    // box-shadow: inset 0 1px highlight($titlebar);
     background-color: $titlebar;
+
+    &:backdrop { background-color: $titlebar-backdrop; }
   }
 }
 
