@@ -2196,8 +2196,6 @@ StScrollBar {
   color: on($scrim-alt, secondary);
 }
 
-#panel.lock-screen { background-color: $scrim; }
-
 .screen-shield-background { //just the shadow, really
   background: black;
   box-shadow: $shadow-5;

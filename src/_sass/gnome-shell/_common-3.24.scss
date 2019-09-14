@@ -2195,8 +2195,6 @@ $legacy_icon_size: 24px;
   color: on($scrim-alt, secondary);
 }
 
-#panel.lock-screen { background-color: $scrim; }
-
 .screen-shield-background { //just the shadow, really
   background: black;
   box-shadow: $shadow-5;

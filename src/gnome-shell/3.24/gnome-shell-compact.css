@@ -2912,10 +2912,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(255, 255, 255, 0.7);
 }
 
-#panel.lock-screen {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 .screen-shield-background {
   background: black;
   box-shadow: 0 19px 19px rgba(0, 0, 0, 0.6), 0 15px 6px rgba(0, 0, 0, 0.44);
