@@ -26,7 +26,7 @@ I forked and modified the [Flat-Plat Theme](https://github.com/nana-4/Flat-Plat)
 
 ## Download
 
-* [Flat-Plat-Blue for GNOME 3.32/ 3.30 /3.28 / 3.26 / 3.24 / 3.22](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.32.0.tar.gz)
+* [Flat-Plat-Blue for GNOME 3.34/ 3.32/ 3.30 /3.28 / 3.26 / 3.24 / 3.22](https://github.com/peterychuang/Flat-Plat-Blue/archive/3.34.0.tar.gz)
 
 ## Unsupported
 
