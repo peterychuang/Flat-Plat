@@ -959,6 +959,17 @@ StScrollBar {
       color: on($panel, secondary);
       &:focus, &:hover, &:active { color: on($panel); }
     }
+
+    &.clock-display {
+      > StBoxLayout > StIcon {
+        color: rgba($primary, 0.7);
+      }
+
+      &:hover,
+      &:active {
+        > StBoxLayout > StIcon { color: $primary; }
+      }
+    }
   }
 
   .panel-status-indicators-box,

@@ -1160,6 +1160,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: white;
 }
 
+#panel .panel-button.clock-display > StBoxLayout > StIcon {
+  color: rgba(138, 180, 248, 0.7);
+}
+
+#panel .panel-button.clock-display:hover > StBoxLayout > StIcon, #panel .panel-button.clock-display:active > StBoxLayout > StIcon {
+  color: #8AB4F8;
+}
+
 #panel .panel-status-indicators-box,
 #panel .panel-status-menu-box {
   spacing: 2px;
