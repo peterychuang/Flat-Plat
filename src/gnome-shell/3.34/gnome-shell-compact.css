@@ -864,10 +864,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-bottom-style: none;
 }
 
-.rename-folder-popup-box {
+.rename-folder-popup .rename-folder-popup-item {
   spacing: 6px;
-  margin-left: 12px;
-  margin-right: 12px;
+}
+
+.rename-folder-popup .rename-folder-popup-item:ltr, .rename-folder-popup .rename-folder-popup-item:rtl {
+  padding: 0, 12px;
 }
 
 .background-menu {
@@ -2071,7 +2073,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .app-view-control, .app-view-control:hover, .app-view-control:active, .app-view-control:checked {
-  color: #1A73E8;
+  color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
   border-color: transparent;
   box-shadow: 0 0 transparent;
@@ -3120,7 +3122,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #lockDialogGroup {
   background: #212121;
   background-size: cover;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #LookingGlassDialog {
