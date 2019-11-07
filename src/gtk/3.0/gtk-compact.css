@@ -440,7 +440,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   margin: 2px;
   border-radius: 9999px;
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -524,7 +524,7 @@ button:active {
 
 button:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -537,7 +537,7 @@ button:checked {
 
 button:checked:disabled {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.12);
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -806,7 +806,7 @@ button.suggested-action {
 
 button.suggested-action:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -842,7 +842,7 @@ button.destructive-action {
 
 button.destructive-action:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -1283,7 +1283,7 @@ searchbar > revealer > box {
 }
 
 .titlebar:backdrop {
-  background-color: #2C2C2C;
+  background-color: #2c2c2c;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1396,7 +1396,7 @@ searchbar > revealer > box {
 }
 
 .titlebar button.suggested-action:disabled, .titlebar button.destructive-action:disabled {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1733,7 +1733,7 @@ menubar,
 
 menubar:backdrop,
 .menubar:backdrop {
-  background-color: #2C2C2C;
+  background-color: #2c2c2c;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -3572,6 +3572,10 @@ tooltip > box {
   padding: 4px 8px;
 }
 
+tooltip .dim-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /*****************
  * Color Chooser *
  *****************/
@@ -3739,7 +3743,7 @@ messagedialog.csd decoration {
 }
 
 .solid-csd decoration:backdrop {
-  background-color: #2C2C2C;
+  background-color: #2c2c2c;
 }
 
 .view selection, .view:selected, flowbox flowboxchild:selected, label selection, spinbutton:not(.vertical) selection,
@@ -3992,8 +3996,8 @@ popover.emoji-completion .emoji:hover {
 }
 
 .disk-space-display.free {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.08);
 }
 
 .search-information {
@@ -4575,6 +4579,41 @@ popover.messagepopover list row:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > list > row:selected {
+  background-color: #1A73E8;
+  color: white;
+}
+
+#titlebar_container .suggestionbutton button {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 9999px #353535;
+}
+
+#titlebar_container .suggestionbutton button:backdrop {
+  box-shadow: inset 0 0 0 9999px #2c2c2c;
+}
+
+#titlebar_container .suggestionbutton button image {
+  transition: box-shadow 75ms cubic-bezier(0, 0, 0.2, 1), background-color 225ms cubic-bezier(0, 0, 0.2, 1);
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 9999px transparent;
+}
+
+#titlebar_container .suggestionbutton button:hover image, #titlebar_container .suggestionbutton button:drop(active) image {
+  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.08);
+}
+
+#titlebar_container .suggestionbutton button:focus image {
+  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.08);
+}
+
+#titlebar_container .suggestionbutton button:active image {
+  background-color: alpha(currentColor, 0.12);
+}
+
 /**********
  * Photos *
  **********/
@@ -4814,6 +4853,21 @@ button.title label {
 
 .geary-titlebar-right:dir(rtl) {
   margin-right: -5px;
+}
+
+/**********
+ * Evince *
+ **********/
+evview.content-view.view:selected {
+  background-color: #1A73E8;
+  color: white;
+}
+
+/**********
+ * Polari *
+ **********/
+.polari-room-list row:selected {
+  background-color: rgba(26, 115, 232, 0.5);
 }
 
 /*********
@@ -5155,7 +5209,7 @@ UnityDecoration .top {
 }
 
 UnityDecoration .top:backdrop {
-  background-color: #2C2C2C;
+  background-color: #2c2c2c;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -6073,7 +6127,7 @@ frame.raven-frame > border {
 }
 
 .raven .raven-background > overlay > widget > image {
-  color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.08);
 }
 
 .raven scrolledwindow.raven-background {
@@ -6475,7 +6529,7 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_unfocused_title rgba(255, 255, 255, 0.7);
 @define-color wm_highlight rgba(255, 255, 255, 0.1);
 @define-color wm_bg #353535;
-@define-color wm_unfocused_bg #2C2C2C;
+@define-color wm_unfocused_bg #2c2c2c;
 /*
 FIXME this is really an API */
 @define-color content_view_bg #FFFFFF;

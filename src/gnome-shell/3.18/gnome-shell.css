@@ -2621,7 +2621,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .login-dialog .modal-dialog-button:default:insensitive {
   color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(255, 255, 255, 0.08);
   border-color: transparent;
   box-shadow: 0 0 transparent;
   text-shadow: none;
@@ -2641,7 +2641,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .login-dialog-message-warning {
-  color: #F4B400;
+  color: #F28B82;
 }
 
 .login-dialog-message-hint {

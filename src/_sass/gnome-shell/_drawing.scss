@@ -109,9 +109,9 @@
 
   @if $t == normal {
     transition-duration: $duration;
-    background-color: if($fc == $primary, $fill, on(dark, fill));
+    background-color: if($fc == $primary, $entry-fill, on(dark, entry-fill));
     border-color: transparent;
-    box-shadow: inset 0 -1px if($fc == $primary, $track, $fc);
+    box-shadow: inset 0 -1px if($fc == $primary, $stroke, $fc);
   }
 
   @if $t == focus {
@@ -126,7 +126,7 @@
   @if $t == insensitive {
     color: $text-disabled;
     border-color: transparent;
-    box-shadow: inset 0 -1px if($fc == $primary, $track-disabled, $fc);
+    box-shadow: inset 0 -1px if($fc == $primary, $stroke-disabled, $fc);
   }
 }
 
@@ -186,7 +186,7 @@
   }
 
   @if $t == flat-normal {
-    color: if($tc != on(dark), $primary, on(dark, secondary));
+    color: if($tc != on(dark), $primary, on(dark, text2));
     background-color: transparent;
     border-color: transparent;
     box-shadow: $shadow-0;
@@ -223,7 +223,7 @@
   }
 
   @if $t == flat-insensitive {
-    color: if($tc != on(dark), $text-secondary-disabled, on(dark, secondary-disabled));
+    color: if($tc != on(dark), $text2-disabled, on(dark, text2-disabled));
     background-color: transparent;
     border-color: transparent;
     box-shadow: $shadow-0;

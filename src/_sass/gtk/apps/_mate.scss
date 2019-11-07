@@ -13,7 +13,7 @@
 // let's start it
 .mate-panel-menu-bar {
   background-color: $panel;
-  color: on($panel, secondary);
+  color: on($panel, text2);
   font-weight: 500;
 
   button {
@@ -57,11 +57,11 @@ MatePanelAppletFrameDBus {
 .mate-panel-menu-bar {
   // set normal menubar button
   menubar > menuitem {
-    color: on($panel, secondary);
+    color: on($panel, text2);
 
     &:hover { color: on($panel); }
 
-    &:disabled { color: on($panel, secondary-disabled); }
+    &:disabled { color: on($panel, text2-disabled); }
   }
 
   &.horizontal menubar > menuitem { padding: 0 8px; }
@@ -118,7 +118,7 @@ MatePanelAppletFrameDBus {
 // WnckPager
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: $primary-light;
+  color: on($panel, primary);
 
   &:hover { background-color: $overlay-hover; }
 
@@ -224,7 +224,7 @@ na-tray-applet widget box widget {
     &:not(.flat) { background-color: $overlay-checked; }
 
     image,
-    label + label { color: $text-secondary; }
+    label + label { color: $text2; }
   }
 
   entry {
@@ -361,7 +361,7 @@ na-tray-applet widget box widget {
 .caja-navigation-window .view .entry {
   border: none;
   border-radius: $corner-radius;
-  background-color: $fill;
+  background-color: $entry-fill;
   background-image: none;
   color: $text;
 
@@ -481,7 +481,7 @@ MsdOsdWindow.background.osd {
 
   .trough {
     border-radius: 0;
-    background-color: on($tooltip, track-disabled);
+    background-color: on($tooltip, stroke-disabled);
   }
 
   .progressbar {

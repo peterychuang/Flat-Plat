@@ -36,17 +36,17 @@
                                   $fc 0%,
                                   transparent 0%)
                                   0 0 0 / 0 0 0px;
-    box-shadow: inset 0 0 0 9999px transparent, inset 0 -1px if($fc == $primary, $track, $fc);
-    background-color: $fill;
+    box-shadow: inset 0 0 0 9999px transparent, inset 0 -1px if($fc == $primary, $stroke, $fc);
+    background-color: $entry-fill;
     color: $text;
   }
 
   @if $t == hover {
-    box-shadow: inset 0 0 0 9999px $overlay-hover, inset 0 -1px if($fc == $primary, $track, $fc);
+    box-shadow: inset 0 0 0 9999px $overlay-hover, inset 0 -1px if($fc == $primary, $stroke, $fc);
   }
 
   @if $t == focus {
-    box-shadow: inset 0 0 0 9999px $overlay-focus, inset 0 -1px if($fc == $primary, $track, $fc);
+    box-shadow: inset 0 0 0 9999px $overlay-focus, inset 0 -1px if($fc == $primary, $stroke, $fc);
   }
 
   @if $t == checked {
@@ -57,8 +57,8 @@
   }
 
   @if $t == disabled {
-    box-shadow: inset 0 0 0 9999px transparent, inset 0 -1px $track-disabled;
-    background-color: $fill;
+    box-shadow: inset 0 0 0 9999px transparent, inset 0 -1px $stroke-disabled;
+    background-color: $entry-fill;
     color: $text-disabled;
   }
 
@@ -155,7 +155,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1000% 1000%;
-    color: $text-secondary;
+    color: $text2;
   }
 
   @if $t == flat-hover {
@@ -183,7 +183,7 @@
   @if $t == flat-disabled {
     box-shadow: none;
     background-color: transparent;
-    color: $text-secondary-disabled;
+    color: $text2-disabled;
   }
 
   @if $t == flat-checked {
@@ -239,7 +239,7 @@
 // top, bottom, right, left
 //
 
-  $_undershoot_color_dark: $track;
+  $_undershoot_color_dark: $stroke;
   $_undershoot_color_light: transparent;
 
   $_gradient_dir: left;

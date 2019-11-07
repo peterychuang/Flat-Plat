@@ -41,7 +41,7 @@
 
 .notification-button:insensitive, .modal-dialog-button:insensitive {
   color: rgba(0, 0, 0, 0.38);
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   border-color: transparent;
   box-shadow: 0 0 transparent;
   text-shadow: none;
@@ -90,7 +90,7 @@
 
 .notification-icon-button:insensitive, .keyboard-key:insensitive, .sound-player StButton:insensitive {
   color: rgba(0, 0, 0, 0.38);
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   border-color: transparent;
   box-shadow: 0 0 transparent;
   text-shadow: none;
@@ -1765,7 +1765,7 @@ StScrollView StScrollBar {
 
 .expo-workspaces-name-entry#selected {
   color: white;
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .expo-workspaces-name-entry:focus {
