@@ -1869,7 +1869,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   transition-duration: 250ms;
   font-size: 1em;
   color: white;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 3px 0;
   border: none;
   border-left: 0px;
@@ -2027,7 +2027,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .app-well-app.app-folder > .overview-icon {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .show-apps .show-apps-icon {
@@ -2044,7 +2044,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .app-folder-popup {
   -arrow-border-radius: 2px;
-  -arrow-background-color: rgba(255, 255, 255, 0.1);
+  -arrow-background-color: rgba(255, 255, 255, 0.08);
   -arrow-base: 24px;
   -arrow-rise: 12px;
 }
@@ -2131,7 +2131,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .workspace-thumbnails {
   transition-duration: 250ms;
   color: white;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   border: none;
 }
 
@@ -2918,7 +2918,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #lockDialogGroup {
-  background: #212121;
+  background: #1F1F1F;
   background-size: cover;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -3103,7 +3103,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #dashtodockContainer:overview #dash {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 #dashtodockContainer.extended:overview #dash {

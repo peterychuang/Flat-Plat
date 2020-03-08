@@ -22,9 +22,7 @@
 }
 
 .nautilus-desktop.nautilus-canvas-item {
-  // background-color: $scrim;
-  color: on(dark);
-  text-shadow: $text-shadow;
+  @extend %iconview-desktop;
 }
 
 // Toolbar
@@ -41,7 +39,9 @@
   animation: nautilus-operations-button-needs-attention $ripple-fade-out-duration $ease 6 alternate;
 }
 
-.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):not(:only-child).disclosure-button { @extend %circular_button; }
+.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):not(:only-child).disclosure-button {
+  border-radius: $circular-radius;
+}
 
 // Path bar
 
@@ -85,7 +85,7 @@
     &.text-button.image-button image:not(:only-child) { margin: 0; }
 
     &:last-child:dir(ltr),
-    &:first-child:dir(rtl) { @extend %titlebar-button:checked; }
+    &:first-child:dir(rtl) { @extend %titlebar-button-checked; }
   }
 }
 
@@ -114,7 +114,7 @@
   button {
     margin: (32px - $small-size) / 2;
 
-    @extend %small_button;
+    @extend %button-small;
   }
 }
 
@@ -215,7 +215,7 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 }
 
 // Make operations button circular
-.nautilus-window headerbar revealer > button { @extend %circular_button; }
+.nautilus-window headerbar revealer > button { border-radius: $circular-radius; }
 
 // Ensure paned separator rendering. See issue #84 for details.
 .nautilus-window paned > separator { background-color: $base-alt; }
@@ -254,7 +254,7 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
     margin-top: 8px;
     margin-bottom: 8px;
 
-    @extend %small_button;
+    @extend %button-small;
   }
 }
 
@@ -301,20 +301,18 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
     &:not(.error) { background-color: $surface; }
 
     &.error ~ button {
-      color: on($error, text2);
-
-      &:hover, &:active { color: on($error); }
+      @include ink-color(on($error, text2));
 
       &:disabled { color: on($error, text2-disabled); }
     }
   }
 
-  .linked > button {
+  .linked:not(.vertical) > button {
     border: solid $container-padding transparent;
     border-radius: $circular-radius;
 
-    @extend %button-flat-simple;
-    @extend %small_button;
+    @extend %button-flat-basic;
+    @extend %button-small;
 
     &:last-child:dir(ltr),
     &:not(:first-child):dir(rtl) { margin-left: -$container-padding / 2; }
@@ -368,7 +366,7 @@ frame.gedit-map-frame > border {
 .tweak-group-startup {
   // background-color: @view_separators;
   background-image: image($base);
-  border: 1px solid $frame;
+  border: 1px solid $divider;
 }
 
 //
@@ -382,7 +380,7 @@ row#dynamic-workspaces,
 row#PrimaryWorkspaceTweak, // for 3.26.0
 row#workspaces-only-on-primary {
   padding: 0;
-  border: 1px solid $frame;
+  border: 1px solid $divider;
 
   row:not(:last-child) { border-bottom: 1px solid $divider; }
 
@@ -430,7 +428,7 @@ layouttabbar {
   border-bottom: 1px solid $divider;
   background-color: $background;
 
-  button { @extend %button-flat; }
+  button { @extend %button-flat-activatable; }
 
   > box > button {
     margin: (40px - $medium-size) / 2 0;
@@ -442,7 +440,7 @@ layouttab {
   margin: 0 8px; // not working
   border-style: none solid;
   border-width: 1px;
-  border-color: $frame;
+  border-color: $divider;
   box-shadow: inset 0 -2px $primary;
   background-color: $base;
 
@@ -457,11 +455,11 @@ layouttab {
   }
 
   // Close button styling for layouttab.
-  // > box > button.close { @extend %circular_button; }
+  // > box > button.close { border-radius: $circular-radius; }
 }
 
 layout {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   -PnlDockBin-handle-size: 1;
 }
 
@@ -496,7 +494,7 @@ popover.popover-selector list {
 omnibar {
   &.linked:not(.vertical) entry { border-radius: $corner-radius; }
 
-  &:not(:hover):not(:active) entry { color: $text2; }
+  entry { color: $text2; }
 }
 
 popover.omnibar list row:not(:last-child) {
@@ -531,7 +529,7 @@ popover.messagepopover {
   &.background { padding: 0; }
 
   .popover-action-area button {
-    @extend %button-flat-simple;
+    @extend %button-flat-basic;
 
     padding: 8px 16px;
     border-top: 1px solid $divider;
@@ -554,12 +552,12 @@ popover.transfers list {
 }
 
 dockbin {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   -PnlDockBin-handle-size: 1;
 }
 
 dockpaned {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
 }
 
 eggsearchbar box.search-bar {
@@ -597,7 +595,6 @@ docktab {
 
   &:hover {
     background-color: $overlay-hover;
-    color: $text;
   }
 
   &:checked {
@@ -909,7 +906,7 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 }
 
 frame.documents-dropdown {
-  @extend toolbar.osd;
+  @extend %toolbar-osd;
 
   margin: 8px;
 
@@ -1009,7 +1006,7 @@ frame.commit-frame > border { border-style: solid none none; }
 /**************
  * Characters *
  **************/
-box.dialog-vbox scrolledwindow.related { border: 1px solid $frame; }
+box.dialog-vbox scrolledwindow.related { border: 1px solid $divider; }
 
 list.categories { background-image: image($base-alt); }
 
@@ -1023,36 +1020,6 @@ list.categories { background-image: image($base-alt); }
   border-radius: $corner-radius;
   background-color: $scrim;
   color: on($scrim);
-}
-
-
-/**************
- * Calculator *
- **************/
-button.title label { min-height: $medium-size; }
-
-
-/*********
- * Geary *
- *********/
-// Adjust the separator position
-.geary-titlebar-left {
-  &:dir(ltr) {
-    margin-right: 5px;
-    padding-right: 0;
-  }
-
-  &:dir(rtl) {
-    margin-left: 5px;
-    padding-left: 0;
-  }
-}
-
-// Fix the left padding
-.geary-titlebar-right {
-  &:dir(ltr) { margin-left: -5px; }
-
-  &:dir(rtl) { margin-right: -5px; }
 }
 
 
@@ -1077,4 +1044,17 @@ evview.content-view.view:selected {
 // Just $primary is too harsh for activated rows, so add transparency.
 .polari-room-list row:selected {
   background-color: rgba($primary, .5);
+}
+
+
+/***********
+ * Fractal *
+ ***********/
+.message-input-area button {
+  @extend %button-flat-activatable;
+}
+
+// To display the drop shadow
+button.osd.scroll_button {
+  margin: 4px;
 }

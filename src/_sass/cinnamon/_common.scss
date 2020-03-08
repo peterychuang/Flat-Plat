@@ -7,10 +7,10 @@ stage {
   color: $text;
 }
 .cinnamon-link {
-  color: $link;
+  color: $primary;
   font-style: italic;
   &:hover {
-    color: $text;
+    color: $primary;
   }
 }
 .label-shadow {
@@ -496,7 +496,7 @@ StScrollView {
 }
 .workspace-thumbnails-background {
   color: $titlebar-text2;
-  background-color: $scrim-inverse;
+  background-color: on(dark, fill);
   border: none;
   padding: 8px;
   border-radius: $corner-radius 0 0 $corner-radius;
@@ -662,7 +662,7 @@ StScrollView {
   border: none;
 }
 .calendar-day-with-events {
-  color: $link;
+  color: $primary;
   font-weight: normal;
   text-decoration: underline;
   background-image: none;
@@ -701,7 +701,7 @@ StScrollView {
     @extend %dialog-entry-shared;
   }
   .url-highlighter {
-    link-color: $link;
+    link-color: $primary;
   }
 }
 // min height 159px is required to avoid stretching/distortion of notification image
@@ -1371,7 +1371,7 @@ StScrollView {
   }
 }
 .desklet-header {
-  @include type(headline6)
+  @include type(headline6);
   @extend %desklet-shared;
 
   background-color: $surface;

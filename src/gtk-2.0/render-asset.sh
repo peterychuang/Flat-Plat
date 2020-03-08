@@ -33,10 +33,15 @@ if [[ -n "${RENDER_SVG}" ]]; then
                 --zoom ${ZOOM} \
                 "$SRC_FILE" "$ASSETS_DIR/$i.png"
 else
+  if "$INKSCAPE" --help | grep -e "--export-png" > /dev/null; then
+    EXPORT_FILE_OPTION="--export-png"
+  else
+    EXPORT_FILE_OPTION="--export-file"
+  fi
   "$INKSCAPE" --export-id="$i" \
               --export-id-only \
               --export-dpi=${DPI} \
-              --export-png="$ASSETS_DIR/$i.png" "$SRC_FILE" >/dev/null
+              "$EXPORT_FILE_OPTION"="$ASSETS_DIR/$i.png" "$SRC_FILE" >/dev/null
 fi
 
 if [[ -n "${OPTIPNG}" ]]; then

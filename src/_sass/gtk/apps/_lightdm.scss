@@ -25,7 +25,7 @@
 
     &:hover { color: on($scrim-alt); }
 
-    &:disabled label { color: on($scrim-alt, text2-disabled); }
+    &:disabled { color: on($scrim-alt, text2-disabled); }
   }
 }
 
@@ -77,9 +77,9 @@
   > buttonbox { margin: -16px; }
 
   button {
-    @extend %button_basic.flat;
+    @extend %button-flat;
 
-    &:not(:disabled) { color: $primary; }
+    &:not(:disabled) { @include ink-color($primary); }
   }
 }
 

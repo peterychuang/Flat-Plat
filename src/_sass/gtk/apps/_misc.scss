@@ -182,14 +182,18 @@ tooltip.background.chromium { background-color: rgba($tooltip, 1); }
     > radiobutton > radio:not(:checked):not(:indeterminate) {
       color: $grey-600;
 
-      &:hover, &:active { color: $grey-900; }
-
       &:disabled { color: rgba($grey-600, 0.5); }
     }
   }
 
   // remove ugly border around the menus
   menu { border: none; }
+
+  // Workaround: Firefox doesn't properly read color from
+  // menuitem:disabled, but from menuitem label:disabled.
+  menuitem label:disabled {
+    color: $text-disabled;
+  }
 }
 
 // for backward compatibility

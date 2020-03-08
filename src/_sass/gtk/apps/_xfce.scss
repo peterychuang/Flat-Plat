@@ -19,13 +19,20 @@
   font-weight: 500;
 
   button {
-    @extend %button-flat;
-    @extend %button-on-dark.flat;
-
     min-height: 16px;
     min-width: 16px;
     padding: 0;
     border-radius: 0;
+
+    @include ink-color(on($panel, text2));
+
+    &:disabled { color: on($panel, text2-disabled); }
+
+    &:checked {
+      color: on(dark);
+
+      &:disabled { color: on(dark, text-disabled); }
+    }
   }
 
   .tasklist button {
@@ -39,6 +46,14 @@
   // &.horizontal .tasklist button { margin: 0 1px; }
 
   // &.vertical .tasklist button { margin: 1px 0; }
+
+  frame > border { border-style: none; }
+
+  progressbar {
+    progress { background-color: on($panel, primary); }
+
+    trough { background-color: on($panel, stroke-disabled); }
+  }
 }
 
 // Workspace switcher provided by libwnck
@@ -73,12 +88,17 @@ XfdesktopIconView.view {
 }
 
 #XfceNotifyWindow {
-  buttonbox { padding: 0; }
+  border-radius: $corner-radius;
+  box-shadow: $shadow-z4, inset 0 1px highlight($surface);
+  background-color: $surface;
 
-  button {
+  buttonbox button:not(:disabled) { @include ink-color($primary); }
+
+  label#summary {
+    font-weight: bold;
+
+    + label { color: $text2; }
   }
-
-  label#summary { font-weight: bold; }
 
   progressbar {
     progress {
@@ -107,8 +127,18 @@ XfdesktopIconView.view {
  * Thunar *
  **********/
 .thunar {
-  #location-toolbar { border-bottom: 1px solid $divider; }
+  #location-toolbar {
+    border-bottom: 1px solid $divider;
 
+    // FIXME: This has no .image-button style class :(
+    > toolitem > button {
+      min-width: 24px;
+      padding: ($medium-size - 24px) / 2;
+      border-radius: $circular-radius;
+    }
+  }
+
+  .shortcuts-pane.frame,
   .standard-view.frame { border-style: none; }
 
   .sidebar .view:not(:selected) { background-color: transparent; }

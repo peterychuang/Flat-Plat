@@ -217,15 +217,15 @@ StScrollBar {
 .shell-link {
   transition-duration: $duration;
   border-radius: $corner-radius;
-  color: $link;
+  color: $primary;
   &:hover {
-    color: $link;
-    background-color: rgba($link, 0.08);
+    color: $primary;
+    background-color: rgba($primary, 0.08);
   }
   &:active {
     transition-duration: $duration-ripple;
-    color: $link;
-    background-color: rgba($link, 0.2);
+    color: $primary;
+    background-color: rgba($primary, 0.2);
   }
 }
 
@@ -1069,7 +1069,7 @@ StScrollBar {
         border: none;
       }
       .calendar-day-with-events {
-        color: $link;
+        color: $primary;
         font-weight: normal;
         text-decoration: underline;
         background-image: none;
@@ -1468,7 +1468,7 @@ StScrollBar {
     transition-duration: $duration-panel;
     font-size: 1em;
     color: on(dark);
-    background-color: $scrim-inverse;
+    background-color: on(dark, fill);
     padding: 3px 0;
     border: none;
     border-left: 0px;
@@ -1601,7 +1601,7 @@ StScrollBar {
   }
 
   .app-well-app.app-folder > .overview-icon {
-    background-color: $scrim-inverse;
+    background-color: on(dark, fill);
   }
 
   .show-apps .show-apps-icon {
@@ -1620,7 +1620,7 @@ StScrollBar {
   // Collections
   .app-folder-popup { //expanded collection
     -arrow-border-radius: $corner-radius;
-    -arrow-background-color: $scrim-inverse;
+    -arrow-background-color: on(dark, fill);
     -arrow-base: 24px;
     -arrow-rise: 12px;
   }
@@ -1700,7 +1700,7 @@ StScrollBar {
 %overview-panel {
   transition-duration: $duration-panel;
   color: on(dark);
-  background-color: $scrim-inverse;
+  background-color: on(dark, fill);
   border: none;
 }
 
@@ -1711,7 +1711,7 @@ StScrollBar {
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 
-  .url-highlighter { link-color: $link; }
+  .url-highlighter { link-color: $primary; }
 
   // Banners
   .notification-banner {
@@ -2007,9 +2007,9 @@ $legacy_icon_size: 24px;
     &:default {
       min-width: 64px - 16px * 2;
       padding: 0 16px;
-      @include button(normal, $c: $suggested, $tc: on($suggested));
-      &:hover,&:focus { @include button(hover, $c: $suggested, $tc: on($suggested)); }
-      &:active { @include button(active, $c: $suggested, $tc: on($suggested)); }
+      @include button(normal, $c: $primary, $tc: on($primary));
+      &:hover,&:focus { @include button(hover, $c: $primary, $tc: on($primary)); }
+      &:active { @include button(active, $c: $primary, $tc: on($primary)); }
       &:insensitive { @include button(insensitive, $c: on($os-background, fill), $tc: on($os-background, text-disabled)); }
     }
   }
@@ -2252,8 +2252,8 @@ $legacy_icon_size: 24px;
       selected-color: $text;
     }
     .shell-link {
-      color: $link;
-      &:hover { color: $link; }
+      color: $primary;
+      &:hover { color: $primary; }
      }
   }
 

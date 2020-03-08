@@ -154,7 +154,7 @@ StScrollBar {
   -barlevel-border-color: transparent; //trough border color
   -barlevel-active-background-color: $primary; //active trough fill
   -barlevel-active-border-color: transparent; //active trough border
-  -barlevel-overdrive-color: $destructive;
+  -barlevel-overdrive-color: $error;
   -barlevel-overdrive-border-color: transparent;
   -barlevel-overdrive-separator-width: 2px;
   -barlevel-border-width: 0;
@@ -220,15 +220,15 @@ StScrollBar {
 .shell-link {
   transition-duration: $duration;
   border-radius: $corner-radius;
-  color: $link;
+  color: $primary;
   &:hover {
-    color: $link;
-    background-color: rgba($link, 0.08);
+    color: $primary;
+    background-color: rgba($primary, 0.08);
   }
   &:active {
     transition-duration: $duration-ripple;
-    color: $link;
-    background-color: rgba($link, 0.2);
+    color: $primary;
+    background-color: rgba($primary, 0.2);
   }
 }
 
@@ -722,7 +722,7 @@ StScrollBar {
     -barlevel-height: 8px;
     -barlevel-background-color: $stroke-disabled;
     -barlevel-active-background-color: $text;
-    -barlevel-overdrive-color: $destructive;
+    -barlevel-overdrive-color: $error;
     -barlevel-overdrive-separator-width: 2px;
   }
 }
@@ -1214,7 +1214,7 @@ StScrollBar {
         border: none;
       }
       .calendar-day-with-events {
-        color: $link;
+        color: $primary;
         font-weight: normal;
         text-decoration: underline;
         background-image: none;
@@ -1780,7 +1780,7 @@ StScrollBar {
   }
 
   .app-well-app.app-folder > .overview-icon {
-    background-color: $scrim-inverse;
+    background-color: on(dark, fill);
   }
 
   .show-apps .show-apps-icon {
@@ -1799,7 +1799,7 @@ StScrollBar {
   // Collections
   .app-folder-popup { //expanded collection
     -arrow-border-radius: $corner-radius;
-    -arrow-background-color: $scrim-inverse;
+    -arrow-background-color: on(dark, fill);
     -arrow-base: 24px;
     -arrow-rise: 12px;
   }
@@ -1883,7 +1883,7 @@ StScrollBar {
 %overview-panel {
   transition-duration: $duration-panel;
   color: on(dark);
-  background-color: $scrim-inverse;
+  background-color: on(dark, fill);
   border: none;
 }
 
@@ -1894,7 +1894,7 @@ StScrollBar {
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 
-  .url-highlighter { link-color: $link; }
+  .url-highlighter { link-color: $primary; }
 
   // Banners
   .notification-banner {
@@ -2084,10 +2084,10 @@ StScrollBar {
     }
     &.enter-key {
       border-color: transparent;
-      background-color: $suggested;
+      background-color: $primary;
       background-image: url("assets/key-enter.svg");
-      &:hover, &:checked { background-color: $suggested; }
-      &:active { background-color: mix(on($suggested), $suggested, percentage(0.2)); }
+      &:hover, &:checked { background-color: $primary; }
+      &:active { background-color: mix(on($primary), $primary, percentage(0.2)); }
     }
     &.shift-key-lowercase {
       background-image: url("assets/key-shift.svg");
@@ -2133,8 +2133,8 @@ StScrollBar {
 .emoji-panel {
   .keyboard-key:latched {
     border-color: transparent;
-    background-color: $suggested;
-    color: on($suggested);
+    background-color: $primary;
+    color: on($primary);
   }
 }
 
@@ -2225,9 +2225,9 @@ StScrollBar {
     &:default {
       min-width: 64px - 16px * 2;
       padding: 0 16px;
-      @include button(normal, $c: $suggested, $tc: on($suggested));
-      &:hover,&:focus { @include button(hover, $c: $suggested, $tc: on($suggested)); }
-      &:active { @include button(active, $c: $suggested, $tc: on($suggested)); }
+      @include button(normal, $c: $primary, $tc: on($primary));
+      &:hover,&:focus { @include button(hover, $c: $primary, $tc: on($primary)); }
+      &:active { @include button(active, $c: $primary, $tc: on($primary)); }
       &:insensitive { @include button(insensitive, $c: on($os-background, fill), $tc: on($os-background, text-disabled)); }
     }
   }
@@ -2468,8 +2468,8 @@ StScrollBar {
       selected-color: $text;
     }
     .shell-link {
-      color: $link;
-      &:hover { color: $link; }
+      color: $primary;
+      &:hover { color: $primary; }
      }
   }
 

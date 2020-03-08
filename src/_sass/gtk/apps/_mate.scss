@@ -17,13 +17,20 @@
   font-weight: 500;
 
   button {
-    @extend %button-flat;
-    @extend %button-on-dark.flat;
-
     min-height: 16px;
     min-width: 16px;
     padding: 0; // NOTE: Most buttons padding are hard-coded to 0 (except for hide buttons)
     border-radius: 0;
+
+    @include ink-color(on($panel, text2));
+
+    &:disabled { color: on($panel, text2-disabled); }
+
+    &:checked {
+      color: on(dark);
+
+      &:disabled { color: on(dark, text-disabled); }
+    }
   }
 }
 
@@ -45,12 +52,21 @@ PanelSeparator {
 }
 
 // the grid left from na-tray and wncktasklist
-MatePanelAppletFrameDBus {
-  border-style: solid;
-  border-color: on($panel, divider);
+MatePanelAppletFrameDBus > MatePanelAppletFrameDBus {
+  background-image:
+    repeating-linear-gradient(
+      currentcolor,
+      currentcolor 4px,
+      transparent 4px,
+      transparent 6px
+    );
+  background-repeat: no-repeat;
+  background-size: 4px 10px;
+  color: on($panel, text2-disabled);
 
-  .mate-panel-menu-bar.horizontal & { border-width: 0 1px; }
-  .mate-panel-menu-bar.vertical & { border-width: 1px 0; }
+  &:dir(ltr) { background-position: 3px; }
+
+  &:dir(rtl) { background-position: calc(100% - 3px); }
 }
 
 // main menu
@@ -133,7 +149,7 @@ PanelApplet.wnck-applet .wnck-pager {
 }
 
 #MatePanelPopupWindow {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: inset 0 1px highlight($surface);
   background-color: $surface;
@@ -156,7 +172,7 @@ PanelApplet.wnck-applet .wnck-pager {
   expander > title { min-height: 32px; }
 
   button {
-    @extend %button-flat-simple;
+    @extend %button-flat-basic;
 
     padding: 4px 16px;
   }
@@ -187,7 +203,7 @@ na-tray-applet widget box widget {
 
 // volume applet, brightness applet
 .mate-panel-applet-slider {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: inset 0 1px highlight($surface);
   background-color: $surface;
@@ -209,11 +225,11 @@ na-tray-applet widget box widget {
 
 #mate-menu {
   // FIXME, does not work
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   background-color: $surface;
 
   button {
-    @extend %button-flat-simple;
+    @extend %button-flat-basic;
 
     min-height: 24px;
     min-width: 24px;
@@ -270,7 +286,7 @@ na-tray-applet widget box widget {
     button {
       margin: 0 4px;
 
-      &:checked { color: $primary; }
+      &:checked { @include ink-color($primary); }
     }
   }
 
@@ -300,8 +316,10 @@ na-tray-applet widget box widget {
 /*********************
  * CAJA File manager *
  *********************/
-// pathpar toggle button
-.caja-navigation-window button.toggle.image-button {
+// pathbar toggle button
+.caja-navigation-window box.horizontal > button.toggle.image-button {
+  @extend %button-flat-activatable;
+
   border-radius: $corner-radius;
 }
 
@@ -350,7 +368,7 @@ na-tray-applet widget box widget {
 
 // desktop mode
 .caja-desktop.caja-canvas-item {
-  @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend %iconview-desktop;
 }
 
 .caja-desktop EelEditableLabel.entry {
@@ -385,15 +403,22 @@ na-tray-applet widget box widget {
 }
 
 // infobar
+
 .caja-notebook frame > border {
   border-style: none;
 }
 
 #caja-extra-view-widget {
   border-bottom: 1px solid $divider;
-  background-color: $base; // needs overriding
+  background-color: $base;
 
   > box > box > label { font-weight: bold; }
+
+  button {
+    @extend %button-flat;
+
+    &:not(:disabled) { @include ink-color($primary); }
+  }
 }
 
 
@@ -433,7 +458,7 @@ na-tray-applet widget box widget {
   box.horizontal button.flat {
     margin: 1px;
 
-    @extend %small_button;
+    @extend %button-small;
   }
 
   .frame { border-style: none; }
@@ -459,7 +484,7 @@ na-tray-applet widget box widget {
 
 /* mate-screensaver lock dialog */
 .lock-dialog {
-  border: 1px solid $frame;
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: $shadow-z6, inset 0 1px highlight($surface); // not sure if box-shadow works here
   background-color: $surface;
@@ -467,9 +492,9 @@ na-tray-applet widget box widget {
   frame > border { border-style: none; }
 
   button {
-    @extend %button_basic.flat;
+    @extend %button-flat;
 
-    &:not(:disabled) { color: $primary; }
+    &:not(:disabled) { @include ink-color($primary); }
   }
 }
 
