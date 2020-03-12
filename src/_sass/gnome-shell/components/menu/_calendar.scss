@@ -37,6 +37,11 @@ $calendar-column-margin: 0 8px;
 
 .clock-display-box {
   spacing: 4px;
+
+  .clock {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 
 // overall menu
