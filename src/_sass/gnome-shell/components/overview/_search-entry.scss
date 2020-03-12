@@ -22,6 +22,10 @@
     color: on(dark);
   }
 
+  StLabel.hint-text {
+    color: on(dark, text2);
+  }
+
   .search-entry-icon {
     icon-size: 16px;
     padding: 0 4px;
