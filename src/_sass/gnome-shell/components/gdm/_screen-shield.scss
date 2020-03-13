@@ -1,0 +1,87 @@
+/* Screen Shield */
+
+.screen-shield-arrows {
+  padding-bottom: 3em;
+}
+
+.screen-shield-arrows Gjs_Arrow {
+  color: white;
+  width: 80px;
+  height: 48px;
+  -arrow-thickness: 12px;
+  -arrow-shadow: $shadow-1;
+}
+
+.screen-shield-clock {
+  color: white;
+  text-shadow: $shadow-1;
+  font-weight: normal;
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+
+.screen-shield-clock-time {
+  @include type(headline1);
+  text-shadow: $shadow-1;
+  font-feature-settings: "tnum";
+}
+
+.screen-shield-clock-date {
+  @include type(headline4);
+}
+
+.screen-shield-notifications-container {
+  spacing: 6px;
+  width: 30em;
+  max-height: 500px;
+  background-color: transparent;
+
+  .summary-notification-stack-scrollview {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .notification,
+  .screen-shield-notification-source {
+    padding: 8px;
+    border: 0;
+    border-radius: $corner-radius;
+    background-color: $scrim-alt;
+    color: on($scrim-alt);
+  }
+
+  // compensate for space allocated to the scrollbar
+  .notification {
+    margin-right: 16px;
+  }
+}
+
+.screen-shield-notification-label {
+  min-height: $small-size - 2px;
+  padding: 2px 0 0 16px;
+  font-weight: bold;
+}
+
+.screen-shield-notification-count-text {
+  min-height: $small-size - 2px;
+  padding: 2px 0 0 16px;
+  color: on($scrim-alt, text2);
+}
+
+// just the shadow, really
+.screen-shield-background {
+  background: black;
+  box-shadow: $shadow-5;
+}
+
+#lockDialogGroup {
+  background: $os-background;
+  background-repeat: repeat;
+  color: on($os-background);
+}
+
+#screenShieldNotifications {
+  StScrollBar {
+    @extend %scrollbar-on-dark;
+  }
+}
