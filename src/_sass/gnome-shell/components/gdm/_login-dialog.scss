@@ -26,6 +26,10 @@
     }
   }
 
+  StLabel.hint-text {
+    color: on(dark, text2);
+  }
+
   .modal-dialog-button-box {
     spacing: 3px;
   }
