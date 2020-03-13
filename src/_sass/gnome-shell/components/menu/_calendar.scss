@@ -36,11 +36,11 @@ $calendar-column-margin: 0 8px;
 }
 
 .clock-display-box {
-  spacing: 4px;
+  spacing: 0;
 
   .clock {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: $panel-button-hpadding;
+    padding-right: $panel-button-hpadding;
   }
 }
 
@@ -113,6 +113,7 @@ $calendar-column-margin: 0 8px;
   .calendar-month-label {
     transition-duration: $duration;
     height: $menuitem-size - 6px * 2;
+    margin: 2px;
     padding: 6px 8px;
     border-radius: $corner-radius;
     color: inherit;

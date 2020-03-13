@@ -37,6 +37,11 @@ StEntry {
   StIcon.peek-password {
     icon-size: 16px;
     padding: 0 4px;
+    color: $text2;
+
+    &:hover {
+      color: $text;
+    }
   }
 
   StLabel.hint-text {

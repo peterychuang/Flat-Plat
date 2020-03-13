@@ -19,14 +19,14 @@ To change the GDM (lock/login screen) theme, you need to replace the system's _d
 
 ## Installation
 
-1. **Back up** the original theme file(s) first. If you are already using a custom GDM theme, skip this:
+1. **Back up** the original theme file first. If you are already using a custom GDM theme, skip this:
 
   ```sh
   sudo cp -av /usr/share/gnome-shell/gnome-shell-theme.gresource{,~}
   ```
 
 2. Select a **GTK** theme to decide which variant to install.
-3. Replace the default theme file(s):
+3. Replace the default theme file:
 
   ```sh
   GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g")
@@ -38,7 +38,7 @@ To change the GDM (lock/login screen) theme, you need to replace the system's _d
 
 ## Uninstallation
 
-1. Restore to the original theme file(s) from the backup:
+1. Restore to the original theme file from the backup:
 
   ```sh
   sudo mv -v /usr/share/gnome-shell/gnome-shell-theme.gresource{~,}
