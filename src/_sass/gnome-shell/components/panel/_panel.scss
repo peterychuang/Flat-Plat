@@ -165,6 +165,17 @@
       .popup-menu-arrow {
         icon-shadow: none;
       }
+
+      &.clock-display {
+        > StBoxLayout > StIcon {
+          color: rgba($primary, 0.7);
+        }
+  
+        &:hover,
+        &:active {
+          > StBoxLayout > StIcon { color: $primary; }
+        }
+      }
     }
   }
 }
