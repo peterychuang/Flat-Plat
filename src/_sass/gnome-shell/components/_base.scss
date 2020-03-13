@@ -20,13 +20,8 @@
 // Stage
 stage {
   color: $text;
-
-  @if $version >= 3.36 {
-    font-size: 1em;
-  } @else {
-    @include type(body2);
-    font-family: $font-family;
-  }
+  @include type(body2);
+  font-family: $font-family;
 }
 
 // Links
