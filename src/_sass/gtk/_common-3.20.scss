@@ -3442,7 +3442,7 @@ messagedialog { // Message Dialog styling
   }
 
   &.destructive-action:not(:disabled) {
-    @include ink-color($error);
+    @include ink-color($error, $activated: true);
   }
 }
 
