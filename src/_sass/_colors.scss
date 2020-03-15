@@ -74,8 +74,13 @@ $on-colors: (
   }
 }
 
+// Make translucent color opaque by blending with the background color.
+@function opacify($color, $bg) {
+  @return mix(change-color($color, $alpha: 1), $bg, alpha($color) * 100%);
+}
+
 // Private variables for dark background colors
-$-dark-background:                       #1F1F1F;
+$-dark-background:                       #181818;
 $-dark-surface-1dp:                      mix(white, $-dark-background, 5%);
 $-dark-surface-4dp:                      mix(white, $-dark-background, 9%);
 $-dark-surface-8dp:                      mix(white, $-dark-background, 12%);
@@ -107,8 +112,8 @@ $scrim-alt:                             rgba(black, .3);
 $panel:                                 if($topbar == 'dark', #1F1F1F, $scrim);
 $panel-solid:                           if($topbar == 'dark', #1F1F1F, #CCCCCC); // for Unity panel which doesn't allow translucent colors
 
-$titlebar:                              if($topbar == 'dark', $-dark-surface-4dp, #E0E0E0);
-$titlebar-backdrop:                     if($topbar == 'dark', $-dark-surface-1dp, #D6D6D6);
+$titlebar:                              if($topbar == 'dark', if($variant == 'light', #383838, $-dark-surface-4dp), #E0E0E0);
+$titlebar-backdrop:                     if($topbar == 'dark', if($variant == 'light', #303030, $-dark-surface-1dp), #D6D6D6);
 $titlebar-indicator:                    if($topbar == 'dark', currentColor, $primary);
 
 //
@@ -156,6 +161,3 @@ $titlebar-stroke-disabled:              rgba($titlebar-base-fg, .12);
 $titlebar-divider:                      rgba($titlebar-base-fg, .12);
 $titlebar-fill:                         rgba($titlebar-base-fg, .08);
 $titlebar-entry-fill:                   rgba($titlebar-base-fg, .04);
-
-// workaround for GTK3 @placeholder_text_color which doesn't allow translucent colors
-$placeholder_text_color:                mix($base-fg, $base, percentage(.6));
