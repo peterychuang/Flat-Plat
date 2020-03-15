@@ -3388,7 +3388,6 @@ messagedialog .dialog-action-box button:not(:last-child) {
 
 .dialog-action-box button.destructive-action:not(:disabled) {
   color: #F28B82;
-  background-color: rgba(242, 139, 130, 0.16);
   box-shadow: inset 0 0 0 9999px transparent;
 }
 
