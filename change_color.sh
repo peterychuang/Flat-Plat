@@ -64,7 +64,7 @@ if [[ -z "${THEME:-}" ]]; then
 fi
 
 PATHLIST=(
-  './src/_sass/_colors.scss'
+  './src/_colors.scss'
   './src/chrome'
   './src/cinnamon'
   './src/cinnamon/assets'
@@ -177,35 +177,39 @@ echo "== Converting theme into template..."
 for FILEPATH in "${PATHLIST[@]}"; do
   if [[ "$MATERIA_COLOR_VARIANT"  != "dark" ]]; then
     find "$FILEPATH" -type f -not -name '_color-palette.scss' -exec sed -i'' \
-      -e '/color-surface/{n;s/#FFFFFF/%MATERIA_SURFACE%/g}' \
-      -e '/color-base/{n;s/#FFFFFF/%MATERIA_VIEW%/g}' \
-      -e 's/#8AB4F8/%SEL_BG%/g' \
-      -e 's/#1A73E8/%SEL_BG%/g' \
+      -e '/color-surface/{n;s/#ffffff/%MATERIA_SURFACE%/g}' \
+      -e '/color-base/{n;s/#ffffff/%MATERIA_VIEW%/g}' \
+      -e 's/#8ab4f8/%SEL_BG%/g' \
+      -e 's/#1a73e8/%SEL_BG%/g' \
       -e 's/#000000/%FG%/g' \
       -e 's/#212121/%FG%/g' \
-      -e 's/#BDBDBD/%INACTIVE_FG%/g' \
-      -e 's/#616161/%INACTIVE_FG%/g' \
-      -e 's/#F2F2F2/%BG%/g' \
-      -e 's/#FFFFFF/%MATERIA_SURFACE%/g' \
-      -e 's/#FFFFFF/%MATERIA_VIEW%/g' \
-      -e 's/#FAFAFA/%INACTIVE_MATERIA_VIEW%/g' \
-      -e 's/#353535/%HDR_BG%/g' \
-      -e 's/#2C2C2C/%HDR_BG2%/g' \
-      -e 's/#E0E0E0/%HDR_BG%/g' \
-      -e 's/#D6D6D6/%HDR_BG2%/g' \
+      -e 's/#f2f2f2/%BG%/g' \
+      -e 's/#ffffff/%MATERIA_SURFACE%/g' \
+      -e 's/#ffffff/%MATERIA_VIEW%/g' \
+      -e 's/#fafafa/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#383838/%HDR_BG%/g' \
+      -e 's/#303030/%HDR_BG2%/g' \
+      -e 's/#ffffff/%HDR_FG%/g' \
+      -e 's/#c1c1c1/%INACTIVE_FG%/g' \
+      -e 's/#e0e0e0/%HDR_BG%/g' \
+      -e 's/#d6d6d6/%HDR_BG2%/g' \
+      -e 's/#1d1d1d/%HDR_FG%/g' \
+      -e 's/#565656/%INACTIVE_FG%/g' \
       -e 's/Materia/%OUTPUT_THEME_NAME%/g' \
       {} \; ;
   else
     find "$FILEPATH" -type f -not -name '_color-palette.scss' -exec sed -i'' \
-      -e 's/#1A73E8/%SEL_BG%/g' \
-      -e 's/#FFFFFF/%FG%/g' \
-      -e 's/#BDBDBD/%INACTIVE_FG%/g' \
-      -e 's/#212121/%BG%/g' \
-      -e 's/#3C3C3C/%MATERIA_SURFACE%/g' \
-      -e 's/#2C2C2C/%MATERIA_VIEW%/g' \
-      -e 's/#2C2C2C/%INACTIVE_MATERIA_VIEW%/g' \
-      -e 's/#353535/%HDR_BG%/g' \
-      -e 's/#2C2C2C/%HDR_BG2%/g' \
+      -e 's/#8ab4f8/%SEL_BG%/g' \
+      -e 's/#ffffff/%FG%/g' \
+      -e 's/#eeeeee/%FG%/g' \
+      -e 's/#181818/%BG%/g' \
+      -e 's/#343434/%MATERIA_SURFACE%/g' \
+      -e 's/#242424/%MATERIA_VIEW%/g' \
+      -e 's/#242424/%INACTIVE_MATERIA_VIEW%/g' \
+      -e 's/#2d2d2d/%HDR_BG%/g' \
+      -e 's/#242424/%HDR_BG2%/g' \
+      -e 's/#e4e4e4/%HDR_FG%/g' \
+      -e 's/#a7a7a7/%INACTIVE_FG%/g' \
       -e 's/Materia/%OUTPUT_THEME_NAME%/g' \
       {} \; ;
   fi
@@ -215,13 +219,13 @@ done
       #-e 's/%SPACING%/'"$SPACING"'/g' \
 
 # shellcheck disable=SC2016
-sed -i -e 's/^$corner-radius: .px/$corner-radius: '"$ROUNDNESS"'px/g' ./src/_sass/_variables.scss
+sed -i -e 's/^$corner-radius: .px/$corner-radius: '"$ROUNDNESS"'px/g' ./src/_variables.scss
 
 if [[ "${DEBUG:-}" ]]; then
   echo "You can debug TEMP DIR: $tempdir, press [Enter] when finished"; read -r
 fi
 
-mv ./src/_sass/_colors.scss.template ./src/_sass/_colors.scss
+mv ./src/_colors.scss.template ./src/_colors.scss
 
 echo "== Filling the template with the new colorscheme..."
 for FILEPATH in "${PATHLIST[@]}"; do
@@ -281,8 +285,6 @@ else
   SIZE_VARIANTS=","
   SIZE_VARIANT="standard"
 fi
-
-SIZE_VARIANTS="$SIZE_VARIANTS" COLOR_VARIANTS="$COLOR_VARIANTS" THEME_DIR_BASE="$DEST_PATH" ./parse-sass.sh
 
 # NOTE we use the functions we already have in render-assets.sh
 echo "== Rendering GTK 2 assets..."

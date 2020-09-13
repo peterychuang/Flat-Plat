@@ -11,25 +11,31 @@ COLOR_VARIANTS=('' '-dark' '-light')
 SIZE_VARIANTS=('' '-compact')
 
 GTK_VERSIONS=('3.0')
-GS_VERSIONS=('3.26' '3.28' '3.30' '3.32' '3.34' '3.36')
-LATEST_GS_VERSION="${GS_VERSIONS[-1]}"
 
-if test -z "${GS_VERSION:-}"; then
+if [[ -z "${GS_VERSION:-}" ]]; then
   # Set a proper gnome-shell theme version
-  if command -v gnome-shell >/dev/null; then
+  if [[ "$(command -v gnome-shell)" ]]; then
     CURRENT_GS_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -2)"
-    for version in "${GS_VERSIONS[@]}"; do
-      if (( "$(bc <<< "$CURRENT_GS_VERSION <= $version")" )); then
-        GS_VERSION="$version"
-        break
-      else
-        GS_VERSION="$LATEST_GS_VERSION"
-      fi
-    done
+    MAJOR_VER="$(echo "$CURRENT_GS_VERSION" | cut -d . -f 1)"
+    MINOR_VER="$(echo "$CURRENT_GS_VERSION" | cut -d . -f 2)"
+
+    if (( "$MINOR_VER" % 2 == 0 )); then
+      GS_VERSION="$MAJOR_VER.$MINOR_VER"
+    else
+      GS_VERSION="$MAJOR_VER.$(($MINOR_VER + 1))"
+    fi
   else
-    GS_VERSION="$LATEST_GS_VERSION"
+    echo "'gnome-shell' not found, using styles for last gnome-shell version available."
+    GS_VERSION="3.36"
   fi
 fi
+
+if [[ ! "$(command -v sassc)" ]]; then
+  echo "'sassc' needs to be installed to generate the CSS."
+  exit 1
+fi
+
+SASSC_OPT=('-M' '-t' 'expanded')
 
 usage() {
   cat << EOF
@@ -58,14 +64,31 @@ EOF
 
 install() {
   local dest="$1"
-  local name="$2"
+  local name="$2$3$4"
   local color="$3"
   local size="$4"
+
+  if [[ "$color" == '' ]]; then
+    local scss_variant="light"
+    local scss_topbar="dark"
+  elif [[ "$color" == '-light' ]]; then
+    local scss_variant="light"
+    local scss_topbar="light"
+  elif [[ "$color" == '-dark' ]]; then
+    local scss_variant="dark"
+    local scss_topbar="dark"
+  fi
+
+  if [[ "$size" == '' ]]; then
+    local scss_compact="false"
+  elif [[ "$size" == '-compact' ]]; then
+    local scss_compact="true"
+  fi
 
   [[ "$color" == '-dark' ]] && local ELSE_DARK="$color"
   [[ "$color" == '-light' ]] && local ELSE_LIGHT="$color"
 
-  local THEME_DIR="$dest/$name$color$size"
+  local THEME_DIR="$dest/$name"
 
   # SC2115: Protect /.
   [[ -d "$THEME_DIR" ]] && rm -rf "${THEME_DIR:?}"
@@ -74,7 +97,9 @@ install() {
 
   mkdir -p                                                                      "$THEME_DIR"
   cp -r "$REPO_DIR/COPYING"                                                     "$THEME_DIR"
-  cp -r "$SRC_DIR/index$color$size.theme"                                       "$THEME_DIR/index.theme"
+  sed \
+    -e "s/@theme_name@/$name/g" \
+    "$SRC_DIR/index.theme.in" > "$THEME_DIR/index.theme"
 
   mkdir -p                                                                      "$THEME_DIR/chrome"
   cp -r "$SRC_DIR/chrome/chrome-theme$color.crx"                                "$THEME_DIR/chrome/chrome-theme.crx"
@@ -83,7 +108,12 @@ install() {
   mkdir -p                                                                      "$THEME_DIR/cinnamon"
   cp -r "$SRC_DIR/cinnamon/assets"                                              "$THEME_DIR/cinnamon"
   cp -r "$SRC_DIR/cinnamon/thumbnail.png"                                       "$THEME_DIR/cinnamon"
-  cp -r "$SRC_DIR/cinnamon/cinnamon$color$size.css"                             "$THEME_DIR/cinnamon/cinnamon.css"
+  sed \
+    -e "s/@variant@/$scss_variant/g" \
+    -e "s/@topbar@/$scss_topbar/g" \
+    -e "s/@compact@/$scss_compact/g" \
+    "$SRC_DIR/cinnamon/cinnamon.scss.in" > "$SRC_DIR/cinnamon/cinnamon.$name.scss"
+  sassc "${SASSC_OPT[@]}" "$SRC_DIR/cinnamon/cinnamon.$name.scss"               "$THEME_DIR/cinnamon/cinnamon.css"
 
   mkdir -p                                                                      "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/"{*.svg,extensions,noise-texture.png,pad-osd.css} "$THEME_DIR/gnome-shell"
@@ -91,7 +121,13 @@ install() {
   cp -r "$SRC_DIR/gnome-shell/icons"                                            "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/README.md"                                        "$THEME_DIR/gnome-shell"
   cp -r "$SRC_DIR/gnome-shell/assets${ELSE_DARK:-}"                             "$THEME_DIR/gnome-shell/assets"
-  cp -r "$SRC_DIR/gnome-shell/$GS_VERSION/gnome-shell$color$size.css"           "$THEME_DIR/gnome-shell/gnome-shell.css"
+  sed \
+    -e "s/@variant@/$scss_variant/g" \
+    -e "s/@topbar@/$scss_topbar/g" \
+    -e "s/@compact@/$scss_compact/g" \
+    -e "s/@version@/$GS_VERSION/g" \
+    "$SRC_DIR/gnome-shell/gnome-shell.scss.in" > "$SRC_DIR/gnome-shell/gnome-shell.$name.scss"
+  sassc "${SASSC_OPT[@]}" "$SRC_DIR/gnome-shell/gnome-shell.$name.scss"         "$THEME_DIR/gnome-shell/gnome-shell.css"
 
   mkdir -p                                                                      "$THEME_DIR/gtk-2.0"
   cp -r "$SRC_DIR/gtk-2.0/"{apps.rc,hacks.rc,main.rc}                           "$THEME_DIR/gtk-2.0"
@@ -99,29 +135,40 @@ install() {
   cp -r "$SRC_DIR/gtk-2.0/gtkrc$color"                                          "$THEME_DIR/gtk-2.0/gtkrc"
 
   cp -r "$SRC_DIR/gtk/assets"                                                   "$THEME_DIR/gtk-assets"
+  cp -r "$SRC_DIR/gtk/icons"                                                    "$THEME_DIR/gtk-icons"
+
+  local GTK_VARIANTS=('')
+  [[ "$color" != '-dark' ]] && local GTK_VARIANTS+=('-dark')
 
   for version in "${GTK_VERSIONS[@]}"; do
     mkdir -p                                                                    "$THEME_DIR/gtk-$version"
     ln -s ../gtk-assets                                                         "$THEME_DIR/gtk-$version/assets"
-    cp -r "$SRC_DIR/gtk/$version/gtk$color$size.css"                            "$THEME_DIR/gtk-$version/gtk.css"
-    [[ "$color" != '-dark' ]] && \
-    cp -r "$SRC_DIR/gtk/$version/gtk-dark$size.css"                             "$THEME_DIR/gtk-$version/gtk-dark.css"
+    ln -s ../gtk-icons                                                          "$THEME_DIR/gtk-$version/icons"
+
+    for variant in "${GTK_VARIANTS[@]}"; do
+      sed \
+        -e "s/@variant@/$scss_variant/g" \
+        -e "s/@topbar@/$scss_topbar/g" \
+        -e "s/@compact@/$scss_compact/g" \
+        "$SRC_DIR/gtk/gtk$variant.scss.in" > "$SRC_DIR/gtk/gtk$variant.gtk-$version.$name.scss"
+      sassc "${SASSC_OPT[@]}" "$SRC_DIR/gtk/gtk$variant.gtk-$version.$name.scss" "$THEME_DIR/gtk-$version/gtk$variant.css"
+    done
   done
 
   mkdir -p                                                                      "$THEME_DIR/metacity-1"
   cp -r "$SRC_DIR/metacity-1/"{assets,metacity-theme-3.xml}                     "$THEME_DIR/metacity-1"
-  cp -r "$SRC_DIR/metacity-1/metacity-theme-2${ELSE_LIGHT:-}.xml"               "$THEME_DIR/metacity-1/metacity-theme-2.xml"
+  cp -r "$SRC_DIR/metacity-1/metacity-theme-2$color.xml"                        "$THEME_DIR/metacity-1/metacity-theme-2.xml"
 
   mkdir -p                                                                      "$THEME_DIR/plank"
   cp -r "$SRC_DIR/plank/dock.theme"                                             "$THEME_DIR/plank"
 
   mkdir -p                                                                      "$THEME_DIR/unity"
-  cp -r "$SRC_DIR/unity/"{*.svg,*.png,dash-widgets.json}                        "$THEME_DIR/unity"
-  cp -r "$SRC_DIR/unity/assets${ELSE_LIGHT:-}"                                  "$THEME_DIR/unity/assets"
+  cp -rT "$SRC_DIR/unity/dash-buttons"                                          "$THEME_DIR/unity"
+  cp -r  "$SRC_DIR/unity/dash-widgets.json"                                     "$THEME_DIR/unity"
+  cp -rT "$SRC_DIR/unity/launcher"                                              "$THEME_DIR/unity"
+  cp -rT "$SRC_DIR/unity/window-buttons${ELSE_LIGHT:-}"                         "$THEME_DIR/unity"
 
-  mkdir -p                                                                      "$THEME_DIR/xfwm4"
-  cp -r "$SRC_DIR/xfwm4/"{*.svg,themerc}                                        "$THEME_DIR/xfwm4"
-  cp -r "$SRC_DIR/xfwm4/assets${ELSE_LIGHT:-}"                                  "$THEME_DIR/xfwm4/assets"
+  cp -r "$SRC_DIR/xfwm4/xfwm4$color"                                            "$THEME_DIR/xfwm4"
 }
 
 # Bakup and install files related to GDM theme

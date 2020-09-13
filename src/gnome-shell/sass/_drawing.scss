@@ -1,0 +1,233 @@
+// generic drawing of more complex things
+
+// provide font size in pt, with px fallback
+@function pt($size: $font-size) {
+  @return ($size * 0.75 / 1px) * 1pt;
+}
+
+// provide icon size in em, with px fallback
+@function em($size: 16px) {
+  @return ($size / $font-size) * 1em;
+}
+
+// Typography
+// based on:
+// https://material.io/design/typography/the-type-system.html
+
+@mixin type($style) {
+  @if $style == headline1 {
+    // font-family: $font-family-large;
+    font-size: 96px;
+    font-weight: 300;
+    // line-height: 1;
+  }
+
+  @if $style == headline2 {
+    // font-family: $font-family-large;
+    font-size: 60px;
+    font-weight: 300;
+    // line-height: 1;
+  }
+
+  @if $style == headline3 {
+    // font-family: $font-family-large;
+    font-size: 48px;
+    font-weight: 400;
+    // line-height: 50px;
+  }
+
+  @if $style == headline4 {
+    // font-family: $font-family-large;
+    font-size: 34px;
+    font-weight: 400;
+    // line-height: 40px;
+  }
+
+  @if $style == headline5 {
+    font-size: pt(24px);
+    font-weight: 400;
+    // line-height: 32px;
+  }
+
+  @if $style == headline6 {
+    font-size: pt(20px);
+    font-weight: 500;
+    // line-height: 32px;
+  }
+
+  @if $style == subtitle1 {
+    font-size: pt($font-size-subheading);
+    font-weight: 400;
+    // line-height: 28px;
+  }
+
+  @if $style == subtitle2 {
+    font-size: pt($font-size);
+    font-weight: 500;
+    // line-height: 22px;
+  }
+
+  @if $style == body1 {
+    font-size: pt($font-size-subheading);
+    font-weight: 400;
+    // line-height: 24px;
+  }
+
+  @if $style == body2 {
+    font-size: pt($font-size);
+    font-weight: 400;
+    // line-height: 20px;
+  }
+
+  @if $style == caption {
+    font-size: pt(12px);
+    font-weight: 400;
+    // line-height: 20px;
+  }
+
+  @if $style == button {
+    font-size: pt($font-size);
+    font-weight: 500;
+    // line-height: 36px;
+  }
+
+  @if $style == overline {
+    font-size: pt(12px);
+    font-weight: 400;
+    // line-height: 32px;
+  }
+}
+
+
+@mixin entry($t, $fc: $primary) {
+//
+// entry
+//
+// $t: entry type
+// $fc: focus color
+//
+
+  @if $t == normal {
+    transition-duration: $duration;
+    background-color: if($fc == $primary, entry-fill($on-surface), entry-fill($on-dark));
+    border-color: transparent;
+    box-shadow: inset 0 -1px if($fc == $primary, stroke($on-surface), $fc);
+  }
+
+  @if $t == focus {
+    border-color: transparent;
+    box-shadow: inset 0 -2px $fc;
+  }
+
+  @if $t == hover {
+    box-shadow: inset 0 -1px if($fc == $primary, $on-surface, $fc);
+  }
+
+  @if $t == insensitive {
+    color: disabled($on-surface);
+    border-color: transparent;
+    box-shadow: inset 0 -1px if($fc == $primary, disabled-stroke($on-surface), $fc);
+  }
+}
+
+
+@mixin button($t, $c: $surface, $tc: $on-surface) {
+//
+// button
+//
+// $t: button type
+// $c: base color
+// $tc: text color
+//
+
+  @if $t == normal {
+    color: $tc;
+    background-color: $c;
+    border-color: transparent;
+    box-shadow: $shadow-1;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $duration;
+  }
+
+  @if $t == focus {
+    color: $tc;
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: $shadow-2;
+  }
+
+  @if $t == hover {
+    color: $tc;
+    background-color: $c;
+    border-color: transparent;
+    box-shadow: $shadow-2;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == active {
+    color: $tc;
+    background-color: mix($tc, $c, percentage(0.24));
+    border-color: transparent;
+    box-shadow: $shadow-2;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $duration-ripple;
+  }
+
+  @if $t == insensitive {
+    color: if($tc == $on-surface, disabled($on-surface), $tc);
+    background-color: if($c == $surface, fill($on-surface), $c);
+    border-color: transparent;
+    box-shadow: $shadow-0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == flat-normal {
+    color: if($tc != $on-dark, $primary, hint($on-dark));
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: $shadow-0;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $duration;
+  }
+
+  @if $t == flat-focus {
+    color: if($tc != $on-dark, $primary, hint($on-dark));
+    background-color: overlay("focus", if($tc != $on-dark, $primary, $on-dark));
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: $shadow-0;
+  }
+
+  @if $t == flat-hover {
+    color: if($tc != $on-dark, $primary, hint($on-dark));
+    background-color: overlay("hover", if($tc != $on-dark, $primary, $on-dark));
+    border-color: transparent;
+    box-shadow: $shadow-0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == flat-active {
+    color: if($tc != $on-dark, $primary, hint($on-dark));
+    background-color: overlay("pressed", if($tc != $on-dark, $primary, $on-dark));
+    border-color: transparent;
+    box-shadow: $shadow-0;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $duration-ripple;
+  }
+
+  @if $t == flat-insensitive {
+    color: if($tc != $on-dark, disabled-hint($on-surface), disabled-hint($on-dark));
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: $shadow-0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+}

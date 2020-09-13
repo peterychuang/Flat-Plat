@@ -57,7 +57,7 @@ For Ubuntu, you'll also need the `libxml2-utils` package.
 
 Arch Linux users can install Flat-Plat-Blue theme by installing [```flatplat-blue-theme```](https://aur.archlinux.org/packages/flatplat-blue-theme/) package via AUR, coutesy of [@elementh](https://github.com/elementh).
 
-### Manual Installation
+## Manual Installation
 
 #### GNOME Shell/GTK Theme install
 - Download the archive of the theme
