@@ -2,17 +2,26 @@
 
 // app icons
 .icon-grid {
-  -shell-grid-horizontal-item-size: 136px;
-  -shell-grid-vertical-item-size: 136px;
-  spacing: 32px;
+  @if $version >= 3.38 {
+    row-spacing: 32px;
+    column-spacing: 32px;
+    max-row-spacing: 64px;
+    max-column-spacing: 64px;
+  } @else {
+    -shell-grid-horizontal-item-size: 136px;
+    -shell-grid-vertical-item-size: 136px;
+    spacing: 32px;
 
-  .overview-icon {
-    icon-size: 96px;
+    .overview-icon {
+      icon-size: 96px;
+    }
   }
 }
 
-.app-display {
-  // spacing: 20px;
+@if $version <= 3.36 {
+  .app-display {
+    // spacing: 20px;
+  }
 }
 
 /* App Icons */
@@ -41,11 +50,16 @@
 
 // expanded folder
 .app-folder-dialog {
-  spacing: 12px;
   border: 0;
   border-radius: $corner-radius;
   background-color: $surface;
   color: $on-surface;
+
+  @if $version >= 3.38 {
+    padding: 12px;
+  } @else {
+    spacing: 12px;
+  }
 
   .folder-name-container {
     padding: 24px 36px 0;
@@ -82,6 +96,19 @@
     }
   }
 
+  .icon-grid {
+    row-spacing: 16px;
+    column-spacing: 32px;
+  }
+
+  .page-indicators {
+    margin-bottom: 16px;
+
+    .page-indicator {
+      padding: 16px 12px;
+    }
+  }
+
   .app-well-app {
     &:focus {
       .overview-icon {
@@ -107,9 +134,15 @@
 }
 
 .app-folder-dialog-container {
-  width: 800px;
-  height: 600px;
   padding: 12px;
+
+  @if $version >= 3.38 {
+    width: 620px;
+    height: 620px;
+  } @else {
+    width: 800px;
+    height: 600px;
+  }
 }
 
 @if $version <= 3.34 {
@@ -210,17 +243,20 @@
 
 // Some hacks I don't even know
 $search-display: if($version <= 3.32, ".search-display > StBoxLayout,", null);
+$frequent-apps: if($version <= 3.36, ".frequent-apps > StBoxLayout,", null);
 
 #{$search-display}
-.all-apps,
-.frequent-apps > StBoxLayout {
+#{$frequent-apps}
+.all-apps {
   // horizontal padding to make sure scrollbars or dash don't overlap content
   padding: 0 88px 10px;
 }
 
-// Label when no frequent apps
-.no-frequent-applications-label {
-  @extend %overview-status-text;
+@if $version <= 3.36 {
+  // Label when no frequent apps
+  .no-frequent-applications-label {
+    @extend %overview-status-text;
+  }
 }
 
 // shutdown and other actions in the grid
@@ -232,52 +268,54 @@ $search-display: if($version <= 3.32, ".search-display > StBoxLayout,", null);
   color: on($grey-900);
 }
 
-/* Frequent | All toggle */
+@if $version <= 3.36 {
+  /* Frequent | All toggle */
 
-// container
-.app-view-controls {
-  width: 320px;
-  padding-bottom: 32px;
-}
-
-// buttons
-.app-view-control {
-  margin: 0;
-  padding: 0 8px;
-
-  &, &:focus, &:hover, &:active, &:checked {
-    @include button(flat-normal, $tc: $on-dark);
+  // container
+  .app-view-controls {
+    width: 320px;
+    padding-bottom: 32px;
   }
 
-  &:hover {
-    background-color: overlay("hover", $on-dark);
-  }
+  // buttons
+  .app-view-control {
+    margin: 0;
+    padding: 0 8px;
 
-  &:active {
-    background-color: overlay("pressed", $on-dark);
-    transition-duration: $duration-ripple;
-  }
+    &, &:focus, &:hover, &:active, &:checked {
+      @include button(flat-normal, $tc: $on-dark);
+    }
 
-  &:checked {
-    box-shadow: inset 0 2px 0 $on-dark;
-    background-color: rgba(black, .01);
-    color: $on-dark;
-  }
+    &:hover {
+      background-color: overlay("hover", $on-dark);
+    }
 
-  &:focus {
-    background-color: overlay("focus", $on-dark);
-  }
+    &:active {
+      background-color: overlay("pressed", $on-dark);
+      transition-duration: $duration-ripple;
+    }
 
-  &:first-child {
-    border-right-width: 0;
-    border-radius: $corner-radius;
-  }
+    &:checked {
+      box-shadow: inset 0 2px 0 $on-dark;
+      background-color: rgba(black, .01);
+      color: $on-dark;
+    }
 
-  &:last-child {
-    border-radius: $corner-radius;
-  }
+    &:focus {
+      background-color: overlay("focus", $on-dark);
+    }
 
-  &:checked {
-    border-radius: 0;
+    &:first-child {
+      border-right-width: 0;
+      border-radius: $corner-radius;
+    }
+
+    &:last-child {
+      border-radius: $corner-radius;
+    }
+
+    &:checked {
+      border-radius: 0;
+    }
   }
 }

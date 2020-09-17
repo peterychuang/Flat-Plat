@@ -133,6 +133,7 @@ iconview {
   }
 }
 
+%rubberband,
 .rubberband,
 rubberband {
   border: 1px solid $primary;
@@ -141,7 +142,7 @@ rubberband {
 
 flowbox {
   rubberband {
-    @extend rubberband;
+    @extend %rubberband;
   }
 
   flowboxchild {
@@ -170,6 +171,10 @@ label {
 
   &.separator {
     color: hint($on-surface);
+  }
+
+  &.error {
+    color: $error;
   }
 
   selection {
@@ -246,6 +251,64 @@ spinner {
   &:disabled {
     color: disabled-hint($on-surface);
   }
+}
+
+/**
+ * General Typography
+ */
+
+@function pt($size: $font-size) {
+  @return ($size * .75 / 1px) * 1pt;
+}
+
+.large-title {
+  font-weight: 400;
+  font-size: pt(48px);
+}
+
+.title-1 {
+  font-weight: 400;
+  font-size: pt(34px);
+  letter-spacing: pt(.25px);
+}
+
+.title-2 {
+  font-weight: 400;
+  font-size: pt(24px);
+}
+
+.title-3 {
+  font-weight: 500;
+  font-size: pt(20px);
+  letter-spacing: pt(.15px);
+}
+
+.title-4 {
+  font-weight: 400;
+  font-size: pt(16px);
+  letter-spacing: pt(.5px);
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.body {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.caption-heading {
+  font-weight: 500;
+  font-size: pt(12px);
+  letter-spacing: pt(1.5px);
+}
+
+.caption {
+  font-weight: 400;
+  font-size: pt(12px);
+  letter-spacing: pt(.4px);
 }
 
 /**
@@ -1706,7 +1769,7 @@ treeview.view {
 
   // to avoid borders being overridden by the previously set props
   rubberband {
-    @extend rubberband;
+    @extend %rubberband;
   }
 
   &:hover,
@@ -2593,7 +2656,7 @@ switch {
 
 // selection-mode
 .view.content-view.check:not(list),
-.content-view:not(list) .tile check {
+.content-view:not(list) check {
   min-height: 40px;
   min-width: 40px;
   margin: 0;
@@ -3163,16 +3226,7 @@ levelbar {
     }
   }
 
-  // imitate the entry style
   trough {
-    // padding: 2px;
-    // border-radius: $corner-radius;
-    // box-shadow: $shadow-z1;
-    // background-color: $base;
-
-    &:disabled {
-      // background-color: $base-alt;
-    }
   }
 
   block {
@@ -3521,7 +3575,8 @@ filechooser {
     border-bottom: 1px solid divider($on-surface);
     background-color: $background;
 
-    > stack > box > button { // The new folder button
+    // The new folder button
+    > stack > box > button {
       @extend %button-flat;
 
       border-radius: $circular-radius;
@@ -3816,8 +3871,12 @@ paned {
 infobar {
   border-style: none;
 
-  &.info,
-  &.question {
+  &.action:hover > revealer > box {
+    background-image: image(overlay("hover", $on-surface));
+  }
+
+  &.info > revealer > box,
+  &.question > revealer > box {
     border-bottom: 1px solid divider($on-surface);
     background-color: $base;
 
@@ -3831,7 +3890,7 @@ infobar {
     }
   }
 
-  &.warning {
+  &.warning > revealer > box {
     background-color: $warning;
     color: $on-warning;
 
@@ -3848,7 +3907,7 @@ infobar {
     }
   }
 
-  &.error {
+  &.error > revealer > box {
     background-color: $error;
     color: $on-error;
 
@@ -4051,7 +4110,7 @@ colorchooser .popover.osd {
 
   rubberband,
   .rubberband {
-    @extend rubberband;
+    @extend %rubberband;
   }
 }
 
@@ -4059,11 +4118,13 @@ colorchooser .popover.osd {
   .osd & {
     // @extend %osd;
 
-    button.flat { // FIXME: quick hack, redo properly
+    // FIXME: quick hack, redo properly
+    button.flat {
     }
   }
 
-  button { // +/- buttons on GtkVolumeButton popup
+  // +/- buttons on GtkVolumeButton popup
+  button {
   }
 }
 
@@ -4204,16 +4265,19 @@ cursor-handle {
   font-size: smaller;
 }
 
-:not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
+// FIXME needs to be done widget by widget, this wildcard should really die
+:not(decoration):not(window):drop(active) {
   // caret-color: $primary;
 }
 
-stackswitcher button.text-button { // FIXME aggregate with buttons
+// FIXME aggregate with buttons
+stackswitcher button.text-button {
   min-width: 100px;
 }
 
+// FIXME aggregate with buttons
 stackswitcher button.circular,
-stackswitcher button.text-button.circular { // FIXME aggregate with buttons
+stackswitcher button.text-button.circular {
   min-width: $medium-size;
   min-height: $medium-size;
   padding: 0;

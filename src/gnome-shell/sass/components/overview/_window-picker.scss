@@ -3,8 +3,13 @@
 // Window picker
 .window-picker {
   // Space between window thumbnails
-  -horizontal-spacing: 16px;
-  -vertical-spacing: 16px;
+  @if $version >= 3.38 {
+    spacing: 8px;
+  } @else {
+    -horizontal-spacing: 16px;
+    -vertical-spacing: 16px;
+  }
+
   // Padding for container around window thumbnails
   padding: 0 16px 32px;
 
@@ -37,7 +42,10 @@
 
 // Close button
 .window-close {
-  -shell-close-overlap: $medium-size / 2;
+  @if $version <= 3.36 {
+    -shell-close-overlap: $medium-size / 2;
+  }
+
   // FIXME: unless disable the transition, button will distort when hovering
   // transition-duration: $duration;
   height: $medium-size;

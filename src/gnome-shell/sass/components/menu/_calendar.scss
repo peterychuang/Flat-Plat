@@ -77,8 +77,8 @@ $calendar-column-margin: 0 8px;
 
 .events-section-title {
   @extend %calendar-item;
-  min-height: $menuitem-size - 4px * 2;
-  padding: 4px 8px;
+  min-height: $menuitem-size - 8px * 2;
+  padding: 8px;
   color: hint($on-surface) !important;
   font-weight: bold;
 }
@@ -87,8 +87,8 @@ $calendar-column-margin: 0 8px;
 .datemenu-today-button {
   @extend %calendar-item;
   margin: $calendar-column-margin;
-  min-height: $menuitem-size * 2 - 4px * 2;
-  padding: 4px 8px;
+  min-height: $menuitem-size * 2 - 8px * 2;
+  padding: 8px;
 
   // weekday label
   .day-label {
@@ -112,7 +112,7 @@ $calendar-column-margin: 0 8px;
   // month
   .calendar-month-label {
     transition-duration: $duration;
-    height: $menuitem-size - 6px * 2;
+    min-height: $menuitem-size - 6px * 2;
     margin: 0px;
     padding: 6px 8px;
     border-radius: $corner-radius;
@@ -201,8 +201,9 @@ $calendar-column-margin: 0 8px;
 
     &:selected {
       border-color: transparent;
-      background-color: $overlay-selected;
-      color: inherit;
+      background-color: $primary !important;
+      color: $on-primary !important;
+      font-weight: 500 !important;
     }
 
     // day of week heading
@@ -247,9 +248,10 @@ $calendar-column-margin: 0 8px;
   // Today
   .calendar-today {
     border: 0;
-    background-color: transparent;
+    box-shadow: inset 0 0 0 1px hint($on-surface);
+    background-color: rgba($surface, .01); // to draw box-shadow
     color: inherit;
-    font-weight: bold !important;
+    font-weight: normal;
 
     &:focus {
       background-color: overlay("focus", $on-surface);
@@ -271,20 +273,25 @@ $calendar-column-margin: 0 8px;
     }
 
     &:selected {
+      box-shadow: inset 0 0 0 1px transparent;
+
       &,
       &:hover,
       &:focus {
-        background-color: $overlay-selected;
-        color: inherit;
+        background-color: $primary;
+        color: $on-primary;
       }
     }
   }
 
   .calendar-day-with-events {
-    background-image: none;
-    color: $primary !important;
-    font-weight: normal;
-    text-decoration: underline;
+    background-image: url("assets/calendar-event.svg");
+
+    &,
+    &.calendar-work-day {
+      color: inherit;
+      font-weight: normal;
+    }
   }
 
   .calendar-other-month-day {
@@ -293,23 +300,56 @@ $calendar-column-margin: 0 8px;
 
   .calendar-week-number {
     width: $menuitem-size;
-    height: $menuitem-size - 7px;
+    height: $menuitem-size;
     margin: 2px;
-    padding: 7px 0 0;
     border-radius: $menuitem-size / 2;
     background-color: transparent;
     color: disabled($on-surface);
     font-weight: bold;
     font-size: 1em;
     text-align: center;
+
+    @if $version <= 3.36 {
+      height: $menuitem-size - 7px;
+      padding: 7px 0 0;
+    }
+  }
+}
+
+@if $version >= 3.38 {
+  /* Events */
+  .events-button {
+    @extend %calendar-item;
+    min-height: $menuitem-size * 2 - 8px * 2;
+    padding: 8px;
+
+    .events-box {
+      spacing: 8px;
+    }
+
+    .events-list {
+      spacing: 8px;
+    }
+
+    .events-title {
+      color: hint($on-surface);
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .event-time {
+      color: hint($on-surface);
+      @include type(caption);
+      font-feature-settings: "tnum";
+    }
   }
 }
 
 /* World clocks */
 .world-clocks-button {
   @extend %calendar-item;
-  min-height: $menuitem-size - 4px * 2;
-  padding: 4px 8px;
+  min-height: $menuitem-size - 8px * 2;
+  padding: 8px;
 
   .world-clocks-grid {
     spacing-rows: .4em;
@@ -336,6 +376,14 @@ $calendar-column-margin: 0 8px;
     font-size: 1em;
     font-feature-settings: "tnum";
     text-align: right;
+
+    &:ltr {
+      text-align: right;
+    }
+
+    &:rtl {
+      text-align: left;
+    }
   }
 
   // timezone offset label
@@ -349,8 +397,8 @@ $calendar-column-margin: 0 8px;
 /* Weather */
 .weather-button {
   @extend %calendar-item;
-  min-height: $menuitem-size - 4px * 2;
-  padding: 4px 8px;
+  min-height: $menuitem-size * 2 - 8px * 2;
+  padding: 8px;
 
   .weather-box {
     spacing: 0.4em;
